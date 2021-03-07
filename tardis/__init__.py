@@ -16,19 +16,20 @@ from ._astropy_init import *
 
 from tardis.base import run_tardis
 from tardis.io.util import yaml_load_config_file as yaml_load
+from tardis.util.custom_logger import logger
 
 warnings.filterwarnings("ignore", category=pyne.utils.QAWarning)
 
-FORMAT = "[$BOLD%(name)-20s$RESET][%(levelname)-18s]  %(message)s ($BOLD%(filename)s$RESET:%(lineno)d)"
-COLOR_FORMAT = formatter_message(FORMAT, True)
+# FORMAT = "[$BOLD%(name)-20s$RESET][%(levelname)-18s]  %(message)s ($BOLD%(filename)s$RESET:%(lineno)d)"
+# COLOR_FORMAT = formatter_message(FORMAT, True)
 
-logging.captureWarnings(True)
-logger = logging.getLogger("tardis")
-logger.setLevel(logging.INFO)
+# logging.captureWarnings(True)
+# logger = logging.getLogger("tardis")
+# logger.setLevel(logging.INFO)
 
-console_handler = logging.StreamHandler(sys.stdout)
-console_formatter = ColoredFormatter(COLOR_FORMAT)
-console_handler.setFormatter(console_formatter)
+# console_handler = logging.StreamHandler(sys.stdout)
+# console_formatter = ColoredFormatter(COLOR_FORMAT)
+# console_handler.setFormatter(console_formatter)
 
-logger.addHandler(console_handler)
-logging.getLogger("py.warnings").addHandler(console_handler)
+# logger.addHandler(console_handler)
+# logging.getLogger("py.warnings").addHandler(console_handler)

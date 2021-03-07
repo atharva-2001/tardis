@@ -1,8 +1,14 @@
 # functions that are important for the general usage of TARDIS
-
+import logging
+import warnings
+import sys
+import pyne.data
+from tardis.util.colored_logger import ColoredFormatter, formatter_message
+FORMAT = "[$BOLD%(name)-20s$RESET][%(levelname)-18s]  %(message)s ($BOLD%(filename)s$RESET:%(lineno)d)"
+COLOR_FORMAT = formatter_message(FORMAT, True)
 
 def run_tardis(
-    config, atom_data=None, packet_source=None, simulation_callbacks=[]
+    config, atom_data=None, packet_source=None, simulation_callbacks=[], verbose = 0
 ):
     """
     This function is one of the core functions to run TARDIS from a given
@@ -20,6 +26,49 @@ def run_tardis(
         atomic data will be loaded according to keywords set in the configuration
         [default=None]
     """
+    print("RUNNING TARDIS BABY...DEVELOPEMENT MODE...............")
+
+    # default values
+    if verbose == 0:
+        warnings.filterwarnings("ignore", category=pyne.utils.QAWarning)
+        logging.captureWarnings(True)
+        logger = logging.getLogger("tardis")
+        logger.setLevel(logging.INFO)
+
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_formatter = ColoredFormatter(COLOR_FORMAT)
+        console_handler.setFormatter(console_formatter)
+
+        logger.addHandler(console_handler)
+        logging.getLogger("py.warnings").addHandler(console_handler)
+
+    if verbose == 1:
+        warnings.filterwarnings("ignore", category=pyne.utils.QAWarning)
+        logging.captureWarnings(True)
+        logger = logging.getLogger("tardis")
+        logger.setLevel(logging.INFO)
+
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_formatter = ColoredFormatter(COLOR_FORMAT)
+        console_handler.setFormatter(console_formatter)
+
+        logger.addHandler(console_handler)
+        # logging.getLogger("py.warnings").addHandler(console_handler)
+
+    if verbose == 2:
+        warnings.filterwarnings("ignore", category=pyne.utils.QAWarning)
+        logging.captureWarnings(True)
+        logger = logging.getLogger("tardis")
+        logger.setLevel(logging.ERROR)
+
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_formatter = ColoredFormatter(COLOR_FORMAT)
+        console_handler.setFormatter(console_formatter)
+
+        logger.addHandler(console_handler)
+        # logging.getLogger("py.warnings").addHandler(console_handler)
+
+
     from tardis.io.config_reader import Configuration
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation

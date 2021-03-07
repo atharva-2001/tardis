@@ -1,8 +1,12 @@
 import time
 import logging
+# logger = logging.getLogger(__name__).setLevel(logging.ERROR)
+# logger.addHandler(logging.NullHandler())
 import numpy as np
 import pandas as pd
 from astropy import units as u, constants as const
+# requests_logger = logging.getLogger('astropy')
+# requests_logger.setLevel(logging.ERROR)
 from collections import OrderedDict
 
 from tardis.montecarlo import MontecarloRunner
@@ -14,7 +18,7 @@ from tardis.montecarlo import montecarlo_configuration as mc_config_module
 
 # Adding logging support
 logger = logging.getLogger(__name__)
-
+# logger.addHandler(logging.NullHandler())
 
 class PlasmaStateStorerMixin(object):
     """Mixin class to provide the capability to the simulation object of
@@ -322,7 +326,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
 
     def iterate(self, no_of_packets, no_of_virtual_packets=0, last_run=False):
         logger.info(
-            "Starting iteration {0:d}/{1:d}".format(
+            "DEVELOPEMENT MODE5...Starting iteration {0:d}/{1:d}".format(
                 self.iterations_executed + 1, self.iterations
             )
         )
@@ -486,6 +490,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         Remove the callback with a specific ID (which was returned by
         add_callback)
 
+        Parameters
         Parameters
         ----------
         id : int

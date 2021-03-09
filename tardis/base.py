@@ -1,7 +1,12 @@
 # functions that are important for the general usage of TARDIS
 
+
 def run_tardis(
-    config, atom_data=None, packet_source=None, simulation_callbacks=[], verbosity = "info_and_above"
+    config,
+    atom_data=None,
+    packet_source=None,
+    simulation_callbacks=[],
+    verbosity="info_and_above",
 ):
     """
     This function is one of the core functions to run TARDIS from a given
@@ -19,13 +24,16 @@ def run_tardis(
         atomic data will be loaded according to keywords set in the configuration
         [default=None]
     """
+    print("ENTERING DEVELOPMENT MODE")
     from tardis.io.config_reader import Configuration
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation
-    from tardis.util.custom_logger import logger
+
+    # from tardis.util.custom_logger import logger
+    from . import logger
 
     if verbosity == "warn_and_above":
-        logger = logger.bind(warn_and_above = True)
+        logger = logger.bind(warn_and_above=True)
     elif verbosity == "info_and_above":
         logger = logger.bind(info_and_above=True)
     elif verbosity == "tardis_info_and_above":
@@ -43,7 +51,10 @@ def run_tardis(
         tardis_config = Configuration.from_config_dict(config)
 
     simulation = Simulation.from_config(
-        tardis_config, packet_source=packet_source, atom_data=atom_data, logger = logger
+        tardis_config,
+        packet_source=packet_source,
+        atom_data=atom_data,
+        logger=logger,
     )
     for cb in simulation_callbacks:
         simulation.add_callback(*cb)

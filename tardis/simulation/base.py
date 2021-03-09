@@ -14,7 +14,9 @@ from tardis.montecarlo import montecarlo_configuration as mc_config_module
 
 # Adding logging support
 # logger = logging.getLogger(__name__)
-from tardis.util.custom_logger import logger
+# from tardis.util.custom_logger import logger
+# from . import logger
+
 
 class PlasmaStateStorerMixin(object):
     """Mixin class to provide the capability to the simulation object of
@@ -127,7 +129,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         luminosity_requested,
         convergence_strategy,
         nthreads,
-        logger
+        logger,
     ):
 
         super(Simulation, self).__init__(iterations, model.no_of_shells)
@@ -435,7 +437,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             ["\t%s\n" % item for item in plasma_state_log.split("\n")]
         )
 
-        self.logger.tardis_info("Plasma stratification:\n%s\n", plasma_state_log)
+        self.logger.tardis_info(
+            "Plasma stratification:\n%s\n", plasma_state_log
+        )
         self.logger.tardis_info(
             "t_inner {0:.3f} -- next t_inner {1:.3f}".format(
                 t_inner, next_t_inner
@@ -580,5 +584,5 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             luminosity_requested=config.supernova.luminosity_requested.cgs,
             convergence_strategy=config.montecarlo.convergence_strategy,
             nthreads=config.montecarlo.nthreads,
-            logger = logger
+            logger=logger,
         )

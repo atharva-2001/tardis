@@ -28,11 +28,9 @@ def run_tardis(
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation
     import warnings
-
     from tardis.util.custom_logger import logger
 
-    # from . import logger
-
+    # verbosity options
     if verbosity == "warn_and_above":
         logger = logger.bind(warn_and_above=True)
     elif verbosity == "info_and_above":

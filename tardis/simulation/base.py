@@ -13,10 +13,7 @@ from tardis.io.config_reader import ConfigurationError
 from tardis.montecarlo import montecarlo_configuration as mc_config_module
 
 # Adding logging support
-# logger = logging.getLogger(__name__)
 from tardis.util.custom_logger import logger
-
-# from tardis import logger
 
 
 class PlasmaStateStorerMixin(object):
@@ -130,7 +127,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         luminosity_requested,
         convergence_strategy,
         nthreads,
-        logger,
+        logger,  # logger is defined in tardis:util:custom_logger
     ):
 
         super(Simulation, self).__init__(iterations, model.no_of_shells)

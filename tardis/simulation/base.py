@@ -14,8 +14,9 @@ from tardis.montecarlo import montecarlo_configuration as mc_config_module
 
 # Adding logging support
 # logger = logging.getLogger(__name__)
-# from tardis.util.custom_logger import logger
-# from . import logger
+from tardis.util.custom_logger import logger
+
+# from tardis import logger
 
 
 class PlasmaStateStorerMixin(object):
@@ -326,7 +327,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
 
     def iterate(self, no_of_packets, no_of_virtual_packets=0, last_run=False):
         self.logger.tardis_info(
-            "DEVELOPEMENT_____Starting iteration {0:d}/{1:d}".format(
+            "Starting iteration {0:d}/{1:d}".format(
                 self.iterations_executed + 1, self.iterations
             )
         )
@@ -436,10 +437,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         plasma_state_log = "".join(
             ["\t%s\n" % item for item in plasma_state_log.split("\n")]
         )
-
-        self.logger.tardis_info(
-            "Plasma stratification:\n%s\n", plasma_state_log
-        )
+        plasma_state_log = "\n" + plasma_state_log
+        self.logger.tardis_info("Plasma stratification:")
+        self.logger.tardis_info(plasma_state_log, color="<yellow>")
         self.logger.tardis_info(
             "t_inner {0:.3f} -- next t_inner {1:.3f}".format(
                 t_inner, next_t_inner

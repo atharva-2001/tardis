@@ -24,19 +24,21 @@ def run_tardis(
         atomic data will be loaded according to keywords set in the configuration
         [default=None]
     """
-    print("ENTERING DEVELOPMENT MODE")
     from tardis.io.config_reader import Configuration
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation
+    import warnings
 
-    # from tardis.util.custom_logger import logger
-    from . import logger
+    from tardis.util.custom_logger import logger
+
+    # from . import logger
 
     if verbosity == "warn_and_above":
         logger = logger.bind(warn_and_above=True)
     elif verbosity == "info_and_above":
         logger = logger.bind(info_and_above=True)
     elif verbosity == "tardis_info_and_above":
+        warnings.filterwarnings("ignore", category=RuntimeWarning)
         logger = logger.bind(tardis_info_and_above=True)
 
     if atom_data is not None:

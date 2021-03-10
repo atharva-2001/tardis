@@ -16,8 +16,7 @@ from tardis.io.decay import IsotopeAbundances
 from tardis.model.density import HomologousDensity
 from pyne import nucname
 
-logger = logging.getLogger(__name__)
-
+from tardis.util.custom_logger import logger
 
 class Radial1DModel(HDFWriterMixin):
     """

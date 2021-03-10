@@ -4,7 +4,7 @@ import logging
 import qgrid
 import ipywidgets as ipw
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 def create_table_widget(

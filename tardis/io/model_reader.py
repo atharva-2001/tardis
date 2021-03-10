@@ -10,7 +10,7 @@ from pyne import nucname
 import logging
 
 # Adding logging support
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 from tardis.util.base import parse_quantity
 

@@ -38,7 +38,7 @@ from tardis.plasma.properties import (
     IonNumberDensity,
 )
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 def assemble_plasma(config, model, atom_data=None):
@@ -84,7 +84,7 @@ def assemble_plasma(config, model, atom_data=None):
         else:
             raise ValueError("No atom_data option found in the configuration.")
 
-        logger.info("Reading Atomic Data from %s", atom_data_fname)
+        logger.tardis_info("Reading Atomic Data from %s", atom_data_fname)
 
         try:
             atom_data = AtomData.from_hdf(atom_data_fname)

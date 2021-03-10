@@ -11,7 +11,7 @@ DEFAULT_CONFIG_PATH = os.path.join(
 DEFAULT_DATA_DIR = os.path.join(
     os.path.expanduser("~"), "Downloads", "tardis-data"
 )
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 def get_internal_configuration():

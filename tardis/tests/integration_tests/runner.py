@@ -10,7 +10,7 @@ import dokuwiki
 import requests
 
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 parser = argparse.ArgumentParser(description="Run slow integration tests")
 parser.add_argument(
@@ -82,7 +82,7 @@ def run_tests():
             subprocess.call(test_command)
         else:
             checked = datetime.datetime.now()
-            logger.info(
+            logger.tardis_info(
                 "Up-to-date. Checked on {0} {1}".format(
                     checked.strftime("%d-%b-%Y"), checked.strftime("%H:%M:%S")
                 )

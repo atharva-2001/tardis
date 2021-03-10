@@ -7,7 +7,8 @@ from tardis.io.atom_data.atom_web_download import (
     download_atom_data,
 )
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 def resolve_atom_data_fname(fname):
@@ -30,7 +31,7 @@ def resolve_atom_data_fname(fname):
 
     fpath = os.path.join(os.path.join(get_data_dir(), fname))
     if os.path.exists(fpath):
-        logger.info(
+        logger.tardis_info(
             "Atom Data {0} not found in local path. Exists in TARDIS Data repo {1}".format(
                 fname, fpath
             )

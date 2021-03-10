@@ -13,7 +13,7 @@ from tardis.io.parsers.csvy import load_yaml_from_csvy
 
 pp = pprint.PrettyPrinter(indent=4)
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 data_dir = os.path.abspath(os.path.join(tardis.__path__[0], "data"))
 
@@ -78,6 +78,7 @@ class ConfigurationNameSpace(dict):
             filename or path
         """
         try:
+            logger.tardis_info(fname)
             yaml_dict = yaml_load_file(fname)
         except IOError as e:
             logger.critical(f"No config file named: {fname}")

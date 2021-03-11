@@ -4,47 +4,21 @@ import traceback
 import sys
 import warnings
 
+# import tardis.util.logger_config
 
-def verbosity_filter(record):
-    # if severity value is higher and equal to warning
-    if record["extra"].get("warn_and_above"):
-        return record["level"].no >= logger.level("WARNING").no
-
-    # if severity value is higher and equal to info
-    if record["extra"].get("info_and_above"):
-        return record["level"].no >= logger.level("INFO").no
-
-    # if severity value is higher and equal to tardis info( has a severity level of 35, defined below)
-    if record["extra"].get("tardis_info_and_above"):
-        return record["level"].no >= logger.level("TARDIS INFO").no
-
-    return True
-
-
-logger = logger.patch(lambda record: record.update(name="astropy"))
-logger = logger.patch(lambda record: record.update(name="sys"))
-logger = logger.patch(lambda record: record.update(name="tardis"))
-logger = logger.patch(lambda record: record.update(name="py.warnings"))
-logger = logger.patch(
-    lambda record: record["extra"].update(name="_astropy_init")
-)
-
-logger.__class__.special_info = partialmethod(
-    logger.__class__.log, "special_info", no=35
-)
-
-logger.add(sys.stdout, level="DEBUG", filter=verbosity_filter)
+level = ""
 logger.remove()
 
-showwarning_ = warnings.showwarning
 
+class verbosity_filter:
+    def __init__(self, level, logger):
+        self.level = level
+        self.logger = logger
 
-# capturing application warnings
-def showwarning(message, *args, **kwargs):
-    logger.warning(message)
+    def __call__(self, record):
+        levelno = self.logger.level(self.level).no
+        return record["level"].no >= levelno
 
-
-warnings.showwarning = showwarning
 
 # format of the message
 format_ = "  [ <bold><level>{level: <8}</level></bold> ][ <blue>{name}</blue>:<blue>{function}</blue>:<blue>{line}</blue>]- <cyan>{message}</cyan>"
@@ -56,12 +30,47 @@ logger.__class__.tardis_info = partialmethod(
     "TARDIS INFO",
 )
 
-logger.add(
-    sys.stdout,
-    filter=verbosity_filter,
-    level="TRACE",
-    catch=True,
-    format=format_,
-    colorize=True,
-    backtrace=True,
+logger = logger.patch(lambda record: record["extra"].update(name="astropy"))
+logger = logger.patch(lambda record: record["extra"].update(name="sys"))
+logger = logger.patch(lambda record: record["extra"].update(name="tardis"))
+logger = logger.patch(
+    lambda record: record["extra"].update(name="tardis.plasma")
 )
+logger = logger.patch(lambda record: record["extra"].update(name="py.warnings"))
+logger = logger.patch(
+    lambda record: record["extra"].update(name="_astropy_init")
+)
+
+# tardis.util.logger_config.init()
+# level = tardis.util.logger_config.level
+# filter_ = tardis.util.logger_config.verbosity_filter(level, logger)
+
+
+def reset_logger():
+    filter_ = verbosity_filter(level, logger)
+    logger.add(
+        sys.stdout,
+        filter=filter_,
+        level="TRACE",
+        # catch=True,
+        format=format_,
+        colorize=True,
+        # backtrace=True,
+    )
+
+
+showwarning_ = warnings.showwarning
+
+
+# capturing application warnings
+def showwarning(message, *args, **kwargs):
+    logger.warning(message)
+
+
+warnings.showwarning = showwarning
+
+
+def init():
+    global level
+    global reset_logger
+    global remove_default

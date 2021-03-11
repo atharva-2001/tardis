@@ -29,15 +29,13 @@ def run_tardis(
     from tardis.simulation import Simulation
     import warnings
     from tardis.util.custom_logger import logger
+    import tardis.util.custom_logger as custom_logger
 
-    # verbosity options
-    if verbosity == "warn_and_above":
-        logger = logger.bind(warn_and_above=True)
-    elif verbosity == "info_and_above":
-        logger = logger.bind(info_and_above=True)
-    elif verbosity == "tardis_info_and_above":
+    if verbosity == "WARNING":
         warnings.filterwarnings("ignore", category=RuntimeWarning)
-        logger = logger.bind(tardis_info_and_above=True)
+    custom_logger.init()
+    custom_logger.level = verbosity
+    custom_logger.reset_logger()
 
     if atom_data is not None:
         try:

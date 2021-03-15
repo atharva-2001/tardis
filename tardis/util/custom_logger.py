@@ -53,7 +53,7 @@ class verbosity_filter:
 
 
 # format of the message
-format_ = "  [ <bold><level>{level: <8}</level></bold> ][ {name}:{function}:{line}]- {message}"
+format_ = "  [ <bold><level>{level: <8}</level></bold> ][ <bold>{name}:{function}:{line}</bold> ]- {message}"
 colorize = True
 #  adding custom TARDIS INFO Level, just above WARNING
 # this is an additional level, which is above warning and below error

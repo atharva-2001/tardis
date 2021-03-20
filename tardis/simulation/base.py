@@ -364,9 +364,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
                 self.no_of_virtual_packets,
             )
             self.iterate(
-                20000,
-                self.no_of_virtual_packets,
-                last_run=True,
+                self.no_of_packets,
+                # self.no_of_virtual_packets,
+                # last_run=True,
             )
             self.converged = self.advance_state()
             self._call_back()
@@ -433,6 +433,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         plasma_state_log["next_t_rad"] = next_t_rad
         plasma_state_log["w"] = w
         plasma_state_log["next_w"] = next_w
+        print(self.model.velocity)
 
         plasma_state_log.index.name = "Shell"
 

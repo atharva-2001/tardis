@@ -2,12 +2,14 @@ from loguru import logger
 from functools import partialmethod
 import sys
 import warnings
+import tqdm
 
 
 level = ""
 logger.remove()
 save = None
 colorize = True
+if_tqdm = False
 format = "  [ <bold><level>{level: <8}</level></bold> ][ <bold>{name}:{function}:{line}</bold> ]- {message}"
 
 # capturing application warnings
@@ -67,13 +69,22 @@ def reset_logger():
     the level is accessible globally
     """
     filter_ = verbosity_filter(level, logger)
-    logger.add(
-        sys.stdout,
-        filter=filter_,
-        level="TRACE",
-        format=format,
-        colorize=colorize,
-    )
+    if if_tqdm:
+        logger.add(
+            lambda msg: tqdm.write(msg, end=""),
+            filter=filter_,
+            level="TRACE",
+            format=format,
+            colorize=colorize,
+        )
+    else:
+        logger.add(
+            sys.stdout,
+            filter=filter_,
+            level="TRACE",
+            format=format,
+            colorize=colorize,
+        )
     if save:
         logger.add(
             f"file_{level}.log",
@@ -102,3 +113,4 @@ def init():
     global save
     global reset_logger
     global remove_default
+    global if_tqdm

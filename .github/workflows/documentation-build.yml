@@ -5,9 +5,9 @@ name: documentation-build
 
 on:
   push:
-    pull_request:
-      branches:
-        - master
+    branches:
+      - master
+  pull_request:
     branches:
       - master
 

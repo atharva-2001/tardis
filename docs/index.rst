@@ -60,7 +60,7 @@ Mission Statement
     using/components/index
     using/visualization/index
     using/interaction/index
-
+    using/logging/index
 
 .. toctree::
     :maxdepth: 2

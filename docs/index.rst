@@ -61,6 +61,7 @@ Mission Statement
     using/visualization/index
     using/interaction/index
     using/parallelisation/index
+    using/logging/index
 
 
 .. toctree::

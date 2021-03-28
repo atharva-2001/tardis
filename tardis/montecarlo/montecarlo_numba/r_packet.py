@@ -5,7 +5,11 @@ from numba import njit
 from numba.experimental import jitclass
 
 import math
-from tardis.montecarlo.montecarlo_numba import njit_dict, numba_config , njit_dict_no_parallel
+from tardis.montecarlo.montecarlo_numba import (
+    njit_dict,
+    numba_config,
+    njit_dict_no_parallel,
+)
 from tardis.montecarlo import (
     montecarlo_configuration as montecarlo_configuration,
 )
@@ -15,6 +19,8 @@ from tardis.montecarlo.montecarlo_numba.numba_config import (
     MISS_DISTANCE,
     SIGMA_THOMSON,
 )
+
+from tardis.montecarlo.montecarlo_numba.montecarlo_logger import log_decorator
 
 
 class MonteCarloException(ValueError):
@@ -132,7 +138,7 @@ def calculate_distance_line(
 ):
     """
     Calculate distance until RPacket is in resonance with the next line
-    
+
     Parameters
     ----------
     r_packet : tardis.montecarlo.montecarlo_numba.r_packet.RPacket
@@ -144,7 +150,7 @@ def calculate_distance_line(
         line to check the distance to
     time_explosion : float
         time since explosion in seconds
-    
+
     Returns
     -------
     """

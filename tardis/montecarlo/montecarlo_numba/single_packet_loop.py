@@ -1,4 +1,4 @@
-from numba import njit
+from numba import njit, objmode
 import numpy as np
 
 from tardis.montecarlo.montecarlo_numba.r_packet import (
@@ -29,6 +29,7 @@ C_SPEED_OF_LIGHT = const.c.to("cm/s").value
 
 from tardis.montecarlo.montecarlo_numba.montecarlo_logger import log_decorator
 from tardis.montecarlo.montecarlo_numba import montecarlo_logger as mc_logger
+
 
 # @log_decorator
 @njit

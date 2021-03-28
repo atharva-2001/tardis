@@ -1,8 +1,8 @@
 import logging
 from functools import wraps
 
-DEBUG_MODE = False
-LOG_FILE = False
+DEBUG_MODE = True
+LOG_FILE = "montecarlo_logs.log"
 BUFFER = 1
 ticker = 1
 

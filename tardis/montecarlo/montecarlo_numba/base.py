@@ -1,4 +1,4 @@
-from numba import prange, njit, jit
+from numba import prange, njit, jit, objmode
 import logging
 import numpy as np
 
@@ -23,8 +23,8 @@ from tardis.montecarlo import (
 from tardis.montecarlo.montecarlo_numba.single_packet_loop import (
     single_packet_loop,
 )
-from tardis.montecarlo.montecarlo_numba import njit_dict
-
+from tardis.montecarlo.montecarlo_numba import njit_dict, njit_dict_no_parallel
+from tardis.montecarlo.montecarlo_numba.montecarlo_logger import log_data
 
 def montecarlo_radial1d(model, plasma, runner):
     packet_collection = PacketCollection(
@@ -100,7 +100,7 @@ def montecarlo_radial1d(model, plasma, runner):
         ).ravel()
 
 
-@njit(**njit_dict, nogil=True)
+@njit(**njit_dict_no_parallel, nogil=True)
 def montecarlo_main_loop(
     packet_collection,
     numba_model,
@@ -174,6 +174,7 @@ def montecarlo_main_loop(
             number_of_vpackets,
             montecarlo_configuration.temporary_v_packet_bins,
         )
+
         loop = single_packet_loop(
             r_packet, numba_model, numba_plasma, estimators, vpacket_collection
         )
@@ -231,7 +232,32 @@ def montecarlo_main_loop(
                     : vpacket_collection.idx
                 ]
             )
+    r_packet_track_nu,r_packet_track_mu,r_packet_track_r,r_packet_track_interaction, r_packet_track_distance  = loop
+    r_packet_track_nu = np.asarray(r_packet_track_nu)
+    r_packet_track_mu  = np.asarray(r_packet_track_mu)
+    r_packet_track_r = np.asarray(r_packet_track_r)
+    r_packet_track_interaction = np.asarray(r_packet_track_interaction)
+    r_packet_track_distance = np.asarray(r_packet_track_distance)
 
+    with objmode: 
+        log_data("r_packet_track_nu")
+        log_data(r_packet_track_nu)
+        log_data("\n")
+        log_data("r_packet_track_mu")
+        log_data(r_packet_track_mu)
+        log_data("\n")
+        log_data("r_packet_track_r")
+        log_data(r_packet_track_r)
+        log_data("\n")
+        log_data("r_packet_track_interaction")
+        log_data(r_packet_track_interaction)
+        log_data("\n")
+        log_data("r_packet_track_distance")
+        log_data(r_packet_track_distance)
+        log_data("\n\n")
+
+        
+        
     packet_collection.packets_output_energy[:] = output_energies[:]
     packet_collection.packets_output_nu[:] = output_nus[:]
 

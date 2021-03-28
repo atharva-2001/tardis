@@ -1,8 +1,9 @@
 import logging
+import numpy as np
 from functools import wraps
 
-DEBUG_MODE = False
-LOG_FILE = False
+DEBUG_MODE = True
+LOG_FILE = "test_log.log"
 BUFFER = 1
 ticker = 1
 
@@ -11,6 +12,7 @@ logger.setLevel(logging.DEBUG)
 logger.handlers = []
 
 if LOG_FILE:
+    file_ = open(LOG_FILE, "a")
     logger.propagate = False
     console_handler = logging.FileHandler(LOG_FILE)
 else:
@@ -21,6 +23,12 @@ console_formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
 console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
+def log_data(data): 
+    if  type(data) is np.ndarray:
+        file_.write(str(list(data)))
+    else: 
+        file_.write(data)
+    
 
 def log_decorator(func):
     """

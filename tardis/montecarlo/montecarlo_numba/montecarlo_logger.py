@@ -1,9 +1,10 @@
 import logging
 import numpy as np
+import os
 from functools import wraps
 
 DEBUG_MODE = True
-LOG_FILE = "test_log.log"
+LOG_FILE = "test_log2.log"
 BUFFER = 1
 ticker = 1
 
@@ -24,10 +25,13 @@ console_handler.setFormatter(console_formatter)
 logger.addHandler(console_handler)
 
 def log_data(data): 
-    if  type(data) is np.ndarray:
-        file_.write(str(list(data)))
-    else: 
-        file_.write(data)
+    if int(os.path.getsize(LOG_FILE))> 10000000:
+        pass
+    else:
+        if  type(data) is np.ndarray:
+            file_.write(str(list(data)))
+        else: 
+            file_.write(data)
     
 
 def log_decorator(func):

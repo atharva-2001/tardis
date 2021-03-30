@@ -5,6 +5,8 @@ import dash_bootstrap_components as dbc
 from tardis import plasma, run_tardis
 import time
 from tardisdash.get_data.get_data import convergence
+import plotly.graph_objects as go
+
 
 external_stylesheets = [
     "https://codepen.io/chriddyp/pen/bWLwgP.css",
@@ -20,12 +22,32 @@ mathjax = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?confi
 app.scripts.append_script({"external_url": mathjax})
 
 plots = convergence()
-plasma_plot = plots.plasma_updates()
+# plasma_plot = plots.plasma_updates()
 spectrum_plot = plots.spectrum_updates()
 
 index = 0
 percentage_done = 0
+changed = False
 
+fig = go.FigureWidget().set_subplots(1, 2)
+fig.add_scatter(row=1, col=1)
+fig.add_scatter(row=1, col=2)
+
+# updating axes
+fig["layout"]["yaxis"]["title"] = r"W"
+fig["layout"]["xaxis"]["title"] = r"Shell Velocity"
+
+fig["layout"]["yaxis2"]["title"] = r"T_rad"
+fig["layout"]["xaxis2"]["title"] = r"Shell Velocity"
+
+fig["layout"]["yaxis2"]["range"] = [9000, 14000]
+fig["layout"]["xaxis"]["showexponent"] = "all"
+fig["layout"]["xaxis2"]["showexponent"] = "all"
+fig["layout"]["xaxis"]["exponentformat"] = "e"
+fig["layout"]["xaxis2"]["exponentformat"] = "e"
+
+fig = fig.update_layout(showlegend=False)
+plasma_plot = fig
 # updating spectrum plot
 # spectrum_plot.add_scatter(
 #     x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
@@ -58,6 +80,13 @@ app.layout = html.Div(
                 id="spectrum",
             )
         ),
+        html.Div(
+            dcc.Interval(
+                id="interval-component",
+                interval=1 * 1000,  # in milliseconds
+                n_intervals=0,
+            )
+        ),
         html.Div(id="no input", style={"display": "none"}),
         html.Div(id="no output", style={"display": "none"}),
     ]
@@ -80,8 +109,10 @@ class detect_change:
 
     @value.setter
     def value(self, new_value):
+        global changed
         old_value = self._value
         self._value = new_value
+        changed = False
         self._notify_observers(old_value, new_value)
 
     def _notify_observers(self, old_value, new_value):
@@ -121,9 +152,17 @@ def update_convergence(sim):
         row=1,
         col=1,
     )
+    fire_callback_from_convergence()
 
 
 def fire_callback(old_value, new_value):
+    global changed
+    changed = True
+
+    return_plots(input=None)
+
+
+def fire_callback_from_convergence():
     return_plots(input=None)
 
 
@@ -135,10 +174,10 @@ plasma_change = detect_change()
 plasma_change.register_callback(fire_callback)
 plasma_change.value = plasma_plot
 
-app.callback(
-    dash.dependencies.Output("plasma", "figure"),
-    dash.dependencies.Input("no output", "children"),
-)(return_plots)
+# app.callback(
+#     dash.dependencies.Output("plasma", "figure"),
+#     dash.dependencies.Input("no output", "children"),
+# )(return_plots)
 
 
 @app.callback(
@@ -162,8 +201,19 @@ def update_live_plots(_):
     return
 
 
+@app.callback(
+    dash.dependencies.Output("plasma", "figure"),
+    dash.dependencies.Input("interval-component", "n_intervals"),
+)
+def update_plasma(n):
+    if changed:
+        return plasma_plot
+    else:
+        return None
+
+
 def run(host="127.0.0.1", debug=True):
-    app.run_server(debug=debug, host=host, port=3005)
+    app.run_server(debug=debug, host=host, port=3012)
 
 
 if __name__ == "__main__":

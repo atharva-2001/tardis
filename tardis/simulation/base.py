@@ -165,7 +165,6 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
     def estimate_t_inner(
         self, input_t_inner, luminosity_requested, t_inner_update_exponent=-0.5
     ):
-        print("estimating emiitted luminosity#############")
         emitted_luminosity = self.runner.calculate_emitted_luminosity(
             self.luminosity_nu_start, self.luminosity_nu_end
         )
@@ -358,16 +357,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
                 self.plasma.electron_densities,
                 self.model.t_inner,
             )
-            print(
-                self.no_of_packets,
-                self.last_no_of_packets,
-                self.no_of_virtual_packets,
-            )
-            self.iterate(
-                self.no_of_packets,
-                # self.no_of_virtual_packets,
-                # last_run=True,
-            )
+            self.iterate(self.no_of_packets)
             self.converged = self.advance_state()
             self._call_back()
             if self.converged:
@@ -433,7 +423,6 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         plasma_state_log["next_t_rad"] = next_t_rad
         plasma_state_log["w"] = w
         plasma_state_log["next_w"] = next_w
-        print(self.model.velocity)
 
         plasma_state_log.index.name = "Shell"
 
@@ -444,7 +433,6 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         )
 
         plasma_state_log = "\n" + plasma_state_log
-        print(self.runner.spectrum_virtual.luminosity_density_lambda)
         logger.tardis_info("Plasma stratification:")
         logger.tardis_info(plasma_state_log)
         logger.tardis_info(

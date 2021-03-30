@@ -2,9 +2,9 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
-
-
-from tardisdash.get_data import get_data
+from tardis import plasma, run_tardis
+import time
+from tardisdash.get_data.get_data import convergence
 
 external_stylesheets = [
     "https://codepen.io/chriddyp/pen/bWLwgP.css",
@@ -19,7 +19,20 @@ app = dash.Dash(
 mathjax = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"
 app.scripts.append_script({"external_url": mathjax})
 
-plots = get_data.convergence()
+plots = convergence()
+plasma_plot = plots.plasma_updates()
+spectrum_plot = plots.spectrum_updates()
+
+index = 0
+percentage_done = 0
+
+# updating spectrum plot
+# spectrum_plot.add_scatter(
+#     x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
+#     y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
+#     line_color="#0000ff",
+# )
+
 
 app.layout = html.Div(
     [
@@ -35,18 +48,118 @@ app.layout = html.Div(
         ),
         html.Div(
             dcc.Graph(
-                figure=plots.plasma_updates(),
+                figure=plasma_plot,
                 id="plasma",
             )
         ),
         html.Div(
             dcc.Graph(
-                figure=plots.spectrum_updates(),
+                figure=spectrum_plot,
                 id="spectrum",
             )
         ),
+        html.Div(id="no input", style={"display": "none"}),
+        html.Div(id="no output", style={"display": "none"}),
     ]
 )
+
+
+class detect_change:
+    """
+    detects change in a value
+    copied from: https://stackoverflow.com/a/51885354/11974464
+    """
+
+    def __init__(self, initial_value=0):
+        self._value = initial_value
+        self._callbacks = []
+
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, new_value):
+        old_value = self._value
+        self._value = new_value
+        self._notify_observers(old_value, new_value)
+
+    def _notify_observers(self, old_value, new_value):
+        for callback in self._callbacks:
+            callback(old_value, new_value)
+
+    def register_callback(self, callback):
+        self._callbacks.append(callback)
+
+
+def update_convergence(sim):
+    """
+    simulation callback
+    """
+    global index, percentage_done
+    index += 2
+    percentage_done += 5
+
+    # updating colors
+    plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
+    plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
+    # spectrum_plot["data"][index - 2]["line"]["color"] = "#7dafff"
+
+    # updating t_rad subplot
+    plasma_plot.add_scatter(
+        x=sim.model.velocity.value.tolist(),
+        y=sim.model.t_rad.value.tolist(),
+        line_color="#0062ff",
+        row=1,
+        col=2,
+    )
+    # updating w subplot
+    plasma_plot.add_scatter(
+        x=sim.model.velocity.value.tolist(),
+        y=sim.model.w.tolist(),
+        line_color="#0062ff",
+        row=1,
+        col=1,
+    )
+
+
+def fire_callback(old_value, new_value):
+    return_plots(input=None)
+
+
+def return_plots(input):
+    return plasma_plot
+
+
+plasma_change = detect_change()
+plasma_change.register_callback(fire_callback)
+plasma_change.value = plasma_plot
+
+app.callback(
+    dash.dependencies.Output("plasma", "figure"),
+    dash.dependencies.Input("no output", "children"),
+)(return_plots)
+
+
+@app.callback(
+    # [
+    #     dash.dependencies.Output("plasma", "figure"),
+    #     dash.dependencies.Output("spectrum", "figure"),
+    # ],
+    # [
+    #     dash.dependencies.Input("plasma", "figure"),
+    #     dash.dependencies.Input("spectrum", "figure"),
+    # ],
+    dash.dependencies.Output("no input", "children"),
+    dash.dependencies.Input("no output", "children"),
+)
+def update_live_plots(_):
+    # time.sleep(20)
+    sim = run_tardis(
+        "tardis_example.yml",
+        simulation_callbacks=[[update_convergence]],
+    )
+    return
 
 
 def run(host="127.0.0.1", debug=True):

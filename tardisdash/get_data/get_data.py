@@ -55,40 +55,40 @@ class convergence:
 # plasma_plot = plots.plasma_updates()
 # spectrum_plot = plots.spectrum_updates()
 
-index = 0
-percentage_done = 0
+# index = 0
+# percentage_done = 0
 
 
-def update_convergence(sim, plasma_plot, spectrum_plot):
-    global index, percentage_done
-    index += 2
-    percentage_done += 5
+# def update_convergence(sim, plasma_plot, spectrum_plot):
+#     global index, percentage_done
+#     index += 2
+#     percentage_done += 5
 
-    # updating colors
-    plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
-    plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
-    spectrum_plot["data"][index - 2]["line"]["color"] = "#7dafff"
+#     # updating colors
+#     plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
+#     plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
+#     spectrum_plot["data"][index - 2]["line"]["color"] = "#7dafff"
 
-    # updating t_rad subplot
-    plasma_plot.add_scatter(
-        x=sim.model.velocity.value.tolist(),
-        y=sim.model.t_rad.value.tolist(),
-        line_color="#0062ff",
-        row=1,
-        col=2,
-    )
-    # updating w subplot
-    plasma_plot.add_scatter(
-        x=sim.model.velocity.value.tolist(),
-        y=sim.model.w.tolist(),
-        line_color="#0062ff",
-        row=1,
-        col=1,
-    )
+#     # updating t_rad subplot
+#     plasma_plot.add_scatter(
+#         x=sim.model.velocity.value.tolist(),
+#         y=sim.model.t_rad.value.tolist(),
+#         line_color="#0062ff",
+#         row=1,
+#         col=2,
+#     )
+#     # updating w subplot
+#     plasma_plot.add_scatter(
+#         x=sim.model.velocity.value.tolist(),
+#         y=sim.model.w.tolist(),
+#         line_color="#0062ff",
+#         row=1,
+#         col=1,
+#     )
 
-    # updating spectrum plot
-    spectrum_plot.add_scatter(
-        x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
-        y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
-        line_color="#0000ff",
-    )
+#     # updating spectrum plot
+#     spectrum_plot.add_scatter(
+#         x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
+#         y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
+#         line_color="#0000ff",
+#     )

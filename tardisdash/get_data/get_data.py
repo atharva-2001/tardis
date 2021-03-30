@@ -13,11 +13,11 @@ class convergence:
         fig.add_scatter(row=1, col=2)
 
         # updating axes
-        fig["layout"]["yaxis"]["title"] = r"$W$"
-        fig["layout"]["xaxis"]["title"] = r"$Shell~~Velocity$"
+        fig["layout"]["yaxis"]["title"] = r"W"
+        fig["layout"]["xaxis"]["title"] = r"Shell Velocity"
 
-        fig["layout"]["yaxis2"]["title"] = r"$T_{rad}\ [K]$"
-        fig["layout"]["xaxis2"]["title"] = r"$Shell~~Velocity$"
+        fig["layout"]["yaxis2"]["title"] = r"T_rad"
+        fig["layout"]["xaxis2"]["title"] = r"Shell Velocity"
 
         fig["layout"]["yaxis2"]["range"] = [9000, 14000]
         fig["layout"]["xaxis"]["showexponent"] = "all"
@@ -33,8 +33,8 @@ class convergence:
         fig = go.FigureWidget()
         fig.add_scatter(x=list(range(500, 20000))[0::80])
 
-        fig.update_yaxes(title_text=r"$Luminosity$", range=[0, 7e39])
-        fig.update_xaxes(title_text=r"$Wavelength$")
+        fig.update_yaxes(title_text=r"Luminosity", range=[0, 7e39])
+        fig.update_xaxes(title_text=r"Wavelength")
 
         fig.update_layout(showlegend=False)
         self.spectrum_fig = fig

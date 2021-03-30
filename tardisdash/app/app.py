@@ -16,6 +16,9 @@ app = dash.Dash(
     external_stylesheets=external_stylesheets,
 )
 
+mathjax = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"
+app.scripts.append_script({"external_url": mathjax})
+
 plots = get_data.convergence()
 
 app.layout = html.Div(
@@ -47,7 +50,7 @@ app.layout = html.Div(
 
 
 def run(host="127.0.0.1", debug=True):
-    app.run_server(debug=debug, host=host, port=3004)
+    app.run_server(debug=debug, host=host, port=3005)
 
 
 if __name__ == "__main__":

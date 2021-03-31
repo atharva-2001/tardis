@@ -31,23 +31,83 @@ changed = False
 app.layout = html.Div(
     [
         html.Div(
-            dbc.Progress(
-                id="progress",
-                striped=True,
-                animated=True,
+            html.P(
+                "Tardis Simulation Dashboard",
+                style={
+                    "font-size": "40px",
+                    # "fontFamily": "monospace",
+                    "letter-spacing": "5px",
+                    "text-align": "center",
+                    "font-weight": "light",
+                    "color": "#525252",
+                },
             )
         ),
         html.Div(
-            dcc.Graph(
-                figure=plasma_plot,
-                id="plasma",
-            )
+            html.Div(
+                dbc.Progress(
+                    id="progress",
+                    animated=True,
+                    style={
+                        # "height": "30px",
+                        "display": "center",
+                        "text-align": "center",
+                    },
+                )
+            ),
+            style={
+                # "border": "3px #5c5c5c solid",
+                "padding-top": "5px",
+                "padding-left": "110px",
+                "padding-right": "120px",
+                "padding-bottom": "20px",
+            },
         ),
         html.Div(
-            dcc.Graph(
-                figure=spectrum_plot,
-                id="spectrum",
-            )
+            html.Div(
+                dcc.Graph(
+                    figure=plasma_plot,
+                    id="plasma",
+                    style={
+                        "width": "100%",
+                        "height": "100%",
+                    },
+                )
+            ),
+            style={
+                "width": "100%",
+                # "height": "1000px",
+                "display": "inline-block",
+                # "border": "3px #5c5c5c solid",
+                "padding-top": "5px",
+                "padding-left": "30px",
+                "padding-right": "20px",
+                "padding-bottom": "20px",
+                "overflow": "hidden",
+            },
+        ),
+        html.Div(
+            html.Div(
+                dcc.Graph(
+                    figure=spectrum_plot,
+                    id="spectrum",
+                    style={
+                        "width": "100%",
+                        "height": "100%",
+                    },
+                )
+            ),
+            style={
+                "width": "100%",
+                # "height": "1000px",
+                "display": "inline-block",
+                # "border": "3px #5c5c5c solid",
+                "padding-top": "5px",
+                "padding-left": "10px",
+                "padding-right": "20px",
+                "padding-bottom": "20px",
+                "overflow": "hidden",
+            },
         ),
         html.Div(
             dcc.Interval(
@@ -162,14 +222,19 @@ def update_live_plots(_):
         dash.dependencies.Output("plasma", "figure"),
         dash.dependencies.Output("spectrum", "figure"),
         dash.dependencies.Output("progress", "value"),
+        # dash.dependencies.Output("progress", "children"),
     ],
     dash.dependencies.Input("interval-component", "n_intervals"),
 )
 def update_plasma(n):
     if changed:
-        return plasma_plot, spectrum_plot, percentage_done
+        return (plasma_plot, spectrum_plot, percentage_done)
     else:
-        return None, None, percentage_done
+        return (
+            None,
+            None,
+            percentage_done,
+        )
 
 
 def run(host="127.0.0.1", debug=True):

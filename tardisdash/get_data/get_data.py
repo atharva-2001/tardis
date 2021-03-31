@@ -25,7 +25,16 @@ class convergence:
         fig["layout"]["xaxis"]["exponentformat"] = "e"
         fig["layout"]["xaxis2"]["exponentformat"] = "e"
 
-        fig = fig.update_layout(showlegend=False)
+        fig = fig.update_layout(
+            showlegend=False,
+            height=300,
+            margin={
+                "t": 0,
+                "r": 0,
+                "l": 0,
+                "b": 0,
+            },
+        )
         self.plasma_subplots = fig
         return fig
 
@@ -36,7 +45,11 @@ class convergence:
         fig.update_yaxes(title_text=r"Luminosity", range=[0, 7e39])
         fig.update_xaxes(title_text=r"Wavelength")
 
-        fig.update_layout(showlegend=False)
+        fig.update_layout(
+            showlegend=False,
+            height=400,
+            margin={"pad": 0, "t": 0, "r": 0, "l": 0, "b": 0},
+        )
         self.spectrum_fig = fig
         return fig
 

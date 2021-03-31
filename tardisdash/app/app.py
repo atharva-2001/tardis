@@ -1,3 +1,4 @@
+from os import execlp
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -22,38 +23,13 @@ mathjax = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?confi
 app.scripts.append_script({"external_url": mathjax})
 
 plots = convergence()
-# plasma_plot = plots.plasma_updates()
+plasma_plot = plots.plasma_updates()
 spectrum_plot = plots.spectrum_updates()
 
 index = 0
 percentage_done = 0
+spec_ind = 0
 changed = False
-
-fig = go.FigureWidget().set_subplots(1, 2)
-fig.add_scatter(row=1, col=1)
-fig.add_scatter(row=1, col=2)
-
-# updating axes
-fig["layout"]["yaxis"]["title"] = r"W"
-fig["layout"]["xaxis"]["title"] = r"Shell Velocity"
-
-fig["layout"]["yaxis2"]["title"] = r"T_rad"
-fig["layout"]["xaxis2"]["title"] = r"Shell Velocity"
-
-fig["layout"]["yaxis2"]["range"] = [9000, 14000]
-fig["layout"]["xaxis"]["showexponent"] = "all"
-fig["layout"]["xaxis2"]["showexponent"] = "all"
-fig["layout"]["xaxis"]["exponentformat"] = "e"
-fig["layout"]["xaxis2"]["exponentformat"] = "e"
-
-fig = fig.update_layout(showlegend=False)
-plasma_plot = fig
-# updating spectrum plot
-# spectrum_plot.add_scatter(
-#     x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
-#     y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
-#     line_color="#0000ff",
-# )
 
 
 app.layout = html.Div(
@@ -127,14 +103,15 @@ def update_convergence(sim):
     """
     simulation callback
     """
-    global index, percentage_done
+    global index, percentage_done, spec_ind
     index += 2
+    spec_ind += 1
     percentage_done += 5
 
     # updating colors
     plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
     plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
-    # spectrum_plot["data"][index - 2]["line"]["color"] = "#7dafff"
+    spectrum_plot["data"][spec_ind - 1]["line"]["color"] = "#7dafff"
 
     # updating t_rad subplot
     plasma_plot.add_scatter(
@@ -151,6 +128,12 @@ def update_convergence(sim):
         line_color="#0062ff",
         row=1,
         col=1,
+    )
+    # updating spectrum plot
+    spectrum_plot.add_scatter(
+        x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
+        y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
+        line_color="#0000ff",
     )
     fire_callback_from_convergence()
 
@@ -202,18 +185,21 @@ def update_live_plots(_):
 
 
 @app.callback(
-    dash.dependencies.Output("plasma", "figure"),
+    [
+        dash.dependencies.Output("plasma", "figure"),
+        dash.dependencies.Output("spectrum", "figure"),
+    ],
     dash.dependencies.Input("interval-component", "n_intervals"),
 )
 def update_plasma(n):
     if changed:
-        return plasma_plot
+        return plasma_plot, spectrum_plot
     else:
         return None
 
 
 def run(host="127.0.0.1", debug=True):
-    app.run_server(debug=debug, host=host, port=3012)
+    app.run_server(debug=debug, host=host, port=3001)
 
 
 if __name__ == "__main__":

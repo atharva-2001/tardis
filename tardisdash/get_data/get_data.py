@@ -53,14 +53,49 @@ class convergence:
         self.spectrum_fig = fig
         return fig
 
-    # def add_scatter_plot(self, fig, **kwargs):
-    #     fig.add_scatter(
-    #         x=kwargs["x"], y=kwargs["y"], line_color=kwargs["line_color"]
-    #     )
-    #     return fig
+    def plasma_iteration(self):
+        line_colors = ["#7fcdbb", "#1d91c0", "#225ea8", "#081d58"]
+        shells = [0, 5, 10, 15]
+        fig = go.FigureWidget().set_subplots(2, 1, shared_xaxes=True)
 
-    # def update_line_color(self, fig, index, color="#7dafff"):
-    #     fig["data"][index]["line"]["color"] = color
+        for i, line_color in zip(shells, line_colors):
+            fig.add_scatter(
+                name=f"Shell-{i}",
+                mode="lines",
+                line_color=line_color,
+                row=1,
+                col=1,
+            )
+            fig.add_scatter(
+                name=f"Shell-{i}",
+                mode="lines",
+                line_color=line_color,
+                row=2,
+                col=1,
+            )
+
+        # updating axes
+        fig = fig.update_layout(
+            showlegend=False,
+            yaxis=dict(title=r"$W$"),
+            yaxis2=dict(title=r"$T_{rad}\ [K]$"),
+            xaxis=dict(
+                visible=False,
+                zeroline=False,
+                range=[1, 20],
+                dtick=2,
+                title=r"$Iteration~~Number$",
+            ),
+            xaxis2=dict(
+                visible=True,
+                showgrid=False,
+                zeroline=False,
+                range=[1, 20],
+                dtick=2,
+                title=r"$Iteration~~Number$",
+            ),
+        )
+        return fig
 
 
 # plots = convergence(sim)

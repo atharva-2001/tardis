@@ -7,7 +7,7 @@ from tardis import plasma, run_tardis
 import time
 from tardisdash.get_data.get_data import convergence
 import plotly.graph_objects as go
-
+from collections import defaultdict
 
 external_stylesheets = [
     "https://codepen.io/chriddyp/pen/bWLwgP.css",
@@ -21,10 +21,15 @@ app = dash.Dash(
 plots = convergence()
 plasma_plot = plots.plasma_updates()
 spectrum_plot = plots.spectrum_updates()
+plasma_iteration_plot = plots.plasma_iteration()
 
 index = 0
 percentage_done = 0
 spec_ind = 0
+iteration = 0
+i = 0
+y_dict_w = defaultdict(list)
+y_dict_t_rad = defaultdict(list)
 changed = False
 
 
@@ -110,6 +115,29 @@ app.layout = html.Div(
             },
         ),
         html.Div(
+            html.Div(
+                dcc.Graph(
+                    figure=plasma_iteration_plot,
+                    id="plasma iteration",
+                    style={
+                        "width": "100%",
+                        "height": "100%",
+                    },
+                )
+            ),
+            style={
+                "width": "100%",
+                # "height": "1000px",
+                "display": "inline-block",
+                # "border": "3px #5c5c5c solid",
+                "padding-top": "5px",
+                "padding-left": "10px",
+                "padding-right": "20px",
+                "padding-bottom": "20px",
+                "overflow": "hidden",
+            },
+        ),
+        html.Div(
             dcc.Interval(
                 id="interval-component",
                 interval=1 * 1000,
@@ -156,10 +184,12 @@ def update_convergence(sim):
     """
     simulation callback
     """
-    global index, percentage_done, spec_ind
+    global index, percentage_done, spec_ind, y_dict_w, y_dict_t_rad
     index += 2
     spec_ind += 1
     percentage_done += 5
+    x = list(range(1, 21))
+    shells = [0, 5, 10, 15]
 
     # updating colors
     plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
@@ -188,6 +218,22 @@ def update_convergence(sim):
         y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
         line_color="#0000ff",
     )
+    for ind in shells:
+        y_dict_w[f"Shell-{ind}"].append(sim.model.w.tolist()[ind])
+        y_dict_t_rad[f"Shell-{ind}"].append(sim.model.t_rad.value.tolist()[ind])
+
+    with plasma_iteration_plot.batch_update():
+        for trace in range(2 * len(shells)):
+            plasma_iteration_plot.data[trace].x = x
+
+            if plasma_iteration_plot.data[trace].xaxis == "x":
+                plasma_iteration_plot.data[trace].y = y_dict_w[
+                    plasma_iteration_plot.data[trace].name
+                ]
+            else:
+                plasma_iteration_plot.data[trace].y = y_dict_t_rad[
+                    plasma_iteration_plot.data[trace].name
+                ]
 
 
 def fire_callback(old_value, new_value):
@@ -221,6 +267,7 @@ def update_live_plots(_):
     [
         dash.dependencies.Output("plasma", "figure"),
         dash.dependencies.Output("spectrum", "figure"),
+        dash.dependencies.Output("plasma iteration", "figure"),
         dash.dependencies.Output("progress", "value"),
         # dash.dependencies.Output("progress", "children"),
     ],
@@ -228,7 +275,12 @@ def update_live_plots(_):
 )
 def update_plasma(n):
     if changed:
-        return (plasma_plot, spectrum_plot, percentage_done)
+        return (
+            plasma_plot,
+            spectrum_plot,
+            plasma_iteration_plot,
+            percentage_done,
+        )
     else:
         return (
             None,

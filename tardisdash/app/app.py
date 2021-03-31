@@ -11,16 +11,12 @@ import plotly.graph_objects as go
 
 external_stylesheets = [
     "https://codepen.io/chriddyp/pen/bWLwgP.css",
-    # dbc.themes.BOOTSTRAP,
+    dbc.themes.BOOTSTRAP,
 ]
 
 app = dash.Dash(
-    __name__,
     external_stylesheets=external_stylesheets,
 )
-
-mathjax = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"
-app.scripts.append_script({"external_url": mathjax})
 
 plots = convergence()
 plasma_plot = plots.plasma_updates()
@@ -35,14 +31,11 @@ changed = False
 app.layout = html.Div(
     [
         html.Div(
-            [
-                dbc.Progress(
-                    value=80,
-                    id="animated-progress",
-                    striped=True,
-                    animated=True,
-                )
-            ]
+            dbc.Progress(
+                id="progress",
+                striped=True,
+                animated=True,
+            )
         ),
         html.Div(
             dcc.Graph(
@@ -59,7 +52,7 @@ app.layout = html.Div(
         html.Div(
             dcc.Interval(
                 id="interval-component",
-                interval=1 * 1000,  # in milliseconds
+                interval=1 * 1000,
                 n_intervals=0,
             )
         ),
@@ -135,22 +128,11 @@ def update_convergence(sim):
         y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
         line_color="#0000ff",
     )
-    fire_callback_from_convergence()
 
 
 def fire_callback(old_value, new_value):
     global changed
     changed = True
-
-    return_plots(input=None)
-
-
-def fire_callback_from_convergence():
-    return_plots(input=None)
-
-
-def return_plots(input):
-    return plasma_plot
 
 
 plasma_change = detect_change()
@@ -164,19 +146,10 @@ plasma_change.value = plasma_plot
 
 
 @app.callback(
-    # [
-    #     dash.dependencies.Output("plasma", "figure"),
-    #     dash.dependencies.Output("spectrum", "figure"),
-    # ],
-    # [
-    #     dash.dependencies.Input("plasma", "figure"),
-    #     dash.dependencies.Input("spectrum", "figure"),
-    # ],
     dash.dependencies.Output("no input", "children"),
     dash.dependencies.Input("no output", "children"),
 )
 def update_live_plots(_):
-    # time.sleep(20)
     sim = run_tardis(
         "tardis_example.yml",
         simulation_callbacks=[[update_convergence]],
@@ -188,18 +161,19 @@ def update_live_plots(_):
     [
         dash.dependencies.Output("plasma", "figure"),
         dash.dependencies.Output("spectrum", "figure"),
+        dash.dependencies.Output("progress", "value"),
     ],
     dash.dependencies.Input("interval-component", "n_intervals"),
 )
 def update_plasma(n):
     if changed:
-        return plasma_plot, spectrum_plot
+        return plasma_plot, spectrum_plot, percentage_done
     else:
-        return None
+        return None, None, percentage_done
 
 
 def run(host="127.0.0.1", debug=True):
-    app.run_server(debug=debug, host=host, port=3001)
+    app.run_server(debug=debug, host=host, port=9001)
 
 
 if __name__ == "__main__":

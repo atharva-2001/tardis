@@ -82,7 +82,6 @@ app.layout = html.Div(
             style={
                 "width": "100%",
                 # "height": "1000px",
-                "display": "inline-block",
                 # "border": "3px #5c5c5c solid",
                 "padding-top": "5px",
                 "padding-left": "30px",
@@ -92,39 +91,54 @@ app.layout = html.Div(
             },
         ),
         html.Div(
-            html.Div(
-                dcc.Graph(
-                    figure=spectrum_plot,
-                    id="spectrum",
+            [
+                html.Div(
+                    html.Div(
+                        dcc.Graph(
+                            figure=spectrum_plot,
+                            id="spectrum",
+                            style={
+                                "width": "100%",
+                                "height": "100%",
+                            },
+                        )
+                    ),
                     style={
-                        "width": "100%",
-                        "height": "100%",
+                        "width": "50%",
+                        # "height": "1000px",
+                        "display": "inline-block",
+                        # "border": "3px #5c5c5c solid",
+                        "padding-top": "5px",
+                        "padding-left": "10px",
+                        "padding-right": "20px",
+                        "padding-bottom": "20px",
+                        "overflow": "hidden",
                     },
-                )
-            ),
-            style={
-                "width": "100%",
-                # "height": "1000px",
-                "display": "inline-block",
-                # "border": "3px #5c5c5c solid",
-                "padding-top": "5px",
-                "padding-left": "10px",
-                "padding-right": "20px",
-                "padding-bottom": "20px",
-                "overflow": "hidden",
-            },
-        ),
-        html.Div(
-            html.Div(
-                dcc.Graph(
-                    figure=plasma_iteration_plot,
-                    id="plasma iteration",
+                ),
+                html.Div(
+                    html.Div(
+                        dcc.Graph(
+                            figure=plasma_iteration_plot,
+                            id="plasma iteration",
+                            style={
+                                "width": "100%",
+                                "height": "100%",
+                            },
+                        )
+                    ),
                     style={
-                        "width": "100%",
-                        "height": "100%",
+                        "width": "50%",
+                        # "height": "1000px",
+                        "display": "inline-block",
+                        # "border": "3px #5c5c5c solid",
+                        "padding-top": "5px",
+                        "padding-left": "10px",
+                        "padding-right": "20px",
+                        "padding-bottom": "20px",
+                        "overflow": "hidden",
                     },
-                )
-            ),
+                ),
+            ],
             style={
                 "width": "100%",
                 # "height": "1000px",
@@ -192,15 +206,15 @@ def update_convergence(sim):
     shells = [0, 5, 10, 15]
 
     # updating colors
-    plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
-    plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
-    spectrum_plot["data"][spec_ind - 1]["line"]["color"] = "#7dafff"
+    plasma_plot["data"][index - 1]["line"]["color"] = "#9cc2ff"
+    plasma_plot["data"][index - 2]["line"]["color"] = "#9cc2ff"
+    spectrum_plot["data"][spec_ind - 1]["line"]["color"] = "#9cc2ff"
 
     # updating t_rad subplot
     plasma_plot.add_scatter(
         x=sim.model.velocity.value.tolist(),
         y=sim.model.t_rad.value.tolist(),
-        line_color="#0062ff",
+        line_color="#00378f",
         row=1,
         col=2,
     )
@@ -208,7 +222,7 @@ def update_convergence(sim):
     plasma_plot.add_scatter(
         x=sim.model.velocity.value.tolist(),
         y=sim.model.w.tolist(),
-        line_color="#0062ff",
+        line_color="#00378f",
         row=1,
         col=1,
     )
@@ -216,8 +230,9 @@ def update_convergence(sim):
     spectrum_plot.add_scatter(
         x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
         y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
-        line_color="#0000ff",
+        line_color="#00378f",
     )
+
     for ind in shells:
         y_dict_w[f"Shell-{ind}"].append(sim.model.w.tolist()[ind])
         y_dict_t_rad[f"Shell-{ind}"].append(sim.model.t_rad.value.tolist()[ind])

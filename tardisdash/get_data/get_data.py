@@ -8,7 +8,7 @@ class convergence:
 
     def plasma_updates(self):
         # making subplots
-        fig = go.FigureWidget().set_subplots(1, 2)
+        fig = go.FigureWidget().set_subplots(1, 2, horizontal_spacing=0.05)
         fig.add_scatter(row=1, col=1)
         fig.add_scatter(row=1, col=2)
 
@@ -40,15 +40,16 @@ class convergence:
 
     def spectrum_updates(self):
         fig = go.FigureWidget()
-        fig.add_scatter(x=list(range(500, 20000))[0::80])
+        fig.add_scatter()
 
         fig.update_yaxes(title_text=r"Luminosity", range=[0, 7e39])
         fig.update_xaxes(title_text=r"Wavelength")
 
         fig.update_layout(
             showlegend=False,
-            height=400,
+            height=500,
             margin={"pad": 0, "t": 0, "r": 0, "l": 0, "b": 0},
+            xaxis=dict(range=[500, 12000]),
         )
         self.spectrum_fig = fig
         return fig
@@ -56,7 +57,9 @@ class convergence:
     def plasma_iteration(self):
         line_colors = ["#7fcdbb", "#1d91c0", "#225ea8", "#081d58"]
         shells = [0, 5, 10, 15]
-        fig = go.FigureWidget().set_subplots(2, 1, shared_xaxes=True)
+        fig = go.FigureWidget().set_subplots(
+            2, 1, shared_xaxes=True, vertical_spacing=0.08
+        )
 
         for i, line_color in zip(shells, line_colors):
             fig.add_scatter(
@@ -77,14 +80,14 @@ class convergence:
         # updating axes
         fig = fig.update_layout(
             showlegend=False,
-            yaxis=dict(title=r"$W$"),
-            yaxis2=dict(title=r"$T_{rad}\ [K]$"),
+            yaxis=dict(title=r"W"),
+            yaxis2=dict(title=r"T_rad"),
             xaxis=dict(
                 visible=False,
                 zeroline=False,
                 range=[1, 20],
                 dtick=2,
-                title=r"$Iteration~~Number$",
+                title=r"Iteration Number",
             ),
             xaxis2=dict(
                 visible=True,
@@ -92,8 +95,10 @@ class convergence:
                 zeroline=False,
                 range=[1, 20],
                 dtick=2,
-                title=r"$Iteration~~Number$",
+                title=r"Iteration Number",
             ),
+            height=500,
+            margin={"pad": 0, "t": 0, "r": 0, "l": 0, "b": 0},
         )
         return fig
 

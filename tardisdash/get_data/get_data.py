@@ -103,45 +103,31 @@ class convergence:
         return fig
 
 
-# plots = convergence(sim)
+class detect_change:
+    """
+    detects change in a value
+    copied from: https://stackoverflow.com/a/51885354/11974464
+    """
 
-# plasma_plot = plots.plasma_updates()
-# spectrum_plot = plots.spectrum_updates()
+    def __init__(self, initial_value=0):
+        self._value = initial_value
+        self._callbacks = []
 
-# index = 0
-# percentage_done = 0
+    @property
+    def value(self):
+        return self._value
 
+    @value.setter
+    def value(self, new_value):
+        global changed
+        old_value = self._value
+        self._value = new_value
+        changed = False
+        self._notify_observers(old_value, new_value)
 
-# def update_convergence(sim, plasma_plot, spectrum_plot):
-#     global index, percentage_done
-#     index += 2
-#     percentage_done += 5
+    def _notify_observers(self, old_value, new_value):
+        for callback in self._callbacks:
+            callback(old_value, new_value)
 
-#     # updating colors
-#     plasma_plot["data"][index - 1]["line"]["color"] = "#7dafff"
-#     plasma_plot["data"][index - 2]["line"]["color"] = "#7dafff"
-#     spectrum_plot["data"][index - 2]["line"]["color"] = "#7dafff"
-
-#     # updating t_rad subplot
-#     plasma_plot.add_scatter(
-#         x=sim.model.velocity.value.tolist(),
-#         y=sim.model.t_rad.value.tolist(),
-#         line_color="#0062ff",
-#         row=1,
-#         col=2,
-#     )
-#     # updating w subplot
-#     plasma_plot.add_scatter(
-#         x=sim.model.velocity.value.tolist(),
-#         y=sim.model.w.tolist(),
-#         line_color="#0062ff",
-#         row=1,
-#         col=1,
-#     )
-
-#     # updating spectrum plot
-#     spectrum_plot.add_scatter(
-#         x=sim.runner.spectrum.wavelength.value.tolist()[0::80],
-#         y=sim.runner.spectrum.luminosity_density_lambda.value.tolist()[0::80],
-#         line_color="#0000ff",
-#     )
+    def register_callback(self, callback):
+        self._callbacks.append(callback)

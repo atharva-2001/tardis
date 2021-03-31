@@ -5,7 +5,7 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from tardis import plasma, run_tardis
 import time
-from tardisdash.get_data.get_data import convergence
+from tardisdash.get_data.get_data import convergence, detect_change
 import plotly.graph_objects as go
 from collections import defaultdict
 
@@ -26,11 +26,17 @@ plasma_iteration_plot = plots.plasma_iteration()
 index = 0
 percentage_done = 0
 spec_ind = 0
-iteration = 0
-i = 0
 y_dict_w = defaultdict(list)
 y_dict_t_rad = defaultdict(list)
 changed = False
+
+X = list(range(1, 21))
+SHELLS = [0, 5, 10, 15]
+
+
+def fire_callback(old_value, new_value):
+    global changed
+    changed = True
 
 
 app.layout = html.Div(
@@ -128,9 +134,7 @@ app.layout = html.Div(
                     ),
                     style={
                         "width": "50%",
-                        # "height": "1000px",
                         "display": "inline-block",
-                        # "border": "3px #5c5c5c solid",
                         "padding-top": "5px",
                         "padding-left": "10px",
                         "padding-right": "20px",
@@ -141,9 +145,7 @@ app.layout = html.Div(
             ],
             style={
                 "width": "100%",
-                # "height": "1000px",
                 "display": "inline-block",
-                # "border": "3px #5c5c5c solid",
                 "padding-top": "5px",
                 "padding-left": "10px",
                 "padding-right": "20px",
@@ -164,36 +166,6 @@ app.layout = html.Div(
 )
 
 
-class detect_change:
-    """
-    detects change in a value
-    copied from: https://stackoverflow.com/a/51885354/11974464
-    """
-
-    def __init__(self, initial_value=0):
-        self._value = initial_value
-        self._callbacks = []
-
-    @property
-    def value(self):
-        return self._value
-
-    @value.setter
-    def value(self, new_value):
-        global changed
-        old_value = self._value
-        self._value = new_value
-        changed = False
-        self._notify_observers(old_value, new_value)
-
-    def _notify_observers(self, old_value, new_value):
-        for callback in self._callbacks:
-            callback(old_value, new_value)
-
-    def register_callback(self, callback):
-        self._callbacks.append(callback)
-
-
 def update_convergence(sim):
     """
     simulation callback
@@ -202,8 +174,6 @@ def update_convergence(sim):
     index += 2
     spec_ind += 1
     percentage_done += 5
-    x = list(range(1, 21))
-    shells = [0, 5, 10, 15]
 
     # updating colors
     plasma_plot["data"][index - 1]["line"]["color"] = "#9cc2ff"
@@ -233,13 +203,13 @@ def update_convergence(sim):
         line_color="#00378f",
     )
 
-    for ind in shells:
+    for ind in SHELLS:
         y_dict_w[f"Shell-{ind}"].append(sim.model.w.tolist()[ind])
         y_dict_t_rad[f"Shell-{ind}"].append(sim.model.t_rad.value.tolist()[ind])
 
     with plasma_iteration_plot.batch_update():
-        for trace in range(2 * len(shells)):
-            plasma_iteration_plot.data[trace].x = x
+        for trace in range(2 * len(SHELLS)):
+            plasma_iteration_plot.data[trace].x = X
 
             if plasma_iteration_plot.data[trace].xaxis == "x":
                 plasma_iteration_plot.data[trace].y = y_dict_w[
@@ -251,19 +221,9 @@ def update_convergence(sim):
                 ]
 
 
-def fire_callback(old_value, new_value):
-    global changed
-    changed = True
-
-
 plasma_change = detect_change()
 plasma_change.register_callback(fire_callback)
 plasma_change.value = plasma_plot
-
-# app.callback(
-#     dash.dependencies.Output("plasma", "figure"),
-#     dash.dependencies.Input("no output", "children"),
-# )(return_plots)
 
 
 @app.callback(
@@ -284,7 +244,6 @@ def update_live_plots(_):
         dash.dependencies.Output("spectrum", "figure"),
         dash.dependencies.Output("plasma iteration", "figure"),
         dash.dependencies.Output("progress", "value"),
-        # dash.dependencies.Output("progress", "children"),
     ],
     dash.dependencies.Input("interval-component", "n_intervals"),
 )
@@ -298,6 +257,7 @@ def update_plasma(n):
         )
     else:
         return (
+            None,
             None,
             None,
             percentage_done,

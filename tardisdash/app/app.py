@@ -30,7 +30,7 @@ y_dict_w = defaultdict(list)
 y_dict_t_rad = defaultdict(list)
 changed = False
 
-X = list(range(1, 21))
+X = list(range(1, 61))  # TODO: from the config file
 SHELLS = [0, 5, 10, 15]
 
 
@@ -173,7 +173,7 @@ def update_convergence(sim):
     global index, percentage_done, spec_ind, y_dict_w, y_dict_t_rad
     index += 2
     spec_ind += 1
-    percentage_done += 5
+    percentage_done += 1.66666666667
 
     # updating colors
     plasma_plot["data"][index - 1]["line"]["color"] = "#9cc2ff"
@@ -223,6 +223,7 @@ def update_convergence(sim):
 
 plasma_change = detect_change()
 plasma_change.register_callback(fire_callback)
+
 plasma_change.value = plasma_plot
 
 
@@ -255,6 +256,7 @@ def update_plasma(n):
             plasma_iteration_plot,
             percentage_done,
         )
+
     else:
         return (
             None,
@@ -265,7 +267,7 @@ def update_plasma(n):
 
 
 def run(host="127.0.0.1", debug=True):
-    app.run_server(debug=debug, host=host, port=9001)
+    app.run_server(debug=debug, host=host, port=9003)
 
 
 if __name__ == "__main__":

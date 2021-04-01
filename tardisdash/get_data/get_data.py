@@ -85,7 +85,7 @@ class convergence:
             xaxis=dict(
                 visible=False,
                 zeroline=False,
-                range=[1, 20],
+                range=[1, 60],
                 dtick=2,
                 title=r"Iteration Number",
             ),
@@ -93,7 +93,7 @@ class convergence:
                 visible=True,
                 showgrid=False,
                 zeroline=False,
-                range=[1, 20],
+                range=[1, 60],
                 dtick=2,
                 title=r"Iteration Number",
             ),

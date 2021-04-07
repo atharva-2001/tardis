@@ -47,7 +47,7 @@ dependencies:
   - sphinx
   - nbconvert
   - numpydoc
-  - docutils>=0.16,<0.17
+  - docutils
   - nbformat
   - nbsphinx
   - sphinx_bootstrap_theme

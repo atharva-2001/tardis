@@ -30,7 +30,6 @@ dependencies:
   - lxml
   - loguru
 
-
   # Analysis
   - jupyter
   - notebook

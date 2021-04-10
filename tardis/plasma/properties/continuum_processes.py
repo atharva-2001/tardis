@@ -52,7 +52,7 @@ M_E = const.m_e.cgs.value
 BETA_COLL = (H ** 4 / (8 * K_B * M_E ** 3 * np.pi ** 3)) ** 0.5
 
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 njit_dict = {"fastmath": False, "parallel": False}
 

@@ -216,6 +216,7 @@ class MontecarloRunner(HDFWriterMixin):
 
     @property
     def spectrum_virtual(self):
+        print("in spectrum virtual############")
         if np.all(self.montecarlo_virtual_luminosity == 0):
             warnings.warn(
                 "MontecarloRunner.spectrum_virtual"
@@ -223,7 +224,11 @@ class MontecarloRunner(HDFWriterMixin):
                 "no_of_virtual_packets > 0",
                 UserWarning,
             )
-
+        # print(
+        #     TARDISSpectrum(
+        #         self.spectrum_frequency, self.montecarlo_virtual_luminosity
+        #     ).luminosity_density_lambda.value.tolist()
+        # )
         return TARDISSpectrum(
             self.spectrum_frequency, self.montecarlo_virtual_luminosity
         )

@@ -1,6 +1,5 @@
 import os
 import re
-import logging
 import tempfile
 import fileinput
 
@@ -11,7 +10,7 @@ from tardis.plasma.exceptions import PlasmaMissingModule, NotInitializedModule
 from tardis.plasma.properties.base import *
 from tardis.io.util import PlasmaWriterMixin
 
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 class BasePlasma(PlasmaWriterMixin):
@@ -278,7 +277,7 @@ class BasePlasma(PlasmaWriterMixin):
         try:
             import pygraphviz
         except:
-            logger.warn(
+            logger.warning(
                 "pygraphviz missing. Plasma graph will not be " "generated."
             )
             return
@@ -301,7 +300,7 @@ class BasePlasma(PlasmaWriterMixin):
         try:
             import dot2tex
         except:
-            logger.warn(
+            logger.warning(
                 "dot2tex missing. Plasma graph will not be " "generated."
             )
             return

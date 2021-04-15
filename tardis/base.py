@@ -6,6 +6,8 @@ def run_tardis(
     atom_data=None,
     packet_source=None,
     simulation_callbacks=[],
+    verbosity=None,
+    save=None,
     virtual_packet_logging=False,
 ):
     """
@@ -34,6 +36,19 @@ def run_tardis(
     from tardis.io.config_reader import Configuration
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation
+
+    import warnings
+    import tardis.util.custom_logger as custom_logger_settings
+
+    if verbosity is not None or save is not None:
+        if verbosity in ["TARDIS INFO", "ERROR", "CRITICAL"]:
+            warnings.filterwarnings("ignore", category=RuntimeWarning)
+        custom_logger_settings.init()
+        custom_logger_settings.logger.remove()
+        if save is not None:
+            custom_logger_settings.save = save
+        custom_logger_settings.level = verbosity
+        custom_logger_settings.reset_logger()
 
     if atom_data is not None:
         try:

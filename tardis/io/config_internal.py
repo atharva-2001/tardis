@@ -1,5 +1,5 @@
 from tardis import __path__ as TARDIS_PATH
-import os, logging, shutil
+import os, shutil
 import yaml
 
 from astropy.config import get_config_dir
@@ -11,7 +11,7 @@ DEFAULT_CONFIG_PATH = os.path.join(
 DEFAULT_DATA_DIR = os.path.join(
     os.path.expanduser("~"), "Downloads", "tardis-data"
 )
-logger = logging.getLogger(__name__)
+from tardis.util.custom_logger import logger
 
 
 def get_internal_configuration():
@@ -36,7 +36,7 @@ def get_data_dir():
         config_fpath = os.path.join(
             get_config_dir(), "tardis_internal_config.yml"
         )
-        logging.critical(
+        logger.critical(
             "\n{line_stars}\n\nTARDIS will download different kinds of data (e.g. atomic) to its data directory {default_data_dir}\n\n"
             "TARDIS DATA DIRECTORY not specified in {config_file}:\n\n"
             "ASSUMING DEFAULT DATA DIRECTORY {default_data_dir}\n "

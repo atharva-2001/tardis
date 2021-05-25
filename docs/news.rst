@@ -32,7 +32,7 @@
           var index;
           for (let index = 0; index < tweetTextList.length; index++) {
             tweetTextList[index].style.fontSize = "16px";
-            tweetTextList[index].style.font = "Lato,proxima-nova,Helvetica Neue,Arial,sans-serif;";
+            tweetTextList[index].style.fontFamily = "Lato, proxima-nova, Helvetica Neue, Arial, sans-serif";
             tweetTextList[index].style.lineHeight = "1.1";
           }
 

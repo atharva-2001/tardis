@@ -68,7 +68,7 @@ numpydoc_show_class_members = False
 extensions += ["matplotlib.sphinxext.plot_directive", "sphinxcontrib.bibtex"]
 
 nbsphinx_execute = "auto"
-
+nbsphinx_assume_equations = False
 nbsphinx_execute_arguments = [
     "--InlineBackend.figure_formats={'svg', 'pdf'}",
     "--InlineBackend.rc={'figure.dpi': 96}",

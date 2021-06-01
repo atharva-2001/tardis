@@ -77,6 +77,11 @@ class AtomData(object):
             index : numerical index;
             columns : atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]
 
+    two_photon_data : pandas.DataFrame
+        A DataFrame containing the *two photon decay data* with:
+            index: atomic_number, ion_number, level_number_lower, level_number_upper
+            columns: A_ul[1/s], nu0[Hz], alpha, beta, gamma
+
     Attributes
     ----------
     prepared : bool
@@ -91,6 +96,7 @@ class AtomData(object):
     symbol2atomic_number : OrderedDict
     atomic_number2symbol : OrderedDict
     photoionization_data : pandas.DataFrame
+    two_photon_data : pandas.DataFrame
 
     Methods
     -------
@@ -114,6 +120,8 @@ class AtomData(object):
         "collision_data_temperatures",
         "synpp_refs",
         "photoionization_data",
+        "yg_data",
+        "two_photon_data",
     ]
 
     # List of tuples of the related dataframes.
@@ -175,8 +183,8 @@ class AtomData(object):
                 logger.tardis_info(
                     "Non provided atomic data: {0}".format(
                         ", ".join(nonavailable)
-                    )
-                )
+                    ))
+
 
         return atom_data
 
@@ -193,6 +201,8 @@ class AtomData(object):
         collision_data_temperatures=None,
         synpp_refs=None,
         photoionization_data=None,
+        yg_data=None,
+        two_photon_data=None,
     ):
 
         self.prepared = False
@@ -241,6 +251,10 @@ class AtomData(object):
 
         self.photoionization_data = photoionization_data
 
+        self.yg_data = yg_data
+
+        self.two_photon_data = two_photon_data
+
         self._check_related()
 
         self.symbol2atomic_number = OrderedDict(
@@ -259,10 +273,8 @@ class AtomData(object):
 
             if len(check_list) != 0 and len(check_list) != len(group):
                 raise AtomDataMissingError(
-                    "The following dataframes from the related group [{0}] "
-                    "were not given: {1}".format(
-                        ", ".join(group), ", ".join(check_list)
-                    )
+                    f'The following dataframes from the related group [{", ".join(group)}]'
+                    f'were not given: {", ".join(check_list)}'
                 )
 
     def prepare_atom_data(
@@ -445,6 +457,9 @@ class AtomData(object):
                 # are not used in downbranch calculations
                 self.macro_atom_data.loc[:, "destination_level_idx"] = -1
 
+            if self.yg_data is not None:
+                self.yg_data = self.yg_data.loc[self.selected_atomic_numbers]
+
         self.nlte_data = NLTEData(self, nlte_species)
 
     def _check_selected_atomic_numbers(self):
@@ -460,18 +475,12 @@ class AtomData(object):
             missing_atom_mask = np.logical_not(atomic_number_check)
             missing_atomic_numbers = selected_atomic_numbers[missing_atom_mask]
             missing_numbers_str = ",".join(missing_atomic_numbers.astype("str"))
-            msg = "For atomic numbers {} there is no atomic data.".format(
-                missing_numbers_str
-            )
+
+            msg = f"For atomic numbers {missing_numbers_str} there is no atomic data."
             raise AtomDataMissingError(msg)
 
     def __repr__(self):
-        return "<Atomic Data UUID={} MD5={} Lines={:d} Levels={:d}>".format(
-            self.uuid1,
-            self.md5,
-            self.lines.line_id.count(),
-            self.levels.energy.count(),
-        )
+        return f"<Atomic Data UUID={self.uuid1} MD5={self.md5} Lines={self.lines.line_id.count():d} Levels={self.levels.energy.count():d}>"
 
 
 class NLTEData(object):

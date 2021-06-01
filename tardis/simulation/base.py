@@ -154,9 +154,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             )
         else:
             raise ValueError(
-                "Convergence strategy type is "
-                "not damped or custom "
-                "- input is {0}".format(convergence_strategy.type)
+                f"Convergence strategy type is "
+                f"not damped or custom "
+                f"- input is {convergence_strategy.type}"
             )
 
         self._callbacks = OrderedDict()
@@ -223,10 +223,8 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             hold_iterations = self.convergence_strategy.hold_iterations
             self.consecutive_converges_count += 1
             logger.tardis_info(
-                "Iteration converged {0:d}/{1:d} consecutive "
-                "times.".format(
-                    self.consecutive_converges_count, hold_iterations + 1
-                )
+                f"Iteration converged {self.consecutive_converges_count:d}/{(hold_iterations + 1):d} consecutive "
+                f"times."
             )
             # If an iteration has converged, require hold_iterations more
             # iterations to converge before we conclude that the Simulation
@@ -321,9 +319,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
 
     def iterate(self, no_of_packets, no_of_virtual_packets=0, last_run=False):
         logger.tardis_info(
-            "Starting iteration {0:d}/{1:d}".format(
-                self.iterations_executed + 1, self.iterations
-            )
+            f"Starting iteration {(self.iterations_executed + 1):d}/{self.iterations:d}"
         )
         self.runner.run(
             self.model,
@@ -348,6 +344,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         self.iterations_executed += 1
 
     def run(self):
+        """
+        run the simulation
+        """
         start_time = time.time()
         while self.iterations_executed < self.iterations - 1:
             self.store_plasma_state(
@@ -378,10 +377,8 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         self.reshape_plasma_state_store(self.iterations_executed)
 
         logger.tardis_info(
-            "Simulation finished in {0:d} iterations "
-            "and took {1:.2f} s".format(
-                self.iterations_executed, time.time() - start_time
-            )
+            f"Simulation finished in {self.iterations_executed:d} iterations "
+            f"and took {(time.time() - start_time):.2f} s"
         )
         self._call_back()
 
@@ -432,24 +429,15 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             ["\t%s\n" % item for item in plasma_state_log.split("\n")]
         )
 
-        plasma_state_log = "\n" + plasma_state_log
-        logger.tardis_info("Plasma stratification:")
-        logger.tardis_info(plasma_state_log)
-        logger.tardis_info(
-            "t_inner {0:.3f} -- next t_inner {1:.3f}".format(
-                t_inner, next_t_inner
-            )
-        )
+
+        logger.tardis_info("Plasma stratification:\n%s\n", plasma_state_log)
+        logger.tardis_info(f"t_inner {t_inner:.3f} -- next t_inner {next_t_inner:.3f}")
 
     def log_run_results(self, emitted_luminosity, absorbed_luminosity):
         logger.tardis_info(
-            "Luminosity emitted = {0:.5e} "
-            "Luminosity absorbed = {1:.5e} "
-            "Luminosity requested = {2:.5e}".format(
-                emitted_luminosity,
-                absorbed_luminosity,
-                self.luminosity_requested,
-            )
+            f"Luminosity emitted = {emitted_luminosity:.5e} "
+            f"Luminosity absorbed = {absorbed_luminosity:.5e} "
+            f"Luminosity requested = {self.luminosity_requested:.5e}"
         )
 
     def _call_back(self):
@@ -503,13 +491,16 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             return False
 
     @classmethod
-    def from_config(cls, config, packet_source=None, **kwargs):
+    def from_config(
+        cls, config, packet_source=None, virtual_packet_logging=False, **kwargs
+    ):
         """
         Create a new Simulation instance from a Configuration object.
 
         Parameters
         ----------
         config : tardis.io.config_reader.Configuration
+
         **kwargs
             Allow overriding some structures, such as model, plasma, atomic data
             and the runner, instead of creating them from the configuration
@@ -542,7 +533,9 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             runner = kwargs["runner"]
         else:
             runner = MontecarloRunner.from_config(
-                config, packet_source=packet_source
+                config,
+                packet_source=packet_source,
+                virtual_packet_logging=virtual_packet_logging,
             )
 
         luminosity_nu_start = config.supernova.luminosity_wavelength_end.to(

@@ -10,10 +10,8 @@ dependencies:
   - scipy=1.5
   - pandas=1.0
   - astropy=3
-  - numba=0.50
+  - numba=0.53.1
   - numexpr
-  - Cython=0.29
-  - compilers
 
   # Plasma
   - networkx
@@ -30,6 +28,7 @@ dependencies:
   - lxml
   - loguru
 
+  - pickle5
 
   # Analysis
   - jupyter
@@ -48,7 +47,7 @@ dependencies:
   - sphinx
   - nbconvert
   - numpydoc
-  - docutils
+  - docutils=0.16
   - nbformat
   - nbsphinx
   - sphinx_bootstrap_theme
@@ -63,7 +62,6 @@ dependencies:
   - pytest-html
   - pytest-cov
   - coverage
-  - requests
   - docopt
 
   # Code quality

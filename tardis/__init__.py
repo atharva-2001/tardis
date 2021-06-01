@@ -24,3 +24,13 @@ custom_logger_settings.save = False
 # due to this, no WARNINGS are shown by default
 custom_logger_settings.level = "TARDIS INFO"
 custom_logger_settings.reset_logger()
+
+
+# ----------------------------------------------------------------------------
+# pyne holds Python 3.7 on macOS, but refdata is pickled with protocol 5 (3.8.3)
+import sys
+
+if sys.version_info < (3, 8, 3):
+    import pickle5
+
+    sys.modules["pickle"] = pickle5

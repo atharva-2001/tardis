@@ -64,12 +64,13 @@ class update_cplots:
 
     def update_plasma_shell_v_data(self):
         # update t_rad subplot
+
         self.plasma_shell_v_plot.add_scatter(
             x=self.velocity,
-            y=self.t_rad,
-            line_color=self.colors[ic],
+            y=self.w,
+            line_color=self.colors[-1],
             row=1,
-            col=2,
+            col=1,
             # name = f'iteration-{ic}', # TODO
             # legendgroup=f"group-{ic}",
             showlegend=False,
@@ -77,11 +78,14 @@ class update_cplots:
 
         self.plasma_shell_v_plot.add_scatter(
             x=self.velocity,
-            y=self.w,
-            line_color=self.colors[ic],
+            y=self.t_rad,
+            line_color=self.colors[-1],
             row=1,
             col=2,
             # name = f'iteration-{ic}', # TODO
             # legendgroup=f"group-{ic}",
             showlegend=False,
         )
+
+    def update(self):
+        self.update_plasma_shell_v_data()

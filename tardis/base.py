@@ -71,7 +71,6 @@ def run_tardis(
         packet_source=packet_source,
         atom_data=atom_data,
         virtual_packet_logging=virtual_packet_logging,
-        cplots=cplots,
     )
     for cb in simulation_callbacks:
         simulation.add_callback(*cb)

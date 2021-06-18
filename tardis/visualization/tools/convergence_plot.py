@@ -53,7 +53,7 @@ class ConvergencePlots(object):
                 kwargs["colorscale"], iterations=self.iterations
             )
         else:
-            self.colorscale = transistion_colors()
+            self.colorscale = transistion_colors(iterations=self.iterations)
 
         if "plasma_plot_config" in kwargs:
             if kwargs["plasma_plot_config"] != {}:
@@ -110,7 +110,10 @@ class ConvergencePlots(object):
                 "title": r"$W$",
             },
             margin=dict(l=10, r=135, b=80, t=25, pad=0),
+<<<<<<< HEAD
             height=580,
+=======
+>>>>>>> convergence_plots
         )
 
         # allows overriding default layout
@@ -178,6 +181,7 @@ class ConvergencePlots(object):
                 title=r"$\mbox{T}_{inner}$",
                 automargin=True,
                 side="top",
+                tickformat="g",
                 exponentformat="e",
             ),
             yaxis2=dict(
@@ -193,10 +197,10 @@ class ConvergencePlots(object):
                 automargin=True,
             ),
             legend_tracegroupgap=0,
-            hidesources=True,
             height=600,
             hoverlabel_align="right",
             legend_title_text="Luminosity",
+            hoverlabel_font_color="white",
         )
 
         # allows overriding default layout
@@ -246,7 +250,7 @@ class ConvergencePlots(object):
             legendgroup=f"group-{self.current_iteration}",
             showlegend=False,
             customdata=customdata,
-            hovertemplate="%{customdata}",
+            hovertemplate="<b>Y</b>: %{y:.2f} at <b>X</b> = %{x:,.0f}%{customdata}",
         )
         self.plasma_plot.add_scatter(
             x=[item / 100000 for item in x],

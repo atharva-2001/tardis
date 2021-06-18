@@ -174,6 +174,8 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
 
         if "export_cplots" in cplots_kwargs:
             self.export_cplots = cplots_kwargs["export_cplots"]
+        else:
+            self.export_cplots = False
 
         self._callbacks = OrderedDict()
         self._cb_next_id = 0

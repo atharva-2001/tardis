@@ -1,0 +1,24 @@
+$$target: debug.yml
+type: object
+additionalProperties: false
+properties:
+  logging_level:
+    type: string
+    default: "Info"
+    description: Sets the logging Level for the logger
+    properties:
+      type:
+        enum:
+          - "Notset"
+          - "Info"
+          - "Debug"
+          - "Warning"
+          - "Error"
+          - "Critical"
+  specific_logging:
+    type: boolean
+    default: false
+    description: Allows for logging on the specified level logs 
+
+required:
+- logging_level

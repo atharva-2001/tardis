@@ -101,12 +101,15 @@ class ConvergencePlots(object):
                 "title": r"$Shell~~Velocity$",
                 "matches": "x",
             },
-            yaxis={"tickformat": "g", "title": r"$T_{rad}\ [K]$"},
+            yaxis={
+                "tickformat": "g",
+                "title": r"$T_{rad}\ [K]$",
+            },
             yaxis2={
                 "tickformat": "g",
                 "title": r"$W$",
-                "range": [9000, 14000],
             },
+            margin=dict(l=10, r=135, b=80, t=25, pad=0),
             height=580,
         )
 
@@ -122,9 +125,7 @@ class ConvergencePlots(object):
         Creates an empty luminosity plot.
         The default layout can be overidden by passing luminosity_plot_config dictionary in the run_tardis function.
         """
-        marker_colors = ["#958aff", "#ff8b85", "#5cff74"]
-        marker_line_colors = ["#27006b", "#800000", "#00801c"]
-        marker_colors = ["#636EFA", "#EF553B", "#00CC96"]
+        line_colors = ["orangered", "lightseagreen", "indigo"]
 
         fig = go.FigureWidget().set_subplots(
             3,
@@ -134,43 +135,31 @@ class ConvergencePlots(object):
             row_heights=[0.15, 0.7, 0.15],
         )
 
-        for luminosity, marker_color, marker_line_color in zip(
-            self.luminosities, marker_colors, marker_line_colors
-        ):
+        for luminosity, line_color in zip(self.luminosities, line_colors):
             fig.add_scatter(
                 name=luminosity + "<br>Luminosity",
-                mode="lines+markers",
+                mode="lines",
                 row=2,
                 col=1,
-                marker_color=marker_color,
-                marker_line_color=marker_line_color,
+                marker_color=line_color,
                 legendgroup=luminosity,
-                marker_line_width=1.5,
-                opacity=0.6,
             )
 
         fig.add_scatter(
             name="Residual<br>Luminosity",
             row=3,
             col=1,
-            hovertext="text",
-            marker_color="rgb(158,202,225)",
-            marker_line_color="rgb(8,48,107)",
-            marker_line_width=1.5,
-            mode="lines+markers",
-            opacity=0.7,
+            marker_color="cornflowerblue",
+            mode="lines",
         )
 
         fig.add_scatter(
-            name="Inner<br>Boundary Temperature",
+            name="Inner<br>Boundary<br>Temperature",
             row=1,
             col=1,
             hovertext="text",
-            marker_color="rgb(158,202,225)",
-            marker_line_color="rgb(8,48,107)",
-            marker_line_width=1.5,
-            mode="lines+markers",
-            opacity=0.7,
+            marker_color="crimson",
+            mode="lines",
         )
 
         fig = fig.update_layout(
@@ -226,7 +215,6 @@ class ConvergencePlots(object):
         display(
             widgets.VBox(
                 [self.plasma_plot, self.luminosity_plot],
-                layout=widgets.Layout(height="1000px"),
             )
         )
 
@@ -304,7 +292,7 @@ class ConvergencePlots(object):
                     -1
                 ].hovertemplate = "Inner Body Temperature: %{y:.2f} at X = %{x:,.0f}<extra></extra>"
 
-    def update(self, export_cplots = False):
+    def update(self, export_cplots=False):
         """
         Calls functions used to build and update convergence plots.
         """

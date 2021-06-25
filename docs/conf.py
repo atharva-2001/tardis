@@ -58,7 +58,7 @@ extensions = [
     "sphinxcontrib.apidoc",
 ]
 
-bibtex_bibfiles = ['tardis.bib']
+bibtex_bibfiles = ["tardis.bib"]
 
 source_suffix = {
     ".rst": "restructuredtext",
@@ -69,7 +69,7 @@ source_suffix = {
 numpydoc_show_class_members = False
 extensions += ["matplotlib.sphinxext.plot_directive", "sphinxcontrib.bibtex"]
 
-if os.getenv('DISABLE_NBSPHINX') == "1":
+if os.getenv("DISABLE_NBSPHINX") == "1":
     nbsphinx_execute = "never"
 else:
     nbsphinx_execute = "auto"
@@ -85,6 +85,8 @@ https://github.com/tardis-sn/tardis/tree/master/docs/{{ env.doc2path(env.docname
 
 ----
 """
+
+nbsphinx_requirejs_options = {"waitSeconds": 0}
 
 # -- General configuration ----------------------------------------------------
 
@@ -102,13 +104,13 @@ rst_epilog = """
 """
 
 # this forces the documentation to load MathJax v2, see here: https://github.com/spatialaudio/nbsphinx/issues/572#issuecomment-853389268
-mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 mathjax2_config = {
-    'tex2jax': {
-        'inlineMath': [['$', '$'], ['\\(', '\\)']],
-        'processEscapes': True,
-        'ignoreClass': 'document',
-        'processClass': 'math|output_area',
+    "tex2jax": {
+        "inlineMath": [["$", "$"], ["\\(", "\\)"]],
+        "processEscapes": True,
+        "ignoreClass": "document",
+        "processClass": "math|output_area",
     }
 }
 
@@ -261,31 +263,35 @@ import requests
 import textwrap
 import warnings
 
-CONCEPT_DOI = '592480'  # See: https://help.zenodo.org/#versioning
-zenodo_path = pathlib.Path('ZENODO.rst')
+CONCEPT_DOI = "592480"  # See: https://help.zenodo.org/#versioning
+zenodo_path = pathlib.Path("ZENODO.rst")
 
 try:
-    headers = {'accept': 'application/x-bibtex'}
-    response = requests.get(f'https://zenodo.org/api/records/{CONCEPT_DOI}',
-                            headers=headers)
-    response.encoding = 'utf-8'
-    citation = re.findall('@software{(.*)\,', response.text)
-    zenodo_record = (f".. |ZENODO| replace:: {citation[0]}\n\n"
-                     ".. code-block:: bibtex\n\n" + textwrap.indent(response.text, " "*4))
+    headers = {"accept": "application/x-bibtex"}
+    response = requests.get(
+        f"https://zenodo.org/api/records/{CONCEPT_DOI}", headers=headers
+    )
+    response.encoding = "utf-8"
+    citation = re.findall("@software{(.*)\,", response.text)
+    zenodo_record = (
+        f".. |ZENODO| replace:: {citation[0]}\n\n"
+        ".. code-block:: bibtex\n\n" + textwrap.indent(response.text, " " * 4)
+    )
 
 except Exception as e:
-    warnings.warn("Failed to retrieve Zenodo record for TARDIS: "
-                  f"{str(e)}")
+    warnings.warn("Failed to retrieve Zenodo record for TARDIS: " f"{str(e)}")
 
     not_found_msg = """
                     Couldn't retrieve the TARDIS software citation from Zenodo. Get it 
                     directly from `this link <https://zenodo.org/record/{CONCEPT_DOI}>`_    .
                     """
 
-    zenodo_record = (".. |ZENODO| replace:: <TARDIS SOFTWARE CITATION HERE> \n\n"
-                     ".. warning:: \n\n" + textwrap.indent(not_found_msg, " "*4))
+    zenodo_record = (
+        ".. |ZENODO| replace:: <TARDIS SOFTWARE CITATION HERE> \n\n"
+        ".. warning:: \n\n" + textwrap.indent(not_found_msg, " " * 4)
+    )
 
-with open(zenodo_path, 'w') as f:
+with open(zenodo_path, "w") as f:
     f.write(zenodo_record)
 
 print(zenodo_record)

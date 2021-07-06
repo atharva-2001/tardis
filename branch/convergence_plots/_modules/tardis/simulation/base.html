@@ -647,6 +647,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">reshape_plasma_state_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations_executed</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;cplots&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cplots</span><span class="o">.</span><span class="n">fetch_data</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;t_inner&quot;</span><span class="p">,</span>
+                <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">t_inner</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="n">item_type</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cplots</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">export_cplots</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">export_cplots</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>

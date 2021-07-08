@@ -7,8 +7,10 @@ def run_tardis(
     packet_source=None,
     simulation_callbacks=[],
     virtual_packet_logging=False,
+    show_cplots=True,
     log_state=None,
     specific=None,
+    **kwargs,
 ):
     """
     This function is one of the core functions to run TARDIS from a given
@@ -28,6 +30,12 @@ def run_tardis(
     virtual_packet_logging : bool
         option to enable virtual packet logging
         [default=False]
+    show_cplots : bool
+        option to enable tardis convergence plots
+        [default=True]
+    **kwargs : dict, optional
+        optional keyword arguments supported by :obj:`tardis.visualization.tools.convergence_plot.ConvergencePlots`
+
 
     Returns
     -------
@@ -46,6 +54,9 @@ def run_tardis(
         except TypeError:
             tardis_config = Configuration.from_config_dict(config)
 
+    if not isinstance(show_cplots, bool):
+        raise TypeError("Expected bool in show_cplots argument")
+
     logging_state(log_state, tardis_config, specific)
 
     if atom_data is not None:
@@ -59,6 +70,8 @@ def run_tardis(
         packet_source=packet_source,
         atom_data=atom_data,
         virtual_packet_logging=virtual_packet_logging,
+        show_cplots=show_cplots,
+        **kwargs,
     )
     for cb in simulation_callbacks:
         simulation.add_callback(*cb)

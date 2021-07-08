@@ -1,4 +1,4 @@
-from numba import prange, njit, jit
+from numba import prange, njit, jit, objmode
 import logging
 import numpy as np
 
@@ -26,6 +26,15 @@ from tardis.montecarlo.montecarlo_numba.single_packet_loop import (
 )
 from tardis.montecarlo.montecarlo_numba import njit_dict
 from numba.typed import List
+import tqdm.notebook as tq
+from tqdm import tqdm
+
+pbar = tq.tqdm(total=860000, ncols=628)
+pbar2 = tq.tqdm(total=20, ncols=600)
+
+
+def pbarupdate(i):
+    pbar.update(int(i))
 
 
 def montecarlo_radial1d(model, plasma, runner):
@@ -101,6 +110,7 @@ def montecarlo_radial1d(model, plasma, runner):
         runner.virt_packet_last_line_interaction_out_id = np.concatenate(
             np.array(virt_packet_last_line_interaction_out_id)
         ).ravel()
+    pbar2.update(1)
 
 
 @njit(**njit_dict)
@@ -168,6 +178,9 @@ def montecarlo_main_loop(
     virt_packet_last_line_interaction_out_id = []
 
     for i in prange(len(output_nus)):
+        with objmode:
+            pbarupdate(1)
+            # print(i, end="\r", flush=True)
         if montecarlo_configuration.single_packet_seed != -1:
             seed = packet_seeds[montecarlo_configuration.single_packet_seed]
             np.random.seed(seed)

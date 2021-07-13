@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>tardis.visualization.tools.convergence_plot module &mdash; TARDIS v3.0.dev4065</title>
+  <title>tardis.visualization.tools.convergence_plot module &mdash; TARDIS v3.0.dev4067</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                3.0.dev4065
+                3.0.dev4067
               </div>
             
           
@@ -266,79 +266,79 @@
 </style>
 <div class="section" id="module-tardis.visualization.tools.convergence_plot">
 <span id="tardis-visualization-tools-convergence-plot-module"></span><h1>tardis.visualization.tools.convergence_plot module<a class="headerlink" href="#module-tardis.visualization.tools.convergence_plot" title="Permalink to this headline">¶</a></h1>
+<p>Convergence Plots to see the convergence of the simulation in real time.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.tools.convergence_plot.</span></span><span class="sig-name descname"><span class="pre">ConvergencePlots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterations</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Class to create and update convergence plots for visualizing convergence of the simulation.</p>
-<dl class="field-list">
+<p>Create and update convergence plots for visualizing convergence of the simulation.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>iteration</strong><span class="classifier">int</span></dt><dd><p>iteration number</p>
+<dt><strong>iterations</strong><span class="classifier">int</span></dt><dd><p>iteration number</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>keyword arguments</p>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments. These arguments are defined in the Other Parameters section.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><dl>
-<dt><strong>plasma_plot_config, luminosity_plot_config</strong><span class="classifier">dict</span></dt><dd><p>Dictionary used to override default plot properties of the plots.
-The  <code class="docutils literal notranslate"><span class="pre">plasma_plot_config</span></code> dictionary updates the plasma plot while
-the <code class="docutils literal notranslate"><span class="pre">luminosity_plot_config</span></code> dictionary updates the luminosity and the inner boundary temperature plots.</p>
-<p>All properties related to data will be applied equally across all traces.
-The dictionary should have a structure like that of <code class="docutils literal notranslate"><span class="pre">plotly.graph_objs.FigureWidget.to_dict()</span></code>,
-for more information please see <a class="reference external" href="https://plotly.com/python/figure-structure/">https://plotly.com/python/figure-structure/</a></p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>plasma_plot_config</strong><span class="classifier">dict, optional</span></dt><dd><p>Dictionary used to override default plot properties of plasma plots.</p>
 </dd>
-<dt><strong>plasma_cmap</strong><span class="classifier">str, default: ‘jet’</span></dt><dd><p>String defining the cmap used in plasma plots.</p>
+<dt><strong>t_inner_luminosities_config</strong><span class="classifier">dict, optional</span></dt><dd><p>Dictionary used to override default plot properties of the inner boundary temperature and luminosity plots.</p>
 </dd>
-<dt><strong>other_plot_colors</strong><span class="classifier">str or list</span></dt><dd><p>String defining cmap for luminosity and inner boundary temperature plot.
+<dt><strong>plasma_cmap</strong><span class="classifier">str, default: ‘jet’, optional</span></dt><dd><p>String defining the cmap used in plasma plots.</p>
+</dd>
+<dt><strong>t_inner_luminosities_colors</strong><span class="classifier">str or list, optional</span></dt><dd><p>String defining cmap for luminosity and inner boundary temperature plot.
 The list can be a list of colors in rgb, hex or css-names format as well.</p>
 </dd>
-<dt><strong>export_cplots</strong><span class="classifier">bool, default: False</span></dt><dd><p>If True, plots are displayed again using the <code class="docutils literal notranslate"><span class="pre">notebook_connected</span></code> renderer. This helps
+<dt><strong>export_cplots</strong><span class="classifier">bool, default: False, optional</span></dt><dd><p>If True, plots are displayed again using the <code class="docutils literal notranslate"><span class="pre">notebook_connected</span></code> renderer. This helps
 display the plots in the documentation or in platforms like nbviewer.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>When overriding plots using the <code class="docutils literal notranslate"><span class="pre">plasma_plot_config</span></code> and the <code class="docutils literal notranslate"><span class="pre">t_inner_luminosities_config</span></code> dictionaries,
+data related properties are applied equally accross all traces.
+The dictionary should have a structure like that of <code class="docutils literal notranslate"><span class="pre">plotly.graph_objs.FigureWidget.to_dict()</span></code>,
+for more information please see <a class="reference external" href="https://plotly.com/python/figure-structure/">https://plotly.com/python/figure-structure/</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.build">
 <span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.build" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates empty plasma and luminosity convergence plots and displays them together.</p>
+<dd><p>Create empty convergence plots and display them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>display_plot</strong><span class="classifier">bool</span></dt><dd><p>Displays empty plots. Defaults to True.</p>
+<dt><strong>display_plot</strong><span class="classifier">bool, optional</span></dt><dd><p>Displays empty plots. Defaults to True.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.create_luminosity_plot">
-<span class="sig-name descname"><span class="pre">create_luminosity_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.create_luminosity_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_luminosity_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an empty luminosity plot.
-The default layout can be overridden by passing <code class="docutils literal notranslate"><span class="pre">luminosity_plot_config</span></code> dictionary in the <code class="docutils literal notranslate"><span class="pre">run_tardis</span></code> function.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.create_plasma_plot">
 <span class="sig-name descname"><span class="pre">create_plasma_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.create_plasma_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_plasma_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an empty plasma plot.
-The default layout can be overridden by passing <code class="docutils literal notranslate"><span class="pre">plasma_plot_config</span></code> dictionary in the <code class="docutils literal notranslate"><span class="pre">run_tardis</span></code> function.</p>
+<dd><p>Create an empty plasma plot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.create_t_inner_luminosities_plot">
+<span class="sig-name descname"><span class="pre">create_t_inner_luminosities_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.create_t_inner_luminosities_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_t_inner_luminosities_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an empty t_inner and luminosity plot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.fetch_data">
 <span class="sig-name descname"><span class="pre">fetch_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.fetch_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.fetch_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>This allows user to fetch data from the Simulation class.
-This data is stored and used when an iteration is completed.</p>
+<dd><p>Fetch data from the Simulation class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>name</strong><span class="classifier">string</span></dt><dd><p>name of the data</p>
 </dd>
-<dt><strong>value</strong><span class="classifier">string or array</span></dt><dd><p>string or array of quantities</p>
+<dt><strong>value</strong><span class="classifier">string or array</span></dt><dd><p>string or an array of quantities</p>
 </dd>
 <dt><strong>item_type</strong><span class="classifier">string</span></dt><dd><p>either iterable or value</p>
 </dd>
@@ -350,8 +350,9 @@ This data is stored and used when an iteration is completed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.override_plot_parameters">
 <span class="sig-name descname"><span class="pre">override_plot_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.override_plot_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.override_plot_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Overrides default plot properties. Any property inside the data dictionary is
-however, shared across all traces. This means trace-specific data properties can’t be changed.</p>
+<dd><p>Override default plot properties.</p>
+<p>Any property inside the data dictionary is however, applied equally across all traces.
+This means trace-specific data properties can’t be changed using this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -367,13 +368,12 @@ however, shared across all traces. This means trace-specific data properties can
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">export_cplots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the plasma and the luminosity convergence plots every iteration
-and displays them again after the last iteration for exporting if desired.</p>
+<dd><p>Update the convergence plots every iteration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>export_cplots</strong><span class="classifier">bool</span></dt><dd><p>Displays  the convergence plots using plotly’s <code class="docutils literal notranslate"><span class="pre">notebook_connected</span></code> renderer.
-This displays the plot in notebooks when shared on platforms like nbviewer.
+<dt><strong>export_cplots</strong><span class="classifier">bool</span></dt><dd><p>Displays the convergence plots again using plotly’s <code class="docutils literal notranslate"><span class="pre">notebook_connected</span></code> renderer.
+This helps display the plots in notebooks when shared on platforms like nbviewer.
 Please see <a class="reference external" href="https://plotly.com/python/renderers/">https://plotly.com/python/renderers/</a> for more information.
 Defaults to False.</p>
 </dd>
@@ -385,15 +385,15 @@ Defaults to False.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.update_luminosity_plot">
-<span class="sig-name descname"><span class="pre">update_luminosity_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.update_luminosity_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_luminosity_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates luminosity convergence plots every iteration.</p>
+<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots">
+<span class="sig-name descname"><span class="pre">update_plasma_plots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.update_plasma_plots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update plasma convergence plots every iteration.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots">
-<span class="sig-name descname"><span class="pre">update_plasma_plots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.update_plasma_plots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates plasma convergence plots every iteration.</p>
+<dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.ConvergencePlots.update_t_inner_luminosities_plot">
+<span class="sig-name descname"><span class="pre">update_t_inner_luminosities_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#ConvergencePlots.update_t_inner_luminosities_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_t_inner_luminosities_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the t_inner and luminosity convergence plots every iteration.</p>
 </dd></dl>
 
 </dd></dl>
@@ -401,13 +401,13 @@ Defaults to False.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="tardis.visualization.tools.convergence_plot.transition_colors">
 <span class="sig-prename descclassname"><span class="pre">tardis.visualization.tools.convergence_plot.</span></span><span class="sig-name descname"><span class="pre">transition_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'jet'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/tools/convergence_plot.html#transition_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.tools.convergence_plot.transition_colors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to create colorscale for convergence plots, returns a list of colors.</p>
+<dd><p>Create colorscale for convergence plots, returns a list of colors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>length</strong><span class="classifier">int</span></dt><dd><p>The length of the colorscale.</p>
 </dd>
-<dt><strong>name</strong><span class="classifier">string</span></dt><dd><p>Name of the colorscale. Defaults to “jet”.</p>
+<dt><strong>name</strong><span class="classifier">string, optional</span></dt><dd><p>Name of the colorscale. Defaults to “jet”.</p>
 </dd>
 </dl>
 </dd>

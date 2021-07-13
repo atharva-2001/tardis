@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>tardis.visualization.tools.convergence_plot &mdash; TARDIS v3.0.dev4065</title>
+  <title>tardis.visualization.tools.convergence_plot &mdash; TARDIS v3.0.dev4067</title>
   
 
   
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                3.0.dev4065
+                3.0.dev4067
               </div>
             
           
@@ -212,7 +212,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for tardis.visualization.tools.convergence_plot</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span></span><span class="sd">&quot;&quot;&quot;Convergence Plots to see the convergence of the simulation in real time.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
 <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">clr</span>
 <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
@@ -226,13 +227,13 @@
 
 <div class="viewcode-block" id="transition_colors"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.transition_colors">[docs]</a><span class="k">def</span> <span class="nf">transition_colors</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Function to create colorscale for convergence plots, returns a list of colors.</span>
+<span class="sd">    Create colorscale for convergence plots, returns a list of colors.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    length : int</span>
 <span class="sd">        The length of the colorscale.</span>
-<span class="sd">    name : string</span>
+<span class="sd">    name : string, optional</span>
 <span class="sd">        Name of the colorscale. Defaults to &quot;jet&quot;.</span>
 
 <span class="sd">    Returns</span>
@@ -249,34 +250,36 @@
 
 <div class="viewcode-block" id="ConvergencePlots"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots">[docs]</a><span class="k">class</span> <span class="nc">ConvergencePlots</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Class to create and update convergence plots for visualizing convergence of the simulation.</span>
+<span class="sd">    Create and update convergence plots for visualizing convergence of the simulation.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    iteration : int</span>
+<span class="sd">    iterations : int</span>
 <span class="sd">        iteration number</span>
 <span class="sd">    **kwargs : dict, optional</span>
-<span class="sd">        keyword arguments</span>
+<span class="sd">        Additional keyword arguments. These arguments are defined in the Other Parameters section.</span>
 
 <span class="sd">    Other Parameters</span>
 <span class="sd">    ----------------</span>
-<span class="sd">    plasma_plot_config, luminosity_plot_config : dict</span>
-<span class="sd">        Dictionary used to override default plot properties of the plots.</span>
-<span class="sd">        The  ``plasma_plot_config`` dictionary updates the plasma plot while</span>
-<span class="sd">        the ``luminosity_plot_config`` dictionary updates the luminosity and the inner boundary temperature plots.</span>
-
-<span class="sd">        All properties related to data will be applied equally across all traces.</span>
-<span class="sd">        The dictionary should have a structure like that of ``plotly.graph_objs.FigureWidget.to_dict()``,</span>
-<span class="sd">        for more information please see https://plotly.com/python/figure-structure/</span>
-<span class="sd">    plasma_cmap : str, default: &#39;jet&#39;</span>
+<span class="sd">    plasma_plot_config : dict, optional</span>
+<span class="sd">        Dictionary used to override default plot properties of plasma plots.</span>
+<span class="sd">    t_inner_luminosities_config : dict, optional</span>
+<span class="sd">        Dictionary used to override default plot properties of the inner boundary temperature and luminosity plots.</span>
+<span class="sd">    plasma_cmap : str, default: &#39;jet&#39;, optional</span>
 <span class="sd">        String defining the cmap used in plasma plots.</span>
-<span class="sd">    other_plot_colors : str or list</span>
+<span class="sd">    t_inner_luminosities_colors : str or list, optional</span>
 <span class="sd">        String defining cmap for luminosity and inner boundary temperature plot.</span>
 <span class="sd">        The list can be a list of colors in rgb, hex or css-names format as well.</span>
-<span class="sd">    export_cplots : bool, default: False</span>
+<span class="sd">    export_cplots : bool, default: False, optional</span>
 <span class="sd">        If True, plots are displayed again using the ``notebook_connected`` renderer. This helps</span>
 <span class="sd">        display the plots in the documentation or in platforms like nbviewer.</span>
 
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">        When overriding plots using the ``plasma_plot_config`` and the ``t_inner_luminosities_config`` dictionaries,</span>
+<span class="sd">        data related properties are applied equally accross all traces.</span>
+<span class="sd">        The dictionary should have a structure like that of ``plotly.graph_objs.FigureWidget.to_dict()``,</span>
+<span class="sd">        for more information please see https://plotly.com/python/figure-structure/</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -286,19 +289,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">current_iteration</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">luminosities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Emitted&quot;</span><span class="p">,</span> <span class="s2">&quot;Absorbed&quot;</span><span class="p">,</span> <span class="s2">&quot;Requested&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="s2">&quot;plasma_plot_config&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;plasma_plot_config&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected dict in plasma_plot_config argument&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot_config</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;plasma_plot_config&quot;</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="s2">&quot;luminosity_plot_config&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;luminosity_plot_config&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                    <span class="s2">&quot;Expected dict in luminosity_plot_config argument&quot;</span>
-                <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot_config</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;luminosity_plot_config&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;t_inner_luminosities_config&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_config</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span>
+                <span class="s2">&quot;t_inner_luminosities_config&quot;</span>
+            <span class="p">]</span>
 
         <span class="k">if</span> <span class="s2">&quot;plasma_cmap&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">plasma_colorscale</span> <span class="o">=</span> <span class="n">transition_colors</span><span class="p">(</span>
@@ -308,28 +307,31 @@
             <span class="c1"># default color scale is jet</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">plasma_colorscale</span> <span class="o">=</span> <span class="n">transition_colors</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="s2">&quot;other_plot_colors&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;other_plot_colors&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span> <span class="o">=</span> <span class="n">transition_colors</span><span class="p">(</span>
+        <span class="k">if</span> <span class="s2">&quot;t_inner_luminosities_colors&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="c1"># use cmap if string</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;t_inner_luminosities_colors&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span> <span class="o">=</span> <span class="n">transition_colors</span><span class="p">(</span>
                     <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                    <span class="n">name</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;other_plot_colors&quot;</span><span class="p">],</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;t_inner_luminosities_colors&quot;</span><span class="p">],</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;other_plot_colors&quot;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span>
+                    <span class="s2">&quot;t_inner_luminosities_colors&quot;</span>
+                <span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
+            <span class="c1"># using default plotly colors</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
 
 <div class="viewcode-block" id="ConvergencePlots.fetch_data"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.fetch_data">[docs]</a>    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        This allows user to fetch data from the Simulation class.</span>
-<span class="sd">        This data is stored and used when an iteration is completed.</span>
+<span class="sd">        Fetch data from the Simulation class.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name : string</span>
 <span class="sd">            name of the data</span>
 <span class="sd">        value : string or array</span>
-<span class="sd">            string or array of quantities</span>
+<span class="sd">            string or an array of quantities</span>
 <span class="sd">        item_type : string</span>
 <span class="sd">            either iterable or value</span>
 
@@ -343,14 +345,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ConvergencePlots.create_plasma_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_plasma_plot">[docs]</a>    <span class="k">def</span> <span class="nf">create_plasma_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates an empty plasma plot.</span>
-<span class="sd">        The default layout can be overridden by passing ``plasma_plot_config`` dictionary in the ``run_tardis`` function.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Create an empty plasma plot.&quot;&quot;&quot;</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">FigureWidget</span><span class="p">()</span><span class="o">.</span><span class="n">set_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># empty traces to build figure</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
+        <span class="c1"># 2 y axes and 2 x axes correspond to the 2 subplots in the plasma plot</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
             <span class="n">xaxis</span><span class="o">=</span><span class="p">{</span>
                 <span class="s2">&quot;tickformat&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span>
@@ -373,20 +375,18 @@
             <span class="p">},</span>
             <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
             <span class="n">legend_title_text</span><span class="o">=</span><span class="s2">&quot;Iterations&quot;</span><span class="p">,</span>
-            <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">l</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span>
+            <span class="p">),</span>  <span class="c1"># reduce whitespace surrounding the plot and increase right indentation to align with the t_inner and luminosity plot</span>
         <span class="p">)</span>
 
-        <span class="c1"># allows overriding default layout</span>
+        <span class="c1"># allow overriding default layout</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;plasma_plot_config&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">override_plot_parameters</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot_config</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot</span> <span class="o">=</span> <span class="n">fig</span></div>
 
-<div class="viewcode-block" id="ConvergencePlots.create_luminosity_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_luminosity_plot">[docs]</a>    <span class="k">def</span> <span class="nf">create_luminosity_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates an empty luminosity plot.</span>
-<span class="sd">        The default layout can be overridden by passing ``luminosity_plot_config`` dictionary in the ``run_tardis`` function.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
+<div class="viewcode-block" id="ConvergencePlots.create_t_inner_luminosities_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_t_inner_luminosities_plot">[docs]</a>    <span class="k">def</span> <span class="nf">create_t_inner_luminosities_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an empty t_inner and luminosity plot.&quot;&quot;&quot;</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">FigureWidget</span><span class="p">()</span><span class="o">.</span><span class="n">set_subplots</span><span class="p">(</span>
             <span class="n">rows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -395,17 +395,20 @@
             <span class="n">row_heights</span><span class="o">=</span><span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span>
         <span class="p">)</span>
 
+        <span class="c1"># add inner boundary temperature vs iterations plot</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Inner&lt;br&gt;Boundary&lt;br&gt;Temperature&quot;</span><span class="p">,</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">hovertext</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
-            <span class="n">marker_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
+        <span class="c1"># add luminosity vs iterations plot</span>
+        <span class="c1"># has three traces for emitted, requested and absorbed luminosities</span>
         <span class="k">for</span> <span class="n">luminosity</span><span class="p">,</span> <span class="n">line_color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosities</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">luminosities</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
         <span class="p">):</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">luminosity</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;Luminosity&quot;</span><span class="p">,</span>
@@ -415,15 +418,16 @@
                 <span class="n">marker_color</span><span class="o">=</span><span class="n">line_color</span><span class="p">,</span>
             <span class="p">)</span>
 
+        <span class="c1"># add residual luminosity vs iterations plot</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Residual&lt;br&gt;Luminosity&quot;</span><span class="p">,</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">marker_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">luminosity_line_colors</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_colors</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
             <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="c1"># 3 y axes and 3 x axes correspond to the 3 subplots in the luminosity convergence plot</span>
+        <span class="c1"># 3 y axes and 3 x axes correspond to the 3 subplots in the t_inner and luminosity convergence plot</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
             <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtick</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">xaxis2</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
@@ -462,16 +466,18 @@
             <span class="p">),</span>  <span class="c1"># reduces whitespace surrounding the plot</span>
         <span class="p">)</span>
 
-        <span class="c1"># allows overriding default layout</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;luminosity_plot_config&quot;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">override_plot_parameters</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot_config</span><span class="p">)</span>
+        <span class="c1"># allow overriding default layout</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;t_inner_luminosities_config&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">override_plot_parameters</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_config</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span> <span class="o">=</span> <span class="n">fig</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span> <span class="o">=</span> <span class="n">fig</span></div>
 
 <div class="viewcode-block" id="ConvergencePlots.override_plot_parameters"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.override_plot_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">override_plot_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Overrides default plot properties. Any property inside the data dictionary is</span>
-<span class="sd">        however, shared across all traces. This means trace-specific data properties can&#39;t be changed.</span>
+<span class="sd">        Override default plot properties.</span>
+
+<span class="sd">        Any property inside the data dictionary is however, applied equally across all traces.</span>
+<span class="sd">        This means trace-specific data properties can&#39;t be changed using this function.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -480,7 +486,6 @@
 <span class="sd">        parameters : dict</span>
 <span class="sd">            Dictionary used to update the default plot style.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="c1"># because fig.data is a tuple of traces, a property in the data dictionary is applied to all traces</span>
         <span class="c1"># the fig is a nested dictionary, any property n levels deep is not changed until the value is a not dictionary</span>
         <span class="c1"># fig[&quot;property_1&quot;][&quot;property_2&quot;]...[&quot;property_n&quot;] = &quot;value&quot;</span>
@@ -497,26 +502,25 @@
 
 <div class="viewcode-block" id="ConvergencePlots.build"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates empty plasma and luminosity convergence plots and displays them together.</span>
+<span class="sd">        Create empty convergence plots and display them.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        display_plot : bool</span>
+<span class="sd">        display_plot : bool, optional</span>
 <span class="sd">            Displays empty plots. Defaults to True.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">create_plasma_plot</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">create_luminosity_plot</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_t_inner_luminosities_plot</span><span class="p">()</span>
+
         <span class="k">if</span> <span class="n">display_plot</span><span class="p">:</span>
             <span class="n">display</span><span class="p">(</span>
                 <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span>
-                    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="p">],</span>
+                    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="p">],</span>
                 <span class="p">)</span>
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ConvergencePlots.update_plasma_plots"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots">[docs]</a>    <span class="k">def</span> <span class="nf">update_plasma_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Updates plasma convergence plots every iteration.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Update plasma convergence plots every iteration.&quot;&quot;&quot;</span>
         <span class="c1"># convert velocity to km/s</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterable_data</span><span class="p">[</span><span class="s2">&quot;velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
@@ -560,53 +564,54 @@
             <span class="n">hovertemplate</span><span class="o">=</span><span class="s2">&quot;&lt;b&gt;Y&lt;/b&gt;: %</span><span class="si">{y:.3f}</span><span class="s2"> at &lt;b&gt;X&lt;/b&gt; = %</span><span class="si">{x:,.0f}</span><span class="s2">%</span><span class="si">{customdata}</span><span class="s2">&quot;</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ConvergencePlots.update_luminosity_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_luminosity_plot">[docs]</a>    <span class="k">def</span> <span class="nf">update_luminosity_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Updates luminosity convergence plots every iteration.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ConvergencePlots.update_t_inner_luminosities_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_t_inner_luminosities_plot">[docs]</a>    <span class="k">def</span> <span class="nf">update_t_inner_luminosities_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the t_inner and luminosity convergence plots every iteration.&quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">batch_update</span><span class="p">():</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">batch_update</span><span class="p">():</span>
             <span class="c1"># traces are updated according to the order they were added</span>
             <span class="c1"># the first trace is of the inner boundary temperature plot</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="s2">&quot;t_inner&quot;</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span>
+                <span class="s2">&quot;t_inner&quot;</span>
+            <span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
                 <span class="mi">0</span>
             <span class="p">]</span><span class="o">.</span><span class="n">hovertemplate</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;%</span><span class="si">{y:.3f}</span><span class="s2">&lt;/b&gt; at X = %</span><span class="si">{x:,.0f}</span><span class="s2">&lt;extra&gt;Inner Boundary Temperature&lt;/extra&gt;&quot;</span>  <span class="c1"># trace name in extra tag to avoid new lines in hoverdata</span>
 
             <span class="c1"># the next three for emitted, absorbed and requested luminosities</span>
             <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">luminosity</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">luminosities</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="n">luminosity</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">hovertemplate</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span>
+                    <span class="n">luminosity</span>
+                <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">hovertemplate</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="s2">&quot;&lt;b&gt;%</span><span class="si">{y:.4g}</span><span class="s2">&lt;/b&gt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;at X = %</span><span class="si">{x}</span><span class="s2">&lt;br&gt;&quot;</span>
                 <span class="p">)</span>
 
-                <span class="c1"># last is for the residual luminosity</span>
-                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="p">((</span><span class="n">emitted</span> <span class="o">-</span> <span class="n">requested</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">requested</span>
-                    <span class="k">for</span> <span class="n">emitted</span><span class="p">,</span> <span class="n">requested</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="s2">&quot;Emitted&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="s2">&quot;Requested&quot;</span><span class="p">]</span>
-                    <span class="p">)</span>
-                <span class="p">]</span>
+            <span class="c1"># last is for the residual luminosity</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">((</span><span class="n">emitted</span> <span class="o">-</span> <span class="n">requested</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">requested</span>
+                <span class="k">for</span> <span class="n">emitted</span><span class="p">,</span> <span class="n">requested</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="s2">&quot;Emitted&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_data</span><span class="p">[</span><span class="s2">&quot;Requested&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
-                    <span class="mi">4</span>
-                <span class="p">]</span><span class="o">.</span><span class="n">hovertemplate</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;%</span><span class="si">{y:.2f}</span><span class="s2">%&lt;/b&gt; at X = %</span><span class="si">{x:,.0f}</span><span class="s2">&quot;</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
+                <span class="mi">4</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">hovertemplate</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;%</span><span class="si">{y:.2f}</span><span class="s2">%&lt;/b&gt; at X = %</span><span class="si">{x:,.0f}</span><span class="s2">&quot;</span></div>
 
 <div class="viewcode-block" id="ConvergencePlots.update"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">export_cplots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Updates the plasma and the luminosity convergence plots every iteration</span>
-<span class="sd">        and displays them again after the last iteration for exporting if desired.</span>
+<span class="sd">        Update the convergence plots every iteration.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        export_cplots : bool</span>
-<span class="sd">            Displays  the convergence plots using plotly&#39;s ``notebook_connected`` renderer.</span>
-<span class="sd">            This displays the plot in notebooks when shared on platforms like nbviewer.</span>
+<span class="sd">            Displays the convergence plots again using plotly&#39;s ``notebook_connected`` renderer.</span>
+<span class="sd">            This helps display the plots in notebooks when shared on platforms like nbviewer.</span>
 <span class="sd">            Please see https://plotly.com/python/renderers/ for more information.</span>
 <span class="sd">            Defaults to False.</span>
 <span class="sd">        last : bool</span>
@@ -618,7 +623,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">update_plasma_plots</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">update_luminosity_plot</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_t_inner_luminosities_plot</span><span class="p">()</span>
 
             <span class="c1"># data property for plasma plots needs to be</span>
             <span class="c1"># updated after the last iteration because new traces have been added</span>
@@ -640,7 +645,7 @@
                             <span class="bp">self</span><span class="o">.</span><span class="n">plasma_plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
                                 <span class="n">renderer</span><span class="o">=</span><span class="s2">&quot;notebook_connected&quot;</span>
                             <span class="p">),</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity_plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">t_inner_luminosities_plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
                                 <span class="n">renderer</span><span class="o">=</span><span class="s2">&quot;notebook_connected&quot;</span>
                             <span class="p">),</span>
                         <span class="p">]</span>

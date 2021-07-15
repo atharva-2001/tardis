@@ -19,8 +19,8 @@ def transition_colors(length, name="jet"):
     ----------
     length : int
         The length of the colorscale.
-    name : string, optional
-        Name of the colorscale. Defaults to "jet".
+    name : string, default: 'jet', optional
+        Name of the colorscale.
 
     Returns
     -------
@@ -58,12 +58,13 @@ class ConvergencePlots(object):
         The list can be a list of colors in rgb, hex or css-names format as well.
     export_cplots : bool, default: False, optional
         If True, plots are displayed again using the ``notebook_connected`` renderer. This helps
-        display the plots in the documentation or in platforms like nbviewer.
+        to display the plots in the documentation or in platforms like nbviewer.
 
     Notes
     -----
-        When overriding plots using the ``plasma_plot_config`` and the ``t_inner_luminosities_config`` dictionaries,
-        data related properties are applied equally accross all traces.
+        When overriding plot's configuration using the ``plasma_plot_config`` and the
+        ``t_inner_luminosities_config`` dictionaries, data related properties are
+        applied equally accross all traces.
         The dictionary should have a structure like that of ``plotly.graph_objs.FigureWidget.to_dict()``,
         for more information please see https://plotly.com/python/figure-structure/
     """
@@ -397,7 +398,7 @@ class ConvergencePlots(object):
         ----------
         export_cplots : bool
             Displays the convergence plots again using plotly's ``notebook_connected`` renderer.
-            This helps display the plots in notebooks when shared on platforms like nbviewer.
+            This helps to display the plots in notebooks when shared on platforms like nbviewer.
             Please see https://plotly.com/python/renderers/ for more information.
             Defaults to False.
         last : bool
@@ -427,13 +428,6 @@ class ConvergencePlots(object):
             with suppress(TraitError):
                 display(
                     widgets.VBox(
-                        [
-                            self.plasma_plot.show(
-                                renderer="notebook_connected"
-                            ),
-                            self.t_inner_luminosities_plot.show(
-                                renderer="notebook_connected"
-                            ),
-                        ]
+                        [self.plasma_plot, self.t_inner_luminosities_plot]
                     )
                 )

@@ -1,5 +1,10 @@
 # functions that are important for the general usage of TARDIS
 
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 def run_tardis(
     config,
@@ -8,7 +13,7 @@ def run_tardis(
     simulation_callbacks=[],
     virtual_packet_logging=False,
     show_cplots=True,
-    log_state=None,
+    log_level=None,
     specific=None,
     **kwargs,
 ):
@@ -41,7 +46,7 @@ def run_tardis(
     -------
     Simulation
     """
-    from tardis import logging_state
+    from tardis.io.logger.logger import logging_state
     from tardis.io.config_reader import Configuration
     from tardis.io.atom_data.base import AtomData
     from tardis.simulation import Simulation
@@ -52,17 +57,23 @@ def run_tardis(
         try:
             tardis_config = Configuration.from_yaml(config)
         except TypeError:
+            logger.debug(
+                "TARDIS Config not available via YAML. Reading through TARDIS Config Dictionary"
+            )
             tardis_config = Configuration.from_config_dict(config)
 
     if not isinstance(show_cplots, bool):
         raise TypeError("Expected bool in show_cplots argument")
 
-    logging_state(log_state, tardis_config, specific)
+    logging_state(log_level, tardis_config, specific)
 
     if atom_data is not None:
         try:
             atom_data = AtomData.from_hdf(atom_data)
         except TypeError:
+            logger.debug(
+                "Atom Data Cannot be Read from HDF. Setting to Default Atom Data"
+            )
             atom_data = atom_data
 
     simulation = Simulation.from_config(

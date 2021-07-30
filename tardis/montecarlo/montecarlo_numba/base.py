@@ -65,6 +65,9 @@ def update_packet_pbar(i, current_iteration, total_iterations, total_packets):
     # set bar total when first called
     if packet_pbar.total == None:
         packet_pbar.ncols = "100%"
+        print(
+            "a bar should have been displayed here if this thing ran #############################################"
+        )
         if type(packet_pbar).__name__ == "tqdm_notebook":
             packet_pbar.container = packet_pbar.status_printer(
                 packet_pbar.fp,

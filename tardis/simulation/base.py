@@ -126,6 +126,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         runner,
         no_of_packets,
         no_of_virtual_packets,
+        total_packets,
         luminosity_nu_start,
         luminosity_nu_end,
         last_no_of_packets,
@@ -133,6 +134,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         convergence_strategy,
         nthreads,
         show_cplots,
+        show_progress_bar,
         cplots_kwargs,
     ):
 
@@ -146,11 +148,13 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         self.runner = runner
         self.no_of_packets = no_of_packets
         self.last_no_of_packets = last_no_of_packets
+        self.total_packets = total_packets
         self.no_of_virtual_packets = no_of_virtual_packets
         self.luminosity_nu_start = luminosity_nu_start
         self.luminosity_nu_end = luminosity_nu_end
         self.luminosity_requested = luminosity_requested
         self.nthreads = nthreads
+        self.show_progress_bar = show_progress_bar
 
         if convergence_strategy.type in ("damped"):
             self.convergence_strategy = convergence_strategy
@@ -363,9 +367,12 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             self.plasma,
             no_of_packets,
             no_of_virtual_packets=no_of_virtual_packets,
+            total_packets=self.total_packets,
             nthreads=self.nthreads,
             last_run=last_run,
             iteration=self.iterations_executed,
+            total_iterations=self.iterations,
+            show_progress_bar=self.show_progress_bar,
         )
         output_energy = self.runner.output_energy
         if np.sum(output_energy < 0) == len(output_energy):
@@ -583,6 +590,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
         packet_source=None,
         virtual_packet_logging=False,
         show_cplots=True,
+        show_progress_bar=True,
         **kwargs,
     ):
         """
@@ -653,19 +661,25 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
                 const.c / config.supernova.luminosity_wavelength_start
             ).to(u.Hz)
 
+        iterations = int(config.montecarlo.iterations)
+        no_of_packets = int(config.montecarlo.no_of_packets)
+
         last_no_of_packets = config.montecarlo.last_no_of_packets
         if last_no_of_packets is None or last_no_of_packets < 0:
             last_no_of_packets = config.montecarlo.no_of_packets
         last_no_of_packets = int(last_no_of_packets)
 
+        total_packets = last_no_of_packets + no_of_packets * (iterations - 1)
+
         return cls(
-            iterations=config.montecarlo.iterations,
+            iterations=iterations,
             model=model,
             plasma=plasma,
             runner=runner,
             show_cplots=show_cplots,
-            no_of_packets=int(config.montecarlo.no_of_packets),
+            no_of_packets=no_of_packets,
             no_of_virtual_packets=int(config.montecarlo.no_of_virtual_packets),
+            total_packets=total_packets,
             luminosity_nu_start=luminosity_nu_start,
             luminosity_nu_end=luminosity_nu_end,
             last_no_of_packets=last_no_of_packets,
@@ -673,4 +687,5 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
             convergence_strategy=config.montecarlo.convergence_strategy,
             nthreads=config.montecarlo.nthreads,
             cplots_kwargs=cplots_kwargs,
+            show_progress_bar=show_progress_bar,
         )

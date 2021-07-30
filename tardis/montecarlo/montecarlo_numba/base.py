@@ -1,4 +1,4 @@
-from numba import prange, njit, jit
+from numba import prange, njit, jit, objmode
 import logging
 import numpy as np
 
@@ -26,9 +26,107 @@ from tardis.montecarlo.montecarlo_numba.single_packet_loop import (
 )
 from tardis.montecarlo.montecarlo_numba import njit_dict
 from numba.typed import List
+from tardis.util.base import is_notebook
+from IPython.display import display
+import tqdm
+
+if is_notebook():
+    pbar = tqdm.notebook.tqdm
+else:
+    pbar = tqdm.tqdm
+
+packet_pbar = pbar(
+    dynamic_ncols=True,
+    bar_format="{bar}{percentage:3.0f}% of packets propagated, iteration 0/?",
+)
+if type(packet_pbar).__name__ == "tqdm_notebook":
+    packet_pbar.container.close()
 
 
-def montecarlo_radial1d(model, plasma, runner):
+def update_packet_pbar(i, current_iteration, total_iterations, total_packets):
+    """
+    Update progress bars as each packet is propagated.
+
+    Parameters
+    ----------
+    i : int
+        Amount by which the progress bar needs to be updated.
+    current_iteration : int
+        Current iteration number.
+    total_iterations : int
+        Total number of iterations.
+    total_packets : int
+        Total number of packets.
+    """
+    bar_format = packet_pbar.bar_format.split(" ")
+    bar = bar_format[:-1]
+    bar_iteration = int(bar_format[-1].split("/")[0]) - 1
+
+    # set bar total when first called
+    if packet_pbar.total == None:
+        packet_pbar.ncols = "100%"
+        if type(packet_pbar).__name__ == "tqdm_notebook":
+            packet_pbar.container = packet_pbar.status_printer(
+                packet_pbar.fp,
+                packet_pbar.total,
+                packet_pbar.desc,
+                packet_pbar.ncols,
+            )
+            display(packet_pbar.container)
+        packet_pbar.reset(total=total_packets)
+        packet_pbar.display()
+
+    # display and reset progress bar when run_tardis is called again
+    if bar_iteration > current_iteration:
+        packet_pbar.bar_format = (
+            " ".join(bar)
+            + " "
+            + str(current_iteration)
+            + "/"
+            + str(total_iterations)
+        )
+
+        if type(packet_pbar).__name__ == "tqdm_notebook":
+            # stop displaying last container
+            packet_pbar.container.close()
+
+            # the dynamic ncols gets reset
+            # we have dynamic ncols set to True
+            packet_pbar.ncols = "100%"
+            packet_pbar.container = packet_pbar.status_printer(
+                packet_pbar.fp,
+                packet_pbar.total,
+                packet_pbar.desc,
+                packet_pbar.ncols,
+            )
+            display(packet_pbar.container)
+            packet_pbar.display()
+
+        packet_pbar.reset(total=total_packets)
+
+    # update iteration number in progress bar
+    if bar_iteration < current_iteration:
+        packet_pbar.bar_format = (
+            " ".join(bar)
+            + " "
+            + str(current_iteration + 1)
+            + "/"
+            + str(total_iterations)
+        )
+        packet_pbar.display()
+
+    packet_pbar.update(int(i))
+
+
+def montecarlo_radial1d(
+    model,
+    plasma,
+    iteration,
+    total_packets,
+    total_iterations,
+    show_progress_bar,
+    runner,
+):
     packet_collection = PacketCollection(
         runner.input_r,
         runner.input_nu,
@@ -75,7 +173,11 @@ def montecarlo_radial1d(model, plasma, runner):
         estimators,
         runner.spectrum_frequency.value,
         number_of_vpackets,
+        total_packets,
         packet_seeds,
+        iteration=iteration,
+        total_iterations=total_iterations,
+        show_progress_bar=show_progress_bar,
     )
 
     runner._montecarlo_virtual_luminosity.value[:] = v_packets_energy_hist
@@ -119,7 +221,11 @@ def montecarlo_main_loop(
     estimators,
     spectrum_frequency,
     number_of_vpackets,
+    total_packets,
     packet_seeds,
+    iteration,
+    total_iterations,
+    show_progress_bar,
 ):
     """
     This is the main loop of the MonteCarlo routine that generates packets
@@ -178,6 +284,15 @@ def montecarlo_main_loop(
     virt_packet_last_line_interaction_out_id = []
 
     for i in prange(len(output_nus)):
+        if show_progress_bar:
+            with objmode:
+                update_packet_pbar(
+                    1,
+                    current_iteration=iteration,
+                    total_iterations=total_iterations,
+                    total_packets=total_packets,
+                )
+
         if montecarlo_configuration.single_packet_seed != -1:
             seed = packet_seeds[montecarlo_configuration.single_packet_seed]
             np.random.seed(seed)
@@ -214,8 +329,12 @@ def montecarlo_main_loop(
 
         vpackets_nu = vpacket_collection.nus[: vpacket_collection.idx]
         vpackets_energy = vpacket_collection.energies[: vpacket_collection.idx]
-        vpackets_initial_mu = vpacket_collection.initial_mus[: vpacket_collection.idx]
-        vpackets_initial_r = vpacket_collection.initial_rs[: vpacket_collection.idx]
+        vpackets_initial_mu = vpacket_collection.initial_mus[
+            : vpacket_collection.idx
+        ]
+        vpackets_initial_r = vpacket_collection.initial_rs[
+            : vpacket_collection.idx
+        ]
 
         v_packets_idx = np.floor(
             (vpackets_nu - spectrum_frequency[0]) / delta_nu
@@ -233,17 +352,29 @@ def montecarlo_main_loop(
     if montecarlo_configuration.VPACKET_LOGGING:
         for vpacket_collection in vpacket_collections:
             vpackets_nu = vpacket_collection.nus[: vpacket_collection.idx]
-            vpackets_energy = vpacket_collection.energies[: vpacket_collection.idx]
-            vpackets_initial_mu = vpacket_collection.initial_mus[: vpacket_collection.idx]
-            vpackets_initial_r = vpacket_collection.initial_rs[: vpacket_collection.idx]
+            vpackets_energy = vpacket_collection.energies[
+                : vpacket_collection.idx
+            ]
+            vpackets_initial_mu = vpacket_collection.initial_mus[
+                : vpacket_collection.idx
+            ]
+            vpackets_initial_r = vpacket_collection.initial_rs[
+                : vpacket_collection.idx
+            ]
             virt_packet_nus.append(np.ascontiguousarray(vpackets_nu))
             virt_packet_energies.append(np.ascontiguousarray(vpackets_energy))
-            virt_packet_initial_mus.append(np.ascontiguousarray(vpackets_initial_mu))
-            virt_packet_initial_rs.append(np.ascontiguousarray(vpackets_initial_r))
-            virt_packet_last_interaction_in_nu.append(np.ascontiguousarray(
-                vpacket_collection.last_interaction_in_nu[
-                    : vpacket_collection.idx
-                ])
+            virt_packet_initial_mus.append(
+                np.ascontiguousarray(vpackets_initial_mu)
+            )
+            virt_packet_initial_rs.append(
+                np.ascontiguousarray(vpackets_initial_r)
+            )
+            virt_packet_last_interaction_in_nu.append(
+                np.ascontiguousarray(
+                    vpacket_collection.last_interaction_in_nu[
+                        : vpacket_collection.idx
+                    ]
+                )
             )
             virt_packet_last_interaction_type.append(
                 np.ascontiguousarray(

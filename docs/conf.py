@@ -123,9 +123,9 @@ mathjax2_config = {
 }
 
 nbsphinx_execute_arguments = [
+    "--ExecutePreprocessor.store_widget_state=True",
     "--InlineBackend.figure_formats={'svg', 'pdf'}",
     "--InlineBackend.rc={'figure.dpi': 96}",
-    "--ExecutePreprocessor.store_widget_state=True",
 ]
 
 nbsphinx_prolog = r"""

@@ -29,6 +29,7 @@ import os
 import sys
 import datetime
 from importlib import import_module
+from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 try:
     from sphinx_astropy.conf.v1 import *  # noqa
@@ -207,6 +208,9 @@ release = package.__version__
 import sphinx_rtd_theme
 
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_js_files = [
+    DEFAULT_EMBED_REQUIREJS_URL,
+]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes. To override the custom theme, set this to the

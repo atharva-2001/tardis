@@ -1,8 +1,8 @@
-.. |ZENODO| replace:: kerzendorf_wolfgang_2021_5716473
+.. |ZENODO| replace:: kerzendorf_wolfgang_2021_5732521
 
 .. code-block:: bibtex
 
-    @software{kerzendorf_wolfgang_2021_5716473,
+    @software{kerzendorf_wolfgang_2021_5732521,
       author       = {Kerzendorf, Wolfgang and
                       Sim, Stuart and
                       Vogl, Christian and
@@ -74,11 +74,11 @@
                       Nayak U, Ashwin and
                       Kharkar, Atharwa and
                       Kumar, Atul},
-      title        = {tardis-sn/tardis: TARDIS v2021.11.21},
+      title        = {tardis-sn/tardis: TARDIS v2021.11.28},
       month        = nov,
       year         = 2021,
       publisher    = {Zenodo},
-      version      = {release-2021.11.21},
-      doi          = {10.5281/zenodo.5716473},
-      url          = {https://doi.org/10.5281/zenodo.5716473}
+      version      = {release-2021.11.28},
+      doi          = {10.5281/zenodo.5732521},
+      url          = {https://doi.org/10.5281/zenodo.5732521}
     }

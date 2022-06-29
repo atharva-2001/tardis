@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: tardis-sn/carsus
-          # path: carsus
+          path: carsus/
         
       - uses: actions/cache@v2
         with:
@@ -51,7 +51,7 @@ jobs:
         with:
             miniforge-variant: Mambaforge
             miniforge-version: latest
-            environment-file: carsus_env3.yml
+            environment-file: carsus/carsus_env3.yml
             activate-environment: carsus
             use-mamba: true
 

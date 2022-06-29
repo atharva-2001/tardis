@@ -56,7 +56,7 @@ jobs:
             use-mamba: true
 
       - name: Install package
-        run: pip install -e .
+        run: pip install -e carsus/
 
       - name: Run notebooks
         run: |

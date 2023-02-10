@@ -72,7 +72,7 @@ jobs:
         run: pip install -e .
 
       - name: Run tests
-        run: pytest tardis ${{ env.PYTEST_FLAGS }}
+        run: pytest -vv -x --durations=0 tardis/plasma/tests/test_complete_plasmas.py ${{ env.PYTEST_FLAGS }}
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)

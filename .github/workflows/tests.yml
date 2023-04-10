@@ -49,6 +49,8 @@ jobs:
 
       - name: Clone tardis-sn/tardis-refdata
         uses: actions/checkout@v2
+        env:
+            GIT_LFS_SKIP_SMUDGE: 1
         with:
           repository: tardis-sn/tardis-refdata
           path: tardis-refdata

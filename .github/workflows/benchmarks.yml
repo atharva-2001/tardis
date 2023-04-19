@@ -38,9 +38,6 @@ jobs:
         contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
     steps:
       - uses: actions/checkout@v2
-        with:
-          repository: atharva-2001/tardis
-          ref: master
 
       - name: Download Atom Data
         run: |

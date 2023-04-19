@@ -5,7 +5,7 @@ on:
     branches:
     - '*'
 
-  pull_request:
+  pull_request_target:
     branches:
     - '*'
   workflow_dispatch:
@@ -27,9 +27,9 @@ jobs:
         #   prefix: /Users/runner/miniconda3/envs/tardis
     name: ${{ matrix.label }}
     runs-on: ${{ matrix.os }}
-    # if: github.event_name == 'push' ||
-    #     github.event_name == 'workflow_dispatch' || 
-    #     contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
+    if: github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch' || 
+        contains(github.event.pull_request_target.labels.*.name, 'run-benchmarks')
     steps:
       - uses: actions/checkout@v2
         with:

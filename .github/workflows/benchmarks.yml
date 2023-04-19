@@ -30,14 +30,14 @@ jobs:
         #   prefix: /Users/runner/miniconda3/envs/tardis
     name: ${{ matrix.label }}
     runs-on: ${{ matrix.os }}
-    if: github.event_name == 'push' ||
-        github.event_name == 'workflow_dispatch' || 
-        contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
+    # if: github.event_name == 'push' ||
+    #     github.event_name == 'workflow_dispatch' || 
+    #     contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
     steps:
       - uses: actions/checkout@v2
         with:
           repository: atharva-2001/tardis
-          ref: benchmark_base
+          ref: benchmark_base_test
 
       - name: Download Atom Data
         run: |

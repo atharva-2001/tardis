@@ -62,6 +62,7 @@ jobs:
           fi
           
       - name: Generate Graphs and HTML
+        if: github.event_name != 'pull_request'
         run: asv publish
 
       - name: Delete env files

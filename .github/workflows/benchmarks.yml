@@ -76,7 +76,7 @@ jobs:
         continue-on-error: true
         uses: cpina/github-action-push-to-another-repository@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN}}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB}}
         with:
           source-directory: .asv
           destination-github-username: tardis-sn
@@ -107,7 +107,7 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@v2
         with:
-          token:  ${{ secrets.BOT_TOKEN}}
+          token:  ${{ secrets.API_TOKEN_GITHUB}}
           issue-number: ${{ github.event.pull_request.number }} 
           body: |
             *\*beep\* \*bop\**

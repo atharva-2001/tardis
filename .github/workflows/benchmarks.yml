@@ -1,0 +1,140 @@
+name: benchmarks
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled # run-benchmarks label required
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  build:
+    if: github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch' || 
+        contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
+    runs-on: ubuntu-latest
+    env:
+      CCACHE_BASEDIR: "${{ github.workspace }}"
+      CCACHE_DIR: "${{ github.workspace }}/.ccache"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Download Atom Data
+        run: |
+          REPO_URL="https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata"
+          wget -q "$REPO_URL/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&versionType=branch&version=master&resolveLfs=true" -O benchmarks/data/kurucz_cd23_chianti_H_He.h5
+
+      - name: Install asv and ccache
+        run: |
+          pip install asv
+          sudo apt-get update -y && sudo apt-get install -y ccache
+          sudo /usr/sbin/update-ccache-symlinks
+          echo "/usr/lib/ccache" >> $GITHUB_PATH
+
+      - name: Prepare ccache
+        run: |
+          ccache -p
+          ccache -z
+      
+      - name: Restore ccache
+        uses: actions/cache@v3
+        with:
+          path: .ccache
+          key: ccache
+
+      - name: Accpet all asv questions
+        run: asv machine --yes
+      
+      - name: Run benchmarks for last 5 commits if not PR
+        if: github.event_name != 'pull_request'
+        run: |
+          git log -n 5  --pretty=format:"%H" >> tag_commits.txt
+          asv run HASHFILE:tag_commits.txt | tee asv-output.log  
+          if grep -q failed asv-output.log; then 
+            echo "Some benchmarks have failed!"
+            exit 1
+          fi
+          
+      - name: Generate Graphs and HTML
+        if: github.event_name != 'pull_request'
+        run: asv publish
+      
+      - name: Push results to results repository
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB}}
+        with:
+          source-directory: .asv
+          destination-github-username: tardis-sn
+          destination-repository-name: tardis-benchmarks
+          user-email: tardis.sn.bot@gmail.com
+          target-branch: main
+          target-directory: .asv
+      
+      - name: Compare HEAD with master if PR
+        if: github.event_name == 'pull_request'
+        continue-on-error: true # TODO: step failed sporadically while testing
+        run: |
+          asv continuous ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}  | tee asv-output.log  
+          if grep -q failed asv-output.log; then 
+            echo "Some benchmarks have errors!"
+            exit 1
+          fi
+      
+      - name: Output logs for comment
+        id: asv_logs
+        run: |
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "text<<$EOF" >> $GITHUB_OUTPUT
+          echo "$(cat asv-output.log)" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+
+      - name: Post comment
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          token:  ${{ secrets.API_TOKEN_GITHUB}}
+          issue-number: ${{ github.event.pull_request.number }} 
+          body: |
+            *\*beep\* \*bop\**
+            Hi human, 
+            I ran benchmarks as you asked comparing master (${{ github.event.pull_request.base.sha }}) and the latest commit (${{ github.event.pull_request.head.sha }}). 
+            Here are the logs produced by ASV.
+            Results can also be downloaded as artifacts [**here**](${{ env.URL }}). 
+            <details>
+
+              ```
+              ${{join(steps.asv_logs.outputs.*, '\n')}}
+              ${{ steps.asv_logs.outputs.LOGS }}
+              ```
+            </details>
+        env:
+          URL: https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runs/${{ github.run_id }}?check_suite_focus=true
+      
+      - name: Delete env files
+        run: rm -r .asv/env
+      
+      - run: ccache -s
+        if: always()
+        
+      - name: Save results artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: asv-benchmark-results-${{ runner.os }}
+          path: .asv/results
+      

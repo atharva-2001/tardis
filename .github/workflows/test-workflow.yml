@@ -1,0 +1,26 @@
+
+name: tests2
+
+on:
+  push:
+    branches:
+    - '*'
+
+  pull_request:
+    branches:
+    - '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash -l {0}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ${{ github.head_ref || github.ref }}
+      - run: ${{ github.head_ref }} || ${{ github.ref }}

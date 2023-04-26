@@ -129,12 +129,12 @@ jobs:
         run: rm -r .asv/env
       
 
-      - name: Save .ccache
+      - name: Save ccache
         uses: actions/cache/save@v3
         id: ccache
         with:
           path: .ccache
-          key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
+          key: ccache
       
       - run: ccache -s
         if: always()

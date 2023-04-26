@@ -23,6 +23,9 @@ jobs:
         github.event_name == 'workflow_dispatch' || 
         contains(github.event.pull_request.labels.*.name, 'run-benchmarks')
     runs-on: ubuntu-latest
+    env:
+      CCACHE_BASEDIR: "${{ github.workspace }}"
+      CCACHE_DIR: "${{ github.workspace }}/.ccache"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -33,9 +36,24 @@ jobs:
           REPO_URL="https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata"
           wget -q "$REPO_URL/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&versionType=branch&version=master&resolveLfs=true" -O benchmarks/data/kurucz_cd23_chianti_H_He.h5
 
-      - name: Install asv
-        run: pip install asv
+      - name: Install asv and ccache
+        run: |
+          pip install asv
+          sudo apt-get update -y && sudo apt-get install -y ccache
+          sudo /usr/sbin/update-ccache-symlinks
+          echo "/usr/lib/ccache" >> $GITHUB_PATH
+        
+      - name: Prepare ccache
+        run: |
+          ccache -p
+          ccache -z
       
+      - name: Restore ccache
+        uses: actions/cache/restore@v3
+        with:
+          path: .ccache
+          key: ccache
+    
       - name: Accpet all asv questions
         run: asv machine --yes
       
@@ -109,6 +127,17 @@ jobs:
       
       - name: Delete env files
         run: rm -r .asv/env
+      
+
+      - name: Save .ccache
+        uses: actions/cache/save@v3
+        id: ccache
+        with:
+          path: .ccache
+          key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
+      
+      - run: ccache -s
+        if: always()
         
       - name: Save results artifact
         uses: actions/upload-artifact@v3

@@ -144,5 +144,5 @@ jobs:
         if: always()
         with:
           name: asv-benchmark-results-${{ runner.os }}
-          path: .asv/results
+          path: .asv
       

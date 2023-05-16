@@ -27,7 +27,7 @@ dependencies:
   # I/O
   - pyyaml
   - jsonschema
-  - hdf5=1.10
+  # - hdf5=1.10
   - h5py
   - pytables
   - requests

@@ -92,16 +92,17 @@ jobs:
             miniforge-version: latest
             activate-environment: tardis
             use-mamba: true
+            environment-file: tardis_env3.yml
+            
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: ${{ matrix.prefix }}
+      #     key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
+      #   id: cache-conda
 
-      - uses: actions/cache@v2
-        with:
-          path: ${{ matrix.prefix }}
-          key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
-        id: cache-conda
-
-      - name: Update environment
-        run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
-        if: steps.cache-conda.outputs.cache-hit != 'true'
+      # - name: Update environment
+      #   run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
+      #   if: steps.cache-conda.outputs.cache-hit != 'true'
 
       - name: Install package
         run: pip install -e .

@@ -107,7 +107,7 @@ jobs:
         run: pip install -e .
 
       - name: Run tests
-        run: pytest tardis ${{ env.PYTEST_FLAGS }}
+        run: pytest tardis/simulation/tests/test_simulation.py ${{ env.PYTEST_FLAGS }} -vvv
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)

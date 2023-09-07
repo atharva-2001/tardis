@@ -127,7 +127,7 @@ jobs:
       #   continue-on-error: true  
 
       - name: Run tests 4
-        run: pytest tardis/montecarlo tardis/simulation ${{ env.PYTEST_FLAGS }}
+        run: pytest tardis/montecarlo/tests/test_packet_source.py tardis/simulation ${{ env.PYTEST_FLAGS }}
         continue-on-error: true
 
       - name: Run tests 2

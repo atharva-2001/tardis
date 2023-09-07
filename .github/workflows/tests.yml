@@ -106,9 +106,9 @@ jobs:
       - name: Install package
         run: pip install -e .
 
-      # - name: Run tests
-      #   run: pytest tardis ${{ env.PYTEST_FLAGS }}
-      #   continue-on-error: true
+      - name: Run tests
+        run: pytest tardis ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
       
       # - name: Run tests 2
       #   run: pytest tardis/model tardis/plasma tardis/simulation tardis/tests ${{ env.PYTEST_FLAGS }}

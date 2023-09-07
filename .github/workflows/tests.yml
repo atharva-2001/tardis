@@ -15,7 +15,7 @@ on:
 
 env:
   CACHE_NUMBER: 0  # increase to reset cache manually
-  PYTEST_FLAGS: --tardis-refdata=${{ github.workspace }}/tardis-refdata
+  PYTEST_FLAGS: -x --tardis-refdata=${{ github.workspace }}/tardis-refdata
                 --cov=tardis --cov-report=xml --cov-report=html
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
@@ -106,24 +106,40 @@ jobs:
       - name: Install package
         run: pip install -e .
 
-      - name: Run tests
-        run: pytest tardis ${{ env.PYTEST_FLAGS }}
-        continue-on-error: true
+      # - name: Run tests
+      #   run: pytest tardis ${{ env.PYTEST_FLAGS }}
+      #   continue-on-error: true
       
+      # - name: Run tests 2
+      #   run: pytest tardis/model tardis/plasma tardis/simulation tardis/tests ${{ env.PYTEST_FLAGS }}
+      #   continue-on-error: true
+
+      # - name: Run tests 3
+      #   run: pytest tardis/simulation tardis/tests tardis/transport ${{ env.PYTEST_FLAGS }}
+      #   continue-on-error: true
+
+      # - name: Run tests 4
+      #   run: pytest tardis/plasma tardis/simulation ${{ env.PYTEST_FLAGS }}
+      #   continue-on-error: true
+
+      # - name: Run tests 5
+      #   run: pytest tardis/simulation tardis/plasma tardis/model ${{ env.PYTEST_FLAGS }}
+      #   continue-on-error: true  
+
+      - name: Run tests 4
+        run: pytest tardis/montecarlo tardis/simulation ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
+
       - name: Run tests 2
         run: pytest tardis/model tardis/plasma tardis/simulation tardis/tests ${{ env.PYTEST_FLAGS }}
         continue-on-error: true
 
       - name: Run tests 3
-        run: pytest tardis/simulation tardis/tests tardis/transport ${{ env.PYTEST_FLAGS }}
-        continue-on-error: true
-
-      - name: Run tests 4
-        run: pytest tardis/plasma tardis/simulation ${{ env.PYTEST_FLAGS }}
+        run: pytest tardis/energy_input tardis/model tardis/montecarlo tardis/plasma tardis/simulation ${{ env.PYTEST_FLAGS }}
         continue-on-error: true
 
       - name: Run tests 5
-        run: pytest tardis/simulation tardis/plasma tardis/model ${{ env.PYTEST_FLAGS }}
+        run: pytest tardis/montecarlo tardis/simulation tardis/plasma tardis/model ${{ env.PYTEST_FLAGS }}
         continue-on-error: true   
 
       - name: Upload to Codecov

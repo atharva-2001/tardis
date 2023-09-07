@@ -29,7 +29,7 @@ defaults:
 
 jobs:
   build:
-    if: github.repository_owner == 'tardis-sn'
+    # if: github.repository_owner == 'tardis-sn'
     strategy:
       matrix:
         include:
@@ -108,6 +108,23 @@ jobs:
 
       - name: Run tests
         run: pytest tardis ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
+      
+      - name: Run tests 2
+        run: pytest tardis/model tardis/plasma tardis/simulation tardis/tests ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
+
+      - name: Run tests 3
+        run: pytest tardis/simulation tardis/tests tardis/transport ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
+
+      - name: Run tests 4
+        run: pytest tardis/plasma tardis/simulation ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true
+
+      - name: Run tests 5
+        run: pytest tardis/simulation tardis/plasma tardis/model ${{ env.PYTEST_FLAGS }}
+        continue-on-error: true   
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)

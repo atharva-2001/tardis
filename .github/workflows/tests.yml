@@ -16,7 +16,7 @@ on:
 env:
   CACHE_NUMBER: 0  # increase to reset cache manually
   PYTEST_FLAGS: --tardis-refdata=${{ github.workspace }}/tardis-refdata
-                --cov=tardis --cov-report=xml --cov-report=html
+                --cov=tardis --cov-report=xml --cov-report=html -x
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 concurrency:
@@ -50,7 +50,8 @@ jobs:
       - name: Clone tardis-sn/tardis-refdata
         uses: actions/checkout@v2
         with:
-          repository: tardis-sn/tardis-refdata
+          repository: tardis-bot/tardis-refdata
+          ref: pr-2407
           path: tardis-refdata
           lfs: false
 
@@ -108,6 +109,15 @@ jobs:
 
       - name: Run tests
         run: pytest tardis ${{ env.PYTEST_FLAGS }}
+      
+      - name: Run tests sim
+        run: pytest tardis/simulation ${{ env.PYTEST_FLAGS }}
+      
+      - name: Run tests ttffi
+        run: pytest tardis/tests/test_tardis_full_formal_integral.py ${{ env.PYTEST_FLAGS }}
+
+      - name: Run tests ttf
+        run: pytest tardis/tests/test_tardis_full.py ${{ env.PYTEST_FLAGS }}
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)

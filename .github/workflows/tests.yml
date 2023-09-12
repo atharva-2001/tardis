@@ -101,8 +101,8 @@ jobs:
 
       - name: Update environment
         run: |
-          mamba create -n tardis --file tardis_env3.yml
-          mamba activate tardis
+          conda env create -f tardis_env3.yml -n tardis
+          conda activate tardis
         # if: steps.cache-conda.outputs.cache-hit != 'true'
 
       - name: Install package

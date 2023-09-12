@@ -29,7 +29,7 @@ defaults:
 
 jobs:
   build:
-    # if: github.repository_owner == 'tardis-sn'
+    if: github.repository_owner == 'tardis-sn'
     strategy:
       matrix:
         include:
@@ -93,15 +93,17 @@ jobs:
             activate-environment: tardis
             use-mamba: true
 
-      - uses: actions/cache@v2
-        with:
-          path: ${{ matrix.prefix }}
-          key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
-        id: cache-conda
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: ${{ matrix.prefix }}
+      #     key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
+      #   id: cache-conda
 
       - name: Update environment
-        run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
-        if: steps.cache-conda.outputs.cache-hit != 'true'
+        run: |
+          mamba create -n tardis --file tardis_env3.yml
+          mamba activate tardis
+        # if: steps.cache-conda.outputs.cache-hit != 'true'
 
       - name: Install package
         run: pip install -e .

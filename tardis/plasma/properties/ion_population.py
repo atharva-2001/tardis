@@ -70,6 +70,9 @@ class PhiSahaLTE(ProcessingPlasmaProperty):
             current_phis = current_block[1:] / current_block[:-1]
             phis[start_id - i : end_id - i - 1] = current_phis
 
+        print("partition_function.index", partition_function.index)
+        print(ionization_data)
+        # breakpoint()
         broadcast_ionization_energy = ionization_data[
             partition_function.index
         ].dropna()

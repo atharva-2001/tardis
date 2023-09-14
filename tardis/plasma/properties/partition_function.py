@@ -40,7 +40,10 @@ class LevelBoltzmannFactorLTE(ProcessingPlasmaProperty):
 
     @staticmethod
     def calculate(excitation_energy, g, beta_rad, levels):
-        exponential = np.exp(np.outer(excitation_energy.values, -beta_rad))
+        print("excitation_energy.values", excitation_energy.values, type(excitation_energy.values))
+        print("beta_rad", beta_rad, type(beta_rad))
+        # exponential = np.exp(np.outer(excitation_energy.values, -beta_rad))
+        exponential = np.exp(np.outer(excitation_energy.values, -beta_rad).astype(float))
         level_boltzmann_factor_array = g.values[np.newaxis].T * exponential
         level_boltzmann_factor = pd.DataFrame(
             level_boltzmann_factor_array,

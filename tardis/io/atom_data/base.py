@@ -299,7 +299,8 @@ class AtomData(object):
         levels.loc[:, "energy"] = Quantity(levels["energy"].values, "eV").cgs
 
         # Create a new columns with wavelengths in the CGS units
-        lines["wavelength_cm"] = Quantity(lines["wavelength"], "angstrom").cgs
+        # lines["wavelength_cm"] = Quantity(lines["wavelength"], "angstrom").cgs
+        
 
         # SET ATTRIBUTES
 
@@ -307,6 +308,7 @@ class AtomData(object):
         self.ionization_data = ionization_data
         self.levels = levels
         self.lines = lines
+        self.lines_wave_cm = Quantity(lines["wavelength"], "angstrom").cgs
 
         # Rename these (drop "_all") when `prepare_atom_data` is removed!
         self.macro_atom_data_all = macro_atom_data
@@ -380,12 +382,19 @@ class AtomData(object):
             np.arange(len(self.levels), dtype=int), index=self.levels.index
         )
 
-        # cutting levels_lines
-        self.lines = self.lines[
-            self.lines.index.isin(
+        cut = self.lines.index.isin(
                 self.selected_atomic_numbers, level="atomic_number"
             )
+        print(cut, type(cut))
+        print(len(cut), len(self.selected_atomic_numbers), len(self.lines))
+        print(type(self.lines))
+        print("wav", self.lines["wavelength"])
+        print(self.lines.columns)
+        # cutting levels_lines
+        self.lines = self.lines[
+            cut
         ]
+        self.lines["wavelength_cm"] = self.lines_wave_cm
 
         self.lines.sort_values(by="wavelength", inplace=True)
 

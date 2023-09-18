@@ -93,9 +93,9 @@ jobs:
             # activate-environment: tardis
             use-mamba: true
       
-      - run: |
-          mamba env create -f tardis_env3.yml --name tardis
-          conda activate tardis
+      - run: mamba env create -f tardis_env3.yml --name tardis
+          
+      - run: mamba activate tardis
 
       # - uses: actions/cache@v2
       #   with:

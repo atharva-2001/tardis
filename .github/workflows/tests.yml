@@ -90,7 +90,7 @@ jobs:
         with:
             miniforge-variant: Mambaforge
             miniforge-version: latest
-            activate-environment: tardis
+            # activate-environment: tardis
             use-mamba: true
       
       - run: |

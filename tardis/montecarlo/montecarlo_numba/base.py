@@ -1,5 +1,11 @@
 from numba import prange, njit, objmode
-from numba.np.ufunc.parallel import get_thread_id, get_num_threads
+# from numba.np.ufunc.parallel import get_thread_id, get_num_threads
+
+try:
+    from numba.np.ufunc.parallel import get_thread_id
+except ImportError:  # numba<0.56
+    from numba.np.ufunc.parallel import _get_thread_id as get_thread_id
+
 
 import numpy as np
 

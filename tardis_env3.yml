@@ -16,9 +16,9 @@ dependencies:
   - scipy
   - pandas
   # - astropy
-  # - numba
-  # - numexpr
-  # - radioactivedecay
+  - numba
+  - numexpr
+  - radioactivedecay
 
   # # Plasma
   # - networkx

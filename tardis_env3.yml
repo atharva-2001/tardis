@@ -9,16 +9,16 @@ dependencies:
   # package recipe at https://github.com/conda-forge/tardis-sn-feedstock
 
   - python
-  - setuptools
-  - setuptools_scm
-  - pip
-  - numpy
-  - scipy
-  - pandas
-  - astropy
-  - numba
-  - numexpr
-  - radioactivedecay
+  # - setuptools
+  # - setuptools_scm
+  # - pip
+  # - numpy
+  # - scipy
+  # - pandas
+  # - astropy
+  # - numba
+  # - numexpr
+  # - radioactivedecay
 
   # # Plasma
   # - networkx

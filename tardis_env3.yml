@@ -15,10 +15,10 @@ dependencies:
   - numpy
   - scipy
   - pandas
-  # - astropy
-  - numba
+  - astropy
+  # - numba
   - numexpr
-  - radioactivedecay
+  # - radioactivedecay
 
   # # Plasma
   # - networkx

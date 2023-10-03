@@ -35,7 +35,9 @@ jobs:
             use-mamba: true
 
       - name: Install conda-lock
-        run: mamba install -c conda-forge conda-lock=1.0.5
+        run: mamba install -c conda-forge conda-lock
+      
+      - run: conda list
 
       - name: Generate lockfiles
         run: |

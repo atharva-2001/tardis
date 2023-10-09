@@ -40,7 +40,8 @@ jobs:
     name: ${{ matrix.platform }} (${{ matrix.pkgman }})
     steps:
       - name: Download lockfile
-        run: wget -q https://raw.githubusercontent.com/atharva-2001/tardis/blob/master/conda-${{ matrix.platform }}.lock
+        # run: wget -q https://raw.githubusercontent.com/atharva-2001/tardis/blob/master/conda-${{ matrix.platform }}.lock
+        run: wget -q https://raw.githubusercontent.com/atharva-2001/tardis/pre_release_lock_fix3/conda-${{ matrix.platform }}.lock
 
       - name: Setup environment
         uses: conda-incubator/setup-miniconda@v2

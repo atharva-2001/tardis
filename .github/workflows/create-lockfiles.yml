@@ -1,6 +1,14 @@
 name: create-lockfiles
 
 on:
+  push:
+    branches:
+    - '*'
+
+  pull_request:
+    branches:
+    - '*'
+
   workflow_dispatch:  # manual trigger
 
 defaults:

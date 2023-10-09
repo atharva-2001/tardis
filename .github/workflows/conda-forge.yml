@@ -5,6 +5,13 @@
 name: conda-forge
 
 on:
+  push:
+    branches:
+    - '*'
+
+  pull_request:
+    branches:
+    - '*'
   schedule:
     - cron: '0 0 * * 1'
 
@@ -33,7 +40,7 @@ jobs:
     name: ${{ matrix.platform }} (${{ matrix.pkgman }})
     steps:
       - name: Download lockfile
-        run: wget -q https://github.com/tardis-sn/tardis/releases/latest/download/conda-${{ matrix.platform }}.lock
+        run: wget -q https://raw.githubusercontent.com/atharva-2001/tardis/blob/master/conda-${{ matrix.platform }}.lock
 
       - name: Setup environment
         uses: conda-incubator/setup-miniconda@v2

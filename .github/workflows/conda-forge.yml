@@ -51,6 +51,10 @@ jobs:
             environment-file: conda-${{ matrix.platform }}.lock
             activate-environment: tardis
             use-mamba: true
+      
+      - name: Update Mamba # see https://github.com/conda-incubator/setup-miniconda/issues/288
+        run: mamba update mamba
+
 
       - name: Install conda-forge package
         run: ${{ matrix.pkgman }} install tardis-sn -c conda-forge

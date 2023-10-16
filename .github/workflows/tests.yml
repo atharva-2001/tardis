@@ -114,7 +114,7 @@ jobs:
           directory_path_with_tardis="$directory_path/tardis"
 
       - name: Run tests
-        run: pytest "$directory_path_with_tardis" ${{ env.PYTEST_FLAGS }}
+        run: pytest $directory_path_with_tardis ${{ env.PYTEST_FLAGS }}
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)

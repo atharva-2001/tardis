@@ -109,7 +109,7 @@ jobs:
       # - name: Install package
       #   run: pip install -e .
       - run: |
-          location_line=$(pip show tardis | grep -i "Location:")
+          location_line=$(pip show tardis | grep -i -x "Location:.*")
           directory_path=$(echo $location_line | awk -F " " '{print $2}')
           directory_path_with_tardis="$directory_path/tardis"
 

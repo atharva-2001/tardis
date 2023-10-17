@@ -48,61 +48,61 @@ jobs:
       # - uses: actions/checkout@v2
       - run: wget -q https://github.com/tardis-sn/tardis/releases/latest/download/conda-${{ matrix.label }}.lock
 
-      - name: Clone tardis-sn/tardis-refdata
-        uses: actions/checkout@v2
-        with:
-          repository: tardis-sn/tardis-refdata
-          path: tardis-refdata
-          lfs: false
+      # - name: Clone tardis-sn/tardis-refdata
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: tardis-sn/tardis-refdata
+      #     path: tardis-refdata
+      #     lfs: false
 
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-        working-directory: tardis-refdata
+      # - name: Create LFS file list
+      #   run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+      #   working-directory: tardis-refdata
 
-      - name: Restore LFS cache
-        uses: actions/cache/restore@v3
-        id: lfs-cache
-        with:
-          path: tardis-refdata/.git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
+      # - name: Restore LFS cache
+      #   uses: actions/cache/restore@v3
+      #   id: lfs-cache
+      #   with:
+      #     path: tardis-refdata/.git/lfs
+      #     key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
 
-      - name: Git LFS Pull
-        run: git lfs pull
-        working-directory: tardis-refdata
-        if: steps.lfs-cache.outputs.cache-hit != 'true'
+      # - name: Git LFS Pull
+      #   run: git lfs pull
+      #   working-directory: tardis-refdata
+      #   if: steps.lfs-cache.outputs.cache-hit != 'true'
       
-      - name: Git LFS Checkout
-        run: git lfs checkout
-        working-directory: tardis-refdata
-        if: steps.lfs-cache.outputs.cache-hit == 'true'
+      # - name: Git LFS Checkout
+      #   run: git lfs checkout
+      #   working-directory: tardis-refdata
+      #   if: steps.lfs-cache.outputs.cache-hit == 'true'
       
-      - name: Save LFS cache if not found
-        # uses fake ternary 
-        # for reference: https://github.com/orgs/community/discussions/26738#discussioncomment-3253176
-        if: ${{ steps.lfs-cache.outputs.cache-hit != 'true'  && always() || false }}
-        uses: actions/cache/save@v3
-        id: lfs-cache-save
-        with:
-          path: tardis-refdata/.git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
+      # - name: Save LFS cache if not found
+      #   # uses fake ternary 
+      #   # for reference: https://github.com/orgs/community/discussions/26738#discussioncomment-3253176
+      #   if: ${{ steps.lfs-cache.outputs.cache-hit != 'true'  && always() || false }}
+      #   uses: actions/cache/save@v3
+      #   id: lfs-cache-save
+      #   with:
+      #     path: tardis-refdata/.git/lfs
+      #     key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
 
-      - name: Setup environment
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-            miniforge-variant: Mambaforge
-            miniforge-version: latest
-            activate-environment: tardis
-            use-mamba: true
+      # - name: Setup environment
+      #   uses: conda-incubator/setup-miniconda@v2
+      #   with:
+      #       miniforge-variant: Mambaforge
+      #       miniforge-version: latest
+      #       activate-environment: tardis
+      #       use-mamba: true
 
-      - uses: actions/cache@v2
-        with:
-          path: ${{ matrix.prefix }}
-          key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
-        id: cache-conda
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: ${{ matrix.prefix }}
+      #     key: conda-${{ matrix.label }}-${{ hashFiles('conda-${{ matrix.label }}.lock') }}-${{ env.CACHE_NUMBER }}
+      #   id: cache-conda
 
-      - name: Update environment
-        run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
-        if: steps.cache-conda.outputs.cache-hit != 'true'
+      # - name: Update environment
+      #   run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
+      #   if: steps.cache-conda.outputs.cache-hit != 'true'
       
       - run: pip install git+https://github.com/tardis-sn/tardis.git@master
 
@@ -112,6 +112,8 @@ jobs:
           location_line=$(pip show tardis | grep -i -x "Location:.*")
           directory_path=$(echo $location_line | awk -F " " '{print $2}')
           directory_path_with_tardis="$directory_path/tardis"
+      
+      - run: echo  $directory_path_with_tardis
 
       - name: Run tests
         run: pytest $directory_path_with_tardis ${{ env.PYTEST_FLAGS }}

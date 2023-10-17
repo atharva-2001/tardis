@@ -115,6 +115,8 @@ jobs:
           directory_path_with_tardis="$directory_path/tardis"
       
       - run: echo  $directory_path_with_tardis
+      - run: echo  $directory_path
+      - run: echo  $location_line
 
       - name: Run tests
         run: pytest $directory_path_with_tardis ${{ env.PYTEST_FLAGS }}

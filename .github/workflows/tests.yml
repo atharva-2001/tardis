@@ -106,7 +106,7 @@ jobs:
         run: mamba update -n tardis --file conda-${{ matrix.label }}.lock
         if: steps.cache-conda.outputs.cache-hit != 'true'
       
-      - run: pip install git+https://github.com/tardis-sn/tardis.git@master
+      - run: pip install git+https://github.com/atharva-2001/tardis.git@setup_cfg_fix_tests_changed
       - run: pip show tardis
 
       # - name: Install package

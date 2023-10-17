@@ -105,6 +105,7 @@ jobs:
       #   if: steps.cache-conda.outputs.cache-hit != 'true'
       
       - run: pip install git+https://github.com/tardis-sn/tardis.git@master
+      - run: pip show tardis
 
       # - name: Install package
       #   run: pip install -e .

@@ -7,17 +7,17 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Slash Command Dispatcher
-        uses: peter-evans/slash-command-dispatch@v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          commands: |
-            update-refdata
-          repository: tardis-sn/tardis
-          issue-type: pull-request
-          permission: triage
-          reaction-token: ${{ secrets.BOT_TOKEN }}
-          allow-edits: true
+      # - name: Slash Command Dispatcher
+      #   uses: peter-evans/slash-command-dispatch@v3
+      #   with:
+      #     token: ${{ secrets.BOT_TOKEN }}
+      #     commands: |
+      #       update-refdata
+      #     repository: tardis-sn/tardis
+      #     issue-type: pull-request
+      #     permission: triage
+      #     reaction-token: ${{ secrets.BOT_TOKEN }}
+      #     allow-edits: true
 
       - name: Slash Command Dispatcher
         uses: peter-evans/slash-command-dispatch@v3
@@ -25,8 +25,8 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           commands: |
             compare-refdata
-          repository: tardis-sn/tardis-refdata
+          repository: atharva-2001/tardis-refdata
           issue-type: pull-request
           permission: triage
-          reaction-token: ${{ secrets.BOT_TOKEN }}
+          # reaction-token: ${{ secrets.BOT_TOKEN }}
           allow-edits: true

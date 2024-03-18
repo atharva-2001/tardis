@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           commands: |
             compare-refdata
-          repository: tardis-sn/tardis-refdata
+          repository: atharva-2001/tardis-refdata
           issue-type: pull-request
           permission: triage
           reaction-token: ${{ secrets.BOT_TOKEN }}

@@ -95,7 +95,7 @@ jobs:
       
       - name: Create LFS file list
         run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-        working-directory: tardis-refdata
+        working-directory: tardis-regression-data
 
       - name: Restore LFS cache
         uses: actions/cache/restore@v3

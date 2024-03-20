@@ -1,7 +1,7 @@
 {
     "version": 1,
     "project": "tardis",
-    "project_url": "https://tardis-sn.github.io/tardis",
+    "project_url": "https://tardis-rt.github.io/tardis",
     "repo": ".",
     "install_command": ["in-dir={env_dir} python -mpip install {wheel_file}"],
     "uninstall_command": ["return-code=any python -mpip uninstall -y {project}"],
@@ -11,7 +11,7 @@
     ],
     "branches": ["master"],
     "environment_type": "mamba",
-    "show_commit_url": "https://github.com/tardis-sn/tardis/commit",
+    "show_commit_url": "https://github.com/tardis-rt/tardis/commit",
     "conda_environment_file": "tardis_env3.yml",
     "benchmark_dir": "benchmarks",
     "env_dir": ".asv/env",

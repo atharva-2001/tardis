@@ -1,6 +1,6 @@
 #  For more information about TARDIS pipelines, please refer to:
 #
-#    https://tardis-sn.github.io/tardis/contributing/development/continuous_integration.html
+#    https://tardis-rt.github.io/tardis/contributing/development/continuous_integration.html
 
 name: pre-release
 
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: tardis-sn/tardis_zenodo
+          repository: tardis-rt/tardis_zenodo
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Dump Secret Key
@@ -29,7 +29,7 @@ jobs:
           KEY_SECRET_JSON: ${{ secrets.ZENODO_KEY_SECRET_JSON }}
 
       - name: Download Lock File
-        run:  wget -q https://raw.githubusercontent.com/tardis-sn/tardis/master/conda-linux-64.lock
+        run:  wget -q https://raw.githubusercontent.com/tardis-rt/tardis/master/conda-linux-64.lock
         
       - name: Setup environment
         uses: conda-incubator/setup-miniconda@v2

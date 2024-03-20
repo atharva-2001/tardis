@@ -42,7 +42,7 @@ Whether your page is written in reStructuredText or as a Jupyter notebook, it mu
 
 .. note::
     
-    When new functions or classes are added to the code, in addition to documentation, **docstrings** must always be added. Read :ref:`this section <docstrings>` of our code quality guidelines to understand their importance and how they should be formatted. Sphinx uses these docstrings to auto-generate the `API documentation <https://tardis-sn.github.io/tardis/api/modules.html>`_ for entire TARDIS package. Please make sure that you have correctly formatted the docstrings by checking how the corresponding module's API looks once you build the documentation.
+    When new functions or classes are added to the code, in addition to documentation, **docstrings** must always be added. Read :ref:`this section <docstrings>` of our code quality guidelines to understand their importance and how they should be formatted. Sphinx uses these docstrings to auto-generate the `API documentation <https://tardis-rt.github.io/tardis/api/modules.html>`_ for entire TARDIS package. Please make sure that you have correctly formatted the docstrings by checking how the corresponding module's API looks once you build the documentation.
 
 
 Building documentation locally
@@ -74,7 +74,7 @@ Sharing the built documentation in your pull request
 
 When proposing changes to the documentation, or the code in general, it is useful to reviewers to see how the documentation will look once your pull request is merged. This is done by adding the ``build-docs`` label to your pull request on GitHub. If you do not have permission to add the label, leave a comment in your pull request or contact a senior member of the collaboration and it will be added.
 
-The documentation will be built as soon as the label is added, and any subsequent commits while the label is present will trigger a documentation build. Your built documentation will be available at ``https://tardis-sn.github.io/tardis/pull/<pull request number>/index.html``. It will also be automatically linked to in the comments of the pull request.
+The documentation will be built as soon as the label is added, and any subsequent commits while the label is present will trigger a documentation build. Your built documentation will be available at ``https://tardis-rt.github.io/tardis/pull/<pull request number>/index.html``. It will also be automatically linked to in the comments of the pull request.
 
 Finally, to view the build logs (which will contain warning and error messages), go to the ``Actions`` tab in the TARDIS repository, and click on ``docs`` in the list of workflows. You can search documentation builds by branch to find your build log.
 

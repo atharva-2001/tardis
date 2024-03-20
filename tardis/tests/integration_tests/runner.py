@@ -57,7 +57,7 @@ def run_tests():
     while True:
         # Request Github API and get githash of master on Github.
         gh_request = requests.get(
-            "https://api.github.com/repos/tardis-sn/tardis/branches/master"
+            "https://api.github.com/repos/tardis-rt/tardis/branches/master"
         )
         gh_master_head_data = json.loads(gh_request.content)
         gh_tardis_githash = gh_master_head_data["commit"]["sha"][:7]
@@ -73,7 +73,7 @@ def run_tests():
                 [
                     "git",
                     "pull",
-                    "https://www.github.com/tardis-sn/tardis",
+                    "https://www.github.com/tardis-rt/tardis",
                     "master",
                 ]
             )

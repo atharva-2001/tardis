@@ -1,6 +1,6 @@
 #  For more information about TARDIS pipelines, please refer to:
 #
-#    https://tardis-sn.github.io/tardis/contributing/development/continuous_integration.html
+#    https://tardis-rt.github.io/tardis/contributing/development/continuous_integration.html
 
 name: post-release
 
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: tardis-sn/tardis
+          repository: tardis-rt/tardis
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
 
@@ -24,7 +24,7 @@ jobs:
         run: sudo npm install -g github-changes
 
       - name: Update changelog
-        run: github-changes -o tardis-sn -r tardis --only-pulls --use-commit-body -f CHANGELOG.md -k ${{ secrets.BOT_TOKEN }}
+        run: github-changes -o tardis-rt -r tardis --only-pulls --use-commit-body -f CHANGELOG.md -k ${{ secrets.BOT_TOKEN }}
 
       - uses: actions/upload-artifact@v3
         with:

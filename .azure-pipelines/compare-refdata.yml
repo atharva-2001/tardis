@@ -1,5 +1,5 @@
 # For more information on how to use this pipeline please refer to:
-# https://tardis-sn.github.io/tardis/contributing/development/continuous_integration.html
+# https://tardis-rt.github.io/tardis/contributing/development/continuous_integration.html
 
 # IMPORTANT: Only contributors with `Write` permission can trigger the build
 #            by commenting `/AzurePipelines run <pipeline-name>` on the pull
@@ -108,16 +108,16 @@ jobs:
       - ${{ if eq(variables['Build.Reason'], 'PullRequest') }}:
         - task: GitHubComment@0
           inputs:
-            gitHubConnection: 'tardis-sn'
-            repositoryName: 'tardis-sn/tardis'
+            gitHubConnection: 'tardis-rt'
+            repositoryName: 'tardis-rt/tardis'
             id: $(pr.number)
             comment: '**Build succeeded** $(commit.sha) <br><br> [Click here]($(results.url)/$(pr.number)/$(commit.sha).html) to see results.'
           displayName: 'Post results (success)'
 
         - task: GitHubComment@0
           inputs:
-            gitHubConnection: 'tardis-sn'
-            repositoryName: 'tardis-sn/tardis'
+            gitHubConnection: 'tardis-rt'
+            repositoryName: 'tardis-rt/tardis'
             id: $(pr.number)
             comment: '**Build failed** $(commit.sha) <br><br> [Click here]($(results.url)/$(pr.number)/$(commit.sha).html) to see results.'
           displayName: 'Post results (failed)'

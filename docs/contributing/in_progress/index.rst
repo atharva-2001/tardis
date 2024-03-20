@@ -4,7 +4,7 @@
 Features In-Progress
 ********************
 
-This is a current status summary of ongoing development projects in the TARDIS collaboration. Brief summaries of the projects are listed below. Other projects and their descriptions can be found in the `GitHub Projects <https://github.com/tardis-sn/tardis/projects>`_ or the `TARDIS Enhancement Proposals (TEPS) repository <https://github.com/tardis-sn/tep>`_.
+This is a current status summary of ongoing development projects in the TARDIS collaboration. Brief summaries of the projects are listed below. Other projects and their descriptions can be found in the `GitHub Projects <https://github.com/tardis-rt/tardis/projects>`_ or the `TARDIS Enhancement Proposals (TEPS) repository <https://github.com/tardis-rt/tep>`_.
 
 Additionally, documentation for features that are not yet implemented can be found here.
 
@@ -12,7 +12,7 @@ Additionally, documentation for features that are not yet implemented can be fou
 Google Summer of Code (GSOC)
 ============================
 
-Many new TARDIS developments are made through GSOC students. To learn more about potential GSOC projects, see the `GSOC ideas page <https://tardis-sn.github.io/gsoc/tardis-gsoc-ideas.html>`_.
+Many new TARDIS developments are made through GSOC students. To learn more about potential GSOC projects, see the `GSOC ideas page <https://tardis-rt.github.io/gsoc/tardis-gsoc-ideas.html>`_.
 
 
 
@@ -77,4 +77,4 @@ Adding parsers to generate TARDIS models produced by other codes.
 STARDIS
 =======
 
-Developing a radiative transfer code using the TARDIS infrastructure that produces synthetic stellar spectra. See https://github.com/tardis-sn/stardis.
+Developing a radiative transfer code using the TARDIS infrastructure that produces synthetic stellar spectra. See https://github.com/tardis-rt/stardis.

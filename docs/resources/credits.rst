@@ -180,7 +180,7 @@ The following BibTeX entries are needed for the references:
                       Nayak U, Ashwin and
                       Dasgupta, Debajyoti and
                       Kumar, Atul},
-      title        = {tardis-sn/tardis: TARDIS v2023.08.13},
+      title        = {tardis-rt/tardis: TARDIS v2023.08.13},
       month        = aug,
       year         = 2023,
       publisher    = {Zenodo},

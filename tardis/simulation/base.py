@@ -686,7 +686,7 @@ class Simulation(PlasmaStateStorerMixin, HDFWriterMixin):
                 print(
                     e,
                     "Error might be from the use of an old-format of the atomic database, \n"
-                    "please see https://github.com/tardis-sn/tardis-refdata/tree/master/atom_data"
+                    "please see https://github.com/tardis-rt/tardis-refdata/tree/master/atom_data"
                     " for the most recent version.",
                 )
                 raise

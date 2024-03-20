@@ -169,7 +169,7 @@ nbsphinx_prolog = r"""
     </style>
     
     <div class="admonition note">
-    <p class="note-p">You can interact with this notebook online: <a href="https://mybinder.org/v2/gh/tardis-sn/tardis/HEAD?filepath={{ docname|e }}" class="launch-btn" target="_blank" rel="noopener noreferrer">Launch notebook</a></p>
+    <p class="note-p">You can interact with this notebook online: <a href="https://mybinder.org/v2/gh/tardis-rt/tardis/HEAD?filepath={{ docname|e }}" class="launch-btn" target="_blank" rel="noopener noreferrer">Launch notebook</a></p>
     </div>
 """
 
@@ -296,7 +296,7 @@ github_issues_url = "https://github.com/{0}/issues/".format(
 # -- Options for linkcheck output -------------------------------------------
 linkcheck_retry = 5
 linkcheck_ignore = [
-    r"https://github\.com/tardis-sn/tardis/(?:issues|pull)/\d+",
+    r"https://github\.com/tardis-rt/tardis/(?:issues|pull)/\d+",
 ]
 linkcheck_timeout = 180
 linkcheck_anchors = False

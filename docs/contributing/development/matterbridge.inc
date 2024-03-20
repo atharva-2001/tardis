@@ -1,7 +1,7 @@
 
 .. matterbridge stuff
 .. _OpenSupernova.org: http://opensupernova.org
-.. _private GitHub repository: https://github.com/tardis-sn/tardis-matterbridge
+.. _private GitHub repository: https://github.com/tardis-rt/tardis-matterbridge
 .. _Upstart script: https://www.digitalocean.com/community/tutorials/the-upstart-event-system-what-it-is-and-how-to-use-it
 .. _Systemd service: https://freedesktop.org/software/systemd/man/systemd.service.html
 .. _steps for Slack in the Matterbridge wiki: https://github.com/42wim/matterbridge/wiki/Slack-bot-setup

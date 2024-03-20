@@ -9,26 +9,26 @@ TARDIS
     :target: http://numfocus.org
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
-    :target: https://gitter.im/tardis-sn/tardis
+    :target: https://gitter.im/tardis-rt/tardis
 
 .. image:: https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc
-    :target: https://open.vscode.dev/tardis-sn/tardis
+    :target: https://open.vscode.dev/tardis-rt/tardis
 |
 
 TARDIS is a tool that creates synthetic observations (*spectra*) for exploding
 stars (*supernovae*).
 
-.. image:: https://codecov.io/gh/tardis-sn/tardis/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/tardis-sn/tardis
+.. image:: https://codecov.io/gh/tardis-rt/tardis/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/tardis-rt/tardis
 
 .. image:: https://img.shields.io/endpoint?url=https://jsonbin.org/tardis-bot/tardis/badges/docstr-cov
-    :target: https://github.com/tardis-sn/tardis/actions/workflows/docstr-cov.yml?query=branch%3Amaster
+    :target: https://github.com/tardis-rt/tardis/actions/workflows/docstr-cov.yml?query=branch%3Amaster
 
-.. image:: https://github.com/tardis-sn/tardis/actions/workflows/tests.yml/badge.svg
-    :target: https://github.com/tardis-sn/tardis/actions/workflows/tests.yml
+.. image:: https://github.com/tardis-rt/tardis/actions/workflows/tests.yml/badge.svg
+    :target: https://github.com/tardis-rt/tardis/actions/workflows/tests.yml
 
-.. image:: https://github.com/tardis-sn/tardis/actions/workflows/build-docs.yml/badge.svg
-    :target: https://tardis-sn.github.io/tardis/index.html
+.. image:: https://github.com/tardis-rt/tardis/actions/workflows/build-docs.yml/badge.svg
+    :target: https://tardis-rt.github.io/tardis/index.html
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
@@ -216,7 +216,7 @@ The following BibTeX entries are needed for the references:
                       Nayak U, Ashwin and
                       Dasgupta, Debajyoti and
                       Kumar, Atul},
-      title        = {tardis-sn/tardis: TARDIS v2023.08.13},
+      title        = {tardis-rt/tardis: TARDIS v2023.08.13},
       month        = aug,
       year         = 2023,
       publisher    = {Zenodo},
@@ -229,8 +229,8 @@ The following BibTeX entries are needed for the references:
 License
 *******
 
-.. image:: https://img.shields.io/conda/l/conda-forge/tardis-sn
-    :target: https://github.com/tardis-sn/tardis/blob/master/licenses/LICENSE.rst
+.. image:: https://img.shields.io/conda/l/conda-forge/tardis-rt
+    :target: https://github.com/tardis-rt/tardis/blob/master/licenses/LICENSE.rst
 
 .. image:: http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat
     :target: http://www.astropy.org

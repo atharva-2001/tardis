@@ -60,9 +60,9 @@ While Black automatically conforms your code to a majority of the PEP 8 style gu
 Docstrings
 ==========
 
-A docstring (short for documentation string) is a string that describes a module's, function's, class's, or method's definition. The docstring is a special attribute of the object (``object.__doc__``) and, for consistency, is surrounded by triple double quotes. Besides helping others understand what your code does, docstrings are used by Sphinx to auto-generate `API documentation <https://tardis-sn.github.io/tardis/api/modules.html>`_.
+A docstring (short for documentation string) is a string that describes a module's, function's, class's, or method's definition. The docstring is a special attribute of the object (``object.__doc__``) and, for consistency, is surrounded by triple double quotes. Besides helping others understand what your code does, docstrings are used by Sphinx to auto-generate `API documentation <https://tardis-rt.github.io/tardis/api/modules.html>`_.
 
-At TARDIS, we follow the `Numpy docstring format <https://numpydoc.readthedocs.io/en/latest/format.html>`_ - please go through this format guide before writing docstrings. The following is an example of a properly formatted docstring from the `model_reader <https://github.com/tardis-sn/tardis/blob/master/tardis/io/model_reader.py>`_ module of TARDIS:
+At TARDIS, we follow the `Numpy docstring format <https://numpydoc.readthedocs.io/en/latest/format.html>`_ - please go through this format guide before writing docstrings. The following is an example of a properly formatted docstring from the `model_reader <https://github.com/tardis-rt/tardis/blob/master/tardis/io/model_reader.py>`_ module of TARDIS:
 
 .. code-block:: python
 
@@ -118,7 +118,7 @@ Some of the important formatting conventions to note here are:
 Edge Cases and Exception Handling
 =================================
 
-Code should be written with a bit of foresight to handle errors that can occur during its execution. If you know that an `exception <https://docs.python.org/3/tutorial/errors.html>`_ is likely to occur in a certain case and can be dealt with accordingly, then your code should `handle <https://docs.python.org/3/tutorial/errors.html#handling-exceptions>`_ that exception. In another scenario, you may know that a particular edge case might cause your code to break, then you should `raise <https://docs.python.org/3/tutorial/errors.html#raising-exceptions>`_ an appropriate exception to describe what has gone wrong and terminate the program's execution. An example of this in practice (taken from `here <https://github.com/tardis-sn/tardis/blob/7d7c4bc4f99c909ff45070ae9576390d96734014/tardis/widgets/kromer_plot.py#L447-L451>`_) is featured below:
+Code should be written with a bit of foresight to handle errors that can occur during its execution. If you know that an `exception <https://docs.python.org/3/tutorial/errors.html>`_ is likely to occur in a certain case and can be dealt with accordingly, then your code should `handle <https://docs.python.org/3/tutorial/errors.html#handling-exceptions>`_ that exception. In another scenario, you may know that a particular edge case might cause your code to break, then you should `raise <https://docs.python.org/3/tutorial/errors.html#raising-exceptions>`_ an appropriate exception to describe what has gone wrong and terminate the program's execution. An example of this in practice (taken from `here <https://github.com/tardis-rt/tardis/blob/7d7c4bc4f99c909ff45070ae9576390d96734014/tardis/widgets/kromer_plot.py#L447-L451>`_) is featured below:
 
 .. code-block:: python
 

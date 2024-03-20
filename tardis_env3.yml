@@ -6,7 +6,7 @@ channels:
 dependencies:
 
   # WARNING: any change to this section must be applied to the conda-forge
-  # package recipe at https://github.com/conda-forge/tardis-sn-feedstock
+  # package recipe at https://github.com/conda-forge/tardis-rt-feedstock
 
   - python
   - setuptools
@@ -42,7 +42,7 @@ dependencies:
 
   # --- Packages not required for conda-forge recipe ---
 
-  # tardis-sn/nuclear dependencies
+  # tardis-rt/nuclear dependencies
   - beautifulsoup4
   - lxml
 

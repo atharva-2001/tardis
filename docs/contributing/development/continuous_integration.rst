@@ -23,13 +23,13 @@ nor storage.
 
 .. code-block:: bash
 
-  git clone https://tardis-sn@dev.azure.com/tardis-sn/TARDIS/_git/tardis-refdata
+  git clone https://tardis-rt@dev.azure.com/tardis-rt/TARDIS/_git/tardis-refdata
 
 **To download a LFS file trough HTTPS:**
 
 .. code-block:: none
 
-  https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&resolveLfs=true
+  https://dev.azure.com/tardis-rt/TARDIS/_apis/git/repositories/tardis-refdata/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&resolveLfs=true
 
 This mirror is automatically synced by `a GitHub workflow`. If you want
 to `update it manually`_, remember to set ``git config http.version HTTP/1.1``
@@ -361,7 +361,7 @@ The TARDIS Carsus Compatibility Check or the "Bridge" compares reference data
 generated with different versions of Carsus. It consists of two jobs- a "carsus-build" job to 
 generate an atomic file with the latest version of Carsus and a "tardis-build" job 
 to generate a new reference data with it. These two reference data files are compared using the 
-`this notebook <https://github.com/tardis-sn/tardis-refdata/blob/master/notebooks/ref_data_compare_from_paths.ipynb>`_.
+`this notebook <https://github.com/tardis-rt/tardis-refdata/blob/master/notebooks/ref_data_compare_from_paths.ipynb>`_.
 The workflow has a ``workflow_dispatch`` event so that it can be triggered manually, but is also 
 triggered every week due to the "save-atomic-files" workflow. 
 

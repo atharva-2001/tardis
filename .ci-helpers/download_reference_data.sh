@@ -3,7 +3,7 @@
 set -e
 
 REF_PATH="$GITHUB_WORKSPACE/tardis-refdata"
-REPO_URL="https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata"
+REPO_URL="https://dev.azure.com/tardis-rt/TARDIS/_apis/git/repositories/tardis-refdata"
 
 FILES=('atom_data/kurucz_cd23_chianti_H_He.h5'
        'atom_data/chianti_He.h5'

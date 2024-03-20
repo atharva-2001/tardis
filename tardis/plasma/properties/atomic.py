@@ -475,7 +475,7 @@ class LevelIdxs2LineIdx(HiddenPlasmaProperty):
                 "This is an issue with the atomic data & carsus. "
                 "Once fixed upstream, this warning will be removed. "
                 "This will raise an error in the future instead. "
-                "See https://github.com/tardis-sn/carsus/issues/384"
+                "See https://github.com/tardis-rt/carsus/issues/384"
             )
             # This is necessary since pd.DataFrame.drop_duplicates()
             # does not remove duplicates if the data is different

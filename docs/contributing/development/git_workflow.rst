@@ -81,7 +81,7 @@ This is done using::
 
     git clone git@github.com:your-user-name/tardis.git
     cd tardis
-    git remote add upstream git://github.com/tardis-sn/tardis.git
+    git remote add upstream git://github.com/tardis-rt/tardis.git
 
 In detail
 ^^^^^^^^^
@@ -113,7 +113,7 @@ In detail
    trunk::
 
     cd
-    git remote add upstream git://github.com/tardis-sn/tardis.git
+    git remote add upstream git://github.com/tardis-rt/tardis.git
 
    ``upstream`` is just the arbitrary name we're using to refer to the main
    TARDIS_ repository.
@@ -127,8 +127,8 @@ In detail
    remote connection with ``git remote -v show``, which should give you
    something like::
 
-    upstream   git://github.com/tardis-sn/tardis.git (fetch)
-    upstream   git://github.com/tardis-sn/tardis.git (push)
+    upstream   git://github.com/tardis-rt/tardis.git (fetch)
+    upstream   git://github.com/tardis-rt/tardis.git (push)
     origin     git@github.com:your-user-name/tardis.git (fetch)
     origin     git@github.com:your-user-name/tardis.git (push)
 
@@ -176,7 +176,7 @@ given in the following sections.
 * If you do find yourself merging from the trunk, consider
   :ref:`rebase-on-trunk`
 
-* Ask on the `tardis-sn-dev mailing list`_ if you get stuck.
+* Ask on the `tardis-rt-dev mailing list`_ if you get stuck.
 
 * Once your code is nearing completion, run the test suite to ensure
   you have not accidentally caused regressions, and add new tests to ensure
@@ -493,7 +493,7 @@ So just add in your <my-project>/.git/config the following line to your remote
 upstream::
 
     [remote "upstream"]
-        url = git@github.com:tardis-sn/tardis.git
+        url = git@github.com:tardis-rt/tardis.git
         fetch = +refs/heads/*:refs/remotes/upstream/*
         fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
 
@@ -505,7 +505,7 @@ Then fetch from `upstream` again::
     remote: Compressing objects: 100% (72/72), done.
     remote: Total 77 (delta 44), reused 9 (delta 5)
     Unpacking objects: 100% (77/77), done.
-    From github.com:tardis-sn/tardis
+    From github.com:tardis-rt/tardis
        b8306de..2f47ee5  master     -> upstream/master
      * [new ref]         refs/pull/116/head -> upstream/pr/116
      * [new ref]         refs/pull/117/head -> upstream/pr/117

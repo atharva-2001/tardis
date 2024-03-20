@@ -111,7 +111,7 @@ class DokuReport(HTMLReport):
         # A string which holds the complete report.
         report_content = (
             "Test executed on commit "
-            f"[[https://www.github.com/tardis-sn/tardis/commit/{tardis_githash}|{tardis_githash}]]\n\n"
+            f"[[https://www.github.com/tardis-rt/tardis/commit/{tardis_githash}|{tardis_githash}]]\n\n"
         ) + report_content
 
         # Quick hack for preventing log to be placed in narrow left out space
@@ -161,7 +161,7 @@ class DokuReport(HTMLReport):
 
         # Fetch commit message from github.
         gh_request = requests.get(
-            f"https://api.github.com/repos/tardis-sn/tardis/git/commits/{tardis_githash}"
+            f"https://api.github.com/repos/tardis-rt/tardis/git/commits/{tardis_githash}"
         )
         gh_commit_data = json.loads(gh_request.content)
         # Pick only first line of commit message
@@ -174,7 +174,7 @@ class DokuReport(HTMLReport):
         # Append hash
         row += f"[[reports:{tardis_githash[:7]}|{tardis_githash[:7]}]]  | "
         # Append commit message
-        row += f"[[https://www.github.com/tardis-sn/tardis/commit/{tardis_githash}|{gh_commit_message}]] |  "
+        row += f"[[https://www.github.com/tardis-rt/tardis/commit/{tardis_githash}|{gh_commit_message}]] |  "
         # Append start time
         row += f'{suite_start_datetime.strftime("%d %b %H:%M:%S")}  |  '
         # Append time elapsed

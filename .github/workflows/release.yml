@@ -1,6 +1,6 @@
 #  For more information about TARDIS pipelines, please refer to:
 #
-#    https://tardis-sn.github.io/tardis/development/continuous_integration.html
+#    https://tardis-rt.github.io/tardis/development/continuous_integration.html
 
 name: release
 
@@ -48,7 +48,7 @@ jobs:
           body: |
             This release has been created automatically by the TARDIS continuous delivery pipeline.
 
-            A complete list of changes for this release is available at [CHANGELOG.md](https://github.com/tardis-sn/tardis/blob/master/CHANGELOG.md).
+            A complete list of changes for this release is available at [CHANGELOG.md](https://github.com/tardis-rt/tardis/blob/master/CHANGELOG.md).
           files: |
             conda-linux-64.lock
             conda-osx-64.lock

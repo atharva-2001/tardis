@@ -8,7 +8,7 @@ A special kind of tests are executed only when ``pytest`` is called alongside th
 These tests compares the output of the TARDIS code (mostly arrays) against the information stored
 in the reference data files.
 
-TARDIS stores reference data in the `tardis-refdata <https://github.com/tardis-sn/tardis-refdata>`_
+TARDIS stores reference data in the `tardis-refdata <https://github.com/tardis-rt/tardis-refdata>`_
 repository. This repository also has a mirror hosted in Azure Pipelines (synchronized automatically by a 
 GitHub workflow) since this Microsoft service does not have limitations in bandwith nor storage.
 
@@ -36,7 +36,7 @@ If you think your could be dealing with scenario B, then:
 .. note::
 
     - If you don't have enough privileges to run the pipelines, tag a TARDIS developer capable of doing so.
-    - If any of these two pipelines fail, please tag a `TARDIS team member <https://tardis-sn.github.io/team/community_roles/>`_ responsible for CI/CD.
+    - If any of these two pipelines fail, please tag a `TARDIS team member <https://tardis-rt.github.io/team/community_roles/>`_ responsible for CI/CD.
 
 If everything went well, the reference data will have been updated by the TARDIS bot and the commit
 message should include the pull request number that triggered the update.

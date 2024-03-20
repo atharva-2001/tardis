@@ -54,7 +54,7 @@ jobs:
       - name: Download Atom Data
         if: steps.atom-data-restore.outputs.cache-hit != 'true'
         run: |
-          REPO_URL="https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata"
+          REPO_URL="https://dev.azure.com/tardis-rt/TARDIS/_apis/git/repositories/tardis-refdata"
           wget -q "$REPO_URL/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&versionType=branch&version=master&resolveLfs=true" -O benchmarks/data/kurucz_cd23_chianti_H_He.h5
 
       - name: Save Atom Data
@@ -108,7 +108,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN }}
         with:
           source-directory: .asv
-          destination-github-username: tardis-sn
+          destination-github-username: tardis-rt
           destination-repository-name: tardis-benchmarks
           user-email: tardis.sn.bot@gmail.com
           target-branch: main

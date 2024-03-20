@@ -1,6 +1,6 @@
 #  For more information about TARDIS pipelines, please refer to:
 #
-#    https://tardis-sn.github.io/tardis/development/continuous_integration.html
+#    https://tardis-rt.github.io/tardis/development/continuous_integration.html
 
 name: tests
 
@@ -29,7 +29,7 @@ defaults:
 
 jobs:
   build:
-    if: github.repository_owner == 'tardis-sn'
+    if: github.repository_owner == 'tardis-rt'
     strategy:
       matrix:
         pip: [true, false]
@@ -49,10 +49,10 @@ jobs:
       - uses: actions/checkout@v2
         if: matrix.pip == false
 
-      - name: Clone tardis-sn/tardis-refdata
+      - name: Clone tardis-rt/tardis-refdata
         uses: actions/checkout@v2
         with:
-          repository: tardis-sn/tardis-refdata
+          repository: tardis-rt/tardis-refdata
           path: tardis-refdata
           lfs: false
 
@@ -87,10 +87,10 @@ jobs:
           path: tardis-refdata/.git/lfs
           key: ${{ runner.os }}-lfs-${{ hashFiles('tardis-refdata/.lfs-assets-id') }}-v1
       
-      - name: Clone tardis-sn/tardis-regression-data
+      - name: Clone tardis-rt/tardis-regression-data
         uses: actions/checkout@v4
         with:
-          repository: tardis-sn/tardis-regression-data
+          repository: tardis-rt/tardis-regression-data
           path: tardis-regression-data
       
       - name: Create LFS file list
@@ -133,7 +133,7 @@ jobs:
             use-mamba: true
 
       - name: Download Lock File
-        run:  wget -q https://raw.githubusercontent.com/tardis-sn/tardis/master/conda-${{ matrix.label }}.lock
+        run:  wget -q https://raw.githubusercontent.com/tardis-rt/tardis/master/conda-${{ matrix.label }}.lock
         if: matrix.pip == true
 
       - uses: actions/cache@v2
@@ -153,7 +153,7 @@ jobs:
         if: matrix.pip == false
 
       - name: Install package git
-        run: pip install git+https://github.com/tardis-sn/tardis.git@${{ github.ref }}
+        run: pip install git+https://github.com/tardis-rt/tardis.git@${{ github.ref }}
         if: matrix.pip == true
 
       - name: Set pip path

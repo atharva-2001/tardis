@@ -68,7 +68,7 @@ def run_tardis(
 
     Notes
     -----
-    Please see the `logging tutorial <https://tardis-sn.github.io/tardis/io/optional/logging_configuration.html>`_ to know more about `log_level` and `specific` options.
+    Please see the `logging tutorial <https://tardis-rt.github.io/tardis/io/optional/logging_configuration.html>`_ to know more about `log_level` and `specific` options.
     """
     from tardis.io.logger.logger import logging_state
     from tardis.io.configuration.config_reader import Configuration

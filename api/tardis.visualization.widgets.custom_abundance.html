@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.visualization.widgets.custom_abundance module &mdash; tardis</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,13 +17,15 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="tardis.visualization.widgets.line_info module" href="tardis.visualization.widgets.line_info.html" />
+    <link rel="next" title="tardis.visualization.widgets.grotrian module" href="tardis.visualization.widgets.grotrian.html" />
     <link rel="prev" title="tardis.visualization.widgets package" href="tardis.visualization.widgets.html" />
     <link href="../_static/tardis.css" rel="stylesheet" type="text/css">
 
@@ -33,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,19 +55,25 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="tardis.html">tardis package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="tardis.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="tardis.energy_input.html">tardis.energy_input package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.grid.html">tardis.grid package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tardis.gui.html">tardis.gui package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.io.html">tardis.io package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.model.html">tardis.model package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.montecarlo.html">tardis.montecarlo package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.plasma.html">tardis.plasma package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tardis.radiation_field.html">tardis.radiation_field package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.scripts.html">tardis.scripts package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.simulation.html">tardis.simulation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.stats.html">tardis.stats package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tardis.transport.html">tardis.transport package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tardis.util.html">tardis.util package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="tardis.visualization.html">tardis.visualization package</a></li>
 </ul>
@@ -75,43 +88,33 @@
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../io/configuration/index.html">Configuration (Required Input)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../io/optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../io/output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../io/grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -127,12 +130,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">tardis</a> &raquo;</li>
-          <li><a href="tardis.html">tardis package</a> &raquo;</li>
-          <li><a href="tardis.visualization.html">tardis.visualization package</a> &raquo;</li>
-          <li><a href="tardis.visualization.widgets.html">tardis.visualization.widgets package</a> &raquo;</li>
-      <li>tardis.visualization.widgets.custom_abundance module</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">tardis</a></li>
+          <li class="breadcrumb-item"><a href="tardis.html">tardis package</a></li>
+          <li class="breadcrumb-item"><a href="tardis.visualization.html">tardis.visualization package</a></li>
+          <li class="breadcrumb-item"><a href="tardis.visualization.widgets.html">tardis.visualization.widgets package</a></li>
+      <li class="breadcrumb-item active">tardis.visualization.widgets.custom_abundance module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/tardis.visualization.widgets.custom_abundance.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -142,37 +145,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-tardis.visualization.widgets.custom_abundance">
-<span id="tardis-visualization-widgets-custom-abundance-module"></span><h1>tardis.visualization.widgets.custom_abundance module<a class="headerlink" href="#module-tardis.visualization.widgets.custom_abundance" title="Permalink to this headline">¶</a></h1>
+  <section id="module-tardis.visualization.widgets.custom_abundance">
+<span id="tardis-visualization-widgets-custom-abundance-module"></span><h1>tardis.visualization.widgets.custom_abundance module<a class="headerlink" href="#module-tardis.visualization.widgets.custom_abundance" title="Permalink to this heading">¶</a></h1>
 <p>Class to create and display Custom Abundance Widget.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomAbundanceWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomAbundanceWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Widget to edit abundances and densities of simulation model
 graphically.</p>
 <p>It generates a GUI based on input data. The GUI has a plot section
@@ -190,6 +169,10 @@ the model to CSVY file.</p>
 </dd>
 <dt><strong>checked_list</strong><span class="classifier">list of bool</span></dt><dd><p>A list of bool to record whether the checkbox is checked.
 The index of the bool corresponds to the index of checkbox.</p>
+</dd>
+<dt><strong>fig</strong><span class="classifier">plotly.graph_objs._figurewidget.FigureWidget</span></dt><dd><p>The figure object of abundance density plot.</p>
+</dd>
+<dt><strong>plot_cmap</strong><span class="classifier">str, default: “jet”, optional</span></dt><dd><p>String defines the colormap used in abundance density plot.</p>
 </dd>
 <dt><strong>_trigger</strong><span class="classifier">bool</span></dt><dd><p>If False, disable the callback when abundance input is changed.</p>
 </dd>
@@ -251,7 +234,7 @@ more than 1 and return it.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.checked_list">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">checked_list</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.checked_list" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">checked_list</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.checked_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -262,11 +245,17 @@ more than 1 and return it.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.display">
-<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.display" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'jet'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the GUI.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>cmap</strong><span class="classifier">str, default: “jet”, optional</span></dt><dd><p>String defines the colormap used in abundance density plot.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
 <dt>ipywidgets.widgets.widget_box.VBox</dt><dd><p>A box that contains all the widgets in the GUI.</p>
 </dd>
 </dl>
@@ -291,12 +280,12 @@ Triggered if the dropdown value is changed.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.error_view">
-<span class="sig-name descname"><span class="pre">error_view</span></span><em class="property"> <span class="pre">=</span> <span class="pre">Output()</span></em><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.error_view" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">error_view</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Output()</span></em><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.error_view" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_csvy">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_csvy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_csvy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_csvy" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_csvy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_csvy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_csvy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidget instance with data from CSVY file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -315,7 +304,7 @@ Triggered if the dropdown value is changed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_hdf">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_hdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_hdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_hdf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_hdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_hdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidget instance with data from HDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -334,7 +323,7 @@ Triggered if the dropdown value is changed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_simulation">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_simulation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidget instance from a Simulation object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -352,7 +341,7 @@ Triggered if the dropdown value is changed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_yml">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_yml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_yml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_yml" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_yml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.from_yml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.from_yml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidget instance with data from YAML file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -427,12 +416,12 @@ in the plot. Triggered if the shell range slider is changed.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_elements">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">no_of_elements</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_elements" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_of_elements</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_elements" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_shells">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">no_of_shells</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_shells" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_of_shells</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.no_of_shells" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -584,7 +573,7 @@ shell No. changes.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.shell_no">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">shell_no</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.shell_no" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shell_no</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.shell_no" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -633,6 +622,13 @@ mode. Triggered if the toggle button is changed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_bar_diagonal">
+<span class="sig-name descname"><span class="pre">update_bar_diagonal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.update_bar_diagonal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_bar_diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update bar diagonal (and shell no dropdown) when the range
+of shells changed.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_front_end">
 <span class="sig-name descname"><span class="pre">update_front_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.update_front_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_front_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update checkbox widgets, input widgets and plot in the front
@@ -655,6 +651,12 @@ end when selected shell No. is changed.</p>
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_line_color">
+<span class="sig-name descname"><span class="pre">update_line_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidget.update_line_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidget.update_line_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update line color in the plot according to colormap.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -687,8 +689,8 @@ end when selected shell No. is changed.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomAbundanceWidgetData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_t_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abundance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomAbundanceWidgetData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_t_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abundance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>The model information and data that required in custom
 abundance widget.</p>
 <dl class="field-list simple">
@@ -713,7 +715,7 @@ abundance widget.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_csvy">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_csvy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_csvy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_csvy" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_csvy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_csvy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_csvy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidgetData instance with data
 from CSVY file.</p>
 <dl class="field-list simple">
@@ -733,7 +735,7 @@ from CSVY file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_hdf">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_hdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_hdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_hdf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_hdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_hdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidgetData instance with data
 from HDF file.</p>
 <dl class="field-list simple">
@@ -753,7 +755,7 @@ from HDF file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_simulation">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_simulation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidgetData instance from a
 Simulation object.</p>
 <dl class="field-list simple">
@@ -772,7 +774,7 @@ Simulation object.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_yml">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_yml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_yml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_yml" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_yml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomAbundanceWidgetData.from_yml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomAbundanceWidgetData.from_yml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new CustomAbundanceWidgetData instance with data
 from YAML file.</p>
 <dl class="field-list simple">
@@ -800,8 +802,8 @@ from YAML file.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.CustomYAML">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomYAML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_time_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_time_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_inner_boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_outer_boundary</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomYAML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomYAML" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">yaml.YAMLObject</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">CustomYAML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_time_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_time_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_inner_boundary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_outer_boundary</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#CustomYAML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.CustomYAML" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">YAMLObject</span></code></p>
 <p>A custom YAML object generated by required properties.</p>
 <p>Initialize CustomYAML object with given properties.</p>
 <dl class="field-list simple">
@@ -838,8 +840,8 @@ from YAML file.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.DensityEditor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">DensityEditor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell_no_widget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#DensityEditor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tardis.visualization.widgets.custom_abundance.</span></span><span class="sig-name descname"><span class="pre">DensityEditor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell_no_widget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/visualization/widgets/custom_abundance.html#DensityEditor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Widget to edit density profile of the model.</p>
 <p>It provides an interface to allow the user directly change
 the density, or calculate the density with given type and
@@ -912,7 +914,7 @@ type parameters.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.DensityEditor.dtype_out">
-<span class="sig-name descname"><span class="pre">dtype_out</span></span><em class="property"> <span class="pre">=</span> <span class="pre">Output()</span></em><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor.dtype_out" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dtype_out</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Output()</span></em><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor.dtype_out" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -968,7 +970,7 @@ shell No. changes.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="tardis.visualization.widgets.custom_abundance.DensityEditor.shell_no">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">shell_no</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor.shell_no" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shell_no</span></span><a class="headerlink" href="#tardis.visualization.widgets.custom_abundance.DensityEditor.shell_no" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -979,21 +981,21 @@ shell No. changes.</p>
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tardis.visualization.widgets.html" class="btn btn-neutral float-left" title="tardis.visualization.widgets package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tardis.visualization.widgets.line_info.html" class="btn btn-neutral float-right" title="tardis.visualization.widgets.line_info module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tardis.visualization.widgets.grotrian.html" class="btn btn-neutral float-right" title="tardis.visualization.widgets.grotrian module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

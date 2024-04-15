@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration Components &mdash; tardis</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -16,9 +17,11 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -33,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,8 +55,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
@@ -65,48 +74,37 @@
 <li class="toctree-l3"><a class="reference internal" href="debug.html">Debug Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../example.html">Tardis Example Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example.html">TARDIS Example Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../config_validator.html">Configuration Validator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../read_configuration.html">Reading a Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -122,9 +120,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Configuration (Required Input)</a> &raquo;</li>
-      <li>Configuration Components</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Configuration (Required Input)</a></li>
+      <li class="breadcrumb-item active">Configuration Components</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/io/configuration/components/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -134,32 +132,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="configuration-components">
-<span id="config-components"></span><h1>Configuration Components<a class="headerlink" href="#configuration-components" title="Permalink to this headline">¶</a></h1>
+  <section id="configuration-components">
+<span id="config-components"></span><h1>Configuration Components<a class="headerlink" href="#configuration-components" title="Permalink to this heading">¶</a></h1>
 <p>TARDIS uses the <a class="reference external" href="https://en.wikipedia.org/wiki/YAML">YAML markup language</a>
 for its configuration files. There are several sections which allow different
 settings for the different aspects of the TARDIS calculation. An example
@@ -179,98 +153,6 @@ are allowed or available.</p>
 </div>
 <p>The base schema outlines the main components of the TARDIS configuration. Schemas for these components are linked
 in the base schema, and important information about the configuration is linked below.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>type</p></td>
-<td colspan="2"><p><em>object</em></p></td>
-</tr>
-<tr class="row-even"><td colspan="3"><p>properties</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>tardis_config_version</strong></p></li>
-</ul>
-</td>
-<td colspan="2"><p>Version of the configuration file. The current version is 1.0 and no other versions are allowed</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>supernova</p></li>
-</ul>
-</td>
-<td colspan="2"><p>a section pertaining to observations of the supernova</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="supernova.html#supernova-yml"><span class="std std-ref">supernova.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>atom_data</strong></p></li>
-</ul>
-</td>
-<td colspan="2"><p>path or filename to the Atomic Data HDF5 file</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>plasma</p></li>
-</ul>
-</td>
-<td colspan="2"><p>configuration of the plasma microphysics</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="plasma.html#plasma-yml"><span class="std std-ref">plasma.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>csvy_model</p></li>
-</ul>
-</td>
-<td colspan="2"><p>defining the model using csvy format (see <a class="reference internal" href="models/index.html#csvy-model"><span class="std std-ref">CSVY Model</span></a>)</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>model</p></li>
-</ul>
-</td>
-<td colspan="2"><p>defining the model in the config yaml file</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="models/index.html#model-yml"><span class="std std-ref">model.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>montecarlo</p></li>
-</ul>
-</td>
-<td colspan="2"><p>configuring the physics of the monte carlo radiative transfer</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="montecarlo.html#montecarlo-yml"><span class="std std-ref">montecarlo.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>spectrum</strong></p></li>
-</ul>
-</td>
-<td colspan="2"><p>Final spectrum sampling</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="spectrum.html#spectrum-yml"><span class="std std-ref">spectrum.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>debug</p></li>
-</ul>
-</td>
-<td colspan="2"><p>Debugging setup for the simulation</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="debug.html#debug-yml"><span class="std std-ref">debug.yml</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>additionalProperties</p></td>
-<td colspan="2"><p>False</p></td>
-</tr>
-</tbody>
-</table>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="supernova.html">Supernova Configuration</a></li>
@@ -280,7 +162,9 @@ in the base schema, and important information about the configuration is linked 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plasma.html">Plasma Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plasma.html#continuum-interaction">Continuum Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plasma.html#nlte">NLTE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasma.html#nlte-ionization">NLTE Ionization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models/index.html">Models</a><ul>
@@ -298,7 +182,7 @@ in the base schema, and important information about the configuration is linked 
 <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug Configuration</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
@@ -311,8 +195,8 @@ in the base schema, and important information about the configuration is linked 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

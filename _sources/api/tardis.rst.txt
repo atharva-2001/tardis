@@ -7,14 +7,18 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   tardis.energy_input
    tardis.grid
+   tardis.gui
    tardis.io
    tardis.model
    tardis.montecarlo
    tardis.plasma
+   tardis.radiation_field
    tardis.scripts
    tardis.simulation
    tardis.stats
+   tardis.transport
    tardis.util
    tardis.visualization
 

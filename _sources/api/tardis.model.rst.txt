@@ -1,6 +1,15 @@
 tardis.model package
 ====================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tardis.model.geometry
+   tardis.model.matter
+
 Submodules
 ----------
 
@@ -8,7 +17,8 @@ Submodules
    :maxdepth: 4
 
    tardis.model.base
-   tardis.model.density
+   tardis.model.parse_input
+   tardis.model.radiation_field_state
 
 Module contents
 ---------------

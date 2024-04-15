@@ -6,13 +6,15 @@ Packet Propagation
 
 The bulk of a Monte Carlo Radiative Transfer calculation is spent on
 determining the propagation history of the different packets. After a packet is
-initialized (see :ref:`initialization`), it is launched and may then perform interactions with the
+initialized (see :doc:`initialization`), it is launched and may then perform interactions with the
 surrounding material. This occurs again in a probabilistic manner. The packet
 propagation is followed until it escapes through the outer boundary of the
 computational domain, at which point the packet contributes to the synthetic
 spectrum, the main product of a TARDIS calculation. The different spectral
 features are simply a combined product of the changes in the packet properties
 induced in the radiation-matter interactions.
+
+.. _spherical-domain:
 
 Propagation in a Spherical Domain
 =================================
@@ -52,7 +54,7 @@ Supernova Expansion
 ===================
 
 .. note::
-    This section is a summary of part of :ref:`model` which is included here for easy reference. For a complete
+    This section is a summary of part of :doc:`../setup/model` which is included here for easy reference. For a complete
     explanation, please refer back to that page.
 
 TARDIS models supernovae as expanding homologously, as shown in the animation below. This means that plasma at a
@@ -62,11 +64,11 @@ which TARDIS is running (which is provided in the :ref:`model configuration <mod
 shown in the animation.
 
 TARDIS simulates radiative transfer between an inner boundary (the photosphere) with a radius
-:math:`r_\mathrm{inner\_boundary}`, and an outer boundary (the outer edge of the supernova ejecta) with a radius
-:math:`r_\mathrm{outer\_boundary}`. Additionally, TARDIS divides the space between the inner and outer computational
+:math:`r_\mathrm{boundary\_inner}`, and an outer boundary (the outer edge of the supernova ejecta) with a radius
+:math:`r_\mathrm{boundary\_outer}`. Additionally, TARDIS divides the space between the inner and outer computational
 boundaries into cells -- radial shells for which the plasma state is (spatially) constant. In the animation, 6 cells 
 are shown, being divided by the light blue lines. The boundaries of the computational domain and of these cells are 
-computed during the simulation setup (refer back to :ref:`model`). As TARDIS is a time-independent code, meaning
+computed during the simulation setup (refer back to :doc:`../setup/model`). As TARDIS is a time-independent code, meaning
 that it calculates the spectra at an instant in time (namely at the time :math:`t_\mathrm{explosion}`), the radii of
 the boundaries (both of the computational domain and of the cells) do not change throughout the simulation.
 
@@ -155,6 +157,7 @@ When a packet is moved into a new cell, as mentioned before, it is moved to the 
 boundary, the plasma properties are recalculated, and the propagation direction of the packet is updated (using
 :math:`\mu_f = \frac{l + r_i \mu_i}{r_f}`).
 
+.. _physical-interactions:
 
 Physical Interactions
 ---------------------
@@ -162,12 +165,14 @@ Physical Interactions
 As a packet propagates through the computational domain, physical radiation-matter interactions can trigger changes
 in the packet properties. The probability that a photon/packet will interact with matter is characterized by its
 optical depth :math:`\tau`; the probability that a packet will have interacted after going through an optical depth
-:math:`\Delta \tau` is :math:`1-e^{-\Delta \tau}`. To model this (see :ref:`Random Sampling <randomsampling>`), the
+:math:`\Delta \tau` is :math:`1-e^{-\Delta \tau}` (see :ref:`opacity` for more). To model this
+(see :ref:`Random Sampling <randomsampling>`), the
 packet is assigned a random value of optical depth :math:`\tau_\mathrm{interaction} = -\log z` (for another random
 :math:`z` between 0 and 1), and upon reaching that optical depth, the packet will interact.
 
 TARDIS considers two different radiation-matter interactions within the simulation: electron scattering and atomic
-line interactions. As packets propagate, they accumulate optical depth due to the possibility of going through either
+line interactions (see :ref:`light_and_matter` for a basic introduction to these interactions). As packets propagate,
+they accumulate optical depth due to the possibility of going through either
 of these interactions. Since the main focus of TARDIS is to calculate optical spectra,
 electron-scatterings are treated in the elastic low-energy limit as classical
 Thomson scatterings. In this case, the electron scattering process is frequency-independent. As a consequence to the
@@ -260,7 +265,9 @@ interaction with the corresponding atomic line transition. In both of these case
 interaction location, the interaction will be performed (as will be described in the next section), and the process
 of accumulating optical depth starts over. Finally, if the packet reaches the shell boundary before the optical depth
 value necessary for a physical interaction is achieved (as in case III), the packet will be moved to the next cell,
-the plasma properties will be updated, and the accumulation of optical depth will continue in the next cell.
+the plasma properties will be updated, and the accumulation of optical depth will **restart** in the next cell.
+
+.. note:: While it would make physical sense for the accumulation of optical depth to continue between cells until the packet eventually interacts, due to the exponential nature of optical depth and interaction probabilities, both continuing and restarting the accumulation of optical depth between cells can be mathematically shown to yield the same overall statistical results. Restarting the optical depth accumulation is computationally easier, and hence it is the method employed by TARDIS.
 
 Performing an Interaction
 -------------------------

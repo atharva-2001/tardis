@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration Validator &mdash; tardis</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,14 +17,16 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Reading a Configuration" href="read_configuration.html" />
-    <link rel="prev" title="Tardis Example Configuration" href="example.html" />
+    <link rel="next" title="Reading Models" href="../model/index.html" />
+    <link rel="prev" title="TARDIS Example Configuration" href="example.html" />
     <link href="../../_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -33,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,60 +55,51 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration (Required Input)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="components/index.html">Configuration Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example.html">Tardis Example Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example.html">TARDIS Example Configuration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration Validator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#container">Container</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="read_configuration.html">Reading a Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -117,9 +115,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Configuration (Required Input)</a> &raquo;</li>
-      <li>Configuration Validator</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Configuration (Required Input)</a></li>
+      <li class="breadcrumb-item active">Configuration Validator</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/io/configuration/config_validator.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -129,32 +127,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="configuration-validator">
-<h1>Configuration Validator<a class="headerlink" href="#configuration-validator" title="Permalink to this headline">¶</a></h1>
+  <section id="configuration-validator">
+<h1>Configuration Validator<a class="headerlink" href="#configuration-validator" title="Permalink to this heading">¶</a></h1>
 <p>The default config validator takes a user configuration and a default configuration and creates a consistent and valid configuration for TARDIS based on the constraints given in the default configuration. Both input data are normally given as a YAML dictionary with a consistent hierarchical structure, i.e. for every item in the user configuration there has to be a declaration in the default configuration at the same hierarchical level. This declaration can be either an unspecific empty level declaration like:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -204,8 +178,8 @@
 <li><p><strong>Quantity_range:</strong> Like property type range but with quantities as start and stop. The consistency of the units is checked.</p></li>
 </ul>
 <p>Additionally to the four standard keywords the types integer, float, and quantity can have the keywords <code class="docutils literal notranslate"><span class="pre">allowed_value</span></code> and <code class="docutils literal notranslate"><span class="pre">allowed_type</span></code>. <code class="docutils literal notranslate"><span class="pre">allowed_value</span></code> specifies the allowed values in a list, whereas <code class="docutils literal notranslate"><span class="pre">allowed_type</span></code> specifies a range of allowed values, such as “x&gt;10”.</p>
-<div class="section" id="container">
-<h2>Container<a class="headerlink" href="#container" title="Permalink to this headline">¶</a></h2>
+<section id="container">
+<h2>Container<a class="headerlink" href="#container" title="Permalink to this heading">¶</a></h2>
 <p>For more complex configurations with dependencies, you can use the containers that allow branching in the configuration. A container is declared in the default configuration file by setting the  <code class="docutils literal notranslate"><span class="pre">property_type</span></code> to container property and specifying the properties of the container with keyword type. The <code class="docutils literal notranslate"><span class="pre">property_type</span></code> of this section is container-declaration that allows you to specify the possible container items with the keyword container. For every specified container item, the code expects the declaration of all sub items. The keywords for this are “_“ + “name of the container item”.
 If the type declaration for this container is finished, you can specify all container items like normal items. Here is an example for a container configuration with two branches:</p>
 <ul class="simple">
@@ -279,9 +253,9 @@ If the type declaration for this container is finished, you can specify all cont
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="how-to-use">
-<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">¶</a></h2>
 <p>To use the default parser create a new config object form the class ConfigurationValidator either from a dictionaries or from YAML files:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- My_config = ConfigurationValidator(default configuration dictionary, user configuration dictionary)
 </pre></div>
@@ -291,22 +265,22 @@ If the type declaration for this container is finished, you can specify all cont
 </pre></div>
 </div>
 <p>To access the configuration for TARDIS, use the method <code class="docutils literal notranslate"><span class="pre">get_config</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example.html" class="btn btn-neutral float-left" title="Tardis Example Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="read_configuration.html" class="btn btn-neutral float-right" title="Reading a Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example.html" class="btn btn-neutral float-left" title="TARDIS Example Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../model/index.html" class="btn btn-neutral float-right" title="Reading Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

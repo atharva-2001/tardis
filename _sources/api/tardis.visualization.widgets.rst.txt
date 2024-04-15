@@ -8,6 +8,7 @@ Submodules
    :maxdepth: 4
 
    tardis.visualization.widgets.custom_abundance
+   tardis.visualization.widgets.grotrian
    tardis.visualization.widgets.line_info
    tardis.visualization.widgets.shell_info
    tardis.visualization.widgets.util

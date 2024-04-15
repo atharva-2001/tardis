@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atomic Data Format Description &mdash; tardis</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -16,11 +17,13 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -35,14 +38,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -50,8 +57,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
@@ -71,48 +80,37 @@
 <li class="toctree-l3"><a class="reference internal" href="../debug.html">Debug Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../example.html">Tardis Example Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../example.html">TARDIS Example Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../config_validator.html">Configuration Validator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../read_configuration.html">Reading a Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -128,11 +126,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Configuration (Required Input)</a> &raquo;</li>
-          <li><a href="../index.html">Configuration Components</a> &raquo;</li>
-          <li><a href="atomic_data.html">Atomic Data</a> &raquo;</li>
-      <li>Atomic Data Format Description</li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Configuration (Required Input)</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Configuration Components</a></li>
+          <li class="breadcrumb-item"><a href="atomic_data.html">Atomic Data</a></li>
+      <li class="breadcrumb-item active">Atomic Data Format Description</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/io/configuration/components/atomic/atomic_data_description.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -142,44 +140,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="atomic-data-format-description">
-<span id="atomic-data-descritpion"></span><h1>Atomic Data Format Description<a class="headerlink" href="#atomic-data-format-description" title="Permalink to this headline">¶</a></h1>
+  <section id="atomic-data-format-description">
+<span id="atomic-data-descritpion"></span><h1>Atomic Data Format Description<a class="headerlink" href="#atomic-data-format-description" title="Permalink to this heading">¶</a></h1>
 <p>The atomic data for tardis is stored in <a class="reference external" href="http://www.h5py.org/">HDF5 files</a>. TARDIS ships with a
 relatively simple atomic dataset that only contains silicon lines and levels. TARDIS also has a full atomic dataset which contains
 the complete Kurucz dataset (<a class="reference external" href="http://kurucz.harvard.edu/LINELISTS/GFALL/">http://kurucz.harvard.edu/LINELISTS/GFALL/</a>). This full dataset also contains recombination
 coefficients from the ground state (<span class="math notranslate nohighlight">\(\zeta-\textrm{factor}\)</span> used in <a class="reference internal" href="../../../../physics/setup/plasma/nebular_plasma.html#calc-zeta-label"><span class="std std-ref">Calculating Zeta</span></a>) and data for calculating the
 branching or macro atom line interaction (<a class="reference internal" href="../../../../physics/setup/plasma/macroatom.html#macroatom"><span class="std std-ref">Macro Atom</span></a>).</p>
-<div class="section" id="hdf5-dataset">
-<h2>HDF5 Dataset<a class="headerlink" href="#hdf5-dataset" title="Permalink to this headline">¶</a></h2>
+<section id="hdf5-dataset">
+<h2>HDF5 Dataset<a class="headerlink" href="#hdf5-dataset" title="Permalink to this heading">¶</a></h2>
 <p>As mentioned previously, all atomic data is stored in <a class="reference external" href="http://www.h5py.org/">HDF5 files</a>  that contain tables
 that include mass, ionization, levels and lines data. The atom data that ships with TARDIS is located in data/atom.</p>
 <p>The dataset <code class="docutils literal notranslate"><span class="pre">basic_atom_set</span></code> contains the Atomic Number, Symbol of the elements and average mass of the elements.</p>
-<div class="section" id="basic-atomic-data">
-<h3>Basic Atomic Data<a class="headerlink" href="#basic-atomic-data" title="Permalink to this headline">¶</a></h3>
+<section id="basic-atomic-data">
+<h3>Basic Atomic Data<a class="headerlink" href="#basic-atomic-data" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 37%" />
@@ -208,9 +182,9 @@ that include mass, ionization, levels and lines data. The atom data that ships w
 </tbody>
 </table>
 <p>The ionization data is stored in <code class="docutils literal notranslate"><span class="pre">ionization_data</span></code>.</p>
-</div>
-<div class="section" id="ionization-data">
-<h3>Ionization Data<a class="headerlink" href="#ionization-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ionization-data">
+<h3>Ionization Data<a class="headerlink" href="#ionization-data" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 38%" />
@@ -242,9 +216,9 @@ that include mass, ionization, levels and lines data. The atom data that ships w
 <p class="admonition-title">Note</p>
 <p>In TARDIS, Ion 0 is neutral.</p>
 </div>
-</div>
-<div class="section" id="levels-data">
-<h3>Levels Data<a class="headerlink" href="#levels-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="levels-data">
+<h3>Levels Data<a class="headerlink" href="#levels-data" title="Permalink to this heading">¶</a></h3>
 <p>The levels data is stored in <code class="docutils literal notranslate"><span class="pre">levels_data</span></code>.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -286,9 +260,9 @@ that include mass, ionization, levels and lines data. The atom data that ships w
 </tbody>
 </table>
 <p>All lines are stored in <code class="docutils literal notranslate"><span class="pre">lines_data</span></code>.</p>
-</div>
-<div class="section" id="lines-data">
-<h3>Lines Data<a class="headerlink" href="#lines-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="lines-data">
+<h3>Lines Data<a class="headerlink" href="#lines-data" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 38%" />
@@ -334,7 +308,7 @@ that include mass, ionization, levels and lines data. The atom data that ships w
 </table>
 <p>The next three datasets are only contained in the full dataset available upon request from the authors.</p>
 <p>The factor correcting for photo-ionization from excited levels (needed in <a class="reference internal" href="../../../../physics/setup/plasma/nebular_plasma.html#calc-zeta-label"><span class="std std-ref">Calculating Zeta</span></a>) is stored in the dataset <code class="docutils literal notranslate"><span class="pre">zeta_data</span></code>.
-The data is stored in a special way as one large <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> where the first two columns are Atomic Number and Ion
+The data is stored in a special way as one large <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> where the first two columns are Atomic Number and Ion
 Number. All further columns are the <span class="math notranslate nohighlight">\(\zeta-\textrm{factors}\)</span> for different temperatures. The temperatures are stored
 in the attribute <code class="docutils literal notranslate"><span class="pre">t_rads</span></code>.</p>
 <table class="docutils align-default">
@@ -380,9 +354,9 @@ has three states:</p>
 <li><p>0 for downwards internal</p></li>
 <li><p>1 for upwards internal (for more explanations, please refer to <a class="reference internal" href="../../../../physics/setup/plasma/macroatom.html#macroatom"><span class="std std-ref">Macro Atom</span></a>).</p></li>
 </ul>
-</div>
-<div class="section" id="macro-atom-data">
-<h3>Macro Atom Data<a class="headerlink" href="#macro-atom-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="macro-atom-data">
+<h3>Macro Atom Data<a class="headerlink" href="#macro-atom-data" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 38%" />
@@ -550,9 +524,9 @@ For details on the macro atom, please refer to <a class="reference internal" hre
 </tbody>
 </table>
 <p>The <code class="docutils literal notranslate"><span class="pre">macro_references</span></code> dataset contains the numbers for each block:</p>
-</div>
-<div class="section" id="macro-atom-references">
-<h3>Macro Atom References<a class="headerlink" href="#macro-atom-references" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="macro-atom-references">
+<h3>Macro Atom References<a class="headerlink" href="#macro-atom-references" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 38%" />
@@ -592,24 +566,24 @@ For details on the macro atom, please refer to <a class="reference internal" hre
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="the-atom-data-class">
-<h2>The Atom Data Class<a class="headerlink" href="#the-atom-data-class" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="the-atom-data-class">
+<h2>The Atom Data Class<a class="headerlink" href="#the-atom-data-class" title="Permalink to this heading">¶</a></h2>
 <p>Atom Data is stored inside TARDIS in the <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomData</span></code>-class. The class method <code class="xref py py-func docutils literal notranslate"><span class="pre">AtomData.from_hdf()</span></code> will
 instantiate a new <code class="xref py py-obj docutils literal notranslate"><span class="pre">AtomData</span></code>-class from an HDF5 file. If none is given it will automatically
 take the default HDF5-dataset shipped with TARDIS. A second function <code class="xref py py-func docutils literal notranslate"><span class="pre">AtomData.prepare_atom_data()</span></code>
 will cut the levels and lines data to only the required atoms and ions. In addition, it will create the intricate system
 of references needed by macro atom or branching line interactions.</p>
-</div>
-<div class="section" id="indexing-fun">
-<h2>Indexing fun<a class="headerlink" href="#indexing-fun" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="indexing-fun">
+<h2>Indexing fun<a class="headerlink" href="#indexing-fun" title="Permalink to this heading">¶</a></h2>
 <p>The main problem with the atomic data is indexing. Most of these references require multiple numbers, e.g. atomic number,
 ion number and level number. The <a class="reference external" href="https://pandas.pydata.org/">pandas</a> framework provides the ideal functions to accomplish this. In TARDIS, we extensively
-use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.MultiIndex.html#pandas.MultiIndex" title="(in pandas v1.4.0.dev0+882.g22de58e63f)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.4.0.dev0+882.g22de58e63f)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.0.dev0+882.g22de58e63f)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>.</p>
+use <a class="reference external" href="http://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.MultiIndex.html#pandas.MultiIndex" title="(in pandas v3.0.0.dev0+710.gd8c7e85a1b)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code></a>, <a class="reference external" href="http://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v3.0.0.dev0+710.gd8c7e85a1b)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> and <a class="reference external" href="http://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v3.0.0.dev0+710.gd8c7e85a1b)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>.</p>
 <p>TO BE BETTER DOCUMENTED …</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -622,8 +596,8 @@ use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/de
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

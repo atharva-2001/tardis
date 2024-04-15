@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using a custom stratified composition &mdash; tardis</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -16,9 +17,11 @@
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -33,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../../index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,8 +55,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../api/modules.html">API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
@@ -70,48 +79,37 @@
 <li class="toctree-l3"><a class="reference internal" href="../../debug.html">Debug Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../example.html">Tardis Example Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../example.html">TARDIS Example Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../config_validator.html">Configuration Validator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../read_configuration.html">Reading a Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -127,11 +125,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Configuration (Required Input)</a> &raquo;</li>
-          <li><a href="../../index.html">Configuration Components</a> &raquo;</li>
-          <li><a href="../index.html">Models</a> &raquo;</li>
-      <li>Using a custom stratified composition</li>
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Configuration (Required Input)</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Configuration Components</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Models</a></li>
+      <li class="breadcrumb-item active">Using a custom stratified composition</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/io/configuration/components/models/abundancecust/abundancecust.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -141,51 +139,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="using-a-custom-stratified-composition">
-<span id="abundancecust"></span><h1>Using a custom stratified composition<a class="headerlink" href="#using-a-custom-stratified-composition" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="ascii-format">
-<h2>ASCII Format<a class="headerlink" href="#ascii-format" title="Permalink to this headline">¶</a></h2>
+  <section id="using-a-custom-stratified-composition">
+<span id="abundancecust"></span><h1>Using a custom stratified composition<a class="headerlink" href="#using-a-custom-stratified-composition" title="Permalink to this heading">¶</a></h1>
+<section id="ascii-format">
+<h2>ASCII Format<a class="headerlink" href="#ascii-format" title="Permalink to this heading">¶</a></h2>
 <p>To use a stratified ejecta composition in TARDIS, the elemental abundances may
 be specified on a per-cell basis via an external ASCII file (similar to setting
 up a <a class="reference internal" href="../densitycust/densitycust.html#densitycust"><span class="std std-ref">custom density</span></a> profile). An ASCII file that could
 work on a mesh with ten cells should be formatted like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># index Z=1 - Z=30
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0.1 0 0.2 0 0.2 0 0 0 0 0 0.2 0.1 0.1 0 0
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0.1 0 0.2 0 0.2 0 0 0 0 0 0.2 0.1 0.1 0 0
-2 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0.1 0 0.2 0 0.2 0 0 0 0 0 0.2 0.1 0.1 0 0
-3 0 0 0 0 0 0 0 0.2 0 0 0 0.1 0 0.2 0 0.2 0 0.2 0 0.1 0 0 0 0 0 0 0 0 0 0
-4 0 0 0 0 0 0 0 0.2 0 0 0 0.1 0 0.2 0 0.2 0 0.2 0 0.1 0 0 0 0 0 0 0 0 0 0
-5 0 0 0 0 0 0 0 0.2 0 0 0 0.1 0 0.2 0 0.2 0 0.2 0 0.1 0 0 0 0 0 0 0 0 0 0
-6 0 0 0 0 0 0 0 0.2 0 0 0 0.1 0 0.2 0 0.2 0 0.2 0 0.1 0 0 0 0 0 0 0 0 0 0
-7 0 0 0 0 0 0 0 0.2 0 0 0 0.1 0 0.2 0 0.2 0 0.2 0 0.1 0 0 0 0 0 0 0 0 0 0
-8 0 0 0 0 0 0.5 0 0.5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-9 0 0 0 0 0 0.5 0 0.5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-</pre></div>
-</div>
 <p>In this file:</p>
 <ul class="simple">
 <li><p>there should be the same number of rows as there are cells specified in the velocity/density structure part of the TARDIS setup</p></li>
@@ -217,23 +178,23 @@ data set. For further information on the atomic database —
 including details of how to develop your own dataset to suit your
 needs, please contact us.</p>
 </div>
-</div>
-<div class="section" id="tardis-ascii-input-file">
-<h2>TARDIS ascii input file<a class="headerlink" href="#tardis-ascii-input-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tardis-ascii-input-file">
+<h2>TARDIS ascii input file<a class="headerlink" href="#tardis-ascii-input-file" title="Permalink to this heading">¶</a></h2>
 <p>If you create a correctly formatted abundance profile file (called “abund.dat”
 in this example), you can use it in TARDIS by putting the following lines in
 the model section of the YAML file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>
-    
-    <span class="nt">abundances</span><span class="p">:</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
-        <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abund.dat</span>
-        <span class="nt">filetype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple_ascii</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">abundances</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">        </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">abund.dat</span>
+<span class="w">        </span><span class="nt">filetype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple_ascii</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="csv-format">
-<h2>CSV Format<a class="headerlink" href="#csv-format" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="csv-format">
+<h2>CSV Format<a class="headerlink" href="#csv-format" title="Permalink to this heading">¶</a></h2>
 <p>In this format, both elemental and isotopic abundances may
 be specified on a per-cell basis via an external CSV file. A CSV file that could
 work on a mesh with ten cells should be formatted like this:</p>
@@ -293,22 +254,22 @@ supposed to give the composition below the photosphere. Thus, the first row
 realistic model. In any real calculation better resolution
 (i.e. more grid points) should be used.</p>
 </div>
-</div>
-<div class="section" id="tardis-csv-input-file">
-<h2>TARDIS CSV input file<a class="headerlink" href="#tardis-csv-input-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tardis-csv-input-file">
+<h2>TARDIS CSV input file<a class="headerlink" href="#tardis-csv-input-file" title="Permalink to this heading">¶</a></h2>
 <p>If you create a correctly formatted abundance profile file (called “tardis_model_abund.csv”
 in this example), you can use it in TARDIS by putting the following lines in
 the model section of the YAML file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>
-    <span class="nt">abundances</span><span class="p">:</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
-        <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tardis_model_abund.csv</span>
-        <span class="nt">filetype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">custom_composition</span>
+<span class="w">    </span><span class="nt">abundances</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">        </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tardis_model_abund.csv</span>
+<span class="w">        </span><span class="nt">filetype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom_composition</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="convert-ascii-abundance-file-format-to-csv-format">
-<h2>Convert ASCII abundance file format to CSV format<a class="headerlink" href="#convert-ascii-abundance-file-format-to-csv-format" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="convert-ascii-abundance-file-format-to-csv-format">
+<h2>Convert ASCII abundance file format to CSV format<a class="headerlink" href="#convert-ascii-abundance-file-format-to-csv-format" title="Permalink to this heading">¶</a></h2>
 <p>If you want to convert an ASCII abundance file (say “abund.dat”) to CSV format, you can use
 <code class="code docutils literal notranslate"><span class="pre">convert_abundances_format</span></code> function for it. Here is an example to demonstrate this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis.util</span> <span class="kn">import</span> <span class="n">convert_abundances_format</span>
@@ -316,8 +277,8 @@ the model section of the YAML file:</p>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;converted_abund.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -330,8 +291,8 @@ the model section of the YAML file:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

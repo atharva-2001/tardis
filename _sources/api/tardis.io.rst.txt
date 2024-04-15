@@ -8,8 +8,9 @@ Subpackages
    :maxdepth: 4
 
    tardis.io.atom_data
+   tardis.io.configuration
    tardis.io.logger
-   tardis.io.parsers
+   tardis.io.model
 
 Submodules
 ----------
@@ -17,10 +18,6 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   tardis.io.config_internal
-   tardis.io.config_reader
-   tardis.io.config_validator
-   tardis.io.decay
    tardis.io.model_reader
    tardis.io.util
 

@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   tardis.montecarlo.estimators
    tardis.montecarlo.montecarlo_numba
 
 Submodules
@@ -17,6 +18,7 @@ Submodules
 
    tardis.montecarlo.base
    tardis.montecarlo.montecarlo_configuration
+   tardis.montecarlo.montecarlo_transport_state
    tardis.montecarlo.packet_source
    tardis.montecarlo.spectrum
 

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation &mdash; tardis</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,13 +17,15 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quickstart for TARDIS" href="quickstart/quickstart.html" />
+    <link rel="next" title="Quickstart for TARDIS" href="quickstart.html" />
     <link rel="prev" title="TARDIS Core Package Documentation" href="index.html" />
     <link href="_static/tardis.css" rel="stylesheet" type="text/css">
 
@@ -33,14 +36,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> tardis
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tardis
           </a>
               <div class="version">
                 latest
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,54 +55,46 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-tardis-with-anaconda">Installing TARDIS with Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-with-lockfiles">Install with lockfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-update">Environment update</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart/quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart for TARDIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/modules.html">API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="io/configuration/index.html">Configuration (Required Input)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io/optional/index.html">Optional Inputs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io/output/index.html">Additional Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io/grid/TardisGridTutorial.html">TARDIS Grid Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="physics/intro/index.html">Physics Walkthrough Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="physics/setup/index.html">Setting Up the Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="physics/est_and_conv/index.html">Estimators and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Research with TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="research/index.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="team_and_governance/index.html">Team and Governance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Code of Conduct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sponsors.html">Sponsors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Development Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="zreferences.html">TARDIS Papers and useful References</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Outdated</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="outdated/index.html">Outdated Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/zreferences.html">References and Glossary</a></li>
 </ul>
 
         </div>
@@ -111,8 +110,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,108 +121,124 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="installation">
-<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Before installing TARDIS, please check its <a class="reference internal" href="#requirements-label"><span class="std std-ref">requirements</span></a>. We provide <a class="reference internal" href="#anaconda-inst-label"><span class="std std-ref">instructions</span></a> for installing TARDIS using
-Anaconda. Once you have installed TARDIS, check out the “Input/Output” section (in sidebar) for instructions
-regarding how to perform simple TARDIS calculations.</p>
-<div class="admonition note" id="requirements-label">
-<p class="admonition-title">Note</p>
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul class="simple">
-<li><p>TARDIS is only compatible with Python &gt;=3.6</p></li>
-<li><p>TARDIS only supports MacOS and Linux.</p></li>
-<li><p>We strongly recommend installing TARDIS within an Anaconda environment and to always use the latest GitHub development version.</p></li>
+<li><p>TARDIS is only supported on macOS and GNU/Linux. Windows users can run TARDIS
+from our official Docker image (<em>coming soon</em>), <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a>
+or a Virtual Machine.</p></li>
+<li><p>TARDIS packages and dependencies are distributed only through the <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>
+package management system, therefore installation requires <a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html">Anaconda</a>
+or <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">Miniconda</a>
+to be installed on your system.</p></li>
 </ul>
 </div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>You can see a list of all the requirements of TARDIS in the <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/tardis_env3.yml">environment definition file</a>.</p>
-<p>TARDIS is using Astropy’s excellent installation helpers and thus uses similar
-instructions to Astropy.</p>
-</div>
-<div class="section" id="installing-tardis-with-anaconda">
-<span id="anaconda-inst-label"></span><h2>Installing TARDIS with Anaconda<a class="headerlink" href="#installing-tardis-with-anaconda" title="Permalink to this headline">¶</a></h2>
-<p>We highly recommend using the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> Python environment to install TARDIS (or
-any other scientific packages for that matter). Anaconda has the advantage of
-being an isolated environment that can be set to be the default one, but by no
-means will mess with your other environments. It will also work on computers
-where <code class="docutils literal notranslate"><span class="pre">root</span></code>-rights are not available. Use these <a class="reference external" href="http://docs.continuum.io/anaconda/install.html">instructions</a> to install Anaconda on your
-machine. The next step is to create an environment for TARDIS that contains all
-of the necessary packages (this ensures that TARDIS requirements won’t clash
-with any other Python installs on disc):</p>
-<p>First, download the <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/tardis_env3.yml">environment definition file</a> from:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://raw.githubusercontent.com/tardis-sn/tardis/master/tardis_env3.yml
+<section id="install-with-lockfiles">
+<h2>Install with lockfiles<a class="headerlink" href="#install-with-lockfiles" title="Permalink to this heading">¶</a></h2>
+<p>Conda lockfiles are platform-specific dependency files that produce repeatable environments.
+These files are generated on every new release. We strongly recommend installing TARDIS using
+this method by following the steps described below.</p>
+<ol class="arabic simple">
+<li><p>Download the latest lockfile for your operating system from our
+<a class="reference external" href="https://github.com/tardis-sn/tardis/releases">releases section</a>, or run
+the following command while replacing <code class="docutils literal notranslate"><span class="pre">{platform}</span></code> with <code class="docutils literal notranslate"><span class="pre">linux</span></code> or <code class="docutils literal notranslate"><span class="pre">osx</span></code> as appropriate.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ wget -q https://raw.githubusercontent.com/tardis-sn/tardis/master/conda-{platform}-64.lock
 </pre></div>
 </div>
-<p>To create the environment, change to the directory that you downloaded the environment definition file and run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -f tardis_env3.yml
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Create and activate the <code class="docutils literal notranslate"><span class="pre">tardis</span></code> environment.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name tardis --file conda-{platform}-64.lock
+$ conda activate tardis
 </pre></div>
 </div>
-<p>Then to activate this environment simply do:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>source activate tardis
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><ol class="loweralpha">
+<li><p>Developers should <a class="reference external" href="https://github.com/tardis-sn/tardis/fork">fork the repository</a>, configure
+GitHub to <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">work with SSH keys</a>,
+set up the <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork">upstream remote</a>,
+and install the package in development mode.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:&lt;username&gt;/tardis.git
+$ cd tardis
+$ git remote add upstream git@github.com:tardis-sn/tardis.git
+$ git fetch upstream
+$ git checkout upstream/master
+$ python setup.py develop
 </pre></div>
 </div>
-<p>or the new method:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate tardis
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The complete developer guidelines can be found <a class="reference internal" href="contributing/development/index.html#developer-guidelines"><span class="std std-ref">here</span></a>.</p>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple" start="2">
+<li><p>Non-developers can install from specific releases using pip-</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/tardis-sn/tardis.git@{tag}
 </pre></div>
 </div>
-<p>and after you are done with TARDIS you can deactivate:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda deactivate
+<p>For example-</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/tardis-sn/tardis.git@release-latest
 </pre></div>
 </div>
-<p>One does not need to recreate the environment, but simply activate it every time
-TARDIS is used.</p>
-<p>For TARDIS development purposes please follow the steps <a class="reference internal" href="development/git_workflow.html#forking"><span class="std std-ref">here</span></a>
-until the step to install TARDIS in the development mode
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code>. Development guidelines for
-TARDIS can be found <a class="reference external" href="https://tardis-sn.github.io/tardis/development/index.html">here</a>.</p>
-<p>To install TARDIS, it is recommended to first clone our repository and
-then install TARDIS, as follows:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/tardis-sn/tardis.git
-cd tardis
-python setup.py install
+<p>or trying the most recent, unreleased changes from upstream.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/tardis-sn/tardis.git@master
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>Once finished working, you can deactivate your environment.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda deactivate
+</pre></div>
+</div>
+</div></blockquote>
+<p>From now on, just activate the <code class="docutils literal notranslate"><span class="pre">tardis</span></code> environment before working with the TARDIS package.</p>
+<p>You have successfully installed TARDIS! 🎉 Please refer to <a class="reference internal" href="quickstart.html"><span class="doc">Quickstart for TARDIS</span></a>
+to start running simulations.</p>
+</section>
+<section id="environment-update">
+<h2>Environment update<a class="headerlink" href="#environment-update" title="Permalink to this heading">¶</a></h2>
+<p>To update the environment after a new release, download the latest lockfile and run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ wget -q https://github.com/tardis-sn/tardis/releases/latest/download/conda-{platform}-64.lock
+$ conda update --name tardis --file conda-{platform}-64.lock
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have installed the tardis package in development mode, you should <em>ideally</em> update your environment whenever you pull latest tardis code because the new code added might be using updated (or new) dependencies. If you don’t do that and your tardis installation seems broken, you can check if your environment requires update by comparing it against the latest environment file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda compare --name tardis tardis_env3.yml
 </pre></div>
 </div>
 </div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="TARDIS Core Package Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="quickstart/quickstart.html" class="btn btn-neutral float-right" title="Quickstart for TARDIS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quickstart for TARDIS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2013-2021, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 14 Oct 2021.
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 15 Apr 2024.
       </span></p>
   </div>
 

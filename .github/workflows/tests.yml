@@ -12,6 +12,18 @@ on:
   pull_request:
     branches:
     - '*'
+  
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'the ref to be sent to the checkout option'     
+        required: false
+        default: 'master'
+      repository:
+        description: 'organisation to checkout in'
+        required: false
+        default: 'tardis-sn'
+  
 
 env:
   CACHE_NUMBER: 0  # increase to reset cache manually
@@ -29,7 +41,7 @@ defaults:
 
 jobs:
   build:
-    if: github.repository_owner == 'tardis-sn'
+    # if: github.repository_owner == 'tardis-sn'
     strategy:
       matrix:
         pip: [true, false]
@@ -47,6 +59,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+        with: 
+          repository: atharva-2001/tardis
+          ref:  ${{ github.event.inputs.sha }} || 'master'
 
       - name: Setup LFS
         uses: ./.github/actions/setup_lfs

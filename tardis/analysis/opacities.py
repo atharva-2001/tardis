@@ -1,10 +1,12 @@
 """This module provides an opacity calculator class with which the opacities
 and optical depth information may be extracted from Tardis runs."""
 import logging
-import numpy as np
+
 import astropy.units as units
-from tardis import constants as const
+import numpy as np
 from astropy.modeling.models import Blackbody
+
+from tardis import constants as const
 
 logger = logging.getLogger(__name__)
 

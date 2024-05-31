@@ -27,7 +27,7 @@ the TARDIS calculations --- so if your model is, for example, based on an explos
 simulation, you may need to calculate the state of any radioactive decay chains
 at the correct epoch.
 
-The example file shown here has three simple layers: 
+The example file shown here has three simple layers:
 
 - an innermost region (indices 0 to 2) that is composed of Si (Z=14), S (Z=16), Ar (Z=18), Ca (Z=20), Fe (Z=26), Co (Z=27) and Ni (Z=28)
 
@@ -69,7 +69,7 @@ work on a mesh with ten cells should be formatted like this:
 .. literalinclude:: tardis_model_abund.csv
 
 .. note::
-    
+
     The file should always contain the cell index as a running index in the
     first column.
 
@@ -80,7 +80,7 @@ work on a mesh with ten cells should be formatted like this:
 
 In this file:
 
-- Header row contains element and isotopes symbol 
+- Header row contains element and isotopes symbol
 - the remaining entries in each row give the set of elemental and isotopic abundances.
 - the first column contains a running index
 
@@ -88,7 +88,7 @@ The abundances are specified as mass fractions (i.e. the sum of columns
 in each row should be 1.0). The mass fractions specified will be adopted directly in
 the TARDIS calculations.
 
-The example file shown here has three simple layers: 
+The example file shown here has three simple layers:
 
 - an innermost region that is composed of Si and two Nickel Isotopes Ni56 and Ni58
 
@@ -97,14 +97,14 @@ The example file shown here has three simple layers:
 - an outer region that is composed of C and O
 
 .. note::
-    
+
     Suppose you specify Elemental and Isotopic abundances for the same element. For ex-
-    :code:`Ni` and :code:`Ni56`. 
+    :code:`Ni` and :code:`Ni56`.
     Here, Ni will refer to the stable Nickel (i.e. Z=26, A=58).
 
 
 .. note::
-  
+
     As with the custom density file, the first row will be ignored. It is
     supposed to give the composition below the photosphere. Thus, the first row
     (after the header) can be filled with dummy values.
@@ -123,16 +123,16 @@ in this example), you can use it in TARDIS by putting the following lines in
 the model section of the YAML file:
 
 .. literalinclude:: tardis_configv1_isotope_abundance_cust_example.yml
-    :language: yaml   
+    :language: yaml
 
 Convert ASCII abundance file format to CSV format
 =================================================
 
-If you want to convert an ASCII abundance file (say "abund.dat") to CSV format, you can use 
+If you want to convert an ASCII abundance file (say "abund.dat") to CSV format, you can use
 :code:`convert_abundances_format` function for it. Here is an example to demonstrate this:
 
 .. code:: python
 
     from tardis.util import convert_abundances_format
     df = convert_abundances_format('abund.dat')
-    df.to_csv('converted_abund.csv', index=False, sep=' ')  
+    df.to_csv('converted_abund.csv', index=False, sep=' ')

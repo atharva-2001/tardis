@@ -1,10 +1,9 @@
-import pytest
-import numpy.testing as npt
 import numpy as np
+import numpy.testing as npt
+import pytest
+
 import tardis.transport.montecarlo.interaction as interaction
-from tardis.transport.montecarlo.numba_interface import (
-    LineInteractionType,
-)
+from tardis.transport.montecarlo.numba_interface import LineInteractionType
 
 
 def test_thomson_scatter(packet, verysimple_numba_model):

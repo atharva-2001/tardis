@@ -25,11 +25,12 @@
 # Thus, any C-extensions that are needed to build the documentation will *not*
 # be accessible, and the documentation will not build correctly.
 
+import datetime
 import os
 import sys
-import datetime
-import tardis  # FIXME: this import is required by astropy.constants
 from importlib import import_module
+
+import tardis  # FIXME: this import is required by astropy.constants
 
 try:
     from sphinx_astropy.conf.v1 import *  # noqa
@@ -132,7 +133,7 @@ nbsphinx_execute_arguments = [
 nbsphinx_prolog = r"""
 {% set docname = 'docs/' + env.doc2path(env.docname, base=None) %}
 .. raw:: html
-    
+
     <style>
         /* strip stderr */
         div.nboutput.container div.output_area.stderr {
@@ -167,7 +168,7 @@ nbsphinx_prolog = r"""
             line-height: 2em;
         }
     </style>
-    
+
     <div class="admonition note">
     <p class="note-p">You can interact with this notebook online: <a href="https://mybinder.org/v2/gh/tardis-sn/tardis/HEAD?filepath={{ docname|e }}" class="launch-btn" target="_blank" rel="noopener noreferrer">Launch notebook</a></p>
     </div>

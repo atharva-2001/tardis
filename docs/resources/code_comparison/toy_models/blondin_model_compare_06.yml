@@ -31,7 +31,7 @@ montecarlo:
     damping_constant: 0.5
     threshold: 0.05
     fraction: 0.8
-    
+
     t_inner:
       damping_constant: 0.0
 
@@ -41,4 +41,3 @@ spectrum:
   num: 10000
   integrated:
     interpolate_shells: 80
-  

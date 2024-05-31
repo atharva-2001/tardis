@@ -18,7 +18,7 @@ TARDIS Core Package Documentation
 
 TARDIS is an open-source Monte Carlo radiative-transfer spectral synthesis code
 for 1D models of supernova ejecta. It is designed for rapid spectral modelling
-of supernovae. It is developed and maintained by a 
+of supernovae. It is developed and maintained by a
 `multi-disciplinary team <https://tardis-sn.github.io/team/community_roles/>`_
 including software engineers, computer scientists, statisticians,
 and astrophysicists.
@@ -40,11 +40,11 @@ assistance.
 Mission Statement
 -----------------
 
-    *The mission of the TARDIS community is to develop open-source software 
-    instruments to analyze and simulate astronomical transients 
-    (supernovae, kilonovae, etc.) for research and education purposes. 
-    We aim to build up a diverse group of researchers and developers 
-    using an open-community model that emphasizes interdisciplinary 
+    *The mission of the TARDIS community is to develop open-source software
+    instruments to analyze and simulate astronomical transients
+    (supernovae, kilonovae, etc.) for research and education purposes.
+    We aim to build up a diverse group of researchers and developers
+    using an open-community model that emphasizes interdisciplinary
     research and science reproducibility.*
 
 .. toctree::
@@ -63,7 +63,7 @@ Mission Statement
     :maxdepth: 3
     :caption: Input/Output
     :hidden:
-    
+
     io/configuration/index
     io/model/index
     io/optional/index
@@ -75,7 +75,7 @@ Mission Statement
     :maxdepth: 2
     :caption: Physics Walkthrough
     :hidden:
-    
+
     physics/intro/index
     physics/setup/index
     physics/montecarlo/index
@@ -98,7 +98,7 @@ Mission Statement
 .. toctree::
     :caption: Other Resources
     :hidden:
-    
+
     resources/credits
     resources/research_done_using_TARDIS/research_papers
     resources/code_comparison/index

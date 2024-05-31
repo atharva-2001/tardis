@@ -116,13 +116,13 @@ The probability of a photon interacting after covering an optical depth
     f(\tau) &= 1 - \exp(-\tau).
 
 
-With the inverse transformation method, the optical depth to the next interaction location may then be sampled by 
+With the inverse transformation method, the optical depth to the next interaction location may then be sampled by
 
 .. math::
 
     \tau = - \mathrm{ln}(1 - z)
-  
-    
+
+
 which is equivalent to
 
 .. math::

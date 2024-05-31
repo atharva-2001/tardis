@@ -2,15 +2,10 @@ import numpy as np
 import numpy.testing as npt
 import pytest
 
-from tardis.energy_input.util import (
-    R_ELECTRON_SQUARED,
-    get_perpendicular_vector,
-    klein_nishina,
-    spherical_to_cartesian,
-)
-from tardis.transport.montecarlo.opacities import (
-    kappa_calculation,
-)
+from tardis.energy_input.util import (R_ELECTRON_SQUARED,
+                                      get_perpendicular_vector, klein_nishina,
+                                      spherical_to_cartesian)
+from tardis.transport.montecarlo.opacities import kappa_calculation
 
 
 @pytest.mark.parametrize(

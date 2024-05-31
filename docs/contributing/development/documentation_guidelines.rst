@@ -41,7 +41,7 @@ Whether your page is written in reStructuredText or as a Jupyter notebook, it mu
 3. Include your file in the/a `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_ of the corresponding ``index.rst``. For example, :doc:`../../io/visualization/using_widgets` was included in a toctree of ``docs/io/visualization/index.rst``.
 
 .. note::
-    
+
     When new functions or classes are added to the code, in addition to documentation, **docstrings** must always be added. Read :ref:`this section <docstrings>` of our code quality guidelines to understand their importance and how they should be formatted. Sphinx uses these docstrings to auto-generate the `API documentation <https://tardis-sn.github.io/tardis/api/modules.html>`_ for entire TARDIS package. Please make sure that you have correctly formatted the docstrings by checking how the corresponding module's API looks once you build the documentation.
 
 
@@ -55,7 +55,7 @@ To build TARDIS documentation locally, use the following commands:
     cd docs
     make html
 
-.. note:: 
+.. note::
 
     - If you're working on a fresh local copy of the TARDIS repository, you might need to do ``python setup.py develop`` before executing these commands.
     - Use ``DISABLE_NBSPHINX=1 make html`` to disable notebook rendering (fast mode).

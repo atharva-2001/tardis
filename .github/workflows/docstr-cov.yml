@@ -1,4 +1,4 @@
-# Log in to jsonbin.org with tardis-bot GitHub account to get an API key and 
+# Log in to jsonbin.org with tardis-bot GitHub account to get an API key and
 # store it as a repository secret.
 
 # Updated badge will be available at:
@@ -47,7 +47,7 @@ jobs:
           elif [[ ${{ github.event_name }} == 'pull_request' ]]; then
             echo "BASE=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
             echo "HEAD=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
-          
+
           else
             echo "Unexpected event trigger"
             exit 1

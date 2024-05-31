@@ -1,13 +1,12 @@
 import logging
+
+import astropy.units as u
 import numpy as np
 import pandas as pd
-import astropy.units as u
 import radioactivedecay as rd
 
-from tardis.energy_input.energy_source import (
-    get_all_isotopes,
-    setup_input_energy,
-)
+from tardis.energy_input.energy_source import (get_all_isotopes,
+                                               setup_input_energy)
 from tardis.transport.montecarlo.opacities import M_P
 
 # Energy: keV, exported as eV for SF solver

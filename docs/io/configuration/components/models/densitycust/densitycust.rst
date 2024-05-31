@@ -20,7 +20,7 @@ In this file:
 
 - (the second line in our example is a comment)
 
-- the remaining lines (ten in our example) give an indexed table of points that specify mass density (g / cm^3) as a function of velocity (km / s). 
+- the remaining lines (ten in our example) give an indexed table of points that specify mass density (g / cm^3) as a function of velocity (km / s).
 
 TARDIS will use this table of density versus velocity to specify the density
 distribution in the ejecta.  For the calculation, TARDIS will use the reference
@@ -72,4 +72,3 @@ the model section of the YAML file:
     The specifications for the velocities of the inner and outer boundary values can be neglected
     (in which case TARDIS will default to using the full velocity range specified in the density.txt file).
     Values for the boundary velocities that lie outside the range covered by density.txt will not be accepted.
-

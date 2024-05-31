@@ -88,4 +88,3 @@ Example Calculations
 
 .. .. plot:: physics/pyplot/nebular_ionization_balance.py
     :include-source:
-

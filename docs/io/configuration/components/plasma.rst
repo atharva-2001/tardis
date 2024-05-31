@@ -14,21 +14,21 @@ boundary. ``initial_t_rad`` is the initial radiation temperature (will be update
 There are currently two ``plasma_type`` options available: ``nebular`` and ``lte``, which tell TARDIS how to run the
 ionization equilibrium and level population calculations (see :ref:`plasma` for more information).
 The radiative rates describe how to calculate the :math:`J_\textrm{blue}` needed for the :ref:`nlte` calculations and
-:ref:`macroatom` calculations. There are three options for ``radiative_rates_type``: 
- 
+:ref:`macroatom` calculations. There are three options for ``radiative_rates_type``:
+
 1) ``blackbody``, in which
 :math:`J_\textrm{blue} = \textrm{Blackbody}(T_\textrm{rad})`
- 
+
 2) ``dilute-blackbody`` in which
 :math:`J_\textrm{blue} = W \times \textrm{Blackbody}(T_\textrm{rad})`
- 
+
 3) ``detailed`` in which the :math:`J_\textrm{blue}`
 are calculated using an estimator (this is described in :doc:`../../../physics/montecarlo/estimators`).
- 
+
 TARDIS currently supports three different kinds of line interaction: ``scatter`` --- a resonance scattering implementation,
 ``macroatom`` --- the most complex form of line interaction described in :ref:`macroatom` and ``downbranch`` a simplified
 version of ``macroatom`` in which only downward transitions are allowed (see :ref:`lineinteraction`).
- 
+
 Finally, ``w_epsilon`` describes the dilution factor to use to calculate :math:`J_\textrm{blue}` that are 0, which
 causes problems with the code (so :math:`J_\textrm{blue}` are set to a very small number).
 
@@ -44,11 +44,11 @@ Continuum Interaction
                 - H I
                 - H II
                 - He I
-                - He II 
+                - He II
             enable_adiabatic_cooling: True
 
-This will add continuum interactions for all specified species. Setting :math:`T_\textrm{rad} = T_\textrm{electron}` through 
-``link_t_rad_t_electron: 1.0`` is recommended to enforce LTE (unless the simulation uses NLTE treatment). 
+This will add continuum interactions for all specified species. Setting :math:`T_\textrm{rad} = T_\textrm{electron}` through
+``link_t_rad_t_electron: 1.0`` is recommended to enforce LTE (unless the simulation uses NLTE treatment).
 ``enable_adiabatic_cooling`` enables adiabatic cooling.
 
 NLTE
@@ -73,7 +73,7 @@ NLTE Ionization
     plasma:
         nlte_ionization_species: [H I, H II, He I, He II]
         nlte_solver: root
-    
+
 This option allows the user to specify which species should be included in the NLTE ionization treatment. Note that the
 species must be present in the continuum interaction species as well.
 Here, ``nlte_solver`` can be set to ``root`` or ``lu``. ``root`` is the default and uses a root solver to calculate the

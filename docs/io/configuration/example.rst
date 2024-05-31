@@ -13,7 +13,7 @@ It calculates a spectrum for a Type Ia supernova model 13 days after explosion,
 requesting a total output luminosity of
 
 .. math::
-    
+
     L = 10^{9.44}\, \mathrm{L}_{\odot}
 
 A simple power-law density profile (seventh order polynomial fit to the Nomoto

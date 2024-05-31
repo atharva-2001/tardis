@@ -48,7 +48,7 @@ Note that the propagation direction has also changed and now takes the value
 
 .. math::
     \mu_f = \frac{l + r_i \mu_i}{r_f}.
-    
+
 
 Supernova Expansion
 ===================
@@ -66,8 +66,8 @@ shown in the animation.
 TARDIS simulates radiative transfer between an inner boundary (the photosphere) with a radius
 :math:`r_\mathrm{boundary\_inner}`, and an outer boundary (the outer edge of the supernova ejecta) with a radius
 :math:`r_\mathrm{boundary\_outer}`. Additionally, TARDIS divides the space between the inner and outer computational
-boundaries into cells -- radial shells for which the plasma state is (spatially) constant. In the animation, 6 cells 
-are shown, being divided by the light blue lines. The boundaries of the computational domain and of these cells are 
+boundaries into cells -- radial shells for which the plasma state is (spatially) constant. In the animation, 6 cells
+are shown, being divided by the light blue lines. The boundaries of the computational domain and of these cells are
 computed during the simulation setup (refer back to :doc:`../setup/model`). As TARDIS is a time-independent code, meaning
 that it calculates the spectra at an instant in time (namely at the time :math:`t_\mathrm{explosion}`), the radii of
 the boundaries (both of the computational domain and of the cells) do not change throughout the simulation.
@@ -84,11 +84,11 @@ Reference Frames
 
 Because ejecta in the supernova is moving, TARDIS must take reference frames into account.
 
-In TARDIS, two reference frames are of particular importance: the lab frame and the co-moving frame. In the lab 
+In TARDIS, two reference frames are of particular importance: the lab frame and the co-moving frame. In the lab
 frame, the center of the supernova is at rest; for example, the animation above is shown in the lab frame.
 This is the frame for which the spectra are calculated.
 
-The co-moving frame at some point in the supernova, however, has the plasma at that point be at rest. This is the 
+The co-moving frame at some point in the supernova, however, has the plasma at that point be at rest. This is the
 frame of reference "according to the plasma."
 
 If a photon is propagating in the ejecta with a frequency :math:`\nu_\mathrm{lab}` in the lab frame and a propagation
@@ -97,14 +97,14 @@ the supernova, the photon's frequency is shifted to
 
 .. math::
     \nu_\mathrm{co-moving} = \nu_\mathrm{lab}\frac{1-\beta\mu}{\sqrt{1-\beta^2}}
-    
+
 where :math:`\beta = \frac{v}{c} = \frac{r}{ct_\mathrm{explosion}}` (note again that :math:`v` is the velocity of the
 plasma at a radius :math:`r` from the center of the supernova). The term :math:`\frac{1-\beta\mu}{\sqrt{1-\beta^2}}`
 is known as the doppler factor. In the nonrelativistic limit (as :math:`v << c`), we get
 
 .. math::
     \nu_\mathrm{co-moving} = \nu_\mathrm{lab}(1-\beta\mu).
-    
+
 Note that if the photon is propagating away from the center of the supernova (:math:`\mu>0`) it is red-shifted
 (:math:`\nu_\mathrm{co-moving}<\nu_\mathrm{lab}`), and if the photon is propagating towards the center of the
 supernova (:math:`\mu<0`) it is blue-shifted (:math:`\nu_\mathrm{co-moving}>\nu_\mathrm{lab}`).
@@ -144,7 +144,7 @@ The calculations for the distance to the inner cell boundary:
 
 .. image:: ../../graphics/d_inner.png
     :width: 500
-    
+
 Special care is taken at the edges of the computational
 domain. If a packet crosses back into the photosphere, it is discarded. Its
 propagation is stopped and it is no longer considered. Instead, processing the
@@ -196,7 +196,7 @@ Photons and thus Monte Carlo packets can only interact with a line transition
 if their frequency in the co-moving frame corresponds to the energy difference between the
 atomic levels linked by the transition, i.e. if it comes into resonance. As discussed above, as a
 photon/packet propagates through the homologously expanding ejecta, its
-co-moving frame frequency is continuously red- or blue-shifted (depending on the packet's propagation direction). 
+co-moving frame frequency is continuously red- or blue-shifted (depending on the packet's propagation direction).
 Thus, during its
 propagation through the supernova ejecta, a photon/packet may come into resonance with
 many line transitions. This and the fact that line transitions have a finite
@@ -233,12 +233,12 @@ optical depth :math:`\tau_\mathrm{Sobolev}` (see :ref:`tau_sobolev`). This corre
 :math:`1-e^{-\tau_\mathrm{Sobolev}}` that the packet interacts with the atomic line.
 
 Distance to Next Event
----------------------- 
+----------------------
 
 With these assumptions, the accumulation of optical depth along a packet's trajectory currently proceeds according
-to the following scheme (which was originally introduced by :cite:`Mazzali1993`): 
+to the following scheme (which was originally introduced by :cite:`Mazzali1993`):
 given the current lab-frame frequency of the packet, the distance to the next
-Sobolev point (i.e. to the next line resonance) is calculated as discussed above. 
+Sobolev point (i.e. to the next line resonance) is calculated as discussed above.
 Until this location, the packet continuously accumulates optical depth due to the possibility of
 electron-scattering. At the Sobolev point, the accumulated optical depth is
 instantaneously incremented by the Sobolev optical depth. Afterwards, the
@@ -279,7 +279,7 @@ direction is sampled according to (see :ref:`Random Sampling <randomsampling>`)
 .. math::
 
     \mu_f = 2 z - 1.
-    
+
 using a new random :math:`z` (between 0 and 1).
 
 For Thomson scattering, the energy of the packet in the co-moving frame is conserved, and thus the new energy and
@@ -289,7 +289,7 @@ frequency of the packet in the lab frame (due to the doppler effect) is:
 
     \varepsilon_f & = \varepsilon_i \frac{1 - \beta \mu_i}{1 - \beta \mu_f} \\
     \nu_f & = \nu_i \frac{1 - \beta \mu_i}{1 - \beta \mu_f}
-    
+
 Here, the subscripts highlight the packet properties before (:math:`i` for
 initial) and after (:math:`f` for final) the scattering. Note that :math:`\mu_i` is the propagation direction prior
 to the interaction **but at the interaction location.**
@@ -364,5 +364,5 @@ The following flow chart summarizes this process again:
     allpacketsprocessed[label="All packets\nprocessed?"]
     nextpacket[label="Select next packet\nfrom pool"]
     shortestdistance[label="Distance to cell\nedge shortest?"]
-    
+
   }

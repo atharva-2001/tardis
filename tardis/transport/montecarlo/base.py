@@ -7,33 +7,19 @@ from numba import cuda, set_num_threads
 from tardis import constants as const
 from tardis.io.logger import montecarlo_tracking as mc_tracker
 from tardis.io.util import HDFWriterMixin
-from tardis.transport.montecarlo.estimators.radfield_mc_estimators import (
-    initialize_estimator_statistics,
-)
-from tardis.transport.montecarlo.montecarlo_configuration import (
-    MonteCarloConfiguration,
-    configuration_initialize,
-)
-from tardis.transport.montecarlo import (
-    montecarlo_main_loop,
-)
+from tardis.transport.montecarlo import montecarlo_main_loop, numba_config
+from tardis.transport.montecarlo.estimators.radfield_mc_estimators import \
+    initialize_estimator_statistics
 from tardis.transport.montecarlo.formal_integral import FormalIntegrator
+from tardis.transport.montecarlo.montecarlo_configuration import (
+    MonteCarloConfiguration, configuration_initialize)
+from tardis.transport.montecarlo.montecarlo_transport_state import \
+    MonteCarloTransportState
 from tardis.transport.montecarlo.numba_interface import (
-    NumbaModel,
-    opacity_state_initialize,
-)
-from tardis.transport.montecarlo.r_packet import (
-    rpacket_trackers_to_dataframe,
-)
-from tardis.transport.montecarlo.montecarlo_transport_state import (
-    MonteCarloTransportState,
-)
-from tardis.transport.montecarlo import numba_config
-from tardis.util.base import (
-    quantity_linspace,
-    refresh_packet_pbar,
-    update_iterations_pbar,
-)
+    NumbaModel, opacity_state_initialize)
+from tardis.transport.montecarlo.r_packet import rpacket_trackers_to_dataframe
+from tardis.util.base import (quantity_linspace, refresh_packet_pbar,
+                              update_iterations_pbar)
 
 logger = logging.getLogger(__name__)
 

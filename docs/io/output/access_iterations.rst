@@ -17,7 +17,7 @@ via
   mdl = tardis.run_tardis("tardis_config.yml")
   mdl.iterations_w
 
-in case of the dilution factor. 
+in case of the dilution factor.
 
 Currently, the following properties are available:
 

@@ -15,13 +15,9 @@ import pandas as pd
 import plotly.graph_objects as go
 from astropy.modeling.models import BlackBody
 
-from tardis.util.base import (
-    atomic_number2element_symbol,
-    element_symbol2atomic_number,
-    int_to_roman,
-    roman_to_int,
-    species_string_to_tuple,
-)
+from tardis.util.base import (atomic_number2element_symbol,
+                              element_symbol2atomic_number, int_to_roman,
+                              roman_to_int, species_string_to_tuple)
 from tardis.visualization import plot_util as pu
 
 logger = logging.getLogger(__name__)

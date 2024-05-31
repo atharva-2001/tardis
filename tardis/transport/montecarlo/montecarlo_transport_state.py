@@ -4,9 +4,8 @@ import numpy as np
 from astropy import units as u
 
 from tardis.io.util import HDFWriterMixin
-from tardis.transport.montecarlo.estimators.dilute_blackbody_properties import (
-    MCDiluteBlackBodyRadFieldSolver,
-)
+from tardis.transport.montecarlo.estimators.dilute_blackbody_properties import \
+    MCDiluteBlackBodyRadFieldSolver
 from tardis.transport.montecarlo.formal_integral import IntegrationError
 from tardis.transport.montecarlo.spectrum import TARDISSpectrum
 

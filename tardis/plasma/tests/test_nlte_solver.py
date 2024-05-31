@@ -2,18 +2,12 @@ import numpy as np
 import numpy.testing as npt
 import pandas as pd
 import pytest
-import numpy.testing as npt
 
-
-from tardis.plasma.properties import (
-    NLTEPopulationSolverLU,
-    NLTEPopulationSolverRoot,
-)
+from tardis.plasma.properties import (NLTEPopulationSolverLU,
+                                      NLTEPopulationSolverRoot)
 from tardis.plasma.properties.ion_population import IonNumberDensity
 from tardis.plasma.properties.nlte_rate_equation_solver import (
-    calculate_jacobian_matrix,
-    calculate_rate_matrix,
-)
+    calculate_jacobian_matrix, calculate_rate_matrix)
 from tardis.plasma.standard_plasmas import assemble_plasma
 
 

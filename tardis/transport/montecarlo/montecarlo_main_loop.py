@@ -4,22 +4,13 @@ from numba.np.ufunc.parallel import get_num_threads, get_thread_id
 from numba.typed import List
 
 from tardis.transport.montecarlo import njit_dict
-from tardis.transport.montecarlo.numba_interface import (
-    NumbaModel,
-    RPacketTracker,
-)
+from tardis.transport.montecarlo.numba_interface import (NumbaModel,
+                                                         RPacketTracker)
 from tardis.transport.montecarlo.packet_collections import (
-    VPacketCollection,
-    consolidate_vpacket_tracker,
-    initialize_last_interaction_tracker,
-)
-from tardis.transport.montecarlo.r_packet import (
-    PacketStatus,
-    RPacket,
-)
-from tardis.transport.montecarlo.single_packet_loop import (
-    single_packet_loop,
-)
+    VPacketCollection, consolidate_vpacket_tracker,
+    initialize_last_interaction_tracker)
+from tardis.transport.montecarlo.r_packet import PacketStatus, RPacket
+from tardis.transport.montecarlo.single_packet_loop import single_packet_loop
 from tardis.util.base import update_packet_pbar
 
 

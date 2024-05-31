@@ -7,23 +7,18 @@ from astropy import units as u
 
 from tardis import constants as const
 from tardis.io.model.parse_density_configuration import (
-    calculate_density_after_time,
-    parse_config_v1_density,
-    parse_csvy_density,
-)
-from tardis.io.model.readers.base import read_abundances_file, read_density_file
+    calculate_density_after_time, parse_config_v1_density, parse_csvy_density)
+from tardis.io.model.readers.base import (read_abundances_file,
+                                          read_density_file)
 from tardis.io.model.readers.csvy import parse_csv_abundances
 from tardis.io.model.readers.generic_readers import read_uniform_abundances
 from tardis.model.geometry.radial1d import HomologousRadial1DGeometry
 from tardis.model.matter.composition import Composition
 from tardis.model.matter.decay import IsotopicMassFraction
-from tardis.model.radiation_field_state import (
-    DiluteBlackBodyRadiationFieldState,
-)
+from tardis.model.radiation_field_state import \
+    DiluteBlackBodyRadiationFieldState
 from tardis.transport.montecarlo.packet_source import (
-    BlackBodySimpleSource,
-    BlackBodySimpleSourceRelativistic,
-)
+    BlackBodySimpleSource, BlackBodySimpleSourceRelativistic)
 from tardis.util.base import quantity_linspace
 
 logger = logging.getLogger(__name__)

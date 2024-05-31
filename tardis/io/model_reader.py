@@ -14,9 +14,7 @@ from radioactivedecay.utils import Z_DICT, elem_to_Z
 from tardis.io.configuration.config_reader import ConfigurationNameSpace
 from tardis.transport.montecarlo.base import MonteCarloTransportSolver
 from tardis.transport.montecarlo.packet_source import (
-    BlackBodySimpleSource,
-    BlackBodySimpleSourceRelativistic,
-)
+    BlackBodySimpleSource, BlackBodySimpleSourceRelativistic)
 from tardis.util.base import is_valid_nuclide_or_elem, parse_quantity
 
 # Adding logging support

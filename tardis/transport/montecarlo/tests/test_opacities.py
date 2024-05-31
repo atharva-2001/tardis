@@ -2,11 +2,8 @@ import numpy.testing as npt
 import pytest
 
 from tardis.transport.montecarlo.opacities import (
-    compton_opacity_calculation,
-    kappa_calculation,
-    pair_creation_opacity_calculation,
-    photoabsorption_opacity_calculation,
-)
+    compton_opacity_calculation, kappa_calculation,
+    pair_creation_opacity_calculation, photoabsorption_opacity_calculation)
 
 
 @pytest.mark.parametrize(

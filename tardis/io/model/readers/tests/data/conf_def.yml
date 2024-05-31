@@ -58,7 +58,7 @@ value_test:
         default: [1 m,10 cm, 0.1 cm] #[Start,End, sample]
         mandatory: False
         help: range for testing
-        
+
     range:
         property_type: range
         default: [0,10] #[Start,End]
@@ -69,7 +69,7 @@ value_test:
         default: [0,10,1] #[Start,End,Nsample]
         mandatory: False
         help: 'Like property type range, ?? is should it be the # samples or the spacing ??'
-    
+
 container_example:
         property_type: container-property
         type:
@@ -83,7 +83,7 @@ container_example:
             default: 'This is a container item'
             mandatory: False
             help: This is a container item from the container one.
-        
+
         one_two:
             sub_one_two_one:
                 property_type: string
@@ -95,15 +95,15 @@ container_example:
                 default: 'This is a container item'
                 mandatory: False
                 help: This is a container item from the container one.
-        
+
         two_one:
             quantity_range:
                 property_type: quantity_range
                 default: [1 m,10 cm] #[Start,End]
                 mandatory: False
                 help:  Like property type range but with quantitys as start and stop. The consistency of the units is checked.
-                
-            
+
+
 
 
 
@@ -144,5 +144,4 @@ test:
                         property_type: string
                         default: blabla
                         mandatory: False
-                        help: very helpful 
-
+                        help: very helpful

@@ -6,13 +6,13 @@ Installation
 
 
 .. warning::
-    
-    - TARDIS is only supported on macOS and GNU/Linux. Windows users can run TARDIS 
-      from our official Docker image (*coming soon*), `WSL <https://docs.microsoft.com/en-us/windows/wsl/>`_ 
+
+    - TARDIS is only supported on macOS and GNU/Linux. Windows users can run TARDIS
+      from our official Docker image (*coming soon*), `WSL <https://docs.microsoft.com/en-us/windows/wsl/>`_
       or a Virtual Machine.
 
-    - TARDIS packages and dependencies are distributed only through the `conda <https://docs.conda.io/en/latest/>`_ 
-      package management system, therefore installation requires `Anaconda <https://docs.anaconda.com/anaconda/install/index.html>`_ 
+    - TARDIS packages and dependencies are distributed only through the `conda <https://docs.conda.io/en/latest/>`_
+      package management system, therefore installation requires `Anaconda <https://docs.anaconda.com/anaconda/install/index.html>`_
       or `Miniconda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
       to be installed on your system.
 
@@ -24,7 +24,7 @@ Conda lockfiles are platform-specific dependency files that produce repeatable e
 These files are generated on every new release. We strongly recommend installing TARDIS using
 this method by following the steps described below.
 
-1. Download the latest lockfile for your operating system from our 
+1. Download the latest lockfile for your operating system from our
    `releases section <https://github.com/tardis-sn/tardis/releases>`_, or run
    the following command while replacing ``{platform}`` with ``linux`` or ``osx`` as appropriate.
 
@@ -56,17 +56,17 @@ this method by following the steps described below.
       .. note::
 
         The complete developer guidelines can be found :ref:`here <developer_guidelines>`.
-        
+
     b. Non-developers can install from specific releases using pip-
 
       ::
 
         $ pip install git+https://github.com/tardis-sn/tardis.git@{tag}
 
-      For example- 
+      For example-
 
       ::
-      
+
         $ pip install git+https://github.com/tardis-sn/tardis.git@release-latest
 
       or trying the most recent, unreleased changes from upstream.
@@ -83,7 +83,7 @@ this method by following the steps described below.
 
 From now on, just activate the ``tardis`` environment before working with the TARDIS package.
 
-You have successfully installed TARDIS! 🎉 Please refer to `Quickstart for TARDIS <quickstart.ipynb>`_ 
+You have successfully installed TARDIS! 🎉 Please refer to `Quickstart for TARDIS <quickstart.ipynb>`_
 to start running simulations.
 
 

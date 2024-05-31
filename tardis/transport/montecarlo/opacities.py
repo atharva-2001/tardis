@@ -3,12 +3,8 @@ import radioactivedecay as rd
 from numba import njit
 
 from tardis import constants as const
-from tardis.transport.montecarlo import (
-    njit_dict_no_parallel,
-)
-from tardis.transport.montecarlo.numba_config import (
-    SIGMA_THOMSON,
-)
+from tardis.transport.montecarlo import njit_dict_no_parallel
+from tardis.transport.montecarlo.numba_config import SIGMA_THOMSON
 
 H = const.h.cgs.value
 M_E = const.m_e.cgs.value

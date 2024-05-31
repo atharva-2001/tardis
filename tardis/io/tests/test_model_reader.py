@@ -5,15 +5,11 @@ from astropy import units as u
 
 from tardis.io.configuration.config_reader import Configuration
 from tardis.io.model.readers.artis import read_artis_density
-from tardis.io.model.readers.cmfgen import (
-    read_cmfgen_composition,
-    read_cmfgen_density,
-)
+from tardis.io.model.readers.cmfgen import (read_cmfgen_composition,
+                                            read_cmfgen_density)
 from tardis.io.model.readers.generic_readers import (
-    read_csv_composition,
-    read_simple_ascii_abundances,
-    read_uniform_abundances,
-)
+    read_csv_composition, read_simple_ascii_abundances,
+    read_uniform_abundances)
 
 
 @pytest.fixture

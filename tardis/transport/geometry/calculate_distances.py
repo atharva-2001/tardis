@@ -2,21 +2,13 @@ import math
 
 from numba import njit
 
-from tardis.transport.montecarlo import (
-    njit_dict_no_parallel,
-)
-
-from tardis.transport.montecarlo.numba_config import (
-    C_SPEED_OF_LIGHT,
-    MISS_DISTANCE,
-    SIGMA_THOMSON,
-    CLOSE_LINE_THRESHOLD,
-)
-
+from tardis.transport.montecarlo import njit_dict_no_parallel
+from tardis.transport.montecarlo.numba_config import (C_SPEED_OF_LIGHT,
+                                                      CLOSE_LINE_THRESHOLD,
+                                                      MISS_DISTANCE,
+                                                      SIGMA_THOMSON)
+from tardis.transport.montecarlo.r_packet import print_r_packet_properties
 from tardis.transport.montecarlo.utils import MonteCarloException
-from tardis.transport.montecarlo.r_packet import (
-    print_r_packet_properties,
-)
 
 
 @njit(**njit_dict_no_parallel)

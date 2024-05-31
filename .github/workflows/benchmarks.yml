@@ -87,8 +87,8 @@ jobs:
         if: github.event_name != 'pull_request_target'
         run: |
           git log -n 5  --pretty=format:"%H" >> tag_commits.txt
-          asv run HASHFILE:tag_commits.txt | tee asv-output.log  
-          if grep -q failed asv-output.log; then 
+          asv run HASHFILE:tag_commits.txt | tee asv-output.log
+          if grep -q failed asv-output.log; then
             echo "Some benchmarks have failed!"
             exit 1
           fi
@@ -119,8 +119,8 @@ jobs:
         if: github.event_name == 'pull_request_target'
         continue-on-error: true # TODO: step failed sporadically while testing
         run: |
-          asv continuous ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}  | tee asv-cont-output.log  
-          if grep -q failed asv-cont-output.log; then 
+          asv continuous ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}  | tee asv-cont-output.log
+          if grep -q failed asv-cont-output.log; then
             echo "Some benchmarks have errors!"
             exit 1
           fi
@@ -161,10 +161,10 @@ jobs:
           edit-mode: replace
           body: |
             *\*beep\* \*bop\**
-            Hi human, 
-            I ran benchmarks as you asked comparing master (${{ github.event.pull_request.base.sha }}) and the latest commit (${{ github.event.pull_request.head.sha }}). 
+            Hi human,
+            I ran benchmarks as you asked comparing master (${{ github.event.pull_request.base.sha }}) and the latest commit (${{ github.event.pull_request.head.sha }}).
             Here are the logs produced by ASV.
-            Results can also be downloaded as artifacts [**here**](${{ env.URL }}). 
+            Results can also be downloaded as artifacts [**here**](${{ env.URL }}).
             Significantly changed benchmarks:
             <details>
 
@@ -180,7 +180,7 @@ jobs:
               ```diff
               ${{ steps.asv_pr_vs_master.outputs.content }}
               ```
-              
+
             </details>
         env:
           URL: https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runs/${{ github.run_id }}?check_suite_focus=true
@@ -192,6 +192,6 @@ jobs:
           name: asv-benchmark-results-${{ runner.os }}
           path: |
             .asv/results
-            asv-cont-output.log  
+            asv-cont-output.log
             asv-compare-output.log
             asv-compare-changed-output.log

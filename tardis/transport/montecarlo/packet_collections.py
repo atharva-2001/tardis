@@ -2,9 +2,7 @@ import numpy as np
 from numba import float64, int64, njit
 from numba.experimental import jitclass
 
-from tardis.transport.montecarlo import (
-    njit_dict_no_parallel,
-)
+from tardis.transport.montecarlo import njit_dict_no_parallel
 
 packet_collection_spec = [
     ("initial_radii", float64[:]),

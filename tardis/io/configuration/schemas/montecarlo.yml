@@ -6,8 +6,8 @@ properties:
     type: number
     multipleOf: 1.0
     default: 1
-    description: The number of Numba threads for parallelisation. Must be between 1 and the 
-      environment variable NUMBA_NUM_THREADS (by default NUMBA_NUM_THREADS is equal to the 
+    description: The number of Numba threads for parallelisation. Must be between 1 and the
+      environment variable NUMBA_NUM_THREADS (by default NUMBA_NUM_THREADS is equal to the
       number of CPU cores on the local system).
   seed:
     type: number
@@ -81,7 +81,7 @@ properties:
         default: 10
         multiple: 1
         description: Configures the initial array length for the RPacketCollection Properties arrays
-      description: Sets up tracking for Montecarlo 
+      description: Sets up tracking for Montecarlo
   debug_packets:
     type: boolean
     default: false

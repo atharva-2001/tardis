@@ -40,13 +40,13 @@ Azure Pipelines & GitHub Actions
 --------------------------------
 
 Currently, we use the `Azure DevOps`_ service to run most of our
-pipelines and GitHub Actions for some others (called "workflows"). The 
+pipelines and GitHub Actions for some others (called "workflows"). The
 following sections explains briefly the different components of a
 pipeline/workflow, mostly focused on the Azure service.
 
-A pipeline (or a workflow) is essentially a :term:`YAML` configuration file 
+A pipeline (or a workflow) is essentially a :term:`YAML` configuration file
 with different sections such as variables, jobs and steps. These files
-run commands or tasks when they are triggered by some event, like a 
+run commands or tasks when they are triggered by some event, like a
 commit being pushed to a certain branch.
 
 Pipelines on Azure must be created through the web UI for the first time.
@@ -64,7 +64,7 @@ to run every time changes are pushed to a branch.
 
 .. code-block:: yaml
 
-  trigger: 
+  trigger:
     - master
 
 If some trigger is not specified then the default configuration
@@ -147,7 +147,7 @@ Usually, we define variables at the top of the YAML file.
 When a variable is defined at the top of a YAML, it will be available
 to all jobs and stages in the pipeline as a *global variable*.
 Variables at the *stage* level override variables at the *root* level,
-while variables at the *job* level override variables at the *root* 
+while variables at the *job* level override variables at the *root*
 and *stage* level.
 
 Also, variables are available to scripts through environment variables.
@@ -184,7 +184,7 @@ Predefined variables
 The most important (and confusing) predefined variables are the ones related
 to paths in Azure:
 
-* All folders for a given pipeline are created under ``Agent.BuildDirectory`` 
+* All folders for a given pipeline are created under ``Agent.BuildDirectory``
   variable, alias ``Pipeline.Workspace``. This includes subdirectories like
   ``/s`` for sources or ``/a`` for artifacts.
 
@@ -264,7 +264,7 @@ to start a new pipeline use::
 - ``refdataRepo`` (*option*): source of the ``tardis-refdata`` repository,
   options are ``azure`` (default) or ``github``.
 - ``useMamba`` (*bool*): use the ``mamba`` package manager instead of ``conda``,
-  default is ``false``. 
+  default is ``false``.
 - ``tardisEnv`` (*bool*): setup the TARDIS environment, default is ``true``.
 
 **List of predefined custom variables:**
@@ -305,7 +305,7 @@ repository if new commiters are found (or author order changes). The
 rendered notebook is uploaded to the pipeline results as an artifact.
 
 .. warning :: Fails if some author name is incomplete (due to an incomplete
-          GitHub profile) or duplicated (commited with more than one 
+          GitHub profile) or duplicated (commited with more than one
           email adress). In both cases update ``.mailmap`` to fix it.
 
 In the near future we want to auto-update the citation guidelines in the
@@ -315,7 +315,7 @@ In the near future we want to auto-update the citation guidelines in the
 Release pipeline
 ================
 
-Publishes a new release of TARDIS every sunday at 00:00 UTC. 
+Publishes a new release of TARDIS every sunday at 00:00 UTC.
 
 
 Compare reference data pipeline
@@ -330,10 +330,10 @@ on a pull request:
 
 For brevity, you can comment using ``/azp`` instead of ``/AzurePipelines``.
 
-By default, generates new reference data for the ``HEAD`` of the pull request. Then, 
+By default, generates new reference data for the ``HEAD`` of the pull request. Then,
 compares against latest reference data stored in ``tardis-refdata`` repository. If
 you want to compare two different labels (SHAs, branches, tags, etc.) uncomment and
-set the ``ref1.hash`` and ``ref2.hash`` variables in 
+set the ``ref1.hash`` and ``ref2.hash`` variables in
 ``.github/workflows/compare-refdata.yml`` on your pull request. For example:
 .. code-block:: yaml
 
@@ -350,25 +350,25 @@ of developers.
 
 Finally, the report is uploaded to the
 `OpenSupernova.org server <http://opensupernova.org/~azuredevops/files/refdata-results/>`_
-following the ``<pr>/<commit>`` folder structure. If the pipeline fails, also a report is 
+following the ``<pr>/<commit>`` folder structure. If the pipeline fails, also a report is
 generated, but not necessarily gives useful debug information (depends on which step the
 pipeline has failed).
 
 
 TARDIS Carsus Compatibility Check
 =================================
-The TARDIS Carsus Compatibility Check or the "Bridge" compares reference data 
-generated with different versions of Carsus. It consists of two jobs- a "carsus-build" job to 
-generate an atomic file with the latest version of Carsus and a "tardis-build" job 
-to generate a new reference data with it. These two reference data files are compared using the 
+The TARDIS Carsus Compatibility Check or the "Bridge" compares reference data
+generated with different versions of Carsus. It consists of two jobs- a "carsus-build" job to
+generate an atomic file with the latest version of Carsus and a "tardis-build" job
+to generate a new reference data with it. These two reference data files are compared using the
 `this notebook <https://github.com/tardis-sn/tardis-refdata/blob/master/notebooks/ref_data_compare_from_paths.ipynb>`_.
-The workflow has a ``workflow_dispatch`` event so that it can be triggered manually, but is also 
-triggered every week due to the "save-atomic-files" workflow. 
+The workflow has a ``workflow_dispatch`` event so that it can be triggered manually, but is also
+triggered every week due to the "save-atomic-files" workflow.
 
 
 The Save Atomic Files Workflow
 ==============================
 The Save Atomic Files workflow runs every week but can also be triggered manually.
 It runs the "Bridge" and sends an artifact containing the generated atomic data file
-and the comparison notebook to Moria. This workflow has a separate job to indicate if the 
+and the comparison notebook to Moria. This workflow has a separate job to indicate if the
 bridge has failed.

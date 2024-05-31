@@ -1,19 +1,11 @@
 import numpy as np
 import pandas as pd
 
-from tardis.energy_input.energy_source import (
-    positronium_continuum,
-)
-from tardis.energy_input.GXPacket import (
-    GXPacketCollection,
-)
+from tardis.energy_input.energy_source import positronium_continuum
+from tardis.energy_input.GXPacket import GXPacketCollection
 from tardis.energy_input.samplers import sample_energy
-from tardis.energy_input.util import (
-    H_CGS_KEV,
-    doppler_factor_3d,
-    get_index,
-    get_random_unit_vector,
-)
+from tardis.energy_input.util import (H_CGS_KEV, doppler_factor_3d, get_index,
+                                      get_random_unit_vector)
 from tardis.transport.montecarlo.packet_source import BasePacketSource
 
 

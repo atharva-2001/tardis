@@ -6,9 +6,7 @@ import numpy as np
 
 import tardis.transport.montecarlo.vpacket as vpacket
 from benchmarks.benchmark_base import BenchmarkBase
-from tardis.transport.frame_transformations import (
-    get_doppler_factor,
-)
+from tardis.transport.frame_transformations import get_doppler_factor
 
 
 class BenchmarkMontecarloMontecarloNumbaVpacket(BenchmarkBase):

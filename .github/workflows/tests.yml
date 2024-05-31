@@ -12,23 +12,23 @@ on:
   pull_request:
     branches:
     - '*'
-  
+
   workflow_dispatch:
     inputs:
       sha:
-        description: 'the ref to be sent to the checkout option'     
+        description: 'the ref to be sent to the checkout option'
         required: false
         default: 'master'
       repository:
         description: 'organisation to checkout in'
         required: false
         default: 'tardis-sn'
-  
+
 
 env:
   CACHE_NUMBER: 0  # increase to reset cache manually
   PYTEST_FLAGS: --tardis-refdata=${{ github.workspace }}/tardis-refdata --tardis-regression-data=${{ github.workspace }}/tardis-regression-data
-                --cov=tardis --cov-report=xml --cov-report=html 
+                --cov=tardis --cov-report=xml --cov-report=html
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 # concurrency:
@@ -59,7 +59,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           repository: atharva-2001/tardis
           ref:  ${{ github.event.inputs.sha }} || 'master'
 
@@ -69,13 +69,13 @@ jobs:
       - name: Download Lock File
         run:  wget -q https://raw.githubusercontent.com/tardis-sn/tardis/master/conda-${{ matrix.label }}.lock
         if: matrix.pip == true
-      
+
       - name: Generate Cache Key
-        run: | 
+        run: |
           file_hash=$(cat conda-${{ matrix.label }}.lock | shasum -a 256 | cut -d' ' -f1)
           echo "file_hash=$file_hash" >> "${GITHUB_OUTPUT}"
         id: cache-environment-key
-        
+
       - uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: conda-${{ matrix.label }}.lock
@@ -101,7 +101,7 @@ jobs:
           location_line=$(pip show tardis | grep -i -x "Location:.*")
           directory_path=$(echo $location_line | awk -F " " '{print $2}')
           echo "TARDIS_PIP_PATH=$directory_path" >> $GITHUB_ENV
-      
+
       - name: Set install path
         if: matrix.pip == false
         run: |
@@ -115,7 +115,7 @@ jobs:
 
       - name: Upload to Codecov
         run: bash <(curl -s https://codecov.io/bash)
-      
+
       - name: Refdata Generation tests
         run: pytest tardis ${{ env.PYTEST_FLAGS }} --generate-reference
         working-directory: ${{ env.TARDIS_PIP_PATH }}

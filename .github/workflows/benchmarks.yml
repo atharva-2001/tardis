@@ -3,17 +3,11 @@ name: benchmarks-updated
 on:
   push:
     branches:
-      - master
+      - '*'
 
   pull_request_target:
     branches:
-      - master
-
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - labeled # benchmarks label required
+      - '*'
   workflow_dispatch:
 
 env: 

@@ -45,12 +45,12 @@ jobs:
           auto-update-conda: true
           python-version: "3.10"
           auto-activate-base: true
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
       
       - run: |
-          mamba install asv
+          conda install -n base conda-libmamba-solver
+          conda install asv
+      
+      - run: where conda
           
       - name: Accept all asv questions
         run: asv machine --yes
@@ -64,7 +64,6 @@ jobs:
             echo "Some benchmarks have failed!"
             exit 1
           fi
-
       - name: Generate Graphs and HTML
         if: github.event_name != 'pull_request_target'
         run: asv publish

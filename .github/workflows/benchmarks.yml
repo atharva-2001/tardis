@@ -27,31 +27,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Setup LFS
-      #   uses: ./.github/actions/setup_lfs
+      - name: Setup LFS
+        uses: ./.github/actions/setup_lfs
 
-      # - name: Setup Mamba
-      #   uses: mamba-org/setup-micromamba@v1
-      #   with:
-      #     environment-name: benchmark
-      #     init-shell: >-
-      #       bash
-      #     create-args: >-
-      #       python
-      #       asv
-      #       mamba
-      #       conda-libmamba-solver=23.3.0
-      - uses: conda-incubator/setup-miniconda@v3
+      - name: Setup Mamba
+        uses: mamba-org/setup-micromamba@v1
         with:
-          auto-update-conda: true
-          python-version: "3.10"
-          auto-activate-base: true
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
-      
-      - run: |
-          mamba install asv
+          environment-name: benchmark
+          init-shell: >-
+            bash
+          create-args: >-
+            python
+            asv
+            mamba
           
       - name: Accept all asv questions
         run: asv machine --yes
@@ -60,7 +48,7 @@ jobs:
         if: github.event_name != 'pull_request_target'
         run: |
           git log -n 1  --pretty=format:"%H" >> tag_commits.txt
-          asv run HASHFILE:tag_commits.txt --quick --parallel | tee asv-output.log  
+          asv run HASHFILE:tag_commits.txt --quick | tee asv-output.log  
           if grep -q failed asv-output.log; then 
             echo "Some benchmarks have failed!"
             exit 1

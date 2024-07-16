@@ -34,7 +34,7 @@ jobs:
     outputs:
       discover-bench: ${{ steps.discover-bench.outputs.file_list }}
 
-  build:
+  build:   
     needs: bench-matrix
     strategy:
       matrix:
@@ -82,3 +82,20 @@ jobs:
       - name: Generate Graphs and HTML
         if: github.event_name != 'pull_request_target'
         run: asv publish
+      
+      - uses: actions/upload-artifact
+        with:
+          name: results-${{ matrix.bench-path }}
+          path: .asv/results
+
+  combine-results:   
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact
+        with:
+          path: .asv/results
+          merge-multiple: true
+          pattern: results-*
+      - run: ls

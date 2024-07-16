@@ -45,11 +45,12 @@ jobs:
           auto-update-conda: true
           python-version: "3.10"
           auto-activate-base: true
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
       
       - run: |
-          # conda install -n base conda=22.11.1 python>=3.12
-          conda install -n base conda-libmamba-solver
-          conda install asv
+          mamba install asv
           
       - name: Accept all asv questions
         run: asv machine --yes

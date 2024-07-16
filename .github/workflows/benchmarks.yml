@@ -47,7 +47,7 @@ jobs:
           auto-activate-base: true
       
       - run: |
-          conda install -n base conda=22.11.1
+          conda install -n base conda=22.11.1 python>=3.10
           conda install -n base conda-libmamba-solver
           conda install asv
           

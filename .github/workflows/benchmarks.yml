@@ -19,10 +19,6 @@ on:
 env: 
   DEPLOY_BRANCH: main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
-
 defaults:
   run:
     shell: bash -l {0}

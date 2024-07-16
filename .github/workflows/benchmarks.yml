@@ -45,10 +45,11 @@ jobs:
           auto-update-conda: true
           python-version: "3.10"
           auto-activate-base: true
+          miniconda-version: "22.11.1"
       
       - run: |
-          conda install --only-deps anaconda
-          conda install -n base conda-libmamba-solver=23.3.0
+          # conda install --only-deps anaconda
+          # conda install -n base conda-libmamba-solver=23.3.0
           conda install asv
           
       - name: Accept all asv questions

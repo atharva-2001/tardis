@@ -50,7 +50,9 @@ jobs:
           conda install -n base conda-libmamba-solver
           conda install asv
       
-      - run: where conda
+      - run: |
+          sudo apt-get install -y where
+          where conda
           
       - name: Accept all asv questions
         run: asv machine --yes

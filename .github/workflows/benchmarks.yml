@@ -40,6 +40,7 @@ jobs:
             python
             asv
             mamba
+            conda=23.1.0
 
       - name: Accept all asv questions
         run: asv machine --yes

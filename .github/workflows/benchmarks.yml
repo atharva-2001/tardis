@@ -27,7 +27,7 @@ jobs:
       - name: List names of all files we want to move on temporary basis
         id: discover-bench
         run: | 
-          output=$(ls *.py | grep -v -E '(benchmark_base|__init__).py' | jq -R -s 'split("\n")[:-1]')
+          output=$(ls *.py | grep -v -E '(benchmark_base|__init__).py' | jq -R . | jq -cs . )  
           echo "file_list=$output" >> "$GITHUB_OUTPUT"
         working-directory: "./benchmarks"
     

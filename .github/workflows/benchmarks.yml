@@ -83,7 +83,7 @@ jobs:
         if: github.event_name != 'pull_request_target'
         run: asv publish
       
-      - uses: actions/upload-artifact
+      - uses: actions/upload-artifact@v4
         with:
           name: results-${{ matrix.bench-path }}
           path: .asv/results
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact
+      - uses: actions/download-artifact@v4
         with:
           path: .asv/results
           merge-multiple: true

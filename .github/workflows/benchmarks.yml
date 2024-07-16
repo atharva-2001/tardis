@@ -29,7 +29,6 @@ jobs:
         run: | 
           output=$(ls *.py | grep -v -E '(benchmark_base|__init__).py' | jq -R -s 'split("\n")[:-1]')
           echo "file_list=$output" >> "$GITHUB_OUTPUT"
-          echo $output
         working-directory: "./benchmarks"
     
     outputs:

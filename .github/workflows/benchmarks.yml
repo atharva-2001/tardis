@@ -48,8 +48,8 @@ jobs:
           miniconda-version: "22.11.1"
       
       - run: |
-          conda install --only-deps anaconda
-          conda install -n base conda-libmamba-solver
+          # conda install --only-deps anaconda
+          # conda install -n base conda-libmamba-solver
           conda install asv
           
       - name: Accept all asv questions

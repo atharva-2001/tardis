@@ -26,9 +26,8 @@ jobs:
         with:
           fetch-depth: 0
 
-
-      - name: Setup LFS
-        uses: ./.github/actions/setup_lfs
+      # - name: Setup LFS
+      #   uses: ./.github/actions/setup_lfs
 
       - name: Setup Mamba
         uses: mamba-org/setup-micromamba@v1

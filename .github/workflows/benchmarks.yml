@@ -38,7 +38,7 @@ jobs:
     needs: bench-matrix
     strategy:
       matrix:
-        test-path: ${{fromJson(needs.bench-matrix.outputs.discover-bench)}}
+        bench-path: ${{fromJson(needs.bench-matrix.outputs.discover-bench)}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,7 +62,14 @@ jobs:
           
       - name: Accept all asv questions
         run: asv machine --yes
-
+      
+      - run: find benchmarks -maxdepth 1 -type f ! -name '${{ matrix.bench-path }}' ! -name 'benchmark_base.py' ! -name '__init__.py' ! -name 'asv_by_release.bash' -exec mv {} archive_bench \;
+      
+      - run: |
+          ls benchmarks
+      - run: |
+          ls archive_bench
+          
       - name: Run benchmarks for last 1 commit
         if: github.event_name != 'pull_request_target'
         run: |

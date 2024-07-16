@@ -40,7 +40,6 @@ jobs:
             python
             asv
             mamba
-            conda=23.1.0
             conda-libmamba-solver=23.3.0
 
       - name: Accept all asv questions

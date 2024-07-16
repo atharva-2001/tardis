@@ -29,18 +29,28 @@ jobs:
       # - name: Setup LFS
       #   uses: ./.github/actions/setup_lfs
 
-      - name: Setup Mamba
-        uses: mamba-org/setup-micromamba@v1
+      # - name: Setup Mamba
+      #   uses: mamba-org/setup-micromamba@v1
+      #   with:
+      #     environment-name: benchmark
+      #     init-shell: >-
+      #       bash
+      #     create-args: >-
+      #       python
+      #       asv
+      #       mamba
+      #       conda-libmamba-solver=23.3.0
+      - uses: conda-incubator/setup-miniconda@v3
         with:
-          environment-name: benchmark
-          init-shell: >-
-            bash
-          create-args: >-
-            python
-            asv
-            mamba
-            conda-libmamba-solver=23.3.0
-
+          auto-update-conda: true
+          python-version: "3.12"
+          auto-activate-base: true
+      
+      - run: |
+          conda install --only-deps anaconda
+          conda install -n base conda-libmamba-solver=23.3.0
+          conda install asv
+          
       - name: Accept all asv questions
         run: asv machine --yes
 

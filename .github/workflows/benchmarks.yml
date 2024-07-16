@@ -19,7 +19,27 @@ defaults:
 
 
 jobs:
+  bench-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: List names of all files we want to move on temporary basis
+        id: discover-bench
+        run: | 
+          output=$(ls *.py | grep -v -E '(benchmark_base|__init__).py' | jq -R -s 'split("\n")[:-1]')
+          echo "file_list=$output" >> "$GITHUB_OUTPUT"
+          echo $output
+        working-directory: "tardis/benchmarks"
+    
+    outputs:
+      discover-bench: ${{ steps.discover-bench.outputs.file_list }}
+
   build:
+    needs: bench-matrix
+    strategy:
+      matrix:
+        test-path: ${{fromJson(needs.bench-matrix.outputs.discover-bench)}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

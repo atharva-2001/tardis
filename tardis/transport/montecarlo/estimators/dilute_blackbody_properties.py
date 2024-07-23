@@ -3,9 +3,8 @@ from astropy import units as u
 from scipy.special import zeta
 
 from tardis import constants as const
-from tardis.model.radiation_field_state import (
-    DiluteBlackBodyRadiationFieldState,
-)
+from tardis.model.radiation_field_state import \
+    DiluteBlackBodyRadiationFieldState
 
 DILUTION_FACTOR_ESTIMATOR_CONSTANT = (
     (const.c**2 / (2 * const.h))

@@ -5,12 +5,10 @@ import numpy as np
 from astropy import units as u
 
 from tardis import constants as const
-from tardis.io.model.parse_geometry_configuration import (
-    parse_structure_from_config,
-)
-from tardis.model.radiation_field_state import (
-    DiluteBlackBodyRadiationFieldState,
-)
+from tardis.io.model.parse_geometry_configuration import \
+    parse_structure_from_config
+from tardis.model.radiation_field_state import \
+    DiluteBlackBodyRadiationFieldState
 
 logger = logging.getLogger(__name__)
 

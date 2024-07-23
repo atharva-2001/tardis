@@ -1,16 +1,14 @@
 import logging
-import matplotlib.pyplot as plt
+
+import astropy.units as u
 import matplotlib.cm as cm
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import astropy.units as u
+import plotly.graph_objects as go
 
-from tardis.util.base import (
-    atomic_number2element_symbol,
-    int_to_roman,
-)
 import tardis.visualization.tools.sdec_plot as sdec
+from tardis.util.base import atomic_number2element_symbol, int_to_roman
 from tardis.visualization import plot_util as pu
 
 logger = logging.getLogger(__name__)

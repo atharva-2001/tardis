@@ -1,13 +1,12 @@
 import abc
 
-import numpy as np
 import numexpr as ne
-from tardis import constants as const
-from tardis.transport.montecarlo.packet_collections import (
-    PacketCollection,
-)
-from tardis.io.util import HDFWriterMixin
+import numpy as np
 from astropy import units as u
+
+from tardis import constants as const
+from tardis.io.util import HDFWriterMixin
+from tardis.transport.montecarlo.packet_collections import PacketCollection
 
 
 class BasePacketSource(abc.ABC):

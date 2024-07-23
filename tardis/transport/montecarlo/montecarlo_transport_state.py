@@ -4,11 +4,10 @@ import numpy as np
 from astropy import units as u
 
 from tardis.io.util import HDFWriterMixin
-from tardis.transport.montecarlo.estimators.dilute_blackbody_properties import (
-    MCDiluteBlackBodyRadFieldSolver,
-)
 from tardis.spectrum.formal_integral import IntegrationError
 from tardis.spectrum.spectrum import TARDISSpectrum
+from tardis.transport.montecarlo.estimators.dilute_blackbody_properties import \
+    MCDiluteBlackBodyRadFieldSolver
 
 
 class MonteCarloTransportState(HDFWriterMixin):

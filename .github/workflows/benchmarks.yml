@@ -16,7 +16,7 @@ on:
       - labeled # benchmarks label required
   workflow_dispatch:
 
-env: 
+env:
   DEPLOY_BRANCH: main
 
 concurrency:
@@ -72,8 +72,8 @@ jobs:
         if: github.event_name != 'pull_request_target'
         run: |
           git log -n 4  --pretty=format:"%H" >> tag_commits.txt
-          asv run -a repeat=1 -a rounds=1 HASHFILE:tag_commits.txt | tee asv-output.log  
-          if grep -q failed asv-output.log; then 
+          asv run -a repeat=1 -a rounds=1 HASHFILE:tag_commits.txt | tee asv-output.log
+          if grep -q failed asv-output.log; then
             echo "Some benchmarks have failed!"
             exit 1
           fi
@@ -126,8 +126,8 @@ jobs:
           echo $(git rev-parse HEAD) > commit_hashes.txt
           echo $(git merge-base HEAD upstream/master) >> commit_hashes.txt
 
-          asv run -a repeat=1 -a rounds=1 HASHFILE:commit_hashes.txt | tee asv-output-PR.log  
-            if grep -q failed asv-output-PR.log; then 
+          asv run -a repeat=1 -a rounds=1 HASHFILE:commit_hashes.txt | tee asv-output-PR.log
+            if grep -q failed asv-output-PR.log; then
               echo "Some benchmarks have failed!"
               exit 1
             fi
@@ -196,7 +196,7 @@ jobs:
           external_repository: tardis-sn/tardis-benchmarks
           user_name: "TARDIS Bot"
           user_email: "tardis.sn.bot@gmail.com"
-      
+
       - name: Find Comment
         if: always() && github.event_name == 'pull_request_target'
         uses: peter-evans/find-comment@v1
@@ -215,10 +215,10 @@ jobs:
           edit-mode: replace
           body: |
             *\*beep\* \*bop\**
-            Hi human, 
-            I ran benchmarks as you asked comparing master (${{ github.event.pull_request.base.sha }}) and the latest commit (${{ github.event.pull_request.head.sha }}). 
+            Hi human,
+            I ran benchmarks as you asked comparing master (${{ github.event.pull_request.base.sha }}) and the latest commit (${{ github.event.pull_request.head.sha }}).
             Here are the logs produced by ASV.
-            Results can also be downloaded as artifacts [**here**](${{ env.URL }}). 
+            Results can also be downloaded as artifacts [**here**](${{ env.URL }}).
 
             Significantly changed benchmarks:
             <details>
@@ -235,7 +235,7 @@ jobs:
               ```diff
               ${{ steps.asv_pr_vs_master.outputs.content }}
               ```
-              
+
             </details>
 
             If you want to see the graph of the results, you can check it [**here**](${{ env.URL_PAGES }})

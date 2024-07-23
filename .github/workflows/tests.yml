@@ -32,11 +32,11 @@ env:
 defaults:
   run:
     shell: bash -l {0}
- 
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
-    
+
 
 jobs:
   codecov:
@@ -86,25 +86,25 @@ jobs:
 
       - name: Setup LFS
         uses: ./.github/actions/setup_lfs
-      
+
       - name: Setup environment
         uses: ./.github/actions/setup_env
         with:
           os-label: ${{ matrix.label }}
-      
+
       - name: Install package editable
         if: ${{ !inputs.pip_git }}
         run: |
           pip install -e . --user
-      
+
       - name: Install package git
         if: ${{ inputs.pip_git }}
         run: |
           pip install git+https://github.com/tardis-sn/tardis.git@master
 
       - name: Run tests
-        run: pytest tardis ${{ env.PYTEST_FLAGS }} -m "${{ matrix.continuum }} continuum and ${{ matrix.rpacket_tracking }} rpacket_tracking" 
-      
+        run: pytest tardis ${{ env.PYTEST_FLAGS }} -m "${{ matrix.continuum }} continuum and ${{ matrix.rpacket_tracking }} rpacket_tracking"
+
       - name: Refdata Generation tests
-        run: pytest tardis ${{ env.PYTEST_FLAGS }} --generate-reference -m "${{ matrix.continuum }} continuum and ${{ matrix.rpacket_tracking }} rpacket_tracking" 
+        run: pytest tardis ${{ env.PYTEST_FLAGS }} --generate-reference -m "${{ matrix.continuum }} continuum and ${{ matrix.rpacket_tracking }} rpacket_tracking"
         if: contains(github.event.pull_request.labels.*.name, 'run-generation-tests') || github.ref == 'refs/heads/master'

@@ -2,20 +2,14 @@ import numpy as np
 from numba import njit
 
 from tardis.energy_input.GXPacket import GXPacketStatus
-from tardis.energy_input.util import (
-    ELECTRON_MASS_ENERGY_KEV,
-    H_CGS_KEV,
-    angle_aberration_gamma,
-    compton_theta_distribution,
-    doppler_factor_3d,
-    euler_rodrigues,
-    get_perpendicular_vector,
-    get_random_unit_vector,
-)
-from tardis.opacities.opacities import (
-    compton_opacity_partial,
-    kappa_calculation,
-)
+from tardis.energy_input.util import (ELECTRON_MASS_ENERGY_KEV, H_CGS_KEV,
+                                      angle_aberration_gamma,
+                                      compton_theta_distribution,
+                                      doppler_factor_3d, euler_rodrigues,
+                                      get_perpendicular_vector,
+                                      get_random_unit_vector)
+from tardis.opacities.opacities import (compton_opacity_partial,
+                                        kappa_calculation)
 from tardis.transport.montecarlo import njit_dict_no_parallel
 
 

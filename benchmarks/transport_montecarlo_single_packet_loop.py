@@ -2,9 +2,10 @@
 Basic TARDIS Benchmark.
 """
 
+from numba.np.ufunc.parallel import get_num_threads, get_thread_id
+
 from benchmarks.benchmark_base import BenchmarkBase
 from tardis.transport.montecarlo import single_packet_loop
-from numba.np.ufunc.parallel import get_num_threads, get_thread_id
 
 
 class BenchmarkMontecarloMontecarloNumbaVpacket(BenchmarkBase):
@@ -23,4 +24,3 @@ class BenchmarkMontecarloMontecarloNumbaVpacket(BenchmarkBase):
             self.rpacket_tracker,
             self.montecarlo_configuration
         )
-

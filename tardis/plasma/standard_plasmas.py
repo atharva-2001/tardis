@@ -6,46 +6,27 @@ from astropy import units as u
 
 from tardis.plasma import BasePlasma
 from tardis.plasma.exceptions import PlasmaConfigError
-from tardis.plasma.properties import (
-    HeliumNumericalNLTE,
-    IonNumberDensity,
-    IonNumberDensityHeNLTE,
-    JBluesBlackBody,
-    JBluesDetailed,
-    JBluesDiluteBlackBody,
-    LevelBoltzmannFactorNLTE,
-    MarkovChainTransProbsCollector,
-    RadiationFieldCorrection,
-    StimulatedEmissionFactor,
-)
+from tardis.plasma.properties import (HeliumNumericalNLTE, IonNumberDensity,
+                                      IonNumberDensityHeNLTE, JBluesBlackBody,
+                                      JBluesDetailed, JBluesDiluteBlackBody,
+                                      LevelBoltzmannFactorNLTE,
+                                      MarkovChainTransProbsCollector,
+                                      RadiationFieldCorrection,
+                                      StimulatedEmissionFactor)
 from tardis.plasma.properties.base import TransitionProbabilitiesProperty
 from tardis.plasma.properties.level_population import LevelNumberDensity
 from tardis.plasma.properties.nlte_rate_equation_solver import (
-    NLTEPopulationSolverLU,
-    NLTEPopulationSolverRoot,
-)
+    NLTEPopulationSolverLU, NLTEPopulationSolverRoot)
 from tardis.plasma.properties.property_collections import (
-    adiabatic_cooling_properties,
-    basic_inputs,
-    basic_properties,
-    continuum_interaction_inputs,
-    continuum_interaction_properties,
-    detailed_j_blues_inputs,
-    detailed_j_blues_properties,
-    dilute_lte_excitation_properties,
-    helium_lte_properties,
-    helium_nlte_properties,
-    helium_numerical_nlte_properties,
-    lte_excitation_properties,
-    lte_ionization_properties,
-    macro_atom_properties,
-    nebular_ionization_properties,
-    nlte_lu_solver_properties,
-    nlte_properties,
-    nlte_root_solver_properties,
-    non_nlte_properties,
-    two_photon_properties,
-)
+    adiabatic_cooling_properties, basic_inputs, basic_properties,
+    continuum_interaction_inputs, continuum_interaction_properties,
+    detailed_j_blues_inputs, detailed_j_blues_properties,
+    dilute_lte_excitation_properties, helium_lte_properties,
+    helium_nlte_properties, helium_numerical_nlte_properties,
+    lte_excitation_properties, lte_ionization_properties,
+    macro_atom_properties, nebular_ionization_properties,
+    nlte_lu_solver_properties, nlte_properties, nlte_root_solver_properties,
+    non_nlte_properties, two_photon_properties)
 from tardis.plasma.properties.rate_matrix_index import NLTEIndexHelper
 from tardis.util.base import species_string_to_tuple
 

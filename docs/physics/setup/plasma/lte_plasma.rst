@@ -47,4 +47,3 @@ Example Calculations
 
 .. .. plot:: physics/pyplot/lte_ionization_balance.py
     :include-source:
-

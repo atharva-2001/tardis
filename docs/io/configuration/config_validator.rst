@@ -54,7 +54,7 @@ If the type declaration for this container is finished, you can specify all cont
             - default: 'This is a container item'
             - mandatory: False
             - help: This is a container item from the container one.
-        
+
         - one_two:
             - sub_one_two_one:
                 - property_type: string
@@ -66,7 +66,7 @@ If the type declaration for this container is finished, you can specify all cont
                 - default: 'This is a container item'
                 - mandatory: False
                 - help: This is a container item from the container one.
-        
+
         - two_one:
             - quantity_range:
                 - property_type: quantity_range
@@ -76,7 +76,7 @@ If the type declaration for this container is finished, you can specify all cont
 
 How to use
 ^^^^^^^^^^
-                
+
 To use the default parser create a new config object form the class ConfigurationValidator either from a dictionaries or from YAML files:
 
 ::
@@ -90,4 +90,3 @@ or
 - My_config = ConfigurationValidator.from_yaml (default configuration file, user configuration file).
 
 To access the configuration for TARDIS, use the method ``get_config``.
-

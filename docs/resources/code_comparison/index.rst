@@ -15,4 +15,3 @@ For our code comparison, we will calculate spectra at 5, 10, 15, 20 days post-ex
 
     toy_models/reading blondin toymodel
     plasma_compare/plasma_compare
-

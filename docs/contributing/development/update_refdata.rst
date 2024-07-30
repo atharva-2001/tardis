@@ -9,7 +9,7 @@ These tests compares the output of the TARDIS code (mostly arrays) against the i
 in the reference data files.
 
 TARDIS stores reference data in the `tardis-refdata <https://github.com/tardis-sn/tardis-refdata>`_
-repository. This repository also has a mirror hosted in Azure Pipelines (synchronized automatically by a 
+repository. This repository also has a mirror hosted in Azure Pipelines (synchronized automatically by a
 GitHub workflow) since this Microsoft service does not have limitations in bandwith nor storage.
 
 Sometimes, this data needs to be updated. The procedure to update these files manually is not trivial

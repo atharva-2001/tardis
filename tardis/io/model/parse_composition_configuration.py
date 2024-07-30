@@ -1,11 +1,7 @@
 from tardis.io.model.parse_density_configuration import (
-    parse_density_from_config,
-    parse_density_from_csvy,
-)
+    parse_density_from_config, parse_density_from_csvy)
 from tardis.io.model.parse_mass_fraction_configuration import (
-    parse_mass_fractions_from_config,
-    parse_mass_fractions_from_csvy,
-)
+    parse_mass_fractions_from_config, parse_mass_fractions_from_csvy)
 from tardis.model.matter.composition import Composition
 
 

@@ -12,4 +12,3 @@
 .. _error 413: https://developercommunity.visualstudio.com/content/problem/867488/git-lfs-push-got-413-error.html
 
 .. vim: ft=rstS
-

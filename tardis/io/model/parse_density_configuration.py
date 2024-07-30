@@ -4,13 +4,10 @@ from typing import Tuple
 import numpy as np
 from astropy import units as u
 
-from tardis.io.configuration.config_reader import (
-    Configuration,
-    ConfigurationNameSpace,
-)
-from tardis.io.model.parse_geometry_configuration import (
-    parse_structure_from_config,
-)
+from tardis.io.configuration.config_reader import (Configuration,
+                                                   ConfigurationNameSpace)
+from tardis.io.model.parse_geometry_configuration import \
+    parse_structure_from_config
 from tardis.util.base import quantity_linspace
 
 logger = logging.getLogger(__name__)

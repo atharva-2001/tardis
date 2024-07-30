@@ -97,7 +97,6 @@ jobs:
             Here are the outputs produced.
             Results can also be downloaded as artifacts [**here**](${{ env.URL }}). 
             Summarised output:
-              ${{ steps.ruff_complete.outputs.content }}
             <details>
 
               ```diff

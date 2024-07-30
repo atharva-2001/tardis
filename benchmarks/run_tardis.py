@@ -5,6 +5,7 @@ Basic TARDIS Benchmark.
 from benchmarks.benchmark_base import BenchmarkBase
 from tardis import run_tardis
 
+
 class BenchmarkRunTardis(BenchmarkBase):
     """
     Class to benchmark the `run tardis` function.

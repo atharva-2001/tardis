@@ -1,11 +1,8 @@
+import numpy.testing as npt
 import pytest
 
-import numpy.testing as npt
-
 from tardis.transport.montecarlo import RPacket
-from tardis.transport.montecarlo.single_packet_loop import (
-    single_packet_loop,
-)
+from tardis.transport.montecarlo.single_packet_loop import single_packet_loop
 
 
 @pytest.mark.xfail(reason="Need to fix estimator differences across runs")

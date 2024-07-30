@@ -2,13 +2,9 @@ import numpy as np
 import pandas as pd
 import radioactivedecay as rd
 
-from tardis.util.base import (
-    atomic_number2element_symbol,
-)
-from tardis.energy_input.util import (
-    convert_half_life_to_astropy_units,
-    ELECTRON_MASS_ENERGY_KEV,
-)
+from tardis.energy_input.util import (ELECTRON_MASS_ENERGY_KEV,
+                                      convert_half_life_to_astropy_units)
+from tardis.util.base import atomic_number2element_symbol
 
 
 def setup_input_energy(nuclear_data, source):

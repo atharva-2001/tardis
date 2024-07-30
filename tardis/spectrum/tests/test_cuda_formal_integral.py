@@ -7,13 +7,9 @@ import tardis.spectrum.formal_integral as formal_integral_numba
 import tardis.spectrum.formal_integral_cuda as formal_integral_cuda
 from tardis import constants as c
 from tardis.model.geometry.radial1d import NumbaRadial1DGeometry
-from tardis.spectrum.formal_integral import (
-    FormalIntegrator,
-    NumbaFormalIntegrator,
-)
-
+from tardis.spectrum.formal_integral import (FormalIntegrator,
+                                             NumbaFormalIntegrator)
 from tardis.transport.montecarlo.base import MonteCarloTransportSolver
-
 
 # Test cases must also take into account use of a GPU to run. If there is no GPU then the test cases will fail.
 GPUs_available = cuda.is_available()

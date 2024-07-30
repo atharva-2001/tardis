@@ -17,7 +17,7 @@ TARDIS also allows other inputs that are passed as keyword arguments into the ``
 Additionally, ``run_tardis`` can take in a filepath for the atomic data and a boolean for virtual packet logging. For example:
 
 .. code-block:: python
-    
+
     from tardis.base import run_tardis
 
     sim = run_tardis('configuration_file', atom_data='filepath_to_atomic_data', virtual_packet_logging=True)

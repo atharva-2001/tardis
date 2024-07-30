@@ -5,12 +5,12 @@ import pandas as pd
 import pytest
 from astropy.version import version as astropy_version
 
+from tardis import run_tardis
 from tardis.io.configuration.config_reader import Configuration
 from tardis.io.util import YAMLLoader, yaml_load_file
 from tardis.simulation import Simulation
 from tardis.tests.fixtures.atom_data import *
 from tardis.tests.fixtures.regression_data import regression_data
-from tardis import run_tardis
 
 # ensuring that regression_data is not removed by ruff
 assert regression_data is not None
@@ -33,10 +33,8 @@ if astropy_version < "3.0":
     ASTROPY_HEADER = True
 else:
     try:
-        from pytest_astropy_header.display import (
-            PYTEST_HEADER_MODULES,
-            TESTED_VERSIONS,
-        )
+        from pytest_astropy_header.display import (PYTEST_HEADER_MODULES,
+                                                   TESTED_VERSIONS)
 
         ASTROPY_HEADER = True
     except ImportError:

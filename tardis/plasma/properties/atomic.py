@@ -10,19 +10,11 @@ from scipy.special import exp1
 
 from tardis import constants as const
 from tardis.plasma.exceptions import IncompleteAtomicData
-from tardis.plasma.properties.base import (
-    BaseAtomicDataProperty,
-    HiddenPlasmaProperty,
-    ProcessingPlasmaProperty,
-)
+from tardis.plasma.properties.base import (BaseAtomicDataProperty,
+                                           HiddenPlasmaProperty,
+                                           ProcessingPlasmaProperty)
 from tardis.plasma.properties.continuum_processes import (
-    A0,
-    BETA_COLL,
-    K_B,
-    M_E,
-    H,
-    get_ground_state_multi_index,
-)
+    A0, BETA_COLL, K_B, M_E, H, get_ground_state_multi_index)
 
 logger = logging.getLogger(__name__)
 

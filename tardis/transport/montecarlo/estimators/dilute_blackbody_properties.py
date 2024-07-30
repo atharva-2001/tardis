@@ -3,9 +3,8 @@ from astropy import units as u
 from scipy.special import zeta
 
 from tardis import constants as const
-from tardis.plasma.radiation_field.planck_rad_field import (
-    DilutePlanckianRadiationField,
-)
+from tardis.plasma.radiation_field.planck_rad_field import \
+    DilutePlanckianRadiationField
 
 DILUTION_FACTOR_ESTIMATOR_CONSTANT = (
     (const.c**2 / (2 * const.h))

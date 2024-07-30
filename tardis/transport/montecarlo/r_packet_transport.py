@@ -2,22 +2,13 @@ import numpy as np
 from numba import njit
 
 import tardis.transport.montecarlo.configuration.montecarlo_globals as montecarlo_globals
-from tardis.transport.frame_transformations import (
-    get_doppler_factor,
-)
+from tardis.transport.frame_transformations import get_doppler_factor
 from tardis.transport.geometry.calculate_distances import (
-    calculate_distance_boundary,
-    calculate_distance_line,
-)
+    calculate_distance_boundary, calculate_distance_line)
 from tardis.transport.montecarlo import njit_dict_no_parallel
 from tardis.transport.montecarlo.estimators.radfield_estimator_calcs import (
-    update_base_estimators,
-    update_line_estimators,
-)
-from tardis.transport.montecarlo.r_packet import (
-    InteractionType,
-    PacketStatus,
-)
+    update_base_estimators, update_line_estimators)
+from tardis.transport.montecarlo.r_packet import InteractionType, PacketStatus
 
 
 @njit(**njit_dict_no_parallel)

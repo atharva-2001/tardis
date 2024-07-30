@@ -3,25 +3,16 @@ from numba import njit, objmode, prange
 from numba.np.ufunc.parallel import get_num_threads, get_thread_id
 from numba.typed import List
 
+import tardis.transport.montecarlo.montecarlo_main_loop as montecarlo_loop
 from tardis.transport.montecarlo import njit_dict
 from tardis.transport.montecarlo.configuration import montecarlo_globals
 from tardis.transport.montecarlo.packet_collections import (
-    VPacketCollection,
-    consolidate_vpacket_tracker,
-    initialize_last_interaction_tracker,
-)
-import tardis.transport.montecarlo.montecarlo_main_loop as montecarlo_loop
+    VPacketCollection, consolidate_vpacket_tracker,
+    initialize_last_interaction_tracker)
 from tardis.transport.montecarlo.packet_trackers import (
-    RPacketTracker,
-    RPacketLastInteractionTracker,
-)
-from tardis.transport.montecarlo.r_packet import (
-    PacketStatus,
-    RPacket,
-)
-from tardis.transport.montecarlo.single_packet_loop import (
-    single_packet_loop,
-)
+    RPacketLastInteractionTracker, RPacketTracker)
+from tardis.transport.montecarlo.r_packet import PacketStatus, RPacket
+from tardis.transport.montecarlo.single_packet_loop import single_packet_loop
 from tardis.util.base import update_packet_pbar
 
 ENABLE_RPACKET_TRACKING = False

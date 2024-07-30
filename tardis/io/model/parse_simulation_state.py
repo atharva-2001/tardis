@@ -1,6 +1,5 @@
-from tardis.io.model.parse_packet_source_configuration import (
-    initialize_packet_source,
-)
+from tardis.io.model.parse_packet_source_configuration import \
+    initialize_packet_source
 from tardis.model import SimulationState
 
 

@@ -20,14 +20,12 @@ from tardis.tests.fixtures.atom_data import DEFAULT_ATOM_DATA_UUID
 from tardis.tests.fixtures.regression_data import RegressionData
 from tardis.transport.montecarlo import RPacket
 from tardis.transport.montecarlo.configuration import montecarlo_globals
-from tardis.transport.montecarlo.configuration.base import (
-    MonteCarloConfiguration,
-)
+from tardis.transport.montecarlo.configuration.base import \
+    MonteCarloConfiguration
 from tardis.transport.montecarlo.estimators import radfield_mc_estimators
-from tardis.transport.montecarlo.numba_interface import opacity_state_initialize
-from tardis.transport.montecarlo.packet_collections import (
-    VPacketCollection,
-)
+from tardis.transport.montecarlo.numba_interface import \
+    opacity_state_initialize
+from tardis.transport.montecarlo.packet_collections import VPacketCollection
 from tardis.transport.montecarlo.packet_trackers import RPacketTracker
 
 

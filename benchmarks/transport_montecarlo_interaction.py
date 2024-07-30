@@ -2,12 +2,11 @@
 Basic TARDIS Benchmark.
 """
 
+from asv_runner.benchmarks.mark import parameterize
+
 import tardis.transport.montecarlo.interaction as interaction
 from benchmarks.benchmark_base import BenchmarkBase
-from tardis.transport.montecarlo.numba_interface import (
-    LineInteractionType,
-)
-from asv_runner.benchmarks.mark import parameterize
+from tardis.transport.montecarlo.numba_interface import LineInteractionType
 
 
 class BenchmarkTransportMontecarloInteraction(BenchmarkBase):

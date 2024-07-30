@@ -5,12 +5,9 @@ import pandas as pd
 from scipy import sparse as sp
 
 from tardis.plasma.properties.base import ProcessingPlasmaProperty
-from tardis.plasma.properties.continuum_processes import (
-    get_ground_state_multi_index,
-)
-from tardis.transport.montecarlo.macro_atom import (
-    MacroAtomTransitionType,
-)
+from tardis.plasma.properties.continuum_processes import \
+    get_ground_state_multi_index
+from tardis.transport.montecarlo.macro_atom import MacroAtomTransitionType
 
 __all__ = [
     "MarkovChainTransProbs",

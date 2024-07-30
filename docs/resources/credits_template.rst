@@ -26,7 +26,7 @@ following paragraph to the Acknowledgement section:
     sponsored project of NumFOCUS. \\textsc{tardis} makes extensive use of Astropy and Pyne.
 
 If you use any of the full relativity treatments or use TARDIS for modelling
-Type II supernovae, also add `Spectral modeling of type II supernovae. I. Dilution factors <https://ui.adsabs.harvard.edu/abs/2019A%26A...621A..29V>`_ 
+Type II supernovae, also add `Spectral modeling of type II supernovae. I. Dilution factors <https://ui.adsabs.harvard.edu/abs/2019A%26A...621A..29V>`_
 to the Acknowledgement.
 
 .. parsed-literal::

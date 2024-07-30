@@ -1,17 +1,16 @@
 """Tests for Convergence Plots."""
 
+from collections import defaultdict
 from copy import deepcopy
 
-import pytest
-from tardis.tests.test_util import monkeysession
-from tardis import run_tardis
-from tardis.visualization.tools.convergence_plot import (
-    ConvergencePlots,
-    transition_colors,
-)
-from collections import defaultdict
 import plotly.graph_objects as go
+import pytest
 from astropy import units as u
+
+from tardis import run_tardis
+from tardis.tests.test_util import monkeysession
+from tardis.visualization.tools.convergence_plot import (ConvergencePlots,
+                                                         transition_colors)
 
 
 @pytest.fixture(scope="module", params=[0, 1, 2])

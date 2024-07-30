@@ -2,15 +2,15 @@
 Basic TARDIS Benchmark.
 """
 
+from asv_runner.benchmarks.mark import parameterize
+
 import tardis.opacities.opacities as opacities
 import tardis.transport.geometry.calculate_distances as calculate_distances
 import tardis.transport.montecarlo.r_packet_transport as r_packet_transport
 import tardis.transport.montecarlo.utils as utils
 from benchmarks.benchmark_base import BenchmarkBase
-from tardis.transport.montecarlo.estimators.radfield_estimator_calcs import (
-    update_line_estimators,
-)
-from asv_runner.benchmarks.mark import parameterize
+from tardis.transport.montecarlo.estimators.radfield_estimator_calcs import \
+    update_line_estimators
 
 
 class BenchmarkMontecarloMontecarloNumbaPacket(BenchmarkBase):

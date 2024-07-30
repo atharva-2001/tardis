@@ -184,8 +184,3 @@ Next, we will group the stimulated emission and stimulated absorption terms, as 
                         - n_2 \bigg{(}A_{21} + C_{23} n_e + n_2 B_{23} \bar{J}_{23}
                         \underbrace{\bigg{(}1 - \frac{n_3}{n_2}\frac{B_{32}}{B_{23}}\bigg{)}}_\text{stimulated emission term}\bigg{)}
                         + n_3 (A_{32} + C_{32} n_e)
-
-
-
-
-

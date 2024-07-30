@@ -1,18 +1,12 @@
 import numpy as np
 from numba import njit
 
-from tardis.energy_input.util import (
-    ELECTRON_MASS_ENERGY_KEV,
-    H_CGS_KEV,
-    angle_aberration_gamma,
-    doppler_factor_3d,
-)
-from tardis.opacities.opacities import (
-    SIGMA_T,
-    compton_opacity_calculation,
-    kappa_calculation,
-    photoabsorption_opacity_calculation,
-)
+from tardis.energy_input.util import (ELECTRON_MASS_ENERGY_KEV, H_CGS_KEV,
+                                      angle_aberration_gamma,
+                                      doppler_factor_3d)
+from tardis.opacities.opacities import (SIGMA_T, compton_opacity_calculation,
+                                        kappa_calculation,
+                                        photoabsorption_opacity_calculation)
 from tardis.transport.montecarlo import njit_dict_no_parallel
 
 

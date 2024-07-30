@@ -8,23 +8,15 @@ from astropy import units as u
 from tardis.io.configuration.config_reader import Configuration
 from tardis.io.configuration.config_validator import validate_dict
 from tardis.io.model.parse_composition_configuration import (
-    parse_composition_from_config,
-    parse_composition_from_csvy,
-)
+    parse_composition_from_config, parse_composition_from_csvy)
 from tardis.io.model.parse_geometry_configuration import (
-    parse_geometry_from_config,
-    parse_geometry_from_csvy,
-)
-from tardis.io.model.parse_packet_source_configuration import (
-    parse_packet_source_from_config,
-)
+    parse_geometry_from_config, parse_geometry_from_csvy)
+from tardis.io.model.parse_packet_source_configuration import \
+    parse_packet_source_from_config
 from tardis.io.model.parse_radiation_field_configuration import (
     parse_radiation_field_state_from_config,
-    parse_radiation_field_state_from_csvy,
-)
-from tardis.io.model.readers.csvy import (
-    load_csvy,
-)
+    parse_radiation_field_state_from_csvy)
+from tardis.io.model.readers.csvy import load_csvy
 from tardis.io.util import HDFWriterMixin
 from tardis.util.base import is_valid_nuclide_or_elem
 

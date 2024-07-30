@@ -4,9 +4,8 @@ import numpy as np
 from astropy import units as u
 
 from tardis import constants as const
-from tardis.io.model.parse_geometry_configuration import (
-    parse_structure_from_config,
-)
+from tardis.io.model.parse_geometry_configuration import \
+    parse_structure_from_config
 from tardis.plasma.radiation_field import DilutePlanckianRadiationField
 
 logger = logging.getLogger(__name__)

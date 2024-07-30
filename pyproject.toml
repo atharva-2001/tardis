@@ -172,7 +172,7 @@ tardis = ["data/*"]
 tardis_grid = ["tests/data/*", "./"]
 tardis_io = [
     "configuration/schemas/*",
-    "configuration/tests/data/*", 
+    "configuration/tests/data/*",
     "model/readers/tests/data/*"
 ]
 tardis_model_tests = ["data/*"]

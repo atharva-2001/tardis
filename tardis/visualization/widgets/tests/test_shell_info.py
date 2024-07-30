@@ -1,14 +1,12 @@
-import pytest
 import numpy as np
 import pandas.testing as pdt
+import pytest
 
 from tardis.tests.test_util import monkeysession
-from tardis.visualization.widgets.shell_info import (
-    BaseShellInfo,
-    SimulationShellInfo,
-    HDFShellInfo,
-    ShellInfoWidget,
-)
+from tardis.visualization.widgets.shell_info import (BaseShellInfo,
+                                                     HDFShellInfo,
+                                                     ShellInfoWidget,
+                                                     SimulationShellInfo)
 
 
 @pytest.fixture(scope="class")

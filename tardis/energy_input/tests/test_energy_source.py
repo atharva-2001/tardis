@@ -2,9 +2,7 @@ import numpy as np
 import numpy.testing as npt
 import pytest
 
-from tardis.energy_input.samplers import (
-    create_energy_cdf,
-)
+from tardis.energy_input.samplers import create_energy_cdf
 
 
 @pytest.mark.parametrize(

@@ -28,7 +28,7 @@ omit =
 
     tardis/gui/*
     tardis/stats/*
-   
+
 ignore_errors = True
 
 [html]

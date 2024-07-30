@@ -1,11 +1,10 @@
-import pytest
 import numpy as np
 import numpy.testing as npt
+import pytest
 
+from tardis.transport.montecarlo.packet_trackers import \
+    RPacketLastInteractionTracker
 from tardis.transport.montecarlo.r_packet import InteractionType
-from tardis.transport.montecarlo.packet_trackers import (
-    RPacketLastInteractionTracker,
-)
 
 
 @pytest.fixture(scope="module")

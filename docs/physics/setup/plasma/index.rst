@@ -5,7 +5,7 @@ Plasma
 ******
 
 
-The role of the plasma module is to determine the ionisation and excitation states of the elements of the 
+The role of the plasma module is to determine the ionisation and excitation states of the elements of the
 supernova ejecta, given the basic structure, including the elemental abundances, densities and radiation temperature.
 After the calculation of the plasma state, the :math:`\tau_{\textrm{sobolev}}` values can be calculated.
 
@@ -81,7 +81,7 @@ TARDIS also allows for NLTE treatments of specified species, as well as special 
 
     nlte
     helium_nlte
-    
+
 
 
 .. _tau_sobolev:
@@ -98,7 +98,7 @@ After the above calculations, TARDIS calculates the Sobolev optical depth :math:
     \tau_\textrm{Sobolev} = C_\textrm{Sobolev}\,  \lambda\, f_{\textrm{lower}\rightarrow\textrm{upper}}\,
         t_\textrm{explosion}\, N_\textrm{lower}
         (1 - \frac{g_\textrm{lower}}{g_\textrm{upper}}\frac{N_\textrm{upper}}{N_\textrm{lower}})
-        
+
 
 Macro Atom Line Interaction Treatment
 -------------------------------------
@@ -107,5 +107,5 @@ The following page describes the macro atom treatment of line interactions:
 
 .. toctree::
     :maxdepth: 2
-    
+
     macroatom

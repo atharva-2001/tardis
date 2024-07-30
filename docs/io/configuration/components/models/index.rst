@@ -45,34 +45,34 @@ model configuration.
 
 .. jsonschema:: ../schemas/model_definitions.yml#/definitions/structure/file
     :lift_description:
- 
+
 For example:
- 
+
 .. literalinclude:: densitycust/tardis_configv1_density_cust_example.yml
     :language: yaml
- 
+
 In this example, our configuration references a file named ``density.dat``. For more information on what this file
 would entail, see:
- 
+
 .. toctree::
     :maxdepth: 1
-    
+
     densitycust/densitycust
- 
+
 .. jsonschema:: ../schemas/model_definitions.yml#/definitions/abundances/file
     :lift_description:
- 
+
 For example:
- 
+
 .. literalinclude:: abundancecust/tardis_configv1_abundance_cust_example.yml
     :language: yaml
- 
+
 In this example, our configuration references a file named ``abund.dat``. For more information on what this file
 would entail, see:
- 
+
 .. toctree::
     :maxdepth: 1
-        
+
     abundancecust/abundancecust
 
 Custom Model Tutorial
@@ -88,11 +88,11 @@ Custom Model Tutorial
 
 Model Converters
 ----------------
-    
+
 There are a variety of formats for models from other codes
 (both hydro and radiative transfer) that can be converted to TARDIS input files.
 Here we aim to provide converters for the most commonly used file formats.
-    
+
 .. toctree::
     :maxdepth: 2
 
@@ -145,7 +145,7 @@ For example:
     model:
         structure:
             type: specific
-        
+
             density:
                 type: branch85_w7
 
@@ -161,7 +161,7 @@ For example:
     model:
         structure:
             type: specific
-        
+
             density:
                 type: exponential
                 rho_0: 1e-10 g/cm^3
@@ -179,7 +179,7 @@ For example:
     model:
         structure:
             type: specific
-        
+
             density:
                 type: power_law
                 rho_0: 1e-10 g/cm^3
@@ -202,7 +202,7 @@ For example:
             density:
                 type: uniform
                 value: 1e-10 g/cm^3
-    
+
 
 For more information, see `Uniform Density <../../../../physics/setup/model.ipynb#uniform-density>`_.
 

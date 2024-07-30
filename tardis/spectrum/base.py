@@ -6,9 +6,7 @@ from astropy import units as u
 from tardis.io.util import HDFWriterMixin
 from tardis.spectrum.formal_integral import IntegrationError
 from tardis.spectrum.spectrum import TARDISSpectrum
-from tardis.util.base import (
-    quantity_linspace,
-)
+from tardis.util.base import quantity_linspace
 
 
 class SpectrumSolver(HDFWriterMixin):

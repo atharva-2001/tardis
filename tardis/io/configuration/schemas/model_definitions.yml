@@ -161,7 +161,7 @@ definitions:
       - velocity
       - density
   abundances:
-          
+
     file:
       $$target: 'model_definitions.yml#/definitions/abundances/file'
       $$description: One can use a file referenced in the model configuration
@@ -207,5 +207,3 @@ definitions:
         maximum: 1
       required:
       - model_isotope_time_0
-      
-

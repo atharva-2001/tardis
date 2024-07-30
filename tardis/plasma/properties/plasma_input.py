@@ -1,8 +1,5 @@
-from tardis.plasma.properties.base import (
-    ArrayInput,
-    Input,
-    ProcessingPlasmaProperty,
-)
+from tardis.plasma.properties.base import (ArrayInput, Input,
+                                           ProcessingPlasmaProperty)
 
 __all__ = [
     "TRadiative",

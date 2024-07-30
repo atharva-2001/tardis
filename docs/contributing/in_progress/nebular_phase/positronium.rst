@@ -10,14 +10,14 @@ In supernovae, Ps can form when :math:`\beta`-decay occurs in the radioactive ma
 
 According to :cite:`Jauch1976` the density-dependent reciprocal lifetime :math:`\frac{1}{\tau_2}` (called a "cross-section") of para-Ps is
 
-.. math:: 
+.. math::
     P \equiv \frac{1}{\tau_2} = r_0^2 \pi \rho
 
 where :math:`r_0` is the classical electron radius and :math:`\rho` is the electron number density. Note that the units here appear to be inverse length rather than the expected inverse time.
 
-For ortho-Ps, the cross-section is 
+For ortho-Ps, the cross-section is
 
-.. math:: 
+.. math::
     P \equiv \frac{1}{\tau_3} = \frac{4}{3} (\pi^2-9) \alpha r_0^2  \rho
 
 where :math:`\alpha` is the fine structure constant. This makes the ortho-Ps cross-section (and associated lifetime) roughly 300 times smaller than that of para-Ps.

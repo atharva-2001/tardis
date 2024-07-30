@@ -2,10 +2,8 @@ import numpy as np
 import pandas as pd
 
 from tardis import constants as const
-from tardis.plasma.properties.base import (
-    DataFrameInput,
-    ProcessingPlasmaProperty,
-)
+from tardis.plasma.properties.base import (DataFrameInput,
+                                           ProcessingPlasmaProperty)
 from tardis.util.base import intensity_black_body
 
 

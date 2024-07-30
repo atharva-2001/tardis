@@ -1,9 +1,7 @@
 from astropy import units as u
 
 from tardis.transport.montecarlo.packet_source import (
-    BlackBodySimpleSource,
-    BlackBodySimpleSourceRelativistic,
-)
+    BlackBodySimpleSource, BlackBodySimpleSourceRelativistic)
 
 
 def initialize_packet_source(packet_source, config, geometry):

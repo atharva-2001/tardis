@@ -1,7 +1,5 @@
 from tardis.opacities.macro_atom.base import (
-    NonMarkovChainTransitionProbabilities,
-    TransitionProbabilities,
-)
+    NonMarkovChainTransitionProbabilities, TransitionProbabilities)
 from tardis.opacities.tau_sobolev import TauSobolev
 from tardis.plasma.properties import *
 

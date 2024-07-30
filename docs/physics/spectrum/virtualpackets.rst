@@ -86,7 +86,7 @@ dependence (represented by the non-uniform sampling rule for real packets,
 Here, :math:`\varepsilon` is the energy of the real packet that spawned the
 virtual ones. If virtual packets are generated during a real packet interaction
 at the location :math:`r`, their propagation direction is sampled uniformly
-from the interval :math:`[\mu_{\mathrm{min}}, 1]`. 
+from the interval :math:`[\mu_{\mathrm{min}}, 1]`.
 
 .. math::
 

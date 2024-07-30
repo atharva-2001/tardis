@@ -7,7 +7,7 @@ Overview
 ========
 
 We use Matterbridge to connect channels across different messaging platforms
-such as *Slack*, *Mattermost* and *Gitter*. Matterbridge provides binaries 
+such as *Slack*, *Mattermost* and *Gitter*. Matterbridge provides binaries
 for  many operating systems. The ``matterbridge`` binary is intended to be used
 
 in combination with a :term:`TOML` configuration file::
@@ -18,8 +18,8 @@ The TOML file includes all the parameters required to connect as many
 messaging platforms as you want, like *tokens* and *passwords*. Once the
 application is running, messages can be shared between the connected rooms.
 
-Currently, we keep a service running on the `OpenSupernova.org`_ server to 
-run Matterbridge as a daemon. Our configuration files are stored in a `private 
+Currently, we keep a service running on the `OpenSupernova.org`_ server to
+run Matterbridge as a daemon. Our configuration files are stored in a `private
 GitHub repository`_, including our custom TOML and the files needed to set up the
 Linux service.
 

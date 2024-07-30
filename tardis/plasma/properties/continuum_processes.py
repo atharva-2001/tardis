@@ -5,18 +5,13 @@ import pandas as pd
 from numba import njit, prange
 
 from tardis import constants as const
-from tardis.transport.montecarlo.estimators.util import (
-    bound_free_estimator_array2frame,
-    integrate_array_by_blocks,
-)
-from tardis.transport.montecarlo import njit_dict
 from tardis.plasma.exceptions import PlasmaException
-from tardis.plasma.properties.base import (
-    Input,
-    ProcessingPlasmaProperty,
-    TransitionProbabilitiesProperty,
-)
+from tardis.plasma.properties.base import (Input, ProcessingPlasmaProperty,
+                                           TransitionProbabilitiesProperty)
 from tardis.plasma.properties.j_blues import JBluesDiluteBlackBody
+from tardis.transport.montecarlo import njit_dict
+from tardis.transport.montecarlo.estimators.util import (
+    bound_free_estimator_array2frame, integrate_array_by_blocks)
 
 __all__ = [
     "SpontRecombRateCoeff",

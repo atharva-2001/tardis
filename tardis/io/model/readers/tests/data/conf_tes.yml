@@ -14,7 +14,7 @@ value_test:
         end: 30 km
     quantity_range_sampled: [2 cm, 10 km, 1 m]
     list: ['bla','blub']
-    
+
 
 container_example:
     type: one
@@ -29,7 +29,7 @@ supernova:
 test:
     structure:
         type: file
-        file_property: 
+        file_property:
             filename: bla
             file_container:
                 type: bla

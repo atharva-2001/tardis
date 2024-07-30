@@ -60,7 +60,7 @@ jobs:
         run: ruff check  --statistics  --show-fixes . | tee ruff_stats.txt
       
       - name: Show entire output
-        run: ruff check . --output-format=full | tee ruff_full.txt
+        run: ruff check . --output-format=concise | tee ruff_full.txt
 
       - name: Statistics output read
         id: ruff_stats

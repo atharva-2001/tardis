@@ -13,8 +13,8 @@ on:
 
 jobs:
   create:
-    if: github.event_name == 'workflow_dispatch' ||
-      (startsWith(github.head_ref, 'pre-release-20') && github.event.pull_request.merged == true)
+    # if: github.event_name == 'workflow_dispatch' ||
+    #   (startsWith(github.head_ref, 'pre-release-20') && github.event.pull_request.merged == true)
 
     runs-on: ubuntu-latest
     steps:
@@ -41,9 +41,9 @@ jobs:
       - name: Create new release
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.BOT_TOKEN }}
-          name: TARDIS v${{ env.NEW_TAG}}
-          tag_name: release-${{ env.NEW_TAG }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          name: TARDIS v01
+          tag_name: release-01
           prerelease: false
           body: |
             This release has been created automatically by the TARDIS continuous delivery pipeline.

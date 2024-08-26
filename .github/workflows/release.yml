@@ -53,4 +53,5 @@ jobs:
             conda-linux-64.lock
             conda-osx-64.lock
             conda-lock.yml
+            conda-osx-arm64.lock
           fail_on_unmatched_files: false

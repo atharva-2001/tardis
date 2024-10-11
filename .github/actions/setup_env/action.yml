@@ -11,8 +11,8 @@ runs:
   using: "composite"
   steps:
 
-      - run: rm conda-linux-64.lock
-        shell: bash
+      # - run: rm conda-linux-64.lock
+      #   shell: bash
 
       - name: Download Lock File
         run:  wget -q https://raw.githubusercontent.com/KasukabeDefenceForce/tardis/master/conda-${{ inputs.os-label }}.lock

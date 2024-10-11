@@ -36,7 +36,7 @@ jobs:
       - name: run codespell
         run: |
             codespell docs/
-        continue-on-error: true
-        shell: micromamba-shell {0}
+        # continue-on-error: true
+        # shell: micromamba-shell {0}
       
-      - run: which codespell
+      # - run: which codespell

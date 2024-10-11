@@ -5,11 +5,15 @@ inputs:
   os-label:
     description: "os label for lock file, default linux"
     required: true
-    default: "linux"
+    default: "linux-64"
 
 runs:
   using: "composite"
   steps:
+
+      - run: rm conda-linux-64.lock
+        shell: bash
+
       - name: Download Lock File
         run:  wget -q https://raw.githubusercontent.com/KasukabeDefenceForce/tardis/master/conda-${{ inputs.os-label }}.lock
         # if: matrix.pip == true

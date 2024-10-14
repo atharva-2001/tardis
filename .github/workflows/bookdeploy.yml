@@ -1,0 +1,57 @@
+name: deploy-docs
+
+# Run this when the main branch changes
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - tardis_jupyterbook
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup LFS
+      uses: ./.github/actions/setup_lfs
+
+    - name: Setup environment
+      uses: ./.github/actions/setup_env
+      with:
+        os-label: linux-64
+
+    - name: Copy atom_data
+      run: |
+        mkdir -p ~/Downloads/tardis-data && cp -a ./tardis-regression-data/atom_data/. ~/Downloads/tardis-data
+      
+    - run: |
+        micromamba install jupyter-book sphinx-autoapi
+        pip install -e .
+      # shell: micromamba-shell {0}
+
+    # Build the book
+    - name: Build the book
+      shell: micromamba-shell {0}
+      run: |
+        jupyter-book build --all docs_new
+  
+    # Upload the book's HTML as an artifact
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: "docs/_build/html"
+
+    # Deploy the book's HTML to GitHub Pages
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v3

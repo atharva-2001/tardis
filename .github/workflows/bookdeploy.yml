@@ -43,7 +43,7 @@ jobs:
 
     # Build the book
     - name: Build the book
-      shell: micromamba-shell {0}
+      # shell: micromamba-shell {0}
       run: |
         jupyter-book build --all docs_new
   

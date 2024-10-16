@@ -30,7 +30,7 @@ jobs:
         path: tardis-regression-data
         lfs: true
         sparse-checkout: |
-          atom-data
+          atom_data
     
     - run: ls tardis-regression-data
 

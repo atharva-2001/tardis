@@ -30,7 +30,7 @@ jobs:
         path: tardis-regression-data
         lfs: true
         sparse-checkout: |
-          atom_data
+          atom_data/kurucz_cd23_chianti_H_He.h5
     
     - run: ls tardis-regression-data
 

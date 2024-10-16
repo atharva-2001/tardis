@@ -31,6 +31,8 @@ jobs:
         sparse-checkout: |
           atom-data
         sparse-checkout-cone-mode: false
+    
+    - run: ls tardis-regression-data
 
     - name: Setup environment
       uses: ./.github/actions/setup_env

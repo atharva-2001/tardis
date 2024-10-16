@@ -31,7 +31,6 @@ jobs:
         lfs: true
         sparse-checkout: |
           atom-data
-        sparse-checkout-cone-mode: false
     
     - run: ls tardis-regression-data
 

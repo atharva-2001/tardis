@@ -28,6 +28,7 @@ jobs:
       with:
         repository: tardis-sn/tardis-regression-data
         path: tardis-regression-data
+        lfs: true
         sparse-checkout: |
           atom-data
         sparse-checkout-cone-mode: false

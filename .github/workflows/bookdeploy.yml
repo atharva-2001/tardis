@@ -38,7 +38,7 @@ jobs:
       
     - run: |
         micromamba install jupyter-book sphinx-autoapi
-        pip install -e .
+        pip install -e . --user
       # shell: micromamba-shell {0}
 
     # Build the book

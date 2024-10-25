@@ -49,7 +49,7 @@ jobs:
         jupyter nbextension enable --py widgetsnbextension
         jupyter contrib nbextension install --user
         jupyter nbextension enable varInspector/main
-        pip install sphinx-examples sphinx_inline_tabs sphinx_togglebutton
+        # pip install sphinx-examples sphinx_inline_tabs sphinx_togglebutton
         pip install -e . --user
       # shell: micromamba-shell {0}
 

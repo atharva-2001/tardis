@@ -62,7 +62,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        path: "docs_new/_build/html"
+        path: "docs_new/_build/_page/k1/html/"
 
     # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages

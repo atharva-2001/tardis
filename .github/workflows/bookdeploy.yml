@@ -44,7 +44,8 @@ jobs:
         mkdir -p ~/Downloads/tardis-data && cp -a ./tardis-regression-data/atom_data/. ~/Downloads/tardis-data
       
     - run: |
-        micromamba install jupyter-book sphinx-autoapi 
+        micromamba install jupyter-book sphinx-autoapi
+        micromamba update ipywidgets
         jupyter nbextension enable --py widgetsnbextension
         jupyter contrib nbextension install --user
         jupyter nbextension enable varInspector/main

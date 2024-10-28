@@ -1,8 +1,8 @@
 API documentation
 =================
 
-.. autosummary::
-   :toctree: _autosummary
-   :recursive:
+.. .. autosummary::
+..    :toctree: _autosummary
+..    :recursive:
 
-   tardis
+..    tardis

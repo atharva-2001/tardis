@@ -45,7 +45,7 @@ jobs:
       
     - run: |
         micromamba install jupyter-book sphinx-autoapi
-        micromamba update ipywidgets
+        micromamba update 'ipywidgets>=8,<9'
         jupyter nbextension enable --py widgetsnbextension
         jupyter contrib nbextension install --user
         jupyter nbextension enable varInspector/main

@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - deeksha_loggerjb
+    - deeksha_logger3
 
 defaults:
   run:

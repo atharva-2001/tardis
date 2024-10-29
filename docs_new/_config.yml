@@ -47,8 +47,17 @@ sphinx:
     autoapi_options: [ 'members', 'undoc-members', 'private-members', 'show-inheritance', 'show-module-summary', 'special-members',  ]
     nb_ipywidgets_js:
         # Load IPywidgets bundle for embedding.
+        # "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js":
+        #     "data-jupyter-widgets-cdn": "https://cdn.jsdelivr.net/npm/"
+        #     "crossorigin": "anonymous"
+        # "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js":
+        #     "crossorigin": "anonymous"
+
+        # Load RequireJS, used by the IPywidgets for dependency management
+        "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js": 
+            "integrity": "sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA="
+            "crossorigin": "anonymous"
+        # Load IPywidgets bundle for embedding.
         "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js":
             "data-jupyter-widgets-cdn": "https://cdn.jsdelivr.net/npm/"
-            "crossorigin": "anonymous"
-        "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js":
             "crossorigin": "anonymous"

@@ -44,3 +44,6 @@ sphinx:
         "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager/dist/embed-amd.js":
             "data-jupyter-widgets-cdn": "https://cdn.jsdelivr.net/npm/"
             "crossorigin": "anonymous"
+        "https://use.fontawesome.com/releases/v5.15.4/css/all.css":
+            "integrity": "sha384-DyZ88mC6Up2uqS4NxEZwkdrMqLuyiVCKc5DNic/Ii2vVRBXlxoEPvLxRlcpD8ZW5"
+            "crossorigin": "anonymous"

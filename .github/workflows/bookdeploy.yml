@@ -34,10 +34,15 @@ jobs:
     
     - run: ls tardis-regression-data
 
-    - name: Setup environment
-      uses: ./.github/actions/setup_env
+    # - name: Setup environment
+    #   uses: ./.github/actions/setup_env
+    #   with:
+    #     os-label: linux-64
+
+    - uses: mamba-org/setup-micromamba@v1
       with:
-        os-label: linux-64
+        environment-file: tardis_env3.yml
+        environment-name: tardis
 
     - name: Copy atom_data
       run: |

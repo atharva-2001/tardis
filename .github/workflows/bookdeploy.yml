@@ -62,7 +62,7 @@ jobs:
     - name: Build the book
       # shell: micromamba-shell {0}
       run: |
-        jupyter-book build --all docs_new
+        jupyter-book build --all -v docs_new
   
     # Upload the book's HTML as an artifact
     - name: Upload artifact

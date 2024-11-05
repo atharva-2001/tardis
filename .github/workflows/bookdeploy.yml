@@ -49,11 +49,12 @@ jobs:
         mkdir -p ~/Downloads/tardis-data && cp -a ./tardis-regression-data/atom_data/. ~/Downloads/tardis-data
       
     - run: |
-        micromamba install jupyter-book sphinx-autoapi panel watchfiles jupyter_bokeh pyviz nbsite
-        micromamba update 'ipywidgets>=8,<9'
-        jupyter nbextension enable --py widgetsnbextension
-        jupyter contrib nbextension install --user
-        jupyter nbextension enable varInspector/main
+        micromamba install jupyter-book sphinx-autoapi panel watchfiles jupyter_bokeh
+        # micromamba update 'ipywidgets>=8,<9'
+        mamba install -c pyviz nbsite
+        # jupyter nbextension enable --py widgetsnbextension
+        # jupyter contrib nbextension install --user
+        # jupyter nbextension enable varInspector/main
         # pip install sphinx-examples sphinx_inline_tabs sphinx_togglebutton
         pip install -e . --user
       # shell: micromamba-shell {0}

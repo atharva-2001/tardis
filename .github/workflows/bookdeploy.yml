@@ -51,7 +51,7 @@ jobs:
     - run: |
         micromamba install jupyter-book sphinx-autoapi panel watchfiles jupyter_bokeh
         # micromamba update 'ipywidgets>=8,<9'
-        mamba install -c pyviz nbsite
+        micromamba install -c pyviz nbsite
         # jupyter nbextension enable --py widgetsnbextension
         # jupyter contrib nbextension install --user
         # jupyter nbextension enable varInspector/main

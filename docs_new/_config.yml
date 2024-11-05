@@ -41,7 +41,10 @@ sphinx:
     # - 'sphinx.ext.autosummary'
     # - 'sphinx.ext.viewcode'
     # - 'autoapi.extension'
-  # config:
+  config:
+    nbsite_pyodide_conf:
+      PYODIDE_URL: 'https://cdn.jsdelivr.net/pyodide/v0.26.3/full/pyodide.js'
+
   #   nb_ipywidgets_js:
   #       # Load RequireJS, used by the IPywidgets for dependency management
   #       "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js": 

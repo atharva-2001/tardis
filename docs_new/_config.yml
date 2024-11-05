@@ -35,7 +35,7 @@ html:
 
 sphinx:
   extra_extensions:
-    - nbsite.pyodide
+    - 'nbsite.pyodide'
     # - 'nbsphinx'
     # - 'sphinx.ext.autodoc'
     # - 'sphinx.ext.autosummary'

@@ -1,8 +1,9 @@
 import logging
 import re
-from ipywidgets import Output, Tab, Layout
-from IPython.display import display, HTML
+import panel as pn
 from dataclasses import dataclass, field
+
+pn.extension()
 
 @dataclass
 class LoggingConfig:
@@ -28,6 +29,8 @@ class LoggingConfig:
     DEFAULT_SPECIFIC_STATE = False
 
 
+LOGGING_LEVELS = LoggingConfig().LEVELS
+
 class TardisLogger:
     def __init__(self):
         self.config = LoggingConfig()
@@ -39,8 +42,20 @@ class TardisLogger:
         }
         self.logger = logging.getLogger("tardis")
         
-    def _create_output_widget(self, height="300px"):
-        return Output(layout=Layout(height=height, overflow_y="auto"))
+    def _create_output_widget(self, height=300):
+        return pn.pane.HTML(
+            "",
+            height=height,
+            styles={
+                'overflow-y': 'auto',
+                'overflow-x': 'auto',
+                'border': '1px solid #ddd',
+                'width': '100%',
+                'font-family': 'monospace',
+                'padding': '8px',
+                'background-color': 'white'
+            }
+        )
     
     def configure_logging(self, log_level, tardis_config, specific_log_level=None):
         if "debug" in tardis_config:
@@ -51,11 +66,9 @@ class TardisLogger:
                 "log_level", "INFO"
             )
             if log_level and tardis_config["debug"].get("log_level"):
-                print(
-                    "log_level is defined both in Functional Argument & YAML Configuration {debug section}"
-                )
-                print(
-                    f"log_level = {log_level.upper()} will be used for Log Level Determination\n"
+                self.logger.debug(
+                    "log_level is defined both in Functional Argument & YAML Configuration {debug section}, "
+                    f"log_level = {log_level.upper()} will be used for Log Level Determination"
                 )
         else:
             tardis_config["debug"] = {}
@@ -101,7 +114,15 @@ class TardisLogger:
         )
         
         self._configure_handlers(widget_handler)
-        self._create_and_display_tabs()
+        tabs = self._create_and_display_tabs()
+        
+
+        self.periodic_cb = pn.state.add_periodic_callback(
+            lambda: [output.param.trigger('object') for output in self.log_outputs.values()],
+            period=100  
+        )
+        
+        display(tabs)
     
     def _configure_handlers(self, widget_handler):
         """Configure logging handlers."""
@@ -118,15 +139,12 @@ class TardisLogger:
     
     def _create_and_display_tabs(self):
         """Create and display the logging tabs."""
-        tab = Tab(children=[
-            self.log_outputs[key] for key in 
-            ["WARNING/ERROR", "INFO", "DEBUG", "ALL"]
-        ])
-        
-        for i, title in enumerate(["WARNING/ERROR", "INFO", "DEBUG", "ALL"]):
-            tab.set_title(i, title)
-        
-        display(tab)
+        tab_order = ["ALL", "WARNING/ERROR", "INFO", "DEBUG"]
+        tabs = pn.Tabs(
+            *[(title, self.log_outputs[title]) for title in tab_order],
+            height=350
+        )
+        return tabs
 
 
 class LoggingHandler(logging.Handler):
@@ -134,14 +152,18 @@ class LoggingHandler(logging.Handler):
         super().__init__()
         self.log_outputs = log_outputs
         self.colors = colors
+        self._log_contents = {key: [] for key in log_outputs.keys()}
         
     def emit(self, record):
         """Emit a log record to the appropriate widget output."""
-        log_entry = self.format(record)
-        clean_log_entry = self._remove_ansi_escape_sequences(log_entry)
-        html_output = self._format_html_output(clean_log_entry, record)
-        
-        self._display_log(record.levelno, html_output)
+        try:
+            log_entry = self.format(record)
+            clean_log_entry = self._remove_ansi_escape_sequences(log_entry)
+            html_output = self._format_html_output(clean_log_entry, record)
+            
+            self._display_log(record.levelno, html_output)
+        except Exception:
+            self.handleError(record)
     
     @staticmethod
     def _remove_ansi_escape_sequences(text):
@@ -161,7 +183,7 @@ class LoggingHandler(logging.Handler):
     
     def _display_log(self, level, html_output):
         """Display log message in appropriate outputs."""
-        html_wrapped = f"<pre style='white-space: pre-wrap; word-wrap: break-word;'>{html_output}</pre>"
+        html_wrapped = f"<div style='margin: 0;'>{html_output}</div>"
         
         level_to_output = {
             logging.WARNING: "WARNING/ERROR",
@@ -172,12 +194,17 @@ class LoggingHandler(logging.Handler):
         
         output_key = level_to_output.get(level)
         if output_key:
-            with self.log_outputs[output_key]:
-                display(HTML(html_wrapped))
+            self._update_output(output_key, html_wrapped)
             
         # Always display in ALL output
-        with self.log_outputs["ALL"]:
-            display(HTML(html_wrapped))
+        self._update_output("ALL", html_wrapped)
+    
+    def _update_output(self, key, html):
+        """Update the content of a specific output widget."""
+        self._log_contents[key].append(html)
+        current_content = '\n'.join(self._log_contents[key])
+        self.log_outputs[key].object = current_content
+        self.log_outputs[key].param.trigger('object')
 
 
 class LogFilter:
@@ -187,6 +214,7 @@ class LogFilter:
         
     def filter(self, log_record):
         return log_record.levelno in self.log_levels
+
 
 def logging_state(log_level, tardis_config, specific_log_level=None):
     """Configure logging state for TARDIS."""

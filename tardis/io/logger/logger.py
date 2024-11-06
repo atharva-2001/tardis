@@ -117,12 +117,13 @@ class TardisLogger:
         tabs = self._create_and_display_tabs()
         
 
-        self.periodic_cb = pn.state.add_periodic_callback(
-            lambda: [output.param.trigger('object') for output in self.log_outputs.values()],
-            period=100  
-        )
+        # self.periodic_cb = pn.state.add_periodic_callback(
+        #     lambda: [output.param.trigger('object') for output in self.log_outputs.values()],
+        #     period=100  
+        # )
         
         display(tabs)
+        return tabs
     
     def _configure_handlers(self, widget_handler):
         """Configure logging handlers."""
@@ -160,7 +161,7 @@ class LoggingHandler(logging.Handler):
             log_entry = self.format(record)
             clean_log_entry = self._remove_ansi_escape_sequences(log_entry)
             html_output = self._format_html_output(clean_log_entry, record)
-            
+
             self._display_log(record.levelno, html_output)
         except Exception:
             self.handleError(record)
@@ -220,4 +221,5 @@ def logging_state(log_level, tardis_config, specific_log_level=None):
     """Configure logging state for TARDIS."""
     logger = TardisLogger()
     logger.configure_logging(log_level, tardis_config, specific_log_level)
-    logger.setup_widget_logging()
+    widget = logger.setup_widget_logging()
+    return widget

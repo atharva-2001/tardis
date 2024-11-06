@@ -50,8 +50,9 @@ jobs:
       
     - run: |
         micromamba install jupyter-book sphinx-autoapi panel watchfiles jupyter_bokeh
+        micromamba install conda
         # micromamba update 'ipywidgets>=8,<9'
-        micromamba install -c pyviz nbsite
+        conda install -c pyviz nbsite
         # jupyter nbextension enable --py widgetsnbextension
         # jupyter contrib nbextension install --user
         # jupyter nbextension enable varInspector/main
@@ -64,7 +65,7 @@ jobs:
     - name: Build the book
       # shell: micromamba-shell {0}
       run: |
-        jupyter-book build --all -v docs_new
+        jupyter-book build --config=docs_new/_config.yml --all --keep-going -v docs_new
   
     # Upload the book's HTML as an artifact
     - name: Upload artifact

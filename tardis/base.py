@@ -115,6 +115,8 @@ def run_tardis(
 
     simulation.run_convergence()
     simulation.run_final()
+    simulation.logger_widget = logger_widget
+    
     if export_logger_widget == True:
         display(logger_widget.embed())
         logger_widget.visible = False

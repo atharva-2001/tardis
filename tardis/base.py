@@ -18,7 +18,6 @@ def run_tardis(
     log_level=None,
     specific_log_level=None,
     show_progress_bars=True,
-    export_logger_widget=True,
     **kwargs,
 ):
     """
@@ -90,7 +89,7 @@ def run_tardis(
     if not isinstance(show_convergence_plots, bool):
         raise TypeError("Expected bool in show_convergence_plots argument")
 
-    logger_widget = logging_state(log_level, tardis_config, specific_log_level)
+    logging_state(log_level, tardis_config, specific_log_level)
 
     if atom_data is not None:
         try:
@@ -115,9 +114,4 @@ def run_tardis(
 
     simulation.run_convergence()
     simulation.run_final()
-    simulation.logger_widget = logger_widget
-    
-    if export_logger_widget == True:
-        display(logger_widget.embed())
-        logger_widget.visible = False
     return simulation

@@ -5,6 +5,36 @@ from dataclasses import dataclass, field
 
 pn.extension()
 
+def create_output_widget(height=300):
+    return pn.pane.HTML(
+        "",
+        height=height,
+        styles={
+            'overflow-y': 'auto',
+            'overflow-x': 'auto',
+            'border': '1px solid #ddd',
+            'width': '100%',
+            'font-family': 'monospace',
+            'padding': '8px',
+            'background-color': 'white'
+        }
+    )
+
+log_outputs = {
+    "WARNING/ERROR": create_output_widget(),
+    "INFO": create_output_widget(),
+    "DEBUG": create_output_widget(),
+    "ALL": create_output_widget(),
+}
+
+tab_order = ["ALL", "WARNING/ERROR", "INFO", "DEBUG"]
+tabs = pn.Tabs(
+    *[(title, log_outputs[title]) for title in tab_order],
+    height=350
+)
+
+
+
 @dataclass
 class LoggingConfig:
     LEVELS: dict[str, int] = field(default_factory=lambda: {
@@ -34,29 +64,8 @@ LOGGING_LEVELS = LoggingConfig().LEVELS
 class TardisLogger:
     def __init__(self):
         self.config = LoggingConfig()
-        self.log_outputs = {
-            "WARNING/ERROR": self._create_output_widget(),
-            "INFO": self._create_output_widget(),
-            "DEBUG": self._create_output_widget(),
-            "ALL": self._create_output_widget(),
-        }
         self.logger = logging.getLogger("tardis")
-        
-    def _create_output_widget(self, height=300):
-        return pn.pane.HTML(
-            "",
-            height=height,
-            styles={
-                'overflow-y': 'auto',
-                'overflow-x': 'auto',
-                'border': '1px solid #ddd',
-                'width': '100%',
-                'font-family': 'monospace',
-                'padding': '8px',
-                'background-color': 'white'
-            }
-        )
-    
+
     def configure_logging(self, log_level, tardis_config, specific_log_level=None):
         if "debug" in tardis_config:
             specific_log_level = tardis_config["debug"].get(
@@ -106,24 +115,19 @@ class TardisLogger:
                 for logger in tardis_loggers:
                     logger.removeFilter(filter)
 
+
     def setup_widget_logging(self):
         """Set up widget-based logging interface."""
-        widget_handler = LoggingHandler(self.log_outputs, self.config.COLORS)
+        widget_handler = LoggingHandler(log_outputs, self.config.COLORS)
         widget_handler.setFormatter(
             logging.Formatter("%(name)s [%(levelname)s] %(message)s (%(filename)s:%(lineno)d)")
         )
         
         self._configure_handlers(widget_handler)
-        tabs = self._create_and_display_tabs()
-        
-
         # self.periodic_cb = pn.state.add_periodic_callback(
         #     lambda: [output.param.trigger('object') for output in self.log_outputs.values()],
         #     period=100  
-        # )
-        
-        display(tabs)
-        return tabs
+        # ) 
     
     def _configure_handlers(self, widget_handler):
         """Configure logging handlers."""
@@ -138,14 +142,6 @@ class TardisLogger:
         self.logger.addHandler(widget_handler)
         logging.getLogger("py.warnings").addHandler(widget_handler)
     
-    def _create_and_display_tabs(self):
-        """Create and display the logging tabs."""
-        tab_order = ["ALL", "WARNING/ERROR", "INFO", "DEBUG"]
-        tabs = pn.Tabs(
-            *[(title, self.log_outputs[title]) for title in tab_order],
-            height=350
-        )
-        return tabs
 
 
 class LoggingHandler(logging.Handler):
@@ -221,5 +217,4 @@ def logging_state(log_level, tardis_config, specific_log_level=None):
     """Configure logging state for TARDIS."""
     logger = TardisLogger()
     logger.configure_logging(log_level, tardis_config, specific_log_level)
-    widget = logger.setup_widget_logging()
-    return widget
+    logger.setup_widget_logging()

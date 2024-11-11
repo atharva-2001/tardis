@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <link rel="manifest" href="../site.webmanifest"/>
+            
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tardis.transport.montecarlo.montecarlo_transport_state module &mdash; tardis</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/tardis_logo.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/ServiceHandler.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/tardis.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tardis
+          </a>
+              <div class="version">
+                latest
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">tardis.transport.montecarlo.montecarlo_transport_state module</a><ul>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState</span></code></a><ul>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_luminosity"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.emitted_packet_luminosity</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_mask"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.emitted_packet_mask</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_nu"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.emitted_packet_nu</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_name"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.hdf_name</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_properties"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.hdf_properties</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_blue_estimator"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.j_blue_estimator</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_estimator"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.j_estimator</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_nu"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_interaction_in_nu</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_r"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_interaction_in_r</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_type"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_interaction_type</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_in_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_line_interaction_in_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_out_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_line_interaction_out_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_shell_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.last_line_interaction_shell_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.nu_bar_estimator"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.nu_bar_estimator</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_energy"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.output_energy</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_nu"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.output_nu</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.packet_luminosity"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.packet_luminosity</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_luminosity"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.reabsorbed_packet_luminosity</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_nu"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.reabsorbed_packet_nu</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.time_of_simulation"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.time_of_simulation</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_logging"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_logging</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_energies"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_energies</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_mus"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_initial_mus</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_rs"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_initial_rs</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_nu"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_interaction_in_nu</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_r"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_interaction_in_r</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_type"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_interaction_type</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_in_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_line_interaction_in_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_out_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_line_interaction_out_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_shell_id"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_last_line_interaction_shell_id</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_nus"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virt_packet_nus</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virtual_packet_luminosity"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.virtual_packet_luminosity</span></code></a></li>
+<li><a class="reference internal" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.vpacket_hdf_properties"><code class="docutils literal notranslate"><span class="pre">MonteCarloTransportState.vpacket_hdf_properties</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tardis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">tardis.transport.montecarlo.montecarlo_transport_state module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/tardis.transport.montecarlo.montecarlo_transport_state.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tardis.transport.montecarlo.montecarlo_transport_state">
+<span id="tardis-transport-montecarlo-montecarlo-transport-state-module"></span><h1>tardis.transport.montecarlo.montecarlo_transport_state module<a class="headerlink" href="#module-tardis.transport.montecarlo.montecarlo_transport_state" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tardis.transport.montecarlo.montecarlo_transport_state.</span></span><span class="sig-name descname"><span class="pre">MonteCarloTransportState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/transport/montecarlo/montecarlo_transport_state.html#MonteCarloTransportState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.io.util.html#tardis.io.util.HDFWriterMixin" title="tardis.io.util.HDFWriterMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HDFWriterMixin</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_luminosity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">emitted_packet_luminosity</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_luminosity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_mask">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">emitted_packet_mask</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_nu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">emitted_packet_nu</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_nu" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_name">
+<span class="sig-name descname"><span class="pre">hdf_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'transport_state'</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_properties">
+<span class="sig-name descname"><span class="pre">hdf_properties</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['output_nu',</span> <span class="pre">'output_energy',</span> <span class="pre">'nu_bar_estimator',</span> <span class="pre">'j_estimator',</span> <span class="pre">'j_blue_estimator',</span> <span class="pre">'packet_luminosity',</span> <span class="pre">'time_of_simulation',</span> <span class="pre">'emitted_packet_mask',</span> <span class="pre">'last_interaction_type',</span> <span class="pre">'last_interaction_in_nu',</span> <span class="pre">'last_interaction_in_r',</span> <span class="pre">'last_line_interaction_out_id',</span> <span class="pre">'last_line_interaction_in_id',</span> <span class="pre">'last_line_interaction_shell_id']</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.hdf_properties" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_blue_estimator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">j_blue_estimator</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_blue_estimator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_estimator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">j_estimator</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.j_estimator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_nu">
+<span class="sig-name descname"><span class="pre">last_interaction_in_nu</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_nu" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_r">
+<span class="sig-name descname"><span class="pre">last_interaction_in_r</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_in_r" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_type">
+<span class="sig-name descname"><span class="pre">last_interaction_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_interaction_type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_in_id">
+<span class="sig-name descname"><span class="pre">last_line_interaction_in_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_in_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_out_id">
+<span class="sig-name descname"><span class="pre">last_line_interaction_out_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_out_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_shell_id">
+<span class="sig-name descname"><span class="pre">last_line_interaction_shell_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.last_line_interaction_shell_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.nu_bar_estimator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nu_bar_estimator</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.nu_bar_estimator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_energy</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_energy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_nu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_nu</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.output_nu" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.packet_luminosity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">packet_luminosity</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.packet_luminosity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_luminosity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reabsorbed_packet_luminosity</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_luminosity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_nu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reabsorbed_packet_nu</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.reabsorbed_packet_nu" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.time_of_simulation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time_of_simulation</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.time_of_simulation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_logging">
+<span class="sig-name descname"><span class="pre">virt_logging</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_logging" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_energies">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_energies</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_energies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_mus">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_initial_mus</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_mus" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_rs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_initial_rs</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_initial_rs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_nu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_interaction_in_nu</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_nu" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_r">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_interaction_in_r</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_in_r" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_interaction_type</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_interaction_type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_in_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_line_interaction_in_id</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_in_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_out_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_line_interaction_out_id</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_out_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_shell_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_last_line_interaction_shell_id</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_last_line_interaction_shell_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_nus">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virt_packet_nus</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virt_packet_nus" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virtual_packet_luminosity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">virtual_packet_luminosity</span></span><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.virtual_packet_luminosity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.vpacket_hdf_properties">
+<span class="sig-name descname"><span class="pre">vpacket_hdf_properties</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['virt_packet_nus',</span> <span class="pre">'virt_packet_energies',</span> <span class="pre">'virt_packet_initial_rs',</span> <span class="pre">'virt_packet_initial_mus',</span> <span class="pre">'virt_packet_last_interaction_in_nu',</span> <span class="pre">'virt_packet_last_interaction_in_r',</span> <span class="pre">'virt_packet_last_interaction_type',</span> <span class="pre">'virt_packet_last_line_interaction_in_id',</span> <span class="pre">'virt_packet_last_line_interaction_out_id',</span> <span class="pre">'virt_packet_last_line_interaction_shell_id']</span></em><a class="headerlink" href="#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.vpacket_hdf_properties" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

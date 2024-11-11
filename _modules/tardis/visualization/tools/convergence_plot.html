@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.visualization.tools.convergence_plot &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../../_static/WorkerHandler.js"></script>
+        <script src="../../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -116,9 +96,11 @@
              
   <h1>Source code for tardis.visualization.tools.convergence_plot</h1><div class="highlight"><pre>
 <span></span>&quot;&quot;&quot;Convergence Plots to see the convergence of the simulation in real time.&quot;&quot;&quot;
+
 from collections import defaultdict
 import matplotlib.cm as cm
 import matplotlib.colors as clr
+import numpy as np
 import plotly.graph_objects as go
 from IPython.display import display
 import matplotlib as mpl
@@ -128,7 +110,9 @@ from traitlets import TraitError
 from astropy import units as u
 
 
-<div class="viewcode-block" id="transition_colors"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.transition_colors">[docs]</a>def transition_colors(length, name=&quot;jet&quot;):
+<div class="viewcode-block" id="transition_colors">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.transition_colors">[docs]</a>
+def transition_colors(length, name=&quot;jet&quot;):
     &quot;&quot;&quot;
     Create colorscale for convergence plots, returns a list of colors.
 
@@ -143,7 +127,7 @@ from astropy import units as u
     -------
     colors: list
     &quot;&quot;&quot;
-    cmap = mpl.cm.get_cmap(name, length)
+    cmap = mpl.pyplot.get_cmap(name, length)
     colors = []
     for i in range(cmap.N):
         rgb = cmap(i)[:3]
@@ -151,7 +135,10 @@ from astropy import units as u
     return colors</div>
 
 
-<div class="viewcode-block" id="ConvergencePlots"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots">[docs]</a>class ConvergencePlots(object):
+
+<div class="viewcode-block" id="ConvergencePlots">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots">[docs]</a>
+class ConvergencePlots(object):
     &quot;&quot;&quot;
     Create and update convergence plots for visualizing convergence of the simulation.
 
@@ -226,7 +213,9 @@ from astropy import units as u
             # using default plotly colors
             self.t_inner_luminosities_colors = [None] * 5
 
-<div class="viewcode-block" id="ConvergencePlots.fetch_data"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.fetch_data">[docs]</a>    def fetch_data(self, name=None, value=None, item_type=None):
+<div class="viewcode-block" id="ConvergencePlots.fetch_data">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.fetch_data">[docs]</a>
+    def fetch_data(self, name=None, value=None, item_type=None):
         &quot;&quot;&quot;
         Fetch data from the Simulation class.
 
@@ -248,7 +237,10 @@ from astropy import units as u
         if item_type == &quot;value&quot;:
             self.value_data[name].append(value)</div>
 
-<div class="viewcode-block" id="ConvergencePlots.create_plasma_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_plasma_plot">[docs]</a>    def create_plasma_plot(self):
+
+<div class="viewcode-block" id="ConvergencePlots.create_plasma_plot">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_plasma_plot">[docs]</a>
+    def create_plasma_plot(self):
         &quot;&quot;&quot;Create an empty plasma plot.&quot;&quot;&quot;
         fig = go.FigureWidget().set_subplots(rows=1, cols=2, shared_xaxes=True)
 
@@ -290,7 +282,10 @@ from astropy import units as u
             self.override_plot_parameters(fig, self.plasma_plot_config)
         self.plasma_plot = fig</div>
 
-<div class="viewcode-block" id="ConvergencePlots.create_t_inner_luminosities_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_t_inner_luminosities_plot">[docs]</a>    def create_t_inner_luminosities_plot(self):
+
+<div class="viewcode-block" id="ConvergencePlots.create_t_inner_luminosities_plot">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.create_t_inner_luminosities_plot">[docs]</a>
+    def create_t_inner_luminosities_plot(self):
         &quot;&quot;&quot;Create an empty t_inner and luminosity plot.&quot;&quot;&quot;
         fig = go.FigureWidget().set_subplots(
             rows=3,
@@ -377,7 +372,10 @@ from astropy import units as u
 
         self.t_inner_luminosities_plot = fig</div>
 
-<div class="viewcode-block" id="ConvergencePlots.override_plot_parameters"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.override_plot_parameters">[docs]</a>    def override_plot_parameters(self, fig, parameters):
+
+<div class="viewcode-block" id="ConvergencePlots.override_plot_parameters">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.override_plot_parameters">[docs]</a>
+    def override_plot_parameters(self, fig, parameters):
         &quot;&quot;&quot;
         Override default plot properties.
 
@@ -405,7 +403,10 @@ from astropy import units as u
                 else:
                     fig[key] = value</div>
 
-<div class="viewcode-block" id="ConvergencePlots.build"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.build">[docs]</a>    def build(self, display_plot=True):
+
+<div class="viewcode-block" id="ConvergencePlots.build">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.build">[docs]</a>
+    def build(self, display_plot=True):
         &quot;&quot;&quot;
         Create empty convergence plots and display them.
 
@@ -424,7 +425,10 @@ from astropy import units as u
                 )
             )</div>
 
-<div class="viewcode-block" id="ConvergencePlots.update_plasma_plots"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots">[docs]</a>    def update_plasma_plots(self):
+
+<div class="viewcode-block" id="ConvergencePlots.update_plasma_plots">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_plasma_plots">[docs]</a>
+    def update_plasma_plots(self):
         &quot;&quot;&quot;Update plasma convergence plots every iteration.&quot;&quot;&quot;
         # convert velocity to km/s
         velocity_km_s = (
@@ -447,8 +451,11 @@ from astropy import units as u
         # add a radiation temperature vs shell velocity trace to the plasma plot
         self.plasma_plot.add_scatter(
             x=velocity_km_s,
-            y=self.iterable_data[&quot;t_rad&quot;],
+            y=np.append(
+                self.iterable_data[&quot;t_rad&quot;], self.iterable_data[&quot;t_rad&quot;][-1:]
+            ),
             line_color=self.plasma_colorscale[self.current_iteration - 1],
+            line_shape=&quot;hv&quot;,
             row=1,
             col=1,
             name=self.current_iteration,
@@ -461,8 +468,9 @@ from astropy import units as u
         # add a dilution factor vs shell velocity trace to the plasma plot
         self.plasma_plot.add_scatter(
             x=velocity_km_s,
-            y=self.iterable_data[&quot;w&quot;],
+            y=np.append(self.iterable_data[&quot;w&quot;], self.iterable_data[&quot;w&quot;][-1:]),
             line_color=self.plasma_colorscale[self.current_iteration - 1],
+            line_shape=&quot;hv&quot;,
             row=1,
             col=2,
             legendgroup=f&quot;group-{self.current_iteration}&quot;,
@@ -471,7 +479,10 @@ from astropy import units as u
             hovertemplate=&quot;&lt;b&gt;Y&lt;/b&gt;: %{y:.3f} at &lt;b&gt;X&lt;/b&gt; = %{x:,.0f}%{customdata}&quot;,
         )</div>
 
-<div class="viewcode-block" id="ConvergencePlots.update_t_inner_luminosities_plot"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_t_inner_luminosities_plot">[docs]</a>    def update_t_inner_luminosities_plot(self):
+
+<div class="viewcode-block" id="ConvergencePlots.update_t_inner_luminosities_plot">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update_t_inner_luminosities_plot">[docs]</a>
+    def update_t_inner_luminosities_plot(self):
         &quot;&quot;&quot;Update the t_inner and luminosity convergence plots every iteration.&quot;&quot;&quot;
         x = list(range(1, self.iterations + 1))
 
@@ -510,7 +521,10 @@ from astropy import units as u
                 4
             ].hovertemplate = &quot;&lt;b&gt;%{y:.2f}%&lt;/b&gt; at X = %{x:,.0f}&quot;</div>
 
-<div class="viewcode-block" id="ConvergencePlots.update"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update">[docs]</a>    def update(self, export_convergence_plots=False, last=False):
+
+<div class="viewcode-block" id="ConvergencePlots.update">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.convergence_plot.html#tardis.visualization.tools.convergence_plot.ConvergencePlots.update">[docs]</a>
+    def update(self, export_convergence_plots=False, last=False):
         &quot;&quot;&quot;
         Update the convergence plots every iteration.
 
@@ -556,7 +570,9 @@ from astropy import units as u
                             ),
                         ]
                     )
-                )</div></div>
+                )</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -567,7 +583,7 @@ from astropy import units as u
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

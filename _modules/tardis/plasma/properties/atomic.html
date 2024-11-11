@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.plasma.properties.atomic &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../../_static/WorkerHandler.js"></script>
+        <script src="../../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -120,19 +100,17 @@ from collections import Counter as counter
 
 import numpy as np
 import pandas as pd
-import radioactivedecay as rd
 from numba import njit
 from scipy.interpolate import PchipInterpolator
 from scipy.special import exp1
 
-from tardis import constants as const
 from tardis.plasma.exceptions import IncompleteAtomicData
 from tardis.plasma.properties.base import (
     BaseAtomicDataProperty,
     HiddenPlasmaProperty,
     ProcessingPlasmaProperty,
 )
-from tardis.plasma.properties.continuum_processes import (
+from tardis.plasma.properties.continuum_processes.rates import (
     A0,
     BETA_COLL,
     K_B,
@@ -148,8 +126,6 @@ __all__ = [
     &quot;Lines&quot;,
     &quot;LinesLowerLevelIndex&quot;,
     &quot;LinesUpperLevelIndex&quot;,
-    &quot;AtomicMass&quot;,
-    &quot;IsotopeMass&quot;,
     &quot;IonizationData&quot;,
     &quot;ZetaData&quot;,
     &quot;NLTEData&quot;,
@@ -164,7 +140,9 @@ __all__ = [
 ]
 
 
-<div class="viewcode-block" id="Levels"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Levels">[docs]</a>class Levels(BaseAtomicDataProperty):
+<div class="viewcode-block" id="Levels">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Levels">[docs]</a>
+class Levels(BaseAtomicDataProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -193,8 +171,6 @@ __all__ = [
         return levels[levels.index.isin(selected_atoms, level=&quot;atomic_number&quot;)]
 
     def _set_index(self, levels):
-        # levels = levels.set_index([&#39;atomic_number&#39;, &#39;ion_number&#39;,
-        #                          &#39;level_number&#39;])
         return (
             levels.index,
             levels[&quot;energy&quot;],
@@ -203,7 +179,10 @@ __all__ = [
         )</div>
 
 
-<div class="viewcode-block" id="Lines"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Lines">[docs]</a>class Lines(BaseAtomicDataProperty):
+
+<div class="viewcode-block" id="Lines">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Lines">[docs]</a>
+class Lines(BaseAtomicDataProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -238,7 +217,10 @@ __all__ = [
         return lines, lines[&quot;nu&quot;], lines[&quot;f_lu&quot;], lines[&quot;wavelength_cm&quot;]</div>
 
 
-<div class="viewcode-block" id="MacroAtomData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.MacroAtomData">[docs]</a>class MacroAtomData(BaseAtomicDataProperty):
+
+<div class="viewcode-block" id="MacroAtomData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.MacroAtomData">[docs]</a>
+class MacroAtomData(BaseAtomicDataProperty):
     outputs = (&quot;macro_atom_data&quot;,)
 
     def _filter_atomic_property(self, macro_atom_data, selected_atoms):
@@ -248,7 +230,10 @@ __all__ = [
         return macro_atom_data</div>
 
 
-<div class="viewcode-block" id="PhotoIonizationData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData">[docs]</a>class PhotoIonizationData(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="PhotoIonizationData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData">[docs]</a>
+class PhotoIonizationData(ProcessingPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -294,7 +279,9 @@ __all__ = [
         &quot;&quot;,
     )
 
-<div class="viewcode-block" id="PhotoIonizationData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData.calculate">[docs]</a>    def calculate(self, atomic_data, continuum_interaction_species):
+<div class="viewcode-block" id="PhotoIonizationData.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData.calculate">[docs]</a>
+    def calculate(self, atomic_data, continuum_interaction_species):
         # photoionization_data = atomic_data.photoionization_data.set_index(
         #    [&quot;atomic_number&quot;, &quot;ion_number&quot;, &quot;level_number&quot;]
         # )
@@ -345,17 +332,23 @@ __all__ = [
             photo_ion_idx,
             level2continuum_edge_idx,
             level_idxs2continuum_idx,
-        )</div></div>
+        )</div>
+</div>
 
 
-<div class="viewcode-block" id="ContinuumInteractionHandler"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ContinuumInteractionHandler">[docs]</a>class ContinuumInteractionHandler(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="ContinuumInteractionHandler">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ContinuumInteractionHandler">[docs]</a>
+class ContinuumInteractionHandler(ProcessingPlasmaProperty):
     outputs = (
         &quot;get_current_bound_free_continua&quot;,
         &quot;determine_bf_macro_activation_idx&quot;,
         &quot;determine_continuum_macro_activation_idx&quot;,
     )
 
-<div class="viewcode-block" id="ContinuumInteractionHandler.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ContinuumInteractionHandler.calculate">[docs]</a>    def calculate(
+<div class="viewcode-block" id="ContinuumInteractionHandler.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ContinuumInteractionHandler.calculate">[docs]</a>
+    def calculate(
         self,
         photo_ion_cross_sections,
         level2continuum_idx,
@@ -472,10 +465,14 @@ __all__ = [
             get_current_bound_free_continua,
             determine_bf_macro_activation_idx,
             determine_continuum_macro_activation_idx,
-        )</div></div>
+        )</div>
+</div>
 
 
-<div class="viewcode-block" id="TwoPhotonData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.TwoPhotonData">[docs]</a>class TwoPhotonData(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="TwoPhotonData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.TwoPhotonData">[docs]</a>
+class TwoPhotonData(ProcessingPlasmaProperty):
     outputs = (&quot;two_photon_data&quot;, &quot;two_photon_idx&quot;)
     &quot;&quot;&quot;
     Attributes
@@ -490,7 +487,9 @@ __all__ = [
     two_photon_idx : pandas.DataFrame, dtype int
     &quot;&quot;&quot;
 
-<div class="viewcode-block" id="TwoPhotonData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.TwoPhotonData.calculate">[docs]</a>    def calculate(self, atomic_data, continuum_interaction_species):
+<div class="viewcode-block" id="TwoPhotonData.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.TwoPhotonData.calculate">[docs]</a>
+    def calculate(self, atomic_data, continuum_interaction_species):
         two_photon_data = atomic_data.two_photon_data
         mask_selected_species = two_photon_data.index.droplevel(
             [&quot;level_number_lower&quot;, &quot;level_number_upper&quot;]
@@ -498,9 +497,7 @@ __all__ = [
         if not mask_selected_species.sum():
             raise IncompleteAtomicData(
                 &quot;two photon transition data for the requested &quot;
-                &quot;continuum_interactions species: {}&quot;.format(
-                    continuum_interaction_species.values.tolist()
-                )
+                f&quot;continuum_interactions species: {continuum_interaction_species.values.tolist()}&quot;
             )
         two_photon_data = two_photon_data[mask_selected_species]
         index_lower = two_photon_data.index.droplevel(&quot;level_number_upper&quot;)
@@ -523,10 +520,14 @@ __all__ = [
                 &quot;Currently only one two-photon decay is supported but there &quot;
                 f&quot;are {len(two_photon_data)} in the atomic data.&quot;
             )
-        return two_photon_data, two_photon_idx</div></div>
+        return two_photon_data, two_photon_idx</div>
+</div>
 
 
-<div class="viewcode-block" id="LinesLowerLevelIndex"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesLowerLevelIndex">[docs]</a>class LinesLowerLevelIndex(HiddenPlasmaProperty):
+
+<div class="viewcode-block" id="LinesLowerLevelIndex">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesLowerLevelIndex">[docs]</a>
+class LinesLowerLevelIndex(HiddenPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -536,15 +537,21 @@ __all__ = [
 
     outputs = (&quot;lines_lower_level_index&quot;,)
 
-<div class="viewcode-block" id="LinesLowerLevelIndex.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesLowerLevelIndex.calculate">[docs]</a>    def calculate(self, levels, lines):
+<div class="viewcode-block" id="LinesLowerLevelIndex.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesLowerLevelIndex.calculate">[docs]</a>
+    def calculate(self, levels, lines):
         levels_index = pd.Series(
             np.arange(len(levels), dtype=np.int64), index=levels
         )
         lines_index = lines.index.droplevel(&quot;level_number_upper&quot;)
-        return np.array(levels_index.loc[lines_index])</div></div>
+        return np.array(levels_index.loc[lines_index])</div>
+</div>
 
 
-<div class="viewcode-block" id="LinesUpperLevelIndex"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex">[docs]</a>class LinesUpperLevelIndex(HiddenPlasmaProperty):
+
+<div class="viewcode-block" id="LinesUpperLevelIndex">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex">[docs]</a>
+class LinesUpperLevelIndex(HiddenPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -554,15 +561,21 @@ __all__ = [
 
     outputs = (&quot;lines_upper_level_index&quot;,)
 
-<div class="viewcode-block" id="LinesUpperLevelIndex.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex.calculate">[docs]</a>    def calculate(self, levels, lines):
+<div class="viewcode-block" id="LinesUpperLevelIndex.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex.calculate">[docs]</a>
+    def calculate(self, levels, lines):
         levels_index = pd.Series(
             np.arange(len(levels), dtype=np.int64), index=levels
         )
         lines_index = lines.index.droplevel(&quot;level_number_lower&quot;)
-        return np.array(levels_index.loc[lines_index])</div></div>
+        return np.array(levels_index.loc[lines_index])</div>
+</div>
 
 
-<div class="viewcode-block" id="LevelIdxs2LineIdx"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2LineIdx">[docs]</a>class LevelIdxs2LineIdx(HiddenPlasmaProperty):
+
+<div class="viewcode-block" id="LevelIdxs2LineIdx">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2LineIdx">[docs]</a>
+class LevelIdxs2LineIdx(HiddenPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -572,7 +585,9 @@ __all__ = [
 
     outputs = (&quot;level_idxs2line_idx&quot;,)
 
-<div class="viewcode-block" id="LevelIdxs2LineIdx.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2LineIdx.calculate">[docs]</a>    def calculate(self, atomic_data):
+<div class="viewcode-block" id="LevelIdxs2LineIdx.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2LineIdx.calculate">[docs]</a>
+    def calculate(self, atomic_data):
         index = pd.MultiIndex.from_arrays(
             [
                 atomic_data.lines_upper2macro_reference_idx,
@@ -603,10 +618,14 @@ __all__ = [
                 ~level_idxs2line_idx.index.duplicated()
             ]
 
-        return level_idxs2line_idx</div></div>
+        return level_idxs2line_idx</div>
+</div>
 
 
-<div class="viewcode-block" id="LevelIdxs2TransitionIdx"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2TransitionIdx">[docs]</a>class LevelIdxs2TransitionIdx(HiddenPlasmaProperty):
+
+<div class="viewcode-block" id="LevelIdxs2TransitionIdx">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2TransitionIdx">[docs]</a>
+class LevelIdxs2TransitionIdx(HiddenPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -617,7 +636,9 @@ __all__ = [
 
     outputs = (&quot;level_idxs2transition_idx&quot;,)
 
-<div class="viewcode-block" id="LevelIdxs2TransitionIdx.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2TransitionIdx.calculate">[docs]</a>    def calculate(self, level_idxs2line_idx, level_idxs2continuum_idx):
+<div class="viewcode-block" id="LevelIdxs2TransitionIdx.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LevelIdxs2TransitionIdx.calculate">[docs]</a>
+    def calculate(self, level_idxs2line_idx, level_idxs2continuum_idx):
         level_idxs2line_idx = level_idxs2line_idx.to_frame()
         level_idxs2line_idx.insert(1, &quot;transition_type&quot;, -1)
 
@@ -655,73 +676,14 @@ __all__ = [
 
         # TODO: Add two-photon processes
 
-        return level_idxs2transition_idx</div></div>
+        return level_idxs2transition_idx</div>
+</div>
 
 
-<div class="viewcode-block" id="AtomicMass"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.AtomicMass">[docs]</a>class AtomicMass(ProcessingPlasmaProperty):
-    &quot;&quot;&quot;
-    Attributes
-    ----------
-    atomic_mass : pandas.Series
-        Atomic masses of the elements used. Indexed by atomic number.
-    &quot;&quot;&quot;
 
-    outputs = (&quot;atomic_mass&quot;,)
-
-<div class="viewcode-block" id="AtomicMass.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.AtomicMass.calculate">[docs]</a>    def calculate(self, atomic_data, selected_atoms):
-        if getattr(self, self.outputs[0]) is not None:
-            return (getattr(self, self.outputs[0]),)
-        else:
-            return atomic_data.atom_data.loc[selected_atoms].mass</div></div>
-
-
-<div class="viewcode-block" id="IsotopeMass"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.IsotopeMass">[docs]</a>class IsotopeMass(ProcessingPlasmaProperty):
-    &quot;&quot;&quot;
-    Attributes
-    ----------
-    isotope_mass : pandas.Series
-        Masses of the isotopes used. Indexed by isotope name e.g. &#39;Ni56&#39;.
-    &quot;&quot;&quot;
-
-    outputs = (&quot;isotope_mass&quot;,)
-
-<div class="viewcode-block" id="IsotopeMass.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.IsotopeMass.calculate">[docs]</a>    def calculate(self, isotope_abundance):
-        &quot;&quot;&quot;
-        Determine mass of each isotope.
-
-        Parameters
-        ----------
-        isotope_abundance : pandas.DataFrame
-            Fractional abundance of isotopes.
-
-        Returns
-        -------
-        pandas.DataFrame
-            Masses of the isotopes used. Indexed by isotope name e.g. &#39;Ni56&#39;.
-        &quot;&quot;&quot;
-        if getattr(self, self.outputs[0]) is not None:
-            return (getattr(self, self.outputs[0]),)
-        else:
-            if isotope_abundance.empty:
-                return None
-            isotope_mass_dict = {}
-            for Z, A in isotope_abundance.index:
-                element_name = rd.utils.Z_to_elem(Z)
-                isotope_name = element_name + str(A)
-
-                isotope_mass_dict[(Z, A)] = rd.Nuclide(isotope_name).atomic_mass
-
-            isotope_mass_df = pd.DataFrame.from_dict(
-                isotope_mass_dict, orient=&quot;index&quot;, columns=[&quot;mass&quot;]
-            )
-            isotope_mass_df.index = pd.MultiIndex.from_tuples(
-                isotope_mass_df.index
-            )
-            isotope_mass_df.index.names = [&quot;atomic_number&quot;, &quot;mass_number&quot;]
-            return isotope_mass_df / const.N_A</div></div>
-
-
-<div class="viewcode-block" id="IonizationData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.IonizationData">[docs]</a>class IonizationData(BaseAtomicDataProperty):
+<div class="viewcode-block" id="IonizationData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.IonizationData">[docs]</a>
+class IonizationData(BaseAtomicDataProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -748,7 +710,10 @@ __all__ = [
         return ionization_data</div>
 
 
-<div class="viewcode-block" id="ZetaData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ZetaData">[docs]</a>class ZetaData(BaseAtomicDataProperty):
+
+<div class="viewcode-block" id="ZetaData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ZetaData">[docs]</a>
+class ZetaData(BaseAtomicDataProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -804,14 +769,17 @@ __all__ = [
             updated_index = pd.DataFrame(updated_index)
             updated_dataframe[&quot;atomic_number&quot;] = np.array(updated_index[0])
             updated_dataframe[&quot;ion_number&quot;] = np.array(updated_index[1])
-            updated_dataframe.fillna(1.0, inplace=True)
+            updated_dataframe = updated_dataframe.fillna(1.0)
             return updated_dataframe
 
     def _set_index(self, zeta_data):
         return zeta_data.set_index([&quot;atomic_number&quot;, &quot;ion_number&quot;])</div>
 
 
-<div class="viewcode-block" id="NLTEData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData">[docs]</a>class NLTEData(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="NLTEData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData">[docs]</a>
+class NLTEData(ProcessingPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -821,14 +789,20 @@ __all__ = [
 
     outputs = (&quot;nlte_data&quot;,)
 
-<div class="viewcode-block" id="NLTEData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData.calculate">[docs]</a>    def calculate(self, atomic_data):
+<div class="viewcode-block" id="NLTEData.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData.calculate">[docs]</a>
+    def calculate(self, atomic_data):
         if getattr(self, self.outputs[0]) is not None:
             return (getattr(self, self.outputs[0]),)
         else:
-            return atomic_data.nlte_data</div></div>
+            return atomic_data.nlte_data</div>
+</div>
 
 
-<div class="viewcode-block" id="YgData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData">[docs]</a>class YgData(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="YgData">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData">[docs]</a>
+class YgData(ProcessingPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -856,7 +830,9 @@ __all__ = [
         r&quot;\textrm{yg_idx}&quot;,
     )
 
-<div class="viewcode-block" id="YgData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.calculate">[docs]</a>    def calculate(self, atomic_data, continuum_interaction_species):
+<div class="viewcode-block" id="YgData.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.calculate">[docs]</a>
+    def calculate(self, atomic_data, continuum_interaction_species):
         yg_data = atomic_data.yg_data
         if yg_data is None:
             raise ValueError(
@@ -898,7 +874,10 @@ __all__ = [
         )
         return yg_data, t_yg, index, delta_E, yg_idx</div>
 
-<div class="viewcode-block" id="YgData.calculate_yg_van_regemorter"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.calculate_yg_van_regemorter">[docs]</a>    @classmethod
+
+<div class="viewcode-block" id="YgData.calculate_yg_van_regemorter">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.calculate_yg_van_regemorter">[docs]</a>
+    @classmethod
     def calculate_yg_van_regemorter(
         cls, atomic_data, t_electrons, continuum_interaction_species
     ):
@@ -953,7 +932,10 @@ __all__ = [
 
         return yg</div>
 
-<div class="viewcode-block" id="YgData.exp1_times_exp"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.exp1_times_exp">[docs]</a>    @staticmethod
+
+<div class="viewcode-block" id="YgData.exp1_times_exp">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgData.exp1_times_exp">[docs]</a>
+    @staticmethod
     def exp1_times_exp(x):
         &quot;&quot;&quot;
         Product of the Exponential integral E1 and an exponential.
@@ -971,14 +953,19 @@ __all__ = [
         array_like
             Output array.
         &quot;&quot;&quot;
-        f = exp1(x) * np.exp(x)
-        # Use Laurent series for large values to avoid infinite exponential
+        x = np.asarray(x)
         mask = x &gt; 500
+        f = exp1(x) * np.exp(x * (~mask))
+        # Use Laurent series for large values to avoid infinite exponential
         f[mask] = (x**-1 - x**-2 + 2 * x**-3 - 6 * x**-4)[mask]
-        return f</div></div>
+        return f</div>
+</div>
 
 
-<div class="viewcode-block" id="YgInterpolator"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgInterpolator">[docs]</a>class YgInterpolator(ProcessingPlasmaProperty):
+
+<div class="viewcode-block" id="YgInterpolator">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgInterpolator">[docs]</a>
+class YgInterpolator(ProcessingPlasmaProperty):
     &quot;&quot;&quot;
     Attributes
     ----------
@@ -991,9 +978,13 @@ __all__ = [
     outputs = (&quot;yg_interp&quot;,)
     latex_name = (&quot;\\frac{Y_ij}{g_i}_{\\textrm{interp}}&quot;,)
 
-<div class="viewcode-block" id="YgInterpolator.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgInterpolator.calculate">[docs]</a>    def calculate(self, yg_data, t_yg):
+<div class="viewcode-block" id="YgInterpolator.calculate">
+<a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.YgInterpolator.calculate">[docs]</a>
+    def calculate(self, yg_data, t_yg):
         yg_interp = PchipInterpolator(t_yg, yg_data, axis=1, extrapolate=True)
-        return yg_interp</div></div>
+        return yg_interp</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -1004,7 +995,7 @@ __all__ = [
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

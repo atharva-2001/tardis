@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+            <link rel="manifest" href="../../site.webmanifest"/>
+            
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code Quality Guidelines &mdash; tardis</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+
+  
     <link rel="shortcut icon" href="../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/ServiceHandler.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Developer FAQ" href="developer_faq.html" />
-    <link rel="prev" title="Running tests" href="running_tests.html" />
     <link href="../../_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -53,66 +64,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Workflow</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="issues.html">Reporting Issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html">General Workflow to add a new feature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#preparation-and-working-with-git">Preparation and Working with Git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="documentation_guidelines.html">Documentation Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_tests.html">Running tests</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Code Quality Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#code-style-conventions">Code Style Conventions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#black">Black</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ruff">Ruff</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Code Quality Guidelines</a><ul>
+<li><a class="reference internal" href="#code-style-conventions">Code Style Conventions</a><ul>
+<li><a class="reference internal" href="#ruff">Ruff</a></li>
+<li><a class="reference internal" href="#pre-commit-optional">Pre-commit (Optional)</a></li>
+<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#docstrings">Docstrings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#edge-cases-and-exception-handling">Edge Cases and Exception Handling</a></li>
+<li><a class="reference internal" href="#docstrings">Docstrings</a></li>
+<li><a class="reference internal" href="#edge-cases-and-exception-handling">Edge Cases and Exception Handling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer_faq.html">Developer FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#tardis-core-team-instructions">TARDIS core team Instructions</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+</div>
         </div>
       </div>
     </nav>
@@ -127,7 +93,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Developer Workflow</a></li>
       <li class="breadcrumb-item active">Code Quality Guidelines</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/contributing/development/code_quality.rst.txt" rel="nofollow"> View page source</a>
@@ -139,7 +104,7 @@
            <div itemprop="articleBody">
              
   <section id="code-quality-guidelines">
-<h1>Code Quality Guidelines<a class="headerlink" href="#code-quality-guidelines" title="Permalink to this heading">¶</a></h1>
+<h1>Code Quality Guidelines<a class="headerlink" href="#code-quality-guidelines" title="Link to this heading">¶</a></h1>
 <p>Code quality ensures that new developers will have an easier time understanding what previous developers have written. Hence, in an open-source software like TARDIS, writing quality code is essential. Quoting from <a class="reference external" href="https://realpython.com/python-code-quality">this RealPython article</a>, a high-quality code is identified by:</p>
 <ul class="simple">
 <li><p><strong>It does what it is supposed to do</strong> - code should perform the functions that it is written for.</p></li>
@@ -147,22 +112,10 @@
 <li><p><strong>It is easy to read, maintain, and extend</strong> - code should be easy to comprehend and it should be easy to add a new feature in it without disrupting previous features.</p></li>
 </ul>
 <section id="code-style-conventions">
-<h2>Code Style Conventions<a class="headerlink" href="#code-style-conventions" title="Permalink to this heading">¶</a></h2>
+<h2>Code Style Conventions<a class="headerlink" href="#code-style-conventions" title="Link to this heading">¶</a></h2>
 <p>TARDIS follows the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> style guide written by the author of the Python programming language. It defines a consistent way to write your code making, it easier to read and maintain.</p>
-<section id="black">
-<h3>Black<a class="headerlink" href="#black" title="Permalink to this heading">¶</a></h3>
-<p><a class="reference external" href="https://black.readthedocs.io/en/stable/index.html">Black</a> is a PEP 8 compliant opinionated code formatter. At TARDIS. we use Black to automatically conform to PEP 8. It is already installed in the TARDIS conda environment, so all you have to do is to run Black before commiting your changes:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>black {source_file_or_directory}
-</pre></div>
-</div>
-<p>A better method is to run Black automatically - first <a class="reference external" href="https://black.readthedocs.io/en/stable/editor_integration.html">integrate it within the code editor</a> you use and then enable the “format on save” or “format on type” option in your editor settings.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If your code doesn’t follow the Black code style, then the Black-check action on your PR will fail.</p>
-</div>
-</section>
 <section id="ruff">
-<h3>Ruff<a class="headerlink" href="#ruff" title="Permalink to this heading">¶</a></h3>
+<h3>Ruff<a class="headerlink" href="#ruff" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://docs.astral.sh/ruff/">Ruff</a> is a code linter and formatter that checks for common mistakes and automatically fixes them. It is currently not installed in the TARDIS conda environment, so you will have to install it manually:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge ruff
 </pre></div>
@@ -172,19 +125,27 @@
 ruff check &lt;source_file_or_directory&gt; --fix # Lints and fixes any fixable errors
 </pre></div>
 </div>
-<p>Currently, Ruff is not integrated with the TARDIS CI and is not a requirement for merging a PR. However, it is recommended to run Ruff on your code before commiting it to ensure that new code already follows these rules.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We adopt the linting rules utilized by astropy. Permanent rules are defined in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, non-permanent rules are defined in the <code class="docutils literal notranslate"><span class="pre">.ruff.toml</span></code> file. If you want to add a new rule, please add it to the <code class="docutils literal notranslate"><span class="pre">.ruff.toml</span></code> file. If you want to add a permanent rule, please open a PR to the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Ruff can also be used for formatting code, but for now we recommend using Black for this purpose as the CI is configured to run Black on all PRs.</p>
+</section>
+<section id="pre-commit-optional">
+<h3>Pre-commit (Optional)<a class="headerlink" href="#pre-commit-optional" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://pre-commit.com/">Pre-commit</a> hooks are tools that help enforce quality standards by running checks on your code before you commit. If you choose to use pre-commit on your local machine, please follow these steps:</p>
+<p>Install pre-commit by running:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install pre-commit
+</pre></div>
 </div>
+<p>Set up the pre-commit hooks with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pre-commit install
+</pre></div>
+</div>
+<p>This needs to be done only once per repository. The pre-commit hooks will now automatically run on each commit to ensure your changes meet our code quality standards.</p>
 </section>
 <section id="naming-conventions">
-<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this heading">¶</a></h3>
-<p>While Black automatically conforms your code to a majority of the PEP 8 style guide (like whitespace usage, string quotes, code layout, etc.), your code still needs to conform to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#naming-conventions">PEP 8 naming conventions</a>. The main things to keep in mind are:</p>
+<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading">¶</a></h3>
+<p>While Ruff automatically conforms your code to a majority of the PEP 8 style guide (like whitespace usage, string quotes, code layout, etc.), your code still needs to conform to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#naming-conventions">PEP 8 naming conventions</a>. The main things to keep in mind are:</p>
 <ul class="simple">
 <li><p>Function names should be lowercase, with words separated by underscores as necessary to improve readability (i.e. snake_case).</p></li>
 <li><p>Variable names follow the same convention as function names.</p></li>
@@ -193,7 +154,7 @@ ruff check &lt;source_file_or_directory&gt; --fix # Lints and fixes any fixable 
 </section>
 </section>
 <section id="docstrings">
-<span id="id3"></span><h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>Docstrings<a class="headerlink" href="#docstrings" title="Link to this heading">¶</a></h2>
 <p>A docstring (short for documentation string) is a string that describes a module’s, function’s, class’s, or method’s definition. The docstring is a special attribute of the object (<code class="docutils literal notranslate"><span class="pre">object.__doc__</span></code>) and, for consistency, is surrounded by triple double quotes. Besides helping others understand what your code does, docstrings are used by Sphinx to auto-generate <a class="reference external" href="https://tardis-sn.github.io/tardis/api/modules.html">API documentation</a>.</p>
 <p>At TARDIS, we follow the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpy docstring format</a> - please go through this format guide before writing docstrings. The following is an example of a properly formatted docstring from the <a class="reference external" href="https://github.com/tardis-sn/tardis/blob/master/tardis/io/model_reader.py">model_reader</a> module of TARDIS:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_density_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">filetype</span><span class="p">):</span>
@@ -242,7 +203,7 @@ ruff check &lt;source_file_or_directory&gt; --fix # Lints and fixes any fixable 
 </ul>
 </section>
 <section id="edge-cases-and-exception-handling">
-<h2>Edge Cases and Exception Handling<a class="headerlink" href="#edge-cases-and-exception-handling" title="Permalink to this heading">¶</a></h2>
+<h2>Edge Cases and Exception Handling<a class="headerlink" href="#edge-cases-and-exception-handling" title="Link to this heading">¶</a></h2>
 <p>Code should be written with a bit of foresight to handle errors that can occur during its execution. If you know that an <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">exception</a> is likely to occur in a certain case and can be dealt with accordingly, then your code should <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html#handling-exceptions">handle</a> that exception. In another scenario, you may know that a particular edge case might cause your code to break, then you should <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html#raising-exceptions">raise</a> an appropriate exception to describe what has gone wrong and terminate the program’s execution. An example of this in practice (taken from <a class="reference external" href="https://github.com/tardis-sn/tardis/blob/7d7c4bc4f99c909ff45070ae9576390d96734014/tardis/widgets/kromer_plot.py#L447-L451">here</a>) is featured below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_calculate_plotting_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packets_mode</span><span class="p">,</span> <span class="n">packet_wvl_range</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">packets_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;virtual&quot;</span><span class="p">,</span> <span class="s2">&quot;real&quot;</span><span class="p">]:</span>
@@ -260,16 +221,13 @@ ruff check &lt;source_file_or_directory&gt; --fix # Lints and fixes any fixable 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="running_tests.html" class="btn btn-neutral float-left" title="Running tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="developer_faq.html" class="btn btn-neutral float-right" title="Developer FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

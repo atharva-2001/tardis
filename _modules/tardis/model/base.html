@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.model.base &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../_static/WorkerHandler.js"></script>
+        <script src="../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -122,27 +102,27 @@ from pathlib import Path
 import numpy as np
 from astropy import units as u
 
-from tardis import constants
 from tardis.io.configuration.config_reader import Configuration
 from tardis.io.configuration.config_validator import validate_dict
+from tardis.io.model.parse_composition_configuration import (
+    parse_composition_from_config,
+    parse_composition_from_csvy,
+)
+from tardis.io.model.parse_geometry_configuration import (
+    parse_geometry_from_config,
+    parse_geometry_from_csvy,
+)
+from tardis.io.model.parse_packet_source_configuration import (
+    parse_packet_source_from_config,
+)
+from tardis.io.model.parse_radiation_field_configuration import (
+    parse_radiation_field_state_from_config,
+    parse_radiation_field_state_from_csvy,
+)
 from tardis.io.model.readers.csvy import (
     load_csvy,
 )
 from tardis.io.util import HDFWriterMixin
-from tardis.model.matter.composition import Composition
-from tardis.model.parse_input import (
-    parse_abundance_config,
-    parse_csvy_composition,
-    parse_csvy_geometry,
-    parse_csvy_radiation_field_state,
-    parse_radiation_field_state,
-    parse_structure_config,
-    parse_packet_source,
-)
-from tardis.montecarlo.packet_source import BlackBodySimpleSource
-from tardis.model.radiation_field_state import (
-    DiluteBlackBodyRadiationFieldState,
-)
 from tardis.util.base import is_valid_nuclide_or_elem
 
 logger = logging.getLogger(__name__)
@@ -153,7 +133,9 @@ SCHEMA_DIR = (
 ).resolve()
 
 
-<div class="viewcode-block" id="SimulationState"><a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState">[docs]</a>class SimulationState(HDFWriterMixin):
+<div class="viewcode-block" id="SimulationState">
+<a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState">[docs]</a>
+class SimulationState(HDFWriterMixin):
     &quot;&quot;&quot;
     An object that hold information about the individual shells.
 
@@ -212,6 +194,7 @@ SCHEMA_DIR = (
         &quot;density&quot;,
         &quot;r_inner&quot;,
         &quot;time_explosion&quot;,
+        &quot;abundance&quot;,
     ]
     hdf_name = &quot;simulation_state&quot;
 
@@ -263,20 +246,59 @@ SCHEMA_DIR = (
 
     @property
     def t_radiative(self):
-        return self.radiation_field_state.t_radiative[
+        return self.radiation_field_state.temperature[
             self.geometry.v_inner_boundary_index : self.geometry.v_outer_boundary_index
         ]
 
     @t_radiative.setter
     def t_radiative(self, new_t_radiative):
         if len(new_t_radiative) == self.no_of_shells:
-            self.radiation_field_state.t_radiative[
+            self.radiation_field_state.temperature[
                 self.geometry.v_inner_boundary_index : self.geometry.v_outer_boundary_index
             ] = new_t_radiative
         else:
             raise ValueError(
                 &quot;Trying to set t_radiative for different number of shells.&quot;
             )
+
+    @property
+    def elemental_number_density(self):
+        elemental_number_density = (
+            (
+                self.composition.elemental_mass_fraction
+                * self.composition.density
+            )
+            .divide(self.composition.element_masses, axis=0)
+            .dropna()
+        )
+        elemental_number_density = elemental_number_density.iloc[
+            :,
+            self.geometry.v_inner_boundary_index : self.geometry.v_outer_boundary_index,
+        ]
+        elemental_number_density.columns = range(
+            len(elemental_number_density.columns)
+        )
+        return elemental_number_density
+
+    @property
+    def isotopic_number_density(self):
+        isotopic_number_density = (
+            self.composition.isotopic_mass_fraction * self.composition.density
+        ).divide(
+            self.composition.isotope_masses.loc[
+                self.composition.isotopic_mass_fraction.index
+            ]
+            * u.u.to(u.g),
+            axis=0,
+        )
+        isotopic_number_density = isotopic_number_density.iloc[
+            :,
+            self.geometry.v_inner_boundary_index : self.geometry.v_outer_boundary_index,
+        ]
+        isotopic_number_density.columns = range(
+            len(isotopic_number_density.columns)
+        )
+        return isotopic_number_density
 
     @property
     def radius(self):
@@ -351,8 +373,10 @@ SCHEMA_DIR = (
     def no_of_raw_shells(self):
         return self.geometry.no_of_shells
 
-<div class="viewcode-block" id="SimulationState.from_config"><a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState.from_config">[docs]</a>    @classmethod
-    def from_config(cls, config, atom_data):
+<div class="viewcode-block" id="SimulationState.from_config">
+<a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState.from_config">[docs]</a>
+    @classmethod
+    def from_config(cls, config, atom_data, legacy_mode_enabled=False):
         &quot;&quot;&quot;
         Create a new SimulationState instance from a Configuration object.
 
@@ -367,29 +391,18 @@ SCHEMA_DIR = (
         &quot;&quot;&quot;
         time_explosion = config.supernova.time_explosion.cgs
 
-        (
-            electron_densities,
-            t_radiative,
-            geometry,
-            density,
-        ) = parse_structure_config(config, time_explosion)
+        geometry = parse_geometry_from_config(config, time_explosion)
 
-        nuclide_mass_fraction, raw_isotope_abundance = parse_abundance_config(
-            config, geometry, time_explosion
+        composition, electron_densities = parse_composition_from_config(
+            atom_data, config, time_explosion, geometry
         )
 
-        # using atom_data.mass.copy() to ensure that the original atom_data is not modified
-        composition = Composition(
-            density,
-            nuclide_mass_fraction,
-            raw_isotope_abundance,
-            atom_data.atom_data.mass.copy(),
+        packet_source = parse_packet_source_from_config(
+            config, geometry, legacy_mode_enabled
         )
 
-        packet_source = parse_packet_source(config, geometry)
-        radiation_field_state = parse_radiation_field_state(
+        radiation_field_state = parse_radiation_field_state_from_config(
             config,
-            t_radiative,
             geometry,
             dilution_factor=None,
             packet_source=packet_source,
@@ -404,8 +417,11 @@ SCHEMA_DIR = (
             electron_densities=electron_densities,
         )</div>
 
-<div class="viewcode-block" id="SimulationState.from_csvy"><a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState.from_csvy">[docs]</a>    @classmethod
-    def from_csvy(cls, config, atom_data=None):
+
+<div class="viewcode-block" id="SimulationState.from_csvy">
+<a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.SimulationState.from_csvy">[docs]</a>
+    @classmethod
+    def from_csvy(cls, config, atom_data=None, legacy_mode_enabled=False):
         &quot;&quot;&quot;
         Create a new SimulationState instance from a Configuration object.
 
@@ -438,22 +454,20 @@ SCHEMA_DIR = (
         )
 
         if hasattr(csvy_model_data, &quot;columns&quot;):
-            abund_names = set(
-                [
-                    name
-                    for name in csvy_model_data.columns
-                    if is_valid_nuclide_or_elem(name)
-                ]
-            )
+            abund_names = {
+                name
+                for name in csvy_model_data.columns
+                if is_valid_nuclide_or_elem(name)
+            }
             unsupported_columns = (
                 set(csvy_model_data.columns)
                 - abund_names
                 - CSVY_SUPPORTED_COLUMNS
             )
 
-            field_names = set(
-                [field[&quot;name&quot;] for field in csvy_model_config.datatype.fields]
-            )
+            field_names = {
+                field[&quot;name&quot;] for field in csvy_model_config.datatype.fields
+            }
             assert (
                 set(csvy_model_data.columns) - field_names == set()
             ), &quot;CSVY columns exist without field descriptions&quot;
@@ -471,11 +485,11 @@ SCHEMA_DIR = (
 
         electron_densities = None
 
-        geometry = parse_csvy_geometry(
+        geometry = parse_geometry_from_csvy(
             config, csvy_model_config, csvy_model_data, time_explosion
         )
 
-        composition = parse_csvy_composition(
+        composition = parse_composition_from_csvy(
             atom_data,
             csvy_model_config,
             csvy_model_data,
@@ -483,9 +497,11 @@ SCHEMA_DIR = (
             geometry,
         )
 
-        packet_source = parse_packet_source(config, geometry)
+        packet_source = parse_packet_source_from_config(
+            config, geometry, legacy_mode_enabled
+        )
 
-        radiation_field_state = parse_csvy_radiation_field_state(
+        radiation_field_state = parse_radiation_field_state_from_csvy(
             config, csvy_model_config, csvy_model_data, geometry, packet_source
         )
 
@@ -496,7 +512,9 @@ SCHEMA_DIR = (
             radiation_field_state=radiation_field_state,
             packet_source=packet_source,
             electron_densities=electron_densities,
-        )</div></div>
+        )</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -507,7 +525,7 @@ SCHEMA_DIR = (
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

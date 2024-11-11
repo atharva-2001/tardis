@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.util.base &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../_static/WorkerHandler.js"></script>
+        <script src="../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -115,27 +95,27 @@
            <div itemprop="articleBody">
              
   <h1>Source code for tardis.util.base</h1><div class="highlight"><pre>
-<span></span>import logging
+<span></span>import functools
+import logging
 import os
 import re
+import warnings
 from collections import OrderedDict
 
 import numexpr as ne
 import numpy as np
 import pandas as pd
-import yaml
-from tardis import constants
-from astropy import units as u
-from radioactivedecay import Nuclide, DEFAULTDATA
-from radioactivedecay.utils import parse_nuclide, Z_DICT
-
-import tardis
-from tardis.io.util import get_internal_data_path
-from IPython import get_ipython, display
 import tqdm
 import tqdm.notebook
-import functools
-import warnings
+import yaml
+from astropy import units as u
+from IPython import display, get_ipython
+from radioactivedecay import DEFAULTDATA
+from radioactivedecay.utils import Z_DICT, parse_nuclide
+
+import tardis
+from tardis import constants
+from tardis.io.util import get_internal_data_path
 
 k_B_cgs = constants.k_B.cgs.value
 c_cgs = constants.c.cgs.value
@@ -149,7 +129,11 @@ tardis_dir = os.path.realpath(tardis.__path__[0])
 ATOMIC_SYMBOLS_DATA = (
     pd.read_csv(
         get_internal_data_path(&quot;atomic_symbols.dat&quot;),
-        delim_whitespace=True,
+        # The argument `delim_whitespace` was changed to `sep`
+        #   because the first one is deprecated since version 2.2.0.
+        #   The regular expression means: the separation is one or
+        #   more spaces together (simple space, tabs, new lines).
+        sep=r&quot;\s+&quot;,
         names=[&quot;atomic_number&quot;, &quot;symbol&quot;],
     )
     .set_index(&quot;atomic_number&quot;)
@@ -172,11 +156,16 @@ NUMERAL_MAP = tuple(
 )
 
 
-<div class="viewcode-block" id="MalformedError"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedError">[docs]</a>class MalformedError(Exception):
+<div class="viewcode-block" id="MalformedError">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedError">[docs]</a>
+class MalformedError(Exception):
     pass</div>
 
 
-<div class="viewcode-block" id="MalformedSpeciesError"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedSpeciesError">[docs]</a>class MalformedSpeciesError(MalformedError):
+
+<div class="viewcode-block" id="MalformedSpeciesError">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedSpeciesError">[docs]</a>
+class MalformedSpeciesError(MalformedError):
     def __init__(self, malformed_element_symbol):
         self.malformed_element_symbol = malformed_element_symbol
 
@@ -187,7 +176,10 @@ NUMERAL_MAP = tuple(
         )</div>
 
 
-<div class="viewcode-block" id="MalformedElementSymbolError"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedElementSymbolError">[docs]</a>class MalformedElementSymbolError(MalformedError):
+
+<div class="viewcode-block" id="MalformedElementSymbolError">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedElementSymbolError">[docs]</a>
+class MalformedElementSymbolError(MalformedError):
     def __init__(self, malformed_element_symbol):
         self.malformed_element_symbol = malformed_element_symbol
 
@@ -195,7 +187,10 @@ NUMERAL_MAP = tuple(
         return f&quot;Expecting an atomic symbol (e.g. Fe) - supplied {self.malformed_element_symbol}&quot;</div>
 
 
-<div class="viewcode-block" id="MalformedQuantityError"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedQuantityError">[docs]</a>class MalformedQuantityError(MalformedError):
+
+<div class="viewcode-block" id="MalformedQuantityError">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.MalformedQuantityError">[docs]</a>
+class MalformedQuantityError(MalformedError):
     def __init__(self, malformed_quantity_string):
         self.malformed_quantity_string = malformed_quantity_string
 
@@ -206,7 +201,10 @@ NUMERAL_MAP = tuple(
         )</div>
 
 
-<div class="viewcode-block" id="int_to_roman"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.int_to_roman">[docs]</a>def int_to_roman(i):
+
+<div class="viewcode-block" id="int_to_roman">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.int_to_roman">[docs]</a>
+def int_to_roman(i):
     &quot;&quot;&quot;
     Convert an integer into its roman numeral representation.
 
@@ -228,7 +226,10 @@ NUMERAL_MAP = tuple(
     return &quot;&quot;.join(result)</div>
 
 
-<div class="viewcode-block" id="roman_to_int"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.roman_to_int">[docs]</a>def roman_to_int(roman_string):
+
+<div class="viewcode-block" id="roman_to_int">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.roman_to_int">[docs]</a>
+def roman_to_int(roman_string):
     &quot;&quot;&quot;
     Convert a roman numeral into its corresponding integer.
 
@@ -242,10 +243,9 @@ NUMERAL_MAP = tuple(
     int
         Returns integer representation of roman_string
     &quot;&quot;&quot;
-
     NUMERALS_SET = set(list(zip(*NUMERAL_MAP))[1])
     roman_string = roman_string.upper()
-    if len(set(list(roman_string.upper())) - NUMERALS_SET) != 0:
+    if len(set(roman_string.upper()) - NUMERALS_SET) != 0:
         raise ValueError(f&quot;{roman_string} does not seem to be a roman numeral&quot;)
     i = result = 0
     for integer, numeral in NUMERAL_MAP:
@@ -257,7 +257,10 @@ NUMERAL_MAP = tuple(
     return result</div>
 
 
-<div class="viewcode-block" id="calculate_luminosity"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.calculate_luminosity">[docs]</a>def calculate_luminosity(
+
+<div class="viewcode-block" id="calculate_luminosity">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.calculate_luminosity">[docs]</a>
+def calculate_luminosity(
     spec_fname,
     distance,
     wavelength_column=0,
@@ -305,7 +308,10 @@ NUMERAL_MAP = tuple(
     return luminosity.value, wavelength.min(), wavelength.max()</div>
 
 
-<div class="viewcode-block" id="create_synpp_yaml"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.create_synpp_yaml">[docs]</a>def create_synpp_yaml(radial1d_mdl, fname, shell_no=0, lines_db=None):
+
+<div class="viewcode-block" id="create_synpp_yaml">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.create_synpp_yaml">[docs]</a>
+def create_synpp_yaml(radial1d_mdl, fname, shell_no=0, lines_db=None):
     &quot;&quot;&quot;
     Create a yaml file that is readable from syn++
 
@@ -324,7 +330,6 @@ NUMERAL_MAP = tuple(
     ValueError
         If the current dataset does not contain necessary reference files
     &quot;&quot;&quot;
-
     logger.warning(&quot;Currently only works with Si and a special setup&quot;)
     if radial1d_mdl.atom_data.synpp_refs is not None:
         raise ValueError(
@@ -344,7 +349,6 @@ NUMERAL_MAP = tuple(
             logger.debug(
                 &quot;Synpp Ref does not have valid KEY for ref_log_tau in Radial1D Model&quot;
             )
-            pass
 
     relevant_synpp_refs = radial1d_mdl.atom_data.synpp_refs[
         radial1d_mdl.atom_data.synpp_refs[&quot;ref_log_tau&quot;] &gt; -50
@@ -404,7 +408,10 @@ NUMERAL_MAP = tuple(
         yaml.dump(yaml_reference, stream=f, explicit_start=True)</div>
 
 
-<div class="viewcode-block" id="intensity_black_body"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.intensity_black_body">[docs]</a>def intensity_black_body(nu, temperature):
+
+<div class="viewcode-block" id="intensity_black_body">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.intensity_black_body">[docs]</a>
+def intensity_black_body(nu, temperature):
     &quot;&quot;&quot;
     Calculate the intensity of a black-body according to the following formula
 
@@ -432,7 +439,10 @@ NUMERAL_MAP = tuple(
     return intensity</div>
 
 
-<div class="viewcode-block" id="species_tuple_to_string"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.species_tuple_to_string">[docs]</a>def species_tuple_to_string(species_tuple, roman_numerals=True):
+
+<div class="viewcode-block" id="species_tuple_to_string">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.species_tuple_to_string">[docs]</a>
+def species_tuple_to_string(species_tuple, roman_numerals=True):
     &quot;&quot;&quot;
     Convert a species tuple to its corresponding string representation.
 
@@ -458,7 +468,10 @@ NUMERAL_MAP = tuple(
         return f&quot;{element_symbol} {ion_number:d}&quot;</div>
 
 
-<div class="viewcode-block" id="species_string_to_tuple"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.species_string_to_tuple">[docs]</a>def species_string_to_tuple(species_string):
+
+<div class="viewcode-block" id="species_string_to_tuple">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.species_string_to_tuple">[docs]</a>
+def species_string_to_tuple(species_string):
     &quot;&quot;&quot;
     Convert a species string to its corresponding tuple representation
 
@@ -477,7 +490,6 @@ NUMERAL_MAP = tuple(
     MalformedSpeciesError
         If the inputted string does not match the species format
     &quot;&quot;&quot;
-
     try:
         element_symbol, ion_number_string = re.match(
             r&quot;^(\w+)\s*(\d+)&quot;, species_string
@@ -514,7 +526,10 @@ NUMERAL_MAP = tuple(
     return atomic_number, ion_number - 1</div>
 
 
-<div class="viewcode-block" id="parse_quantity"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.parse_quantity">[docs]</a>def parse_quantity(quantity_string):
+
+<div class="viewcode-block" id="parse_quantity">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.parse_quantity">[docs]</a>
+def parse_quantity(quantity_string):
     &quot;&quot;&quot;
     Changes a string into it&#39;s corresponding astropy.Quantity object.
 
@@ -533,7 +548,6 @@ NUMERAL_MAP = tuple(
     MalformedQuantityError
         If string is not properly formatted for Astropy Quantity
     &quot;&quot;&quot;
-
     if not isinstance(quantity_string, str):
         raise MalformedQuantityError(quantity_string)
 
@@ -555,7 +569,10 @@ NUMERAL_MAP = tuple(
     return q</div>
 
 
-<div class="viewcode-block" id="element_symbol2atomic_number"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.element_symbol2atomic_number">[docs]</a>def element_symbol2atomic_number(element_string):
+
+<div class="viewcode-block" id="element_symbol2atomic_number">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.element_symbol2atomic_number">[docs]</a>
+def element_symbol2atomic_number(element_string):
     &quot;&quot;&quot;
     Takes an element symbol and returns its corresponding atomic number
 
@@ -575,7 +592,10 @@ NUMERAL_MAP = tuple(
     return SYMBOL2ATOMIC_NUMBER[reformatted_element_string]</div>
 
 
-<div class="viewcode-block" id="atomic_number2element_symbol"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.atomic_number2element_symbol">[docs]</a>def atomic_number2element_symbol(atomic_number):
+
+<div class="viewcode-block" id="atomic_number2element_symbol">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.atomic_number2element_symbol">[docs]</a>
+def atomic_number2element_symbol(atomic_number):
     &quot;&quot;&quot;
     Convert atomic number to string
 
@@ -592,7 +612,10 @@ NUMERAL_MAP = tuple(
     return ATOMIC_NUMBER2SYMBOL[atomic_number]</div>
 
 
-<div class="viewcode-block" id="reformat_element_symbol"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.reformat_element_symbol">[docs]</a>def reformat_element_symbol(element_string):
+
+<div class="viewcode-block" id="reformat_element_symbol">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.reformat_element_symbol">[docs]</a>
+def reformat_element_symbol(element_string):
     &quot;&quot;&quot;
     Reformat the string so the first letter is uppercase and all subsequent
      letters lowercase.
@@ -607,11 +630,13 @@ NUMERAL_MAP = tuple(
     str
         Returned reformatted element symbol
     &quot;&quot;&quot;
-
     return element_string[0].upper() + element_string[1:].lower()</div>
 
 
-<div class="viewcode-block" id="is_valid_nuclide_or_elem"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.is_valid_nuclide_or_elem">[docs]</a>def is_valid_nuclide_or_elem(input_nuclide):
+
+<div class="viewcode-block" id="is_valid_nuclide_or_elem">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.is_valid_nuclide_or_elem">[docs]</a>
+def is_valid_nuclide_or_elem(input_nuclide):
     &quot;&quot;&quot;
     Parses nuclide string into symbol - mass number format and returns
     whether the nuclide is either contained in the decay dataset or is a
@@ -628,17 +653,19 @@ NUMERAL_MAP = tuple(
         Bool indicating if the input nuclide is contained in the decay dataset
         or is a valid element.
     &quot;&quot;&quot;
-
     try:
         parse_nuclide(input_nuclide, DEFAULTDATA.nuclides, &quot;ICRP-107&quot;)
         is_nuclide = True
     except:
-        is_nuclide = True if input_nuclide in Z_DICT.values() else False
+        is_nuclide = input_nuclide in Z_DICT.values()
 
     return is_nuclide</div>
 
 
-<div class="viewcode-block" id="quantity_linspace"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.quantity_linspace">[docs]</a>def quantity_linspace(start, stop, num, **kwargs):
+
+<div class="viewcode-block" id="quantity_linspace">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.quantity_linspace">[docs]</a>
+def quantity_linspace(start, stop, num, **kwargs):
     &quot;&quot;&quot;
     Essentially the same input parameters as linspace, but
     calculated for an astropy quantity start and stop.
@@ -673,7 +700,10 @@ NUMERAL_MAP = tuple(
     )</div>
 
 
-<div class="viewcode-block" id="convert_abundances_format"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.convert_abundances_format">[docs]</a>def convert_abundances_format(fname, delimiter=r&quot;\s+&quot;):
+
+<div class="viewcode-block" id="convert_abundances_format">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.convert_abundances_format">[docs]</a>
+def convert_abundances_format(fname, delimiter=r&quot;\s+&quot;):
     &quot;&quot;&quot;
     Changes format of file containing abundances into data frame
 
@@ -691,13 +721,16 @@ NUMERAL_MAP = tuple(
     &quot;&quot;&quot;
     df = pd.read_csv(fname, delimiter=delimiter, comment=&quot;#&quot;, header=None)
     # Drop shell index column
-    df.drop(df.columns[0], axis=1, inplace=True)
+    df = df.drop(df.columns[0], axis=1)
     # Assign header row
     df.columns = [Z_DICT[i] for i in range(1, df.shape[1] + 1)]
     return df</div>
 
 
-<div class="viewcode-block" id="is_notebook"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.is_notebook">[docs]</a>def is_notebook():
+
+<div class="viewcode-block" id="is_notebook">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.is_notebook">[docs]</a>
+def is_notebook():
     &quot;&quot;&quot;
     Checking the shell environment where the simulation is run is Jupyter based
 
@@ -747,6 +780,7 @@ NUMERAL_MAP = tuple(
         return False</div>
 
 
+
 if is_notebook():
     iterations_pbar = tqdm.notebook.tqdm(
         desc=&quot;Iterations:&quot;,
@@ -772,7 +806,9 @@ else:
     )
 
 
-<div class="viewcode-block" id="update_packet_pbar"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.update_packet_pbar">[docs]</a>def update_packet_pbar(i, current_iteration, no_of_packets, total_iterations):
+<div class="viewcode-block" id="update_packet_pbar">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.update_packet_pbar">[docs]</a>
+def update_packet_pbar(i, current_iteration, no_of_packets, total_iterations):
     &quot;&quot;&quot;
     Update progress bars as each packet is propagated.
 
@@ -818,7 +854,10 @@ else:
     packet_pbar.update(i)</div>
 
 
-<div class="viewcode-block" id="refresh_packet_pbar"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.refresh_packet_pbar">[docs]</a>def refresh_packet_pbar():
+
+<div class="viewcode-block" id="refresh_packet_pbar">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.refresh_packet_pbar">[docs]</a>
+def refresh_packet_pbar():
     &quot;&quot;&quot;
     Refresh packet progress bar after each iteration.
 
@@ -826,7 +865,10 @@ else:
     packet_pbar.refresh()</div>
 
 
-<div class="viewcode-block" id="update_iterations_pbar"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.update_iterations_pbar">[docs]</a>def update_iterations_pbar(i):
+
+<div class="viewcode-block" id="update_iterations_pbar">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.update_iterations_pbar">[docs]</a>
+def update_iterations_pbar(i):
     &quot;&quot;&quot;
     Update progress bar for each iteration.
 
@@ -838,7 +880,10 @@ else:
     iterations_pbar.update(i)</div>
 
 
-<div class="viewcode-block" id="fix_bar_layout"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.fix_bar_layout">[docs]</a>def fix_bar_layout(bar, no_of_packets=None, total_iterations=None):
+
+<div class="viewcode-block" id="fix_bar_layout">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.fix_bar_layout">[docs]</a>
+def fix_bar_layout(bar, no_of_packets=None, total_iterations=None):
     &quot;&quot;&quot;
     Fix the layout of progress bars.
 
@@ -882,13 +927,15 @@ else:
             pass</div>
 
 
-<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.deprecated">[docs]</a>def deprecated(func):
+
+<div class="viewcode-block" id="deprecated">
+<a class="viewcode-back" href="../../../api/tardis.util.base.html#tardis.util.base.deprecated">[docs]</a>
+def deprecated(func):
     &quot;&quot;&quot;
     A decorator to add a deprecation warning to a function that is no longer used
 
     Parameters
     ----------
-
     func : function
     &quot;&quot;&quot;
 
@@ -898,6 +945,7 @@ else:
         return func(*args, **kwargs)
 
     return wrapper</div>
+
 </pre></div>
 
            </div>
@@ -908,7 +956,7 @@ else:
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.plasma.base &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../_static/WorkerHandler.js"></script>
+        <script src="../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -115,32 +95,49 @@
            <div itemprop="articleBody">
              
   <h1>Source code for tardis.plasma.base</h1><div class="highlight"><pre>
-<span></span>import os
-import re
-import logging
-import tempfile
+<span></span>import dataclasses
 import fileinput
+import logging
+import re
+import tempfile
 
 import networkx as nx
 
-from tardis.plasma.exceptions import PlasmaMissingModule, NotInitializedModule
-from tardis.plasma.properties.base import *
 from tardis.io.util import PlasmaWriterMixin
+from tardis.plasma.exceptions import NotInitializedModule, PlasmaMissingModule
+from tardis.plasma.properties.base import *
 
 logger = logging.getLogger(__name__)
 
 
-<div class="viewcode-block" id="BasePlasma"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma">[docs]</a>class BasePlasma(PlasmaWriterMixin):
+<div class="viewcode-block" id="PlasmaSolverSettings">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.PlasmaSolverSettings">[docs]</a>
+@dataclasses.dataclass(frozen=True)
+class PlasmaSolverSettings:
+    RADIATIVE_RATES_TYPE: str = &quot;blackbody&quot;</div>
+
+
+
+<div class="viewcode-block" id="BasePlasma">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma">[docs]</a>
+class BasePlasma(PlasmaWriterMixin):
 
     outputs_dict = {}
     hdf_name = &quot;plasma&quot;
 
-    def __init__(self, plasma_properties, property_kwargs=None, **kwargs):
+    def __init__(
+        self,
+        plasma_properties,
+        property_kwargs=None,
+        plasma_solver_settings=None,
+        **kwargs,
+    ):
         self.outputs_dict = {}
         self.input_properties = []
         self.plasma_properties = self._init_properties(
             plasma_properties, property_kwargs, **kwargs
         )
+        self.plasma_solver_settings = plasma_solver_settings
         self._build_graph()
         self.update(**kwargs)
 
@@ -148,7 +145,7 @@ logger = logging.getLogger(__name__)
         if item in self.outputs_dict:
             return self.get_value(item)
         else:
-            super(BasePlasma, self).__getattribute__(item)
+            super().__getattribute__(item)
 
     def __setattr__(self, key, value):
         if key != &quot;module_dict&quot; and key in self.outputs_dict:
@@ -156,7 +153,7 @@ logger = logging.getLogger(__name__)
                 &quot;Plasma inputs can only be updated using &quot; &quot;the &#39;update&#39; method&quot;
             )
         else:
-            super(BasePlasma, self).__setattr__(key, value)
+            super().__setattr__(key, value)
 
     def __dir__(self):
         attrs = [item for item in self.__dict__ if not item.startswith(&quot;_&quot;)]
@@ -170,8 +167,11 @@ logger = logging.getLogger(__name__)
     def plasma_properties_dict(self):
         return {item.name: item for item in self.plasma_properties}
 
-<div class="viewcode-block" id="BasePlasma.get_value"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.get_value">[docs]</a>    def get_value(self, item):
+<div class="viewcode-block" id="BasePlasma.get_value">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.get_value">[docs]</a>
+    def get_value(self, item):
         return getattr(self.outputs_dict[item], item)</div>
+
 
     def _build_graph(self):
         &quot;&quot;&quot;
@@ -180,7 +180,6 @@ logger = logging.getLogger(__name__)
         :param plasma_modules:
         :return:
         &quot;&quot;&quot;
-
         self.graph = nx.DiGraph()
         # Adding all nodes
         self.graph.add_nodes_from(
@@ -279,14 +278,19 @@ logger = logging.getLogger(__name__)
                 plasma_property_objects.append(current_property_object)
         return plasma_property_objects
 
-<div class="viewcode-block" id="BasePlasma.store_previous_properties"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.store_previous_properties">[docs]</a>    def store_previous_properties(self):
+<div class="viewcode-block" id="BasePlasma.store_previous_properties">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.store_previous_properties">[docs]</a>
+    def store_previous_properties(self):
         for property in self.previous_iteration_properties:
             p = property.outputs[0]
             self.outputs_dict[p].set_value(
                 self.get_value(re.sub(r&quot;^previous_&quot;, &quot;&quot;, p))
             )</div>
 
-<div class="viewcode-block" id="BasePlasma.update"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.update">[docs]</a>    def update(self, **kwargs):
+
+<div class="viewcode-block" id="BasePlasma.update">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.update">[docs]</a>
+    def update(self, **kwargs):
         for key in kwargs:
             if key not in self.outputs_dict:
                 raise PlasmaMissingModule(
@@ -297,7 +301,10 @@ logger = logging.getLogger(__name__)
         for module_name in self._resolve_update_list(kwargs.keys()):
             self.plasma_properties_dict[module_name].update()</div>
 
-<div class="viewcode-block" id="BasePlasma.freeze"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.freeze">[docs]</a>    def freeze(self, *args):
+
+<div class="viewcode-block" id="BasePlasma.freeze">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.freeze">[docs]</a>
+    def freeze(self, *args):
         &quot;&quot;&quot;
         Freeze plama properties.
 
@@ -317,12 +324,14 @@ logger = logging.getLogger(__name__)
         for key in args:
             if key not in self.outputs_dict:
                 raise PlasmaMissingModule(
-                    &quot;Trying to freeze property {0}&quot;
-                    &quot; that is unavailable&quot;.format(key)
+                    f&quot;Trying to freeze property {key}&quot; &quot; that is unavailable&quot;
                 )
             self.outputs_dict[key].frozen = True</div>
 
-<div class="viewcode-block" id="BasePlasma.thaw"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.thaw">[docs]</a>    def thaw(self, *args):
+
+<div class="viewcode-block" id="BasePlasma.thaw">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.thaw">[docs]</a>
+    def thaw(self, *args):
         &quot;&quot;&quot;
         Thaw plama properties.
 
@@ -341,10 +350,10 @@ logger = logging.getLogger(__name__)
         for key in args:
             if key not in self.outputs_dict:
                 raise PlasmaMissingModule(
-                    &quot;Trying to thaw property {0}&quot;
-                    &quot; that is unavailable&quot;.format(key)
+                    f&quot;Trying to thaw property {key}&quot; &quot; that is unavailable&quot;
                 )
             self.outputs_dict[key].frozen = False</div>
+
 
     def _update_module_type_str(self):
         for node in self.graph:
@@ -366,7 +375,6 @@ logger = logging.getLogger(__name__)
             : list
             all affected modules.
         &quot;&quot;&quot;
-
         descendants_ob = []
 
         for plasma_property in changed_properties:
@@ -385,7 +393,9 @@ logger = logging.getLogger(__name__)
 
         return descendants_ob
 
-<div class="viewcode-block" id="BasePlasma.write_to_dot"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.write_to_dot">[docs]</a>    def write_to_dot(self, fname, args=None, latex_label=True):
+<div class="viewcode-block" id="BasePlasma.write_to_dot">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.write_to_dot">[docs]</a>
+    def write_to_dot(self, fname, args=None, latex_label=True):
         &quot;&quot;&quot;
         This method takes the NetworkX Graph generated from the _build_graph
         method, converts it into a DOT code, and saves it to a file
@@ -401,11 +411,10 @@ logger = logging.getLogger(__name__)
             enables/disables writing LaTeX equations and
             edge labels into the file.
         &quot;&quot;&quot;
-
         try:
             import pygraphviz
         except:
-            logger.warn(
+            logger.warning(
                 &quot;pygraphviz missing. Plasma graph will not be &quot; &quot;generated.&quot;
             )
             return
@@ -413,14 +422,14 @@ logger = logging.getLogger(__name__)
         print_graph = self.remove_hidden_properties(print_graph)
 
         for node in print_graph:
-            if latex_label == True:
+            if latex_label is True:
                 if hasattr(self.plasma_properties_dict[node], &quot;latex_formula&quot;):
                     print_graph.nodes[str(node)][
                         &quot;label&quot;
                     ] = f&quot;\\\\textrm{{{node}: }}&quot;
                     node_list = self.plasma_properties_dict[node]
                     formulae = node_list.latex_formula
-                    for output in range(0, len(formulae)):
+                    for output in range(len(formulae)):
                         formula = formulae[output]
                         label = formula.replace(&quot;\\&quot;, &quot;\\\\&quot;)
                         print_graph.nodes[str(node)][&quot;label&quot;] += label
@@ -434,13 +443,13 @@ logger = logging.getLogger(__name__)
         for edge in print_graph.edges:
             label = print_graph.edges[edge][&quot;label&quot;]
             print_graph.edges[edge][&quot;label&quot;] = &quot; &quot;
-            if latex_label == True:
+            if latex_label is True:
                 print_graph.edges[edge][&quot;texlbl&quot;] = label
 
         nx.drawing.nx_agraph.write_dot(print_graph, fname)
 
         for line in fileinput.FileInput(fname, inplace=1):
-            if latex_label == True:
+            if latex_label is True:
                 print(
                     line.replace(
                         r&#39;node [label=&quot;\N&quot;]&#39;,
@@ -458,7 +467,7 @@ logger = logging.getLogger(__name__)
                 )
 
         if args is not None:
-            with open(fname, &quot;r&quot;) as file:
+            with open(fname) as file:
                 lines = file.readlines()
 
             for newline in args:
@@ -468,7 +477,10 @@ logger = logging.getLogger(__name__)
                 lines = &quot;&quot;.join(lines)
                 f.write(lines)</div>
 
-<div class="viewcode-block" id="BasePlasma.write_to_tex"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.write_to_tex">[docs]</a>    def write_to_tex(self, fname_graph, scale=0.5, args=None, latex_label=True):
+
+<div class="viewcode-block" id="BasePlasma.write_to_tex">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.write_to_tex">[docs]</a>
+    def write_to_tex(self, fname_graph, scale=0.5, args=None, latex_label=True):
         &quot;&quot;&quot;
         This method takes the NetworkX Graph generated from the _build_graph
         method, converts it into a LaTeX friendly format,
@@ -491,7 +503,7 @@ logger = logging.getLogger(__name__)
         try:
             import dot2tex
         except:
-            logger.warn(
+            logger.warning(
                 &quot;dot2tex missing. Plasma graph will not be &quot; &quot;generated.&quot;
             )
             return
@@ -500,7 +512,7 @@ logger = logging.getLogger(__name__)
 
         self.write_to_dot(temp_fname, args=args, latex_label=latex_label)
 
-        with open(temp_fname, &quot;r&quot;) as file:
+        with open(temp_fname) as file:
             dot_string = file.read().replace(&quot;\\\\&quot;, &quot;\\&quot;)
 
         texcode = dot2tex.dot2tex(
@@ -533,7 +545,10 @@ logger = logging.getLogger(__name__)
                 end=&quot;&quot;,
             )</div>
 
-<div class="viewcode-block" id="BasePlasma.remove_hidden_properties"><a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.remove_hidden_properties">[docs]</a>    def remove_hidden_properties(self, print_graph):
+
+<div class="viewcode-block" id="BasePlasma.remove_hidden_properties">
+<a class="viewcode-back" href="../../../api/tardis.plasma.base.html#tardis.plasma.base.BasePlasma.remove_hidden_properties">[docs]</a>
+    def remove_hidden_properties(self, print_graph):
         for item in self.plasma_properties_dict.values():
             module = self.plasma_properties_dict[item.name].__class__
             if issubclass(module, HiddenPlasmaProperty):
@@ -562,7 +577,9 @@ logger = logging.getLogger(__name__)
                                 label=label,
                             )
                 print_graph.remove_node(str(item.name))
-        return print_graph</div></div>
+        return print_graph</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -573,7 +590,7 @@ logger = logging.getLogger(__name__)
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

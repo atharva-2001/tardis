@@ -12,15 +12,16 @@ Subpackages
    tardis.gui
    tardis.io
    tardis.model
-   tardis.montecarlo
+   tardis.opacities
    tardis.plasma
-   tardis.radiation_field
    tardis.scripts
    tardis.simulation
+   tardis.spectrum
    tardis.stats
    tardis.transport
    tardis.util
    tardis.visualization
+   tardis.workflows
 
 Submodules
 ----------

@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+            <link rel="manifest" href="../../../site.webmanifest"/>
+            
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profiling the effect of input parameters on TARDIS runtime &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css" />
+
+  
     <link rel="shortcut icon" href="../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/ServiceHandler.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -28,8 +41,6 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Change Log" href="../../CHANGELOG.html" />
-    <link rel="prev" title="Basic Profile of TARDIS" href="profiling_example.html" />
     <link href="../../../_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -56,59 +67,18 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Profiling the effect of input parameters on TARDIS runtime</a><ul>
+<li><a class="reference internal" href="#Functions-for-building-the-dictionaries-and-interacting-with-files">Functions for building the dictionaries and interacting with files</a><ul>
+<li><a class="reference internal" href="#Timing-of-a-specific-parameter-in-TARDIS">Timing of a specific parameter in TARDIS</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Developer Tools</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../hdf_writer.html">Example Usage of HDFWriter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../isotope_pd_subclass.html">Extending Pandas DataFrame Class</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Profiling Information</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="profiling_example.html">Basic Profile of TARDIS</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Profiling the effect of input parameters on TARDIS runtime</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Functions-for-building-the-dictionaries-and-interacting-with-files">Functions for building the dictionaries and interacting with files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Number-of-Threads">Number of Threads</a></li>
+</li>
+<li><a class="reference internal" href="#Number-of-Threads">Number of Threads</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+</div>
         </div>
       </div>
     </nav>
@@ -123,8 +93,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Developer Tools</a></li>
-          <li class="breadcrumb-item"><a href="index.html">Profiling Information</a></li>
       <li class="breadcrumb-item active">Profiling the effect of input parameters on TARDIS runtime</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/contributing/tools/profiling/tardis_profiling_threads.ipynb.txt" rel="nofollow"> View page source</a>
@@ -173,7 +141,7 @@
 <div class="admonition note">
 <p class="note-p">You can interact with this notebook online: <a href="https://mybinder.org/v2/gh/tardis-sn/tardis/HEAD?filepath=docs/contributing/tools/profiling/tardis_profiling_threads.ipynb" class="launch-btn" target="_blank" rel="noopener noreferrer">Launch notebook</a></p>
 </div><section id="Profiling-the-effect-of-input-parameters-on-TARDIS-runtime">
-<h1>Profiling the effect of input parameters on TARDIS runtime<a class="headerlink" href="#Profiling-the-effect-of-input-parameters-on-TARDIS-runtime" title="Permalink to this heading">¶</a></h1>
+<h1>Profiling the effect of input parameters on TARDIS runtime<a class="headerlink" href="#Profiling-the-effect-of-input-parameters-on-TARDIS-runtime" title="Link to this heading">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -185,7 +153,7 @@
 <span class="kn">from</span> <span class="nn">tardis.io.atom_data.base</span> <span class="kn">import</span> <span class="n">AtomData</span>
 <span class="kn">from</span> <span class="nn">tardis.simulation</span> <span class="kn">import</span> <span class="n">Simulation</span>
 <span class="kn">from</span> <span class="nn">tardis</span> <span class="kn">import</span> <span class="n">run_tardis</span>
-<span class="kn">from</span> <span class="nn">tardis.io.atom_data.util</span> <span class="kn">import</span> <span class="n">download_atom_data</span>
+<span class="kn">from</span> <span class="nn">tardis.io.atom_data</span> <span class="kn">import</span> <span class="n">download_atom_data</span>
 <span class="n">download_atom_data</span><span class="p">(</span><span class="s1">&#39;kurucz_cd23_chianti_H_He&#39;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
@@ -210,7 +178,7 @@
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Functions-for-building-the-dictionaries-and-interacting-with-files">
-<h2>Functions for building the dictionaries and interacting with files<a class="headerlink" href="#Functions-for-building-the-dictionaries-and-interacting-with-files" title="Permalink to this heading">¶</a></h2>
+<h2>Functions for building the dictionaries and interacting with files<a class="headerlink" href="#Functions-for-building-the-dictionaries-and-interacting-with-files" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -269,7 +237,7 @@
 
 <span class="k">def</span> <span class="nf">check_existance</span><span class="p">(</span><span class="n">data_dict</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Checks to see if a data poitn already exists in data_dict.</span>
+<span class="sd">    Checks to see if a data point already exists in data_dict.</span>
 <span class="sd">    Returns true if it exists, false if it does not.</span>
 
 <span class="sd">    Parameters</span>
@@ -298,11 +266,11 @@
 </div>
 </div>
 <section id="Timing-of-a-specific-parameter-in-TARDIS">
-<h3>Timing of a specific parameter in TARDIS<a class="headerlink" href="#Timing-of-a-specific-parameter-in-TARDIS" title="Permalink to this heading">¶</a></h3>
+<h3>Timing of a specific parameter in TARDIS<a class="headerlink" href="#Timing-of-a-specific-parameter-in-TARDIS" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="Number-of-Threads">
-<h2>Number of Threads<a class="headerlink" href="#Number-of-Threads" title="Permalink to this heading">¶</a></h2>
+<h2>Number of Threads<a class="headerlink" href="#Number-of-Threads" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -316,7 +284,7 @@
                   <span class="n">cpu_file</span><span class="p">,):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function generates data for running a tardis file on different numbers of threads different times.</span>
-<span class="sd">    It writes the data to two dictionaries and their respecitve files.</span>
+<span class="sd">    It writes the data to two dictionaries and their respective files.</span>
 
 <span class="sd">    This function can be modified to write to as many or as few dictionaries and files as necessary.</span>
 <span class="sd">    In order to test different parameters, the index into the tardis_config must be adjusted. This must be done</span>
@@ -530,16 +498,13 @@ Completed
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="profiling_example.html" class="btn btn-neutral float-left" title="Basic Profile of TARDIS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../CHANGELOG.html" class="btn btn-neutral float-right" title="Change Log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

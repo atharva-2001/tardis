@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.visualization.tools.sdec_plot &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../../_static/WorkerHandler.js"></script>
+        <script src="../../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -121,6 +101,7 @@ Spectral element DEComposition (SDEC) Plot for TARDIS simulation models.
 This plot is a spectral diagnostics plot similar to those originally
 proposed by M. Kromer (see, for example, Kromer et al. 2013, figure 4).
 &quot;&quot;&quot;
+
 import logging
 
 import astropy.units as u
@@ -144,7 +125,9 @@ from tardis.visualization import plot_util as pu
 logger = logging.getLogger(__name__)
 
 
-<div class="viewcode-block" id="SDECData"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData">[docs]</a>class SDECData:
+<div class="viewcode-block" id="SDECData">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData">[docs]</a>
+class SDECData:
     &quot;&quot;&quot;The data of simulation model used by Spectral element DEComposition (SDEC) Plot.
 
     This preprocesses the data required by SDECPlotter class for doing
@@ -157,6 +140,7 @@ logger = logging.getLogger(__name__)
         last_line_interaction_in_id,
         last_line_interaction_out_id,
         last_line_interaction_in_nu,
+        last_interaction_in_r,
         lines_df,
         packet_nus,
         packet_energies,
@@ -184,6 +168,8 @@ logger = logging.getLogger(__name__)
             emission (interaction out)
         last_line_interaction_in_nu : np.array
             Frequency values of the last absorption of emitted packets
+        last_line_interaction_in_r : np.array
+            Radius of the last interaction experienced by emitted packets
         lines_df : pd.DataFrame
             Data about the atomic lines present in simulation model&#39;s plasma
         packet_nus : astropy.Quantity
@@ -215,6 +201,7 @@ logger = logging.getLogger(__name__)
                 &quot;last_line_interaction_out_id&quot;: last_line_interaction_out_id,
                 &quot;last_line_interaction_in_id&quot;: last_line_interaction_in_id,
                 &quot;last_line_interaction_in_nu&quot;: last_line_interaction_in_nu,
+                &quot;last_interaction_in_r&quot;: last_interaction_in_r,
             }
         )
 
@@ -261,7 +248,9 @@ logger = logging.getLogger(__name__)
             .to_numpy()
         )
 
-<div class="viewcode-block" id="SDECData.from_simulation"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData.from_simulation">[docs]</a>    @classmethod
+<div class="viewcode-block" id="SDECData.from_simulation">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData.from_simulation">[docs]</a>
+    @classmethod
     def from_simulation(cls, sim, packets_mode):
         &quot;&quot;&quot;
         Create an instance of SDECData from a TARDIS simulation object.
@@ -294,6 +283,7 @@ logger = logging.getLogger(__name__)
                 last_line_interaction_in_id=transport_state.vpacket_tracker.last_interaction_in_id,
                 last_line_interaction_out_id=transport_state.vpacket_tracker.last_interaction_out_id,
                 last_line_interaction_in_nu=transport_state.vpacket_tracker.last_interaction_in_nu,
+                last_interaction_in_r=transport_state.vpacket_tracker.last_interaction_in_r,
                 lines_df=lines_df,
                 packet_nus=u.Quantity(
                     transport_state.vpacket_tracker.nus, &quot;Hz&quot;
@@ -302,10 +292,10 @@ logger = logging.getLogger(__name__)
                     transport_state.vpacket_tracker.energies, &quot;erg&quot;
                 ),
                 r_inner=r_inner,
-                spectrum_delta_frequency=transport_state.spectrum_virtual.delta_frequency,
-                spectrum_frequency_bins=transport_state.spectrum_virtual._frequency,
-                spectrum_luminosity_density_lambda=transport_state.spectrum_virtual.luminosity_density_lambda,
-                spectrum_wavelength=transport_state.spectrum_virtual.wavelength,
+                spectrum_delta_frequency=sim.spectrum_solver.spectrum_virtual_packets.delta_frequency,
+                spectrum_frequency_bins=sim.spectrum_solver.spectrum_virtual_packets._frequency,
+                spectrum_luminosity_density_lambda=sim.spectrum_solver.spectrum_virtual_packets.luminosity_density_lambda,
+                spectrum_wavelength=sim.spectrum_solver.spectrum_virtual_packets.wavelength,
                 t_inner=t_inner,
                 time_of_simulation=time_of_simulation,
             )
@@ -327,6 +317,9 @@ logger = logging.getLogger(__name__)
                 last_line_interaction_in_nu=transport_state.last_interaction_in_nu[
                     transport_state.emitted_packet_mask
                 ],
+                last_interaction_in_r=transport_state.last_interaction_in_r[
+                    transport_state.emitted_packet_mask
+                ],
                 lines_df=lines_df,
                 packet_nus=transport_state.packet_collection.output_nus[
                     transport_state.emitted_packet_mask
@@ -335,10 +328,10 @@ logger = logging.getLogger(__name__)
                     transport_state.emitted_packet_mask
                 ],
                 r_inner=r_inner,
-                spectrum_delta_frequency=transport_state.spectrum.delta_frequency,
-                spectrum_frequency_bins=transport_state.spectrum._frequency,
-                spectrum_luminosity_density_lambda=transport_state.spectrum.luminosity_density_lambda,
-                spectrum_wavelength=transport_state.spectrum.wavelength,
+                spectrum_delta_frequency=sim.spectrum_solver.spectrum_real_packets.delta_frequency,
+                spectrum_frequency_bins=sim.spectrum_solver.spectrum_real_packets._frequency,
+                spectrum_luminosity_density_lambda=sim.spectrum_solver.spectrum_real_packets.luminosity_density_lambda,
+                spectrum_wavelength=sim.spectrum_solver.spectrum_real_packets.wavelength,
                 t_inner=t_inner,
                 time_of_simulation=time_of_simulation,
             )
@@ -348,7 +341,10 @@ logger = logging.getLogger(__name__)
                 &quot;allowed values are &#39;virtual&#39; or &#39;real&#39;&quot;
             )</div>
 
-<div class="viewcode-block" id="SDECData.from_hdf"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData.from_hdf">[docs]</a>    @classmethod
+
+<div class="viewcode-block" id="SDECData.from_hdf">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECData.from_hdf">[docs]</a>
+    @classmethod
     def from_hdf(cls, hdf_fpath, packets_mode):
         &quot;&quot;&quot;
         Create an instance of SDECData from a simulation HDF file.
@@ -377,7 +373,10 @@ logger = logging.getLogger(__name__)
                 hdf[&quot;/simulation/simulation_state/scalars&quot;].t_inner, &quot;K&quot;
             )
             time_of_simulation = u.Quantity(
-                hdf[&quot;/simulation/transport/scalars&quot;].time_of_simulation, &quot;s&quot;
+                hdf[
+                    &quot;/simulation/transport/transport_state/scalars&quot;
+                ].time_of_simulation,
+                &quot;s&quot;,
             )
 
             if packets_mode == &quot;virtual&quot;:
@@ -397,6 +396,12 @@ logger = logging.getLogger(__name__)
                         ].to_numpy(),
                         &quot;Hz&quot;,
                     ),
+                    last_interaction_in_r=u.Quantity(
+                        hdf[
+                            &quot;/simulation/transport/transport_state/virt_packet_last_interaction_in_r&quot;
+                        ].to_numpy(),
+                        &quot;cm&quot;,
+                    ),
                     lines_df=lines_df,
                     packet_nus=u.Quantity(
                         hdf[
@@ -413,25 +418,25 @@ logger = logging.getLogger(__name__)
                     r_inner=r_inner,
                     spectrum_delta_frequency=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum_virtual/scalars&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_virtual_packets/scalars&quot;
                         ].delta_frequency,
                         &quot;Hz&quot;,
                     ),
                     spectrum_frequency_bins=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum_virtual/_frequency&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_virtual_packets/_frequency&quot;
                         ].to_numpy(),
                         &quot;Hz&quot;,
                     ),
                     spectrum_luminosity_density_lambda=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum_virtual/luminosity_density_lambda&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_virtual_packets/luminosity_density_lambda&quot;
                         ].to_numpy(),
                         &quot;erg / s cm&quot;,  # luminosity_density_lambda is saved in hdf in CGS
                     ).to(&quot;erg / s AA&quot;),
                     spectrum_wavelength=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum_virtual/wavelength&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_virtual_packets/wavelength&quot;
                         ].to_numpy(),
                         &quot;cm&quot;,  # wavelength is saved in hdf in CGS
                     ).to(&quot;AA&quot;),
@@ -461,6 +466,12 @@ logger = logging.getLogger(__name__)
                         ].to_numpy()[emitted_packet_mask],
                         &quot;Hz&quot;,
                     ),
+                    last_interaction_in_r=u.Quantity(
+                        hdf[
+                            &quot;/simulation/transport/transport_state/last_interaction_in_r&quot;
+                        ].to_numpy()[emitted_packet_mask],
+                        &quot;cm&quot;,
+                    ),
                     lines_df=lines_df,
                     packet_nus=u.Quantity(
                         hdf[
@@ -477,25 +488,25 @@ logger = logging.getLogger(__name__)
                     r_inner=r_inner,
                     spectrum_delta_frequency=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum/scalars&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_real_packets/scalars&quot;
                         ].delta_frequency,
                         &quot;Hz&quot;,
                     ),
                     spectrum_frequency_bins=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum/_frequency&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_real_packets/_frequency&quot;
                         ].to_numpy(),
                         &quot;Hz&quot;,
                     ),
                     spectrum_luminosity_density_lambda=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum/luminosity_density_lambda&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_real_packets/luminosity_density_lambda&quot;
                         ].to_numpy(),
                         &quot;erg / s cm&quot;,
                     ).to(&quot;erg / s AA&quot;),
                     spectrum_wavelength=u.Quantity(
                         hdf[
-                            &quot;/simulation/transport/transport_state/spectrum/wavelength&quot;
+                            &quot;/simulation/spectrum_solver/spectrum_real_packets/wavelength&quot;
                         ].to_numpy(),
                         &quot;cm&quot;,
                     ).to(&quot;AA&quot;),
@@ -506,10 +517,14 @@ logger = logging.getLogger(__name__)
                 raise ValueError(
                     &quot;Invalid value passed to packets_mode. Only &quot;
                     &quot;allowed values are &#39;virtual&#39; or &#39;real&#39;&quot;
-                )</div></div>
+                )</div>
+</div>
 
 
-<div class="viewcode-block" id="SDECPlotter"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter">[docs]</a>class SDECPlotter:
+
+<div class="viewcode-block" id="SDECPlotter">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter">[docs]</a>
+class SDECPlotter:
     &quot;&quot;&quot;
     Plotting interface for Spectral element DEComposition (SDEC) Plot.
 
@@ -529,7 +544,9 @@ logger = logging.getLogger(__name__)
         &quot;&quot;&quot;
         self.data = data
 
-<div class="viewcode-block" id="SDECPlotter.from_simulation"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.from_simulation">[docs]</a>    @classmethod
+<div class="viewcode-block" id="SDECPlotter.from_simulation">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.from_simulation">[docs]</a>
+    @classmethod
     def from_simulation(cls, sim):
         &quot;&quot;&quot;
         Create an instance of SDECPlotter from a TARDIS simulation object.
@@ -558,7 +575,10 @@ logger = logging.getLogger(__name__)
                 }
             )</div>
 
-<div class="viewcode-block" id="SDECPlotter.from_hdf"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.from_hdf">[docs]</a>    @classmethod
+
+<div class="viewcode-block" id="SDECPlotter.from_hdf">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.from_hdf">[docs]</a>
+    @classmethod
     def from_hdf(cls, hdf_fpath, packets_mode=None):
         &quot;&quot;&quot;
         Create an instance of SDECPlotter from a simulation HDF file.
@@ -601,6 +621,7 @@ logger = logging.getLogger(__name__)
                 }
             )</div>
 
+
     def _parse_species_list(self, species_list):
         &quot;&quot;&quot;
         Parse user requested species list and create list of species ids to be used.
@@ -623,6 +644,7 @@ logger = logging.getLogger(__name__)
                 )
             else:
                 full_species_list = []
+                species_mapped = {}
                 for species in species_list:
                     # check if a hyphen is present. If it is, then it indicates a
                     # range of ions. Add each ion in that range to the list as a new entry
@@ -660,20 +682,20 @@ logger = logging.getLogger(__name__)
                 # the requested ion
                 for species in full_species_list:
                     if &quot; &quot; in species:
-                        requested_species_ids.append(
-                            [
-                                species_string_to_tuple(species)[0] * 100
-                                + species_string_to_tuple(species)[1]
-                            ]
+                        species_id = (
+                            species_string_to_tuple(species)[0] * 100
+                            + species_string_to_tuple(species)[1]
                         )
+                        requested_species_ids.append([species_id])
+                        species_mapped[species_id] = [species_id]
                     else:
                         atomic_number = element_symbol2atomic_number(species)
-                        requested_species_ids.append(
-                            [
-                                atomic_number * 100 + ion_number
-                                for ion_number in np.arange(atomic_number)
-                            ]
-                        )
+                        species_ids = [
+                            atomic_number * 100 + ion_number
+                            for ion_number in np.arange(atomic_number)
+                        ]
+                        requested_species_ids.append(species_ids)
+                        species_mapped[atomic_number * 100] = species_ids
                         # add the atomic number to a list so you know that this element should
                         # have all species in the same colour, i.e. it was requested like
                         # species_list = [Si]
@@ -684,6 +706,7 @@ logger = logging.getLogger(__name__)
                     for species_id in temp_list
                 ]
 
+                self._species_mapped = species_mapped
                 self._species_list = requested_species_ids
                 self._keep_colour = keep_colour
         else:
@@ -837,8 +860,8 @@ logger = logging.getLogger(__name__)
                 ),
             )
             # Then drop all of the individual columns for species included in &#39;other&#39;
-            self.total_luminosities_df.drop(
-                sorted_list.keys()[~mask], inplace=True, axis=1
+            self.total_luminosities_df = self.total_luminosities_df.drop(
+                sorted_list.keys()[~mask], axis=1
             )
             # Repeat this for the emission and absorption dfs
             # This will require creating a temporary list that includes &#39;noint&#39; and &#39;escatter&#39;
@@ -861,9 +884,8 @@ logger = logging.getLogger(__name__)
             # Need to add a new value to the mask array for the &#39;other&#39; column just added
             mask = np.insert(mask, 0, True)
             # Then drop all of the individual columns for species included in &#39;other&#39;
-            self.emission_luminosities_df.drop(
+            self.emission_luminosities_df = self.emission_luminosities_df.drop(
                 self.emission_luminosities_df.keys()[~mask],
-                inplace=True,
                 axis=1,
             )
 
@@ -883,10 +905,11 @@ logger = logging.getLogger(__name__)
             # Need to add a new value to the mask array for the &#39;other&#39; column just added
             mask = np.insert(mask, 0, True)
             # Then drop all of the individual columns for species included in &#39;other&#39;
-            self.absorption_luminosities_df.drop(
-                self.absorption_luminosities_df.keys()[~mask],
-                inplace=True,
-                axis=1,
+            self.absorption_luminosities_df = (
+                self.absorption_luminosities_df.drop(
+                    self.absorption_luminosities_df.keys()[~mask],
+                    axis=1,
+                )
             )
 
             # Get the list of species in the model
@@ -904,8 +927,8 @@ logger = logging.getLogger(__name__)
                 ].sum(axis=1),
             )
             # Then drop all of the individual columns for elements included in &#39;other&#39;
-            self.total_luminosities_df.drop(
-                sorted_list.keys()[nelements:], inplace=True, axis=1
+            self.total_luminosities_df = self.total_luminosities_df.drop(
+                sorted_list.keys()[nelements:], axis=1
             )
             # If nelements is included then create a new column which is the sum
             # of all other elements, i.e. those that aren&#39;t in the top contributing nelements
@@ -917,8 +940,8 @@ logger = logging.getLogger(__name__)
                 ].sum(axis=1),
             )
             # Then drop all of the individual columns for elements included in &#39;other&#39;
-            self.emission_luminosities_df.drop(
-                sorted_list.keys()[nelements:], inplace=True, axis=1
+            self.emission_luminosities_df = self.emission_luminosities_df.drop(
+                sorted_list.keys()[nelements:], axis=1
             )
             # If nelements is included then create a new column which is the sum
             # of all other elements, i.e. those that aren&#39;t in the top contributing nelements
@@ -930,8 +953,10 @@ logger = logging.getLogger(__name__)
                 ].sum(axis=1),
             )
             # Then drop all of the individual columns for elements included in &#39;other&#39;
-            self.absorption_luminosities_df.drop(
-                sorted_list.keys()[nelements:], inplace=True, axis=1
+            self.absorption_luminosities_df = (
+                self.absorption_luminosities_df.drop(
+                    sorted_list.keys()[nelements:], axis=1
+                )
             )
             # Get the list of species in the model
             # Index from 1: to avoid the &#39;other&#39; column
@@ -1228,7 +1253,9 @@ logger = logging.getLogger(__name__)
 
         return L_lambda_ph / self.lum_to_flux
 
-<div class="viewcode-block" id="SDECPlotter.generate_plot_mpl"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.generate_plot_mpl">[docs]</a>    def generate_plot_mpl(
+<div class="viewcode-block" id="SDECPlotter.generate_plot_mpl">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.generate_plot_mpl">[docs]</a>
+    def generate_plot_mpl(
         self,
         packets_mode=&quot;virtual&quot;,
         packet_wvl_range=None,
@@ -1318,7 +1345,7 @@ logger = logging.getLogger(__name__)
         # Get the labels in the color bar. This determines the number of unique colors
         self._make_colorbar_labels()
         # Set colormap to be used in elements of emission and absorption plots
-        self.cmap = cm.get_cmap(cmapname, len(self._species_name))
+        self.cmap = plt.get_cmap(cmapname, len(self._species_name))
         # Get the number of unqie colors
         self._make_colorbar_colors()
         self._show_colorbar_mpl()
@@ -1386,6 +1413,7 @@ logger = logging.getLogger(__name__)
             )
 
         return plt.gca()</div>
+
 
     def _plot_emission_mpl(self):
         &quot;&quot;&quot;Plot emission part of the SDEC Plot using matplotlib.&quot;&quot;&quot;
@@ -1628,7 +1656,9 @@ logger = logging.getLogger(__name__)
 
         self._color_list = color_list
 
-<div class="viewcode-block" id="SDECPlotter.generate_plot_ply"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.generate_plot_ply">[docs]</a>    def generate_plot_ply(
+<div class="viewcode-block" id="SDECPlotter.generate_plot_ply">
+<a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.generate_plot_ply">[docs]</a>
+    def generate_plot_ply(
         self,
         packets_mode=&quot;virtual&quot;,
         packet_wvl_range=None,
@@ -1718,7 +1748,7 @@ logger = logging.getLogger(__name__)
         # Get the labels in the color bar. This determines the number of unique colors
         self._make_colorbar_labels()
         # Set colormap to be used in elements of emission and absorption plots
-        self.cmap = cm.get_cmap(cmapname, len(self._species_name))
+        self.cmap = plt.get_cmap(cmapname, len(self._species_name))
         # Get the number of unique colors
         self._make_colorbar_colors()
 
@@ -1806,24 +1836,6 @@ logger = logging.getLogger(__name__)
 
         return self.fig</div>
 
-<div class="viewcode-block" id="SDECPlotter.to_rgb255_string"><a class="viewcode-back" href="../../../../api/tardis.visualization.tools.sdec_plot.html#tardis.visualization.tools.sdec_plot.SDECPlotter.to_rgb255_string">[docs]</a>    @staticmethod
-    def to_rgb255_string(color_tuple):
-        &quot;&quot;&quot;
-        Convert a matplotlib RGBA tuple to a generic RGB 255 string.
-
-        Parameters
-        ----------
-        color_tuple : tuple
-            Matplotlib RGBA tuple of float values in closed interval [0, 1]
-
-        Returns
-        -------
-        str
-            RGB string of format rgb(r,g,b) where r,g,b are integers between
-            0 and 255 (both inclusive)
-        &quot;&quot;&quot;
-        color_tuple_255 = tuple([int(x * 255) for x in color_tuple[:3]])
-        return f&quot;rgb{color_tuple_255}&quot;</div>
 
     def _plot_emission_ply(self):
         &quot;&quot;&quot;Plot emission part of the SDEC Plot using plotly.&quot;&quot;&quot;
@@ -1881,7 +1893,7 @@ logger = logging.getLogger(__name__)
                         name=species_name + &quot; Emission&quot;,
                         hovertemplate=f&quot;&lt;b&gt;{species_name:s} Emission&lt;br&gt;&quot;  # noqa: ISC003
                         + &quot;(%{x:.2f}, %{y:.3g})&lt;extra&gt;&lt;/extra&gt;&quot;,
-                        fillcolor=self.to_rgb255_string(
+                        fillcolor=pu.to_rgb255_string(
                             self._color_list[species_counter]
                         ),
                         stackgroup=&quot;emission&quot;,
@@ -1940,7 +1952,7 @@ logger = logging.getLogger(__name__)
                         name=species_name + &quot; Absorption&quot;,
                         hovertemplate=f&quot;&lt;b&gt;{species_name:s} Absorption&lt;br&gt;&quot;  # noqa: ISC003
                         + &quot;(%{x:.2f}, %{y:.3g})&lt;extra&gt;&lt;/extra&gt;&quot;,
-                        fillcolor=self.to_rgb255_string(
+                        fillcolor=pu.to_rgb255_string(
                             self._color_list[species_counter]
                         ),
                         stackgroup=&quot;absorption&quot;,
@@ -1979,7 +1991,7 @@ logger = logging.getLogger(__name__)
         # twice in a row (https://plotly.com/python/colorscales/#constructing-a-discrete-or-discontinuous-color-scale)
         categorical_colorscale = []
         for species_counter in range(len(self._species_name)):
-            color = self.to_rgb255_string(
+            color = pu.to_rgb255_string(
                 self.cmap(colorscale_bins[species_counter])
             )
             categorical_colorscale.append(
@@ -2018,6 +2030,7 @@ logger = logging.getLogger(__name__)
                 marker=dict(color=[0], opacity=0, **coloraxis_options),
             )
         )</div>
+
 </pre></div>
 
            </div>
@@ -2028,7 +2041,7 @@ logger = logging.getLogger(__name__)
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

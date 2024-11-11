@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tardis.grid.base &mdash; tardis</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/runbutton.css?v=880c2f88" />
+
+  
     <link rel="shortcut icon" href="../../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/run_cell.js?v=da6c9fe8"></script>
+        <script src="../../../_static/WorkerHandler.js"></script>
+        <script src="../../../_static/ServiceHandler.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
+        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -50,46 +68,8 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart for TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">API</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/configuration/index.html">Configuration (Required Input)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/model/index.html">Reading Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/optional/index.html">Optional Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../io/output/index.html">Additional Outputs</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/intro/index.html">Physics Walkthrough Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/setup/index.html">Setting Up the Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/spectrum/index.html">Spectrum Generation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/development/index.html">Developer Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/CHANGELOG.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../contributing/in_progress/index.html">Features In-Progress</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/code_comparison/index.html">Code Comparison</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../resources/zreferences.html">References and Glossary</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
@@ -115,13 +95,13 @@
            <div itemprop="articleBody">
              
   <h1>Source code for tardis.grid.base</h1><div class="highlight"><pre>
-<span></span>import pandas as pd
-import numpy as np
-import copy
-import tardis
+<span></span>import copy
 
+import numpy as np
+import pandas as pd
+
+import tardis
 from tardis.io.configuration.config_reader import Configuration
-from tardis.io.atom_data import AtomData
 from tardis.model import SimulationState
 
 
@@ -147,10 +127,11 @@ def _set_tardis_config_property(tardis_config, key, value):
     for key in keyitems[1:-1]:
         tmp_dict = getattr(tmp_dict, key)
     setattr(tmp_dict, keyitems[-1], value)
-    return
 
 
-<div class="viewcode-block" id="tardisGrid"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid">[docs]</a>class tardisGrid:
+<div class="viewcode-block" id="tardisGrid">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid">[docs]</a>
+class tardisGrid:
     &quot;&quot;&quot;
     A class that stores a grid of TARDIS parameters and
     facilitates running large numbers of simulations
@@ -184,9 +165,9 @@ def _set_tardis_config_property(tardis_config, key, value):
         self.config = tardis_config
         self.grid = gridFrame
 
-        return
-
-<div class="viewcode-block" id="tardisGrid.grid_row_to_config"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.grid_row_to_config">[docs]</a>    def grid_row_to_config(self, row_index):
+<div class="viewcode-block" id="tardisGrid.grid_row_to_config">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.grid_row_to_config">[docs]</a>
+    def grid_row_to_config(self, row_index):
         &quot;&quot;&quot;
         Converts a grid row to a TARDIS config dict.
         Modifies the base self.config according to the
@@ -211,7 +192,10 @@ def _set_tardis_config_property(tardis_config, key, value):
             _set_tardis_config_property(tmp_config, colname, value)
         return tmp_config</div>
 
-<div class="viewcode-block" id="tardisGrid.grid_row_to_simulation_state"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.grid_row_to_simulation_state">[docs]</a>    def grid_row_to_simulation_state(self, row_index, atomic_data):
+
+<div class="viewcode-block" id="tardisGrid.grid_row_to_simulation_state">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.grid_row_to_simulation_state">[docs]</a>
+    def grid_row_to_simulation_state(self, row_index, atomic_data):
         &quot;&quot;&quot;
         Generates a TARDIS SimulationState object using the base
         self.config modified by the specified grid row.
@@ -231,7 +215,10 @@ def _set_tardis_config_property(tardis_config, key, value):
         )
         return simulation_state</div>
 
-<div class="viewcode-block" id="tardisGrid.run_sim_from_grid"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.run_sim_from_grid">[docs]</a>    def run_sim_from_grid(self, row_index, **tardiskwargs):
+
+<div class="viewcode-block" id="tardisGrid.run_sim_from_grid">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.run_sim_from_grid">[docs]</a>
+    def run_sim_from_grid(self, row_index, **tardiskwargs):
         &quot;&quot;&quot;
         Runs a full TARDIS simulation using the base self.config
         modified by the user specified row_index.
@@ -250,7 +237,10 @@ def _set_tardis_config_property(tardis_config, key, value):
         sim = tardis.run_tardis(tardis_config, **tardiskwargs)
         return sim</div>
 
-<div class="viewcode-block" id="tardisGrid.save_grid"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.save_grid">[docs]</a>    def save_grid(self, filename):
+
+<div class="viewcode-block" id="tardisGrid.save_grid">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.save_grid">[docs]</a>
+    def save_grid(self, filename):
         &quot;&quot;&quot;
         Saves the parameter grid. Does not save the base
         self.config in any way.
@@ -260,10 +250,12 @@ def _set_tardis_config_property(tardis_config, key, value):
         filename : str
             File name to save grid.
         &quot;&quot;&quot;
-        self.grid.to_csv(filename, index=False)
-        return</div>
+        self.grid.to_csv(filename, index=False)</div>
 
-<div class="viewcode-block" id="tardisGrid.from_axes"><a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.from_axes">[docs]</a>    @classmethod
+
+<div class="viewcode-block" id="tardisGrid.from_axes">
+<a class="viewcode-back" href="../../../api/tardis.grid.base.html#tardis.grid.base.tardisGrid.from_axes">[docs]</a>
+    @classmethod
     def from_axes(cls, configFile, axesdict):
         &quot;&quot;&quot;
         Creates a grid from a set of axes. The axes are provided
@@ -289,7 +281,9 @@ def _set_tardis_config_property(tardis_config, key, value):
         tmp = np.dstack(axesmesh)
         gridpoints = tmp.reshape((dim, len(axes)), order=&quot;F&quot;)
         df = pd.DataFrame(data=gridpoints, columns=axesdict.keys())
-        return cls(configFile=configFile, gridFrame=df)</div></div>
+        return cls(configFile=configFile, gridFrame=df)</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -300,7 +294,7 @@ def _set_tardis_config_property(tardis_config, key, value):
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 11 Nov 2024.
       </span></p>
   </div>
 

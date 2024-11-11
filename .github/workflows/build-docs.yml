@@ -103,6 +103,10 @@ jobs:
         with:
           os-label: linux-64
 
+      - run: |
+          micromamba install panel watchfiles
+          micromamba install -c pyviz nbsite
+
       - name: Copy atom_data
         run: |
           mkdir -p ~/Downloads/tardis-data && cp -a ./tardis-regression-data/atom_data/. ~/Downloads/tardis-data

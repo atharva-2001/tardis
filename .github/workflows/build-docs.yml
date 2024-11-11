@@ -77,8 +77,8 @@ jobs:
 
   build-docs:
     runs-on: ubuntu-latest
-    needs: check-for-changes
-    if: needs.check-for-changes.outputs.trigger-check-outcome == 'success' || needs.check-for-changes.outputs.docs-check-outcome == 'success'
+    # needs: check-for-changes
+    # if: needs.check-for-changes.outputs.trigger-check-outcome == 'success' || needs.check-for-changes.outputs.docs-check-outcome == 'success'
     steps:
       - uses: actions/checkout@v4
         if: github.event_name != 'pull_request_target'
@@ -164,7 +164,7 @@ jobs:
       - name: Deploy ${{ env.DEST_DIR }}
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.BOT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.DEPLOY_BRANCH }}
           publish_dir: ./docs/_build/html
           destination_dir: ${{ env.DEST_DIR }}

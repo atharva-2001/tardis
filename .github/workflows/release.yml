@@ -9,6 +9,14 @@ on:
     - cron: "0 0 * * 0"
   workflow_dispatch: # manual trigger
 
+defaults:
+  run:
+    shell: bash -l {0}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pip_tests:
     uses: ./.github/workflows/tests.yml
@@ -28,25 +36,10 @@ jobs:
         env:
           KEY_SECRET_JSON: ${{ secrets.ZENODO_KEY_SECRET_JSON }}
 
-      - name: Download Lock File
-        run:  wget -q https://raw.githubusercontent.com/tardis-sn/tardis/master/conda-linux-64.lock
-        shell: bash
-
-      - name: Generate Cache Key
-        run: |
-          file_hash=$(cat conda-linux-64.lock | shasum -a 256 | cut -d' ' -f1)
-          echo "file_hash=$file_hash" >> "${GITHUB_OUTPUT}"
-        id: cache-environment-key
-        shell: bash
-
-      - uses: mamba-org/setup-micromamba@v1
+      - name: Setup environment
+        uses: ./.github/actions/setup_env
         with:
-          environment-file: conda-linux-64.lock
-          cache-environment-key: ${{ steps.cache-environment-key.outputs.file_hash }}
-          cache-downloads-key: ${{ steps.cache-environment-key.outputs.file_hash }}
-          environment-name: tardis
-          cache-environment: true
-          cache-downloads: true
+          os-label: "linux-64"
 
       - name: Run Notebook
         run: jupyter nbconvert gather_data.ipynb --to html --execute --ExecutePreprocessor.timeout=6000
@@ -59,6 +52,7 @@ jobs:
         with:
           name: zenodo_json
           path: .zenodo.json
+
   create:
     needs: [pip_tests, zenodo]
     runs-on: ubuntu-latest

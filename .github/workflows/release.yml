@@ -13,9 +13,6 @@ defaults:
   run:
     shell: bash -l {0}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
 
 jobs:
   pip_tests:

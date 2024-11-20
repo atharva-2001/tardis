@@ -17,7 +17,6 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-      <link rel="stylesheet" type="text/css" href="_static/runbutton.css?v=880c2f88" />
 
   
     <link rel="shortcut icon" href="_static/tardis_logo.ico"/>
@@ -30,13 +29,6 @@
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/run_cell.js?v=da6c9fe8"></script>
-        <script src="_static/WorkerHandler.js"></script>
-        <script src="_static/ServiceHandler.js"></script>
-        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
-        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.1.min.js"></script>
-        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.1.min.js"></script>
-        <script src="https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -68,8 +60,48 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart for TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_guides.html">How-To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="io/hdf/index.html">Hierarchical Data Format (HDF5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/configuration/index.html">Configuration (Required Input)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/model/index.html">Reading Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/optional/index.html">Optional Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/visualization/index.html">Visualization Tools &amp; Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/output/index.html">Additional Outputs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics Walkthrough</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="physics/intro/index.html">Physics Walkthrough Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/setup/index.html">Setting Up the Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/montecarlo/index.html">Monte Carlo Iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/spectrum/index.html">Spectrum Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics/tardisgamma/index.html">TARDIS gamma <span class="math notranslate nohighlight">\(\gamma\)</span></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/development/index.html">Developer Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/tools/index.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/in_progress/index.html">Features In-Progress</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources/credits.html">Credits &amp; Publication Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/research_done_using_TARDIS/research_papers.html">Papers Using TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/code_comparison/index.html">Code Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/zreferences.html">References and Glossary</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -530,12 +562,12 @@
 </li>
       <li><a href="api/tardis.visualization.widgets.util.html#tardis.visualization.widgets.util.Timer.cancel">cancel() (tardis.visualization.widgets.util.Timer method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.spectrum.formal_integral.html#tardis.spectrum.formal_integral.FormalIntegrator.check">check() (tardis.spectrum.formal_integral.FormalIntegrator method)</a>
 </li>
       <li><a href="api/tardis.plasma.assembly.base.html#tardis.plasma.assembly.base.PlasmaSolverFactory.check_continuum_interaction_species">check_continuum_interaction_species() (tardis.plasma.assembly.base.PlasmaSolverFactory method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.workflows.simple_tardis_workflow.html#tardis.workflows.simple_tardis_workflow.SimpleTARDISWorkflow.check_convergence">check_convergence() (tardis.workflows.simple_tardis_workflow.SimpleTARDISWorkflow method)</a>
 </li>
       <li><a href="api/tardis.io.util.html#tardis.io.util.check_equality">check_equality() (in module tardis.io.util)</a>
@@ -616,12 +648,8 @@
 </li>
       <li><a href="api/tardis.io.logger.colored_logger.html#tardis.io.logger.colored_logger.ColoredLogger">ColoredLogger (class in tardis.io.logger.colored_logger)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingConfig.COLORS">COLORS (tardis.io.logger.logger.LoggingConfig attribute)</a>
-
-      <ul>
-        <li><a href="api/tardis.visualization.widgets.line_info.html#tardis.visualization.widgets.line_info.LineInfoWidget.COLORS">(tardis.visualization.widgets.line_info.LineInfoWidget attribute)</a>
+      <li><a href="api/tardis.visualization.widgets.line_info.html#tardis.visualization.widgets.line_info.LineInfoWidget.COLORS">COLORS (tardis.visualization.widgets.line_info.LineInfoWidget attribute)</a>
 </li>
-      </ul></li>
       <li><a href="api/tardis.model.matter.composition.html#tardis.model.matter.composition.compile_rd_isotope_masses">compile_rd_isotope_masses() (in module tardis.model.matter.composition)</a>
 </li>
       <li><a href="api/tardis.model.matter.composition.html#tardis.model.matter.composition.Composition">Composition (class in tardis.model.matter.composition)</a>
@@ -647,8 +675,6 @@
       <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.ConfigurationError">ConfigurationError</a>, <a href="api/tardis.io.model.readers.generic_readers.html#tardis.io.model.readers.generic_readers.ConfigurationError">[1]</a>
 </li>
       <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.ConfigurationNameSpace">ConfigurationNameSpace (class in tardis.io.configuration.config_reader)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.TardisLogger.configure_logging">configure_logging() (tardis.io.logger.logger.TardisLogger method)</a>
 </li>
       <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.ConfigWriterMixin">ConfigWriterMixin (class in tardis.io.configuration.config_reader)</a>
 </li>
@@ -707,8 +733,6 @@
       <li><a href="api/tardis.energy_input.gamma_ray_channel.html#tardis.energy_input.gamma_ray_channel.create_isotope_dicts">create_isotope_dicts() (in module tardis.energy_input.gamma_ray_channel)</a>
 </li>
       <li><a href="api/tardis.energy_input.gamma_ray_transport.html#tardis.energy_input.gamma_ray_transport.create_isotope_dicts_old">create_isotope_dicts_old() (in module tardis.energy_input.gamma_ray_transport)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.create_output_widget">create_output_widget() (in module tardis.io.logger.logger)</a>
 </li>
       <li><a href="api/tardis.energy_input.gamma_ray_packet_source.html#tardis.energy_input.gamma_ray_packet_source.GammaRayPacketSource.create_packet_directions">create_packet_directions() (tardis.energy_input.gamma_ray_packet_source.GammaRayPacketSource method)</a>
 
@@ -850,10 +874,6 @@
 </li>
       <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.ConfigurationNameSpace.deepcopy">deepcopy() (tardis.io.configuration.config_reader.ConfigurationNameSpace method)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingConfig.DEFAULT_LEVEL">DEFAULT_LEVEL (tardis.io.logger.logger.LoggingConfig attribute)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingConfig.DEFAULT_SPECIFIC_STATE">DEFAULT_SPECIFIC_STATE (tardis.io.logger.logger.LoggingConfig attribute)</a>
-</li>
       <li><a href="api/tardis.plasma.assembly.base.html#tardis.plasma.assembly.base.PlasmaSolverFactory.delta_treatment">delta_treatment (tardis.plasma.assembly.base.PlasmaSolverFactory attribute)</a>
 </li>
       <li><a href="api/tardis.model.base.html#tardis.model.base.SimulationState.density">density (tardis.model.base.SimulationState property)</a>
@@ -872,10 +892,10 @@
 </li>
       <li><a href="api/tardis.transport.montecarlo.estimators.continuum_radfield_properties.html#tardis.transport.montecarlo.estimators.continuum_radfield_properties.DiluteBlackBodyContinuumPropertiesSolver">DiluteBlackBodyContinuumPropertiesSolver (class in tardis.transport.montecarlo.estimators.continuum_radfield_properties)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.DilutePlanckianRadField">DilutePlanckianRadField (class in tardis.plasma.properties.plasma_input)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.plasma.radiation_field.planck_rad_field.html#tardis.plasma.radiation_field.planck_rad_field.DilutePlanckianRadiationField">DilutePlanckianRadiationField (class in tardis.plasma.radiation_field.planck_rad_field)</a>
 </li>
       <li><a href="api/tardis.model.base.html#tardis.model.base.SimulationState.dilution_factor">dilution_factor (tardis.model.base.SimulationState property)</a>
@@ -946,8 +966,6 @@
       </ul></li>
       <li><a href="api/tardis.opacities.continuum.continuum_state.html#tardis.opacities.continuum.continuum_state.ContinuumState.emissivities">emissivities (tardis.opacities.continuum.continuum_state.ContinuumState property)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingHandler.emit">emit() (tardis.io.logger.logger.LoggingHandler method)</a>
-</li>
       <li><a href="api/tardis.transport.montecarlo.r_packet.html#tardis.transport.montecarlo.r_packet.PacketStatus.EMITTED">EMITTED (tardis.transport.montecarlo.r_packet.PacketStatus attribute)</a>
 </li>
       <li><a href="api/tardis.transport.montecarlo.montecarlo_transport_state.html#tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState.emitted_packet_luminosity">emitted_packet_luminosity (tardis.transport.montecarlo.montecarlo_transport_state.MonteCarloTransportState property)</a>
@@ -960,10 +978,10 @@
 </li>
       <li><a href="api/tardis.plasma.assembly.base.html#tardis.plasma.assembly.base.PlasmaSolverFactory.enable_two_photon_decay">enable_two_photon_decay (tardis.plasma.assembly.base.PlasmaSolverFactory attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.workflows.simple_tardis_workflow.html#tardis.workflows.simple_tardis_workflow.SimpleTARDISWorkflow.enable_virtual_packet_logging">enable_virtual_packet_logging (tardis.workflows.simple_tardis_workflow.SimpleTARDISWorkflow attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.energy_input.GXPacket.html#tardis.energy_input.GXPacket.GXPacketStatus.END">END (tardis.energy_input.GXPacket.GXPacketStatus attribute)</a>
 </li>
       <li><a href="api/tardis.io.atom_data.base.html#tardis.io.atom_data.base.MoleculeData.equilibrium_constants">equilibrium_constants (tardis.io.atom_data.base.MoleculeData attribute)</a>
@@ -1014,7 +1032,7 @@
 </li>
       <li><a href="api/tardis.transport.montecarlo.macro_atom.html#tardis.transport.montecarlo.macro_atom.MacroAtomTransitionType.FF_EMISSION">FF_EMISSION (tardis.transport.montecarlo.macro_atom.MacroAtomTransitionType attribute)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LogFilter.filter">filter() (tardis.io.logger.logger.LogFilter method)</a>
+      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.FilterLog.filter">filter() (tardis.io.logger.logger.FilterLog method)</a>
 </li>
       <li><a href="api/tardis.visualization.widgets.grotrian.html#tardis.visualization.widgets.grotrian.GrotrianPlot.filter_mode">filter_mode (tardis.visualization.widgets.grotrian.GrotrianPlot property)</a>
 </li>
@@ -1030,6 +1048,8 @@
         <li><a href="api/tardis.visualization.widgets.line_info.html#tardis.visualization.widgets.line_info.LineInfoWidget.FILTER_MODES_DESC">(tardis.visualization.widgets.line_info.LineInfoWidget attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.FilterLog">FilterLog (class in tardis.io.logger.logger)</a>
+</li>
       <li><a href="api/tardis.util.base.html#tardis.util.base.fix_bar_layout">fix_bar_layout() (in module tardis.util.base)</a>
 </li>
       <li><a href="api/tardis.spectrum.spectrum.html#tardis.spectrum.spectrum.TARDISSpectrum.flux_lambda">flux_lambda (tardis.spectrum.spectrum.TARDISSpectrum property)</a>
@@ -1076,14 +1096,14 @@
         <li><a href="api/tardis.transport.montecarlo.base.html#tardis.transport.montecarlo.base.MonteCarloTransportSolver.from_config">(tardis.transport.montecarlo.base.MonteCarloTransportSolver class method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.Configuration.from_config_dict">from_config_dict() (tardis.io.configuration.config_reader.Configuration class method)</a>
 
       <ul>
         <li><a href="api/tardis.io.configuration.config_reader.html#tardis.io.configuration.config_reader.ConfigurationNameSpace.from_config_dict">(tardis.io.configuration.config_reader.ConfigurationNameSpace class method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.model.base.html#tardis.model.base.SimulationState.from_csvy">from_csvy() (tardis.model.base.SimulationState class method)</a>
 
       <ul>
@@ -1772,8 +1792,6 @@
 </li>
       <li><a href="api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Levels">Levels (class in tardis.plasma.properties.atomic)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingConfig.LEVELS">LEVELS (tardis.io.logger.logger.LoggingConfig attribute)</a>
-</li>
       <li><a href="api/tardis.transport.montecarlo.r_packet.html#tardis.transport.montecarlo.r_packet.InteractionType.LINE">LINE (tardis.transport.montecarlo.r_packet.InteractionType attribute)</a>
 </li>
       <li><a href="api/tardis.transport.montecarlo.interaction.html#tardis.transport.montecarlo.interaction.line_emission">line_emission() (in module tardis.transport.montecarlo.interaction)</a>
@@ -1844,13 +1862,7 @@
       </ul></li>
       <li><a href="api/tardis.simulation.base.html#tardis.simulation.base.Simulation.log_run_results">log_run_results() (tardis.simulation.base.Simulation method)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LogFilter">LogFilter (class in tardis.io.logger.logger)</a>
-</li>
       <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.logging_state">logging_state() (in module tardis.io.logger.logger)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingConfig">LoggingConfig (class in tardis.io.logger.logger)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.LoggingHandler">LoggingHandler (class in tardis.io.logger.logger)</a>
 </li>
       <li><a href="api/tardis.spectrum.spectrum.html#tardis.spectrum.spectrum.TARDISSpectrum.luminosity_to_flux">luminosity_to_flux() (tardis.spectrum.spectrum.TARDISSpectrum static method)</a>
 </li>
@@ -3019,8 +3031,6 @@
 </li>
       <li><a href="api/tardis.spectrum.base.html#tardis.spectrum.base.SpectrumSolver.setup_optional_spectra">setup_optional_spectra() (tardis.spectrum.base.SpectrumSolver method)</a>
 </li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.TardisLogger.setup_widget_logging">setup_widget_logging() (tardis.io.logger.logger.TardisLogger method)</a>
-</li>
       <li><a href="api/tardis.analysis.html#tardis.analysis.LastLineInteraction.shell">shell (tardis.analysis.LastLineInteraction property)</a>
 
       <ul>
@@ -3047,10 +3057,10 @@
 </li>
       <li><a href="api/tardis.simulation.base.html#tardis.simulation.base.Simulation">Simulation (class in tardis.simulation.base)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.visualization.widgets.shell_info.html#tardis.visualization.widgets.shell_info.SimulationShellInfo">SimulationShellInfo (class in tardis.visualization.widgets.shell_info)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/tardis.model.base.html#tardis.model.base.SimulationState">SimulationState (class in tardis.model.base)</a>
 </li>
       <li><a href="api/tardis.transport.montecarlo.single_packet_loop.html#tardis.transport.montecarlo.single_packet_loop.single_packet_loop">single_packet_loop() (in module tardis.transport.montecarlo.single_packet_loop)</a>
@@ -4373,11 +4383,11 @@
         <li><a href="api/tardis.workflows.workflow_logging.html#module-tardis.workflows.workflow_logging">module</a>
 </li>
       </ul></li>
+      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.tardis_logger">tardis_logger() (in module tardis.io.logger.logger)</a>
+</li>
       <li><a href="api/tardis.grid.base.html#tardis.grid.base.tardisGrid">tardisGrid (class in tardis.grid.base)</a>
 </li>
       <li><a href="api/tardis.analysis.html#tardis.analysis.TARDISHistory">TARDISHistory (class in tardis.analysis)</a>
-</li>
-      <li><a href="api/tardis.io.logger.logger.html#tardis.io.logger.logger.TardisLogger">TardisLogger (class in tardis.io.logger.logger)</a>
 </li>
       <li><a href="api/tardis.spectrum.spectrum.html#tardis.spectrum.spectrum.TARDISSpectrum">TARDISSpectrum (class in tardis.spectrum.spectrum)</a>
 </li>
@@ -4716,7 +4726,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 11 Nov 2024.
+      <span class="lastupdated">Last updated on 20 Nov 2024.
       </span></p>
   </div>
 

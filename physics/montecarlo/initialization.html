@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53HJHD1BWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-53HJHD1BWS');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Energy Packet Initialization &mdash; tardis</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+
+  
     <link rel="shortcut icon" href="../../_static/tardis_logo.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -66,6 +76,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Input/Output</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../io/hdf/index.html">Hierarchical Data Format (HDF5)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../io/configuration/index.html">Configuration (Required Input)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../io/model/index.html">Reading Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../io/optional/index.html">Optional Inputs</a></li>
@@ -91,13 +102,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../update_and_conv/update_and_conv.html">Updating Plasma and Convergence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spectrum/index.html">Spectrum Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tardisgamma/index.html">TARDIS gamma <span class="math notranslate nohighlight">\(\gamma\)</span></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/CONTRIBUTING.html">Contribution Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/development/index.html">Developer Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/tools/index.html">Developer Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing/CHANGELOG.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/in_progress/index.html">Features In-Progress</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
@@ -171,9 +183,9 @@
 <div class="admonition note">
 <p class="note-p">You can interact with this notebook online: <a href="https://mybinder.org/v2/gh/tardis-sn/tardis/HEAD?filepath=docs/physics/montecarlo/initialization.ipynb" class="launch-btn" target="_blank" rel="noopener noreferrer">Launch notebook</a></p>
 </div><section id="Energy-Packet-Initialization">
-<h1>Energy Packet Initialization<a class="headerlink" href="#Energy-Packet-Initialization" title="Permalink to this heading">¶</a></h1>
+<h1>Energy Packet Initialization<a class="headerlink" href="#Energy-Packet-Initialization" title="Link to this heading">¶</a></h1>
 <section id="Theory">
-<h2>Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2>Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <p>While it is instructive to think about tracking the propagation history of individual photons when illustrating the basic idea behind Monte Carlo radiative transfer techniques, there are important numerical reasons for using a different discretization scheme. Instead of thinking in the photon picture, it brings significant advantages to follow the idea of <span id="id1">[<a class="reference internal" href="../../resources/zreferences.html#id2" title="D. C. Abbott and L. B. Lucy. Multiline transfer and the dynamics of stellar winds. Astrophysical Journal, 288:679-693, January 1985. doi:10.1086/162834.">AbbottLucy85</a>]</span> and <span id="id2">[<a class="reference internal" href="../../resources/zreferences.html#id11" title="L. B. Lucy. Computing radiative equilibria with Monte Carlo techniques. Astronomy and Astrophysics, 344:282-288, April 1999.">Lucy99a</a>]</span> and consider parcels of radiant energy as the fundamental building blocks of the Monte Carlo
 calculation. These basic Monte Carlo quanta are commonly referred to as “energy packets” or simply “packets”, and are composed of many photons with the same frequency.</p>
 <p>During a Monte Carlo calculation, <span class="math notranslate nohighlight">\(N\)</span> (a large number) packets, all with a certain energy <span class="math notranslate nohighlight">\(\varepsilon\)</span>, are created at the inner boundary of the computational domain (which is discussed in the <a class="reference internal" href="../setup/model.html"><span class="doc">model section</span></a>) known as the photosphere. Currently, the photosphere is modeled as a spherical <a class="reference external" href="https://en.wikipedia.org/wiki/Black-body_radiation">blackbody</a> with a radius <span class="math notranslate nohighlight">\(r_\mathrm{boundary\_inner}\)</span> and temperature <span class="math notranslate nohighlight">\(T_\mathrm{inner}\)</span>. Both of these
@@ -202,22 +214,22 @@ deriving the <a class="reference internal" href="estimators.html"><span class="d
 <div class="math notranslate nohighlight">
 \[\mu = \sqrt{z}.\]</div>
 <p>This sampling is shown in the “Code Example” section.</p>
-<p><img alt="0a3efd56d23d452091dc8ed5bad725a0" class="no-scaled-link" src="../../_images/propagation_direction.png" style="width: 500px;" /></p>
+<p><img alt="689fee1a1b3244f680703e929d94d906" class="no-scaled-link" src="../../_images/propagation_direction.png" style="width: 500px;" /></p>
 <p>Finally, each packet is assigned an initial frequency (or more precisely, the initial frequency of its constituent photons). Note that since each packet has the same energy, each packet will represent a different number of real photons. The sampling on packet frequencies is more involved than that of the propagation direction, as it involves sampling the Planck distribution (see below). TARDIS uses the technique described in <span id="id3">[<a class="reference internal" href="../../resources/zreferences.html#id4" title="L. L. Carter and E. Cashwell. Particle-transport simulation with the Monte Carlo method. Technical Report, Los Alamos Scientific Laboratory, 1975. URL: http://www.iaea.org/inis/collection/NCLCollectionStore/_Public/07/227/7227109.pdf.">CarterCashwell75</a>]</span> and summarized in <span id="id4">[<a class="reference internal" href="../../resources/zreferences.html#id3" title="J. E. Bjorkman and K. Wood. Radiative Equilibrium and Temperature Correction in Monte Carlo Radiation Transfer. Astrophysical Journal, 554:615-623, June 2001. arXiv:astro-ph/0103249, doi:10.1086/321336.">BjorkmanWood01</a>]</span> for this
 purpose.</p>
 <p>During the simulation, the energy of the packet remains constant in the local co-moving frame (see <a class="reference internal" href="propagation.html#reference-frames"><span class="std std-ref">Reference Frames</span></a>). This naturally ensures energy conservation and constitutes the main advantage of this discretization scheme. <strong>However, while the energy of the packets is conserved in the co-moving frame, the co-moving frequency of the packet (and thus the photons represented by the packet) may vary over the course of the simulation. Thus, a packet may
 represent several different numbers of real photons throughout their lifetimes.</strong></p>
 </section>
 <section id="Code-Example">
-<h2>Code Example<a class="headerlink" href="#Code-Example" title="Permalink to this heading">¶</a></h2>
+<h2>Code Example<a class="headerlink" href="#Code-Example" title="Link to this heading">¶</a></h2>
 <p>We now demonstrate the TARDIS packet initialization framework:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">tardis.montecarlo.packet_source</span> <span class="kn">import</span> <span class="n">BlackBodySimpleSource</span>
-<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba.packet_collections</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">tardis.transport.montecarlo.packet_source</span> <span class="kn">import</span> <span class="n">BlackBodySimpleSource</span>
+<span class="kn">from</span> <span class="nn">tardis.transport.montecarlo.packet_collections</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">PacketCollection</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
@@ -225,27 +237,6 @@ represent several different numbers of real photons throughout their lifetimes.<
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/share/miniconda3/envs/tardis/lib/python3.11/site-packages/setuptools_scm/git.py:162: UserWarning: &#34;/home/runner/work/tardis/tardis&#34; is shallow and may cause errors
-  warnings.warn(f&#39;&#34;{wd.path}&#34; is shallow and may cause errors&#39;)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5cdb7e65d7b5440492cfbd54875f3c33"}</script></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a8de8a35aaed4a10b477493d30024a16"}</script></div>
 </div>
 <p>The following cell contains values that you can change to see how it affects the spectrum (in an actual simulation, the seed and number of packets are set in the <a class="reference internal" href="../../io/configuration/components/montecarlo.html"><span class="doc">Monte Carlo configuration</span></a>, and the photospheric radius is calculated as a part of the <a class="reference internal" href="../setup/model.html"><span class="doc">model</span></a>):</p>
 <div class="nbinput nblast docutils container">
@@ -386,7 +377,7 @@ Luminosity per packet: [1.78140022e+38 1.78140022e+38 1.78140022e+38 ... 1.78140
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We set important quantites for making our histogram</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We set important quantities for making our histogram</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">nus_planck</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">initial_nus</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">initial_nus</span><span class="p">),</span> <span class="n">bins</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
 <span class="n">bin_width</span> <span class="o">=</span> <span class="n">nus_planck</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">nus_planck</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -453,11 +444,9 @@ Luminosity per packet: [1.78140022e+38 1.78140022e+38 1.78140022e+38 ... 1.78140
 </div>
 </section>
 <section id="Custom-Packet-Source">
-<h2>Custom Packet Source<a class="headerlink" href="#Custom-Packet-Source" title="Permalink to this heading">¶</a></h2>
-<p>TARDIS allows for the user to input a custom function that generates energy packets instead of the basic blackbody source described here. See <a class="reference external" href="../../io/optional/custom_source.ipynb">Running TARDIS with a Custom Packet Source</a> for more information.</p>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"568299095969408d82853e00cbc02135": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "20px"}}, "efa8cf07f70d4899ad172fc1bf6c427a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "c21a34de4d76470ea13a6492f10d9ca4": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "info", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_568299095969408d82853e00cbc02135", "max": 1.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_efa8cf07f70d4899ad172fc1bf6c427a", "value": 0.0}}, "92777ca727a643109efdb7a69b3fc94e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cd0f1d5ab2e94955a80bbc11abd30483": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "2b406381e4fb4492aa056a9bc8be3668": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_92777ca727a643109efdb7a69b3fc94e", "placeholder": "\u200b", "style": "IPY_MODEL_cd0f1d5ab2e94955a80bbc11abd30483", "value": "Iterations:"}}, "28143a71980b4481a3d9a365cf7536bd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f563c28f47454c2593ffacd1050218f3": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "bdff727f866d4c9e9e833ebbec5f2ea7": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_28143a71980b4481a3d9a365cf7536bd", "placeholder": "\u200b", "style": "IPY_MODEL_f563c28f47454c2593ffacd1050218f3", "value": "0/? [00:00&lt;?, ?it/s]"}}, "f8fe6af199b84af6b31c5a27fff76d80": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5cdb7e65d7b5440492cfbd54875f3c33": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_2b406381e4fb4492aa056a9bc8be3668", "IPY_MODEL_c21a34de4d76470ea13a6492f10d9ca4", "IPY_MODEL_bdff727f866d4c9e9e833ebbec5f2ea7"], "layout": "IPY_MODEL_f8fe6af199b84af6b31c5a27fff76d80"}}, "4f6d5455f3554ba5a221e904be41bd42": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "20px"}}, "a8a2fbe0386c45e8b03a17daa8d20e4b": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "c6a25e63566c402296d5769c03ad3bed": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "info", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_4f6d5455f3554ba5a221e904be41bd42", "max": 1.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_a8a2fbe0386c45e8b03a17daa8d20e4b", "value": 0.0}}, "c47d18dc1b6640c1b0e457e75dc75394": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fbdfc3a1c9cc458c881fbe4f5db88117": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "81e2010a5e094ac8b274755e16e446f6": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_c47d18dc1b6640c1b0e457e75dc75394", "placeholder": "\u200b", "style": "IPY_MODEL_fbdfc3a1c9cc458c881fbe4f5db88117", "value": "Packets:   "}}, "50fd4714738e42c498f557b1faceacad": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e06ab56fbbf04d23a8d4e8e651f049f9": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b60bd2675d19452ea4543ee52cc25b45": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_50fd4714738e42c498f557b1faceacad", "placeholder": "\u200b", "style": "IPY_MODEL_e06ab56fbbf04d23a8d4e8e651f049f9", "value": "0/? [00:00&lt;?, ?it/s]"}}, "4bc58937375542aca6ff2d6702c787cd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a8de8a35aaed4a10b477493d30024a16": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_81e2010a5e094ac8b274755e16e446f6", "IPY_MODEL_c6a25e63566c402296d5769c03ad3bed", "IPY_MODEL_b60bd2675d19452ea4543ee52cc25b45"], "layout": "IPY_MODEL_4bc58937375542aca6ff2d6702c787cd"}}}, "version_major": 2, "version_minor": 0}
-</script></section>
+<h2>Custom Packet Source<a class="headerlink" href="#Custom-Packet-Source" title="Link to this heading">¶</a></h2>
+<p>TARDIS allows for the user to input a custom function that generates energy packets instead of the basic blackbody source described here. See <a class="reference internal" href="../../io/optional/how_to_custom_source.html"><span class="doc">How to Run TARDIS with a Custom Packet Source</span></a> for more information.</p>
+</section>
 </section>
 
 
@@ -472,7 +461,7 @@ Luminosity per packet: [1.78140022e+38 1.78140022e+38 1.78140022e+38 ... 1.78140
 
   <div role="contentinfo">
     <p>&#169; Copyright 2013-2024, TARDIS Collaboration.
-      <span class="lastupdated">Last updated on 15 Apr 2024.
+      <span class="lastupdated">Last updated on 20 Nov 2024.
       </span></p>
   </div>
 

@@ -4,8 +4,8 @@ Using TARDIS Widgets
 
 This page describes what each TARDIS Widget has to offer and how you can make
 the best use of it. If you're looking for the code to generate widgets, head
-over to `Generating Custom Abundance Widget <abundance_widget>`_ section or 
-`Generating Data Exploration Widgets <generating_widgets>`_ section to see the
+over to `Generating Custom Abundance Widget <how_to_abundance_widget>`_ section or 
+`Generating Data Exploration Widgets <how_to_generating_widgets>`_ section to see the
 notebook in action.
 
 Currently, TARDIS supports the following widgets:
@@ -37,7 +37,7 @@ You can interact with this GUI in the following ways:
 Edit Abundances
 ---------------
 There are two radio buttons which allow you to edit either single shell or 
-mutiple shells. The new input will be applied to selected shell(s) immediately 
+multiple shells. The new input will be applied to selected shell(s) immediately 
 and the plot is updated at the same time. If you want to edit multiple shells 
 at a time, remember to choose the second radio button and set the range of 
 shell number using int slider. The selected shell(s) is highlighted in the 

@@ -78,8 +78,8 @@
    "outputs": [],
    "source": [
     "import numpy as np\n",
-    "from tardis.montecarlo.packet_source import BlackBodySimpleSource\n",
-    "from tardis.montecarlo.montecarlo_numba.packet_collections import (\n",
+    "from tardis.transport.montecarlo.packet_source import BlackBodySimpleSource\n",
+    "from tardis.transport.montecarlo.packet_collections import (\n",
     "    PacketCollection,\n",
     ")\n",
     "from astropy import units as u\n",
@@ -261,7 +261,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "# We set important quantites for making our histogram\n",
+    "# We set important quantities for making our histogram\n",
     "bins = 200\n",
     "nus_planck = np.linspace(min(packet_collection.initial_nus), max(packet_collection.initial_nus), bins).value\n",
     "bin_width = nus_planck[1] - nus_planck[0]\n",
@@ -327,7 +327,7 @@
    "source": [
     "## Custom Packet Source\n",
     "\n",
-    "TARDIS allows for the user to input a custom function that generates energy packets instead of the basic blackbody source described here. See [Running TARDIS with a Custom Packet Source](../../io/optional/custom_source.ipynb) for more information.\n"
+    "TARDIS allows for the user to input a custom function that generates energy packets instead of the basic blackbody source described here. See [How to Run TARDIS with a Custom Packet Source](../../io/optional/how_to_custom_source.ipynb) for more information."
    ]
   }
  ],

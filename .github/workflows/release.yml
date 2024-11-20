@@ -28,15 +28,24 @@ jobs:
           repository: tardis-sn/tardis_zenodo
           token: ${{ secrets.BOT_TOKEN }}
 
-      - name: Dump Secret Key
-        run: echo "$KEY_SECRET_JSON" > key_secret.json
-        env:
-          KEY_SECRET_JSON: ${{ secrets.ZENODO_KEY_SECRET_JSON }}
+      - name: Checkout setup_env action
+        uses: actions/checkout@v4
+        with:
+          repository: tardis-sn/tardis
+          sparse-checkout: |
+            .github/actions/setup_env/action.yml
+          sparse-checkout-cone-mode: false
+          path: .github/actions/setup_env/action.yml
 
       - name: Setup environment
         uses: ./.github/actions/setup_env
         with:
           os-label: "linux-64"
+
+      - name: Dump Secret Key
+        run: echo "$KEY_SECRET_JSON" > key_secret.json
+        env:
+          KEY_SECRET_JSON: ${{ secrets.ZENODO_KEY_SECRET_JSON }}
 
       - name: Run Notebook
         run: jupyter nbconvert gather_data.ipynb --to html --execute --ExecutePreprocessor.timeout=6000

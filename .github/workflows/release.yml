@@ -34,11 +34,11 @@ jobs:
           repository: tardis-sn/tardis
           sparse-checkout: |
             .github/actions/setup_env/action.yml
-          sparse-checkout-cone-mode: false
-          path: .github/actions/setup_env/action.yml
+          sparse-checkout-cone-mode: true
+          path: tardis
 
       - name: Setup environment
-        uses: ./.github/actions/setup_env
+        uses: tardis/.github/actions/setup_env
         with:
           os-label: "linux-64"
 

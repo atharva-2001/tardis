@@ -38,7 +38,7 @@ jobs:
           path: tardis
 
       - name: Setup environment
-        uses: tardis/.github/actions/setup_env
+        uses: ./tardis/.github/actions/setup_env
         with:
           os-label: "linux-64"
 

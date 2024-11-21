@@ -1,0 +1,168 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: TARDIS Documentation
+author: TARDIS RT Collaboration
+logo: graphics/tardis_banner.svg
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+# execute:
+#   execute_notebooks: force
+#   stderr_output: "remove"
+#   allow_errors: true
+#   timeout: 120
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_engine: xelatex
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# parse:
+#   myst_substitutions:
+#     sub3: My _global_ value!
+#   myst_enable_extensions: # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+#     - amsmath
+#     - colon_fence
+#     - deflist
+#     - dollarmath
+#     - html_admonition
+#     - html_image
+#     - linkify
+#     - replacements
+#     - smartquotes
+#     - substitution
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+
+# sphinx:
+  # extra_extensions:
+  #   - 'sphinx.ext.autodoc'
+  #   - 'sphinx.ext.autosummary'
+  #   - 'sphinx.ext.viewcode'
+  #   - 'autoapi.extension'
+  # extra_extensions:
+  #   - sphinx_click.ext
+  #   - sphinx_inline_tabs
+  #   - sphinx_proof
+  #   - sphinx_examples
+
+  # config:
+    # mathjax3_config:
+    #   tex:
+    #     macros:
+    #       "N": "\\mathbb{N}"
+    #       "floor": ["\\lfloor#1\\rfloor", 1]
+    #       "bmat": ["\\left[\\begin{array}"]
+    #       "emat": ["\\end{array}\\right]"]
+    # nb_custom_formats:
+    #   .Rmd:
+    #     - jupytext.reads
+    #     - fmt: Rmd
+    # nb_execution_show_tb: True
+    # nb_execution_timeout: 120
+    # html_extra_path: ['screenshots']
+    # autodoc_member_order: 'bysource'
+    # autosummary_generate: True
+    # autoapi_dirs: ['../tardis']
+    # autoapi_options: [ 'members', 'undoc-members', 'private-members', 'show-inheritance', 'show-module-summary', 'special-members',  ]
+    # html_theme_options:
+    #   navigation_with_keys: false
+    # html_js_files:
+    #   - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    #   - https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js
+
+
+
+
+# sphinx:
+#   recursive_update: true
+#   config:
+#     bibtex_reference_style: author_year # or label, super, \supercite
+#     # unknown_mime_type - application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json
+#     # domains - sphinx_proof.domain::prf needs to have `resolve_any_xref` method
+#     # mime_priority - latex priority not set in myst_nb for text/html, application/javascript
+#     suppress_warnings:
+#       ["mystnb.unknown_mime_type", "myst.domains", "mystnb.mime_priority"]
+#     copybutton_prompt_text: "$"
+#     nb_execution_show_tb: True
+#     nb_execution_timeout: 120
+#     html_extra_path:
+#       - images/badge.svg
+#     intersphinx_mapping:
+#       ebp:
+#         - "https://executablebooks.org/en/latest/"
+#         - null
+#       myst-parser:
+#         - "https://myst-parser.readthedocs.io/en/latest/"
+#         - null
+#       myst-nb:
+#         - "https://myst-nb.readthedocs.io/en/latest/"
+#         - null
+#       sphinx:
+#         - "https://www.sphinx-doc.org/en/master"
+#         - null
+#       nbformat:
+#         - "https://nbformat.readthedocs.io/en/latest"
+#         - null
+#       sd:
+#         - https://sphinx-design.readthedocs.io/en/latest
+#         - null
+#     language: en
+#     latex_elements:
+#       sphinxsetup: "iconpackage=fontawesome"
+#       preamble: |
+#         \newcommand\N{\mathbb{N}}
+#         \newcommand\floor[1]{\lfloor#1\rfloor}
+#         \newcommand{\bmat}{\left[\begin{array}}
+#         \newcommand{\emat}{\end{array}\right]}
+#     # TODO: #917 this path will be the default in sphinx v4
+#     # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+#     # However, it is incompatible with the mathjax config below for macros
+#     mathjax3_config:
+#       tex:
+#         macros:
+#           "N": "\\mathbb{N}"
+#           "floor": ["\\lfloor#1\\rfloor", 1]
+#           "bmat": ["\\left[\\begin{array}"]
+#           "emat": ["\\end{array}\\right]"]
+#     nb_custom_formats:
+#       .Rmd:
+#         - jupytext.reads
+#         - fmt: Rmd
+#     # rediraffe_branch: "master"
+#     # rediraffe_redirects:
+#     #   content-types/index.md: file-types/index.md
+#     #   content-types/markdown.md: file-types/markdown.md
+#     #   content-types/notebooks.ipynb: file-types/notebooks.ipynb
+#     #   content-types/myst-notebooks.md: file-types/myst-notebooks.md
+#     #   content-types/jupytext.md: file-types/jupytext.Rmd
+#     #   content-types/restructuredtext.md: file-types/restructuredtext.md
+#     #   customize/toc.md: structure/toc.md
+#     sd_fontawesome_latex: True
+
+#     html_theme_options:
+#       navigation_with_keys: false
+
+#   extra_extensions:
+#     - sphinx_click.ext
+#     - sphinx_inline_tabs
+#     # - sphinxext.rediraffe
+#     - sphinx_proof
+#     - sphinx_examples

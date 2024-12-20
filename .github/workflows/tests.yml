@@ -119,6 +119,8 @@ jobs:
 
       - name: Commit and push changes
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd tardis-regression-data
           BRANCH_NAME="pr-${PR_NUMBER}-regression-data"

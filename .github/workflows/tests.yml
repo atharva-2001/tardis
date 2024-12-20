@@ -95,7 +95,7 @@ jobs:
         # run: pytest tardis ${{ env.PYTEST_FLAGS }} -m "${{ matrix.continuum }} continuum"
 
       - name: Regression Data Generation tests
-        run: pytest tardis/spectrum/tests/test_spectrum_solver.py ${{ env.PYTEST_FLAGS }} --generate-reference -m "${{ matrix.continuum }} continuum"
+        run: pytest tardis ${{ env.PYTEST_FLAGS }} --generate-reference -m "${{ matrix.continuum }} continuum"
 
 
       # New steps to commit and push changes

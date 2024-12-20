@@ -100,12 +100,12 @@ jobs:
         shell: bash
         run: |
           cd tardis-regression-data
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          # git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # git config user.name "github-actions[bot]"
 
 
-          # git config user.name "GitHub Actions Bot"
-          # git config user.email "actions@github.com"
+          git config user.name "atharva-2001"
+          git config user.email "aryaatharva18@gmail.com"
 
       - name: Create and checkout new branch
         shell: bash
@@ -120,7 +120,7 @@ jobs:
       - name: Commit and push changes
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         run: |
           cd tardis-regression-data
           BRANCH_NAME="pr-${PR_NUMBER}-regression-data"

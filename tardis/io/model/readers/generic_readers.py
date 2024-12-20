@@ -51,6 +51,7 @@ def read_simple_ascii_density(
         dtype=[('index', 'i8'), ('velocity', 'f8'), ('density', 'f8')],
         encoding='utf-8',
     )
+    import pdb; pdb.set_trace()
     velocity = (data["velocity"] * u.km / u.s).to("cm/s")
     mean_density = (data["density"] * u.Unit("g/cm^3"))[1:]
 

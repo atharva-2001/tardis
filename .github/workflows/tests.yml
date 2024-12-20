@@ -63,8 +63,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup LFS
-        uses: ./.github/actions/setup_lfs
+      # - name: Setup LFS
+      #   uses: ./.github/actions/setup_lfs
+      - name: Clone atharva-2001/tardis-regression-data
+        uses: actions/checkout@v4
+        with:
+          repository: atharva-2001/tardis-regression-data
+          path: tardis-regression-data
 
       - name: Setup environment
         uses: ./.github/actions/setup_env

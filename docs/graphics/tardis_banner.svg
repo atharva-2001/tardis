@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -82,7 +80,7 @@
                  x="0 64.452003 151.104 237.756 324.40799 357.78"
                  y="0"
                  id="tspan80"
-                 style="font-size:120px;font-variant:normal;font-weight:bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans">TARDIS</tspan>
+                 style="font-size:120px;font-variant:normal;font-weight:bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial, Helvetica, sans-serif;">TARDIS</tspan>
             </text>
           </g>
           <g
@@ -97,7 +95,7 @@
                  x="0"
                  y="0"
                  id="tspan86"
-                 style="font-size:120px;font-variant:normal;font-weight:bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans">!</tspan>
+                 style="font-size:120px;font-variant:normal;font-weight:bold;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial, Helvetica, sans-serif;">!</tspan>
             </text>
           </g>
           <g
@@ -112,7 +110,7 @@
                  x="0 19.343 33.842999 49.972801 56.416599 72.546402 82.2034 88.647202 104.777 120.9068 128.963 143.463 159.5928 175.7226 191.8524 201.5094 217.63921 233.769 248.269 264.3988 280.52859 288.58481 312.74179 328.87161 345.0014 361.1312 369.18741 385.3172 401.44699 415.94699"
                  y="0"
                  id="tspan92"
-                 style="font-size:29px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans">Exploring supernovae made easy</tspan>
+                 style="font-size:29px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial, Helvetica, sans-serif;">Exploring supernovae made easy</tspan>
             </text>
           </g>
         </g>

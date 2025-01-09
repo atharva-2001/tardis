@@ -449,7 +449,8 @@ class AtomData:
             )
         ]
 
-        self.lines = self.lines.sort_values(by="wavelength")
+        # self.lines = self.lines.sort_values(by="wavelength")
+        self.lines = self.lines.sort_values(by=["wavelength"], kind="mergesort")
 
     def prepare_line_level_indexes(self):
         levels_index = pd.Series(

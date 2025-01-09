@@ -138,7 +138,7 @@ def test_boundary_interactions(rpacket_tracker, regression_data):
     # Hard coding the number of columns
     # Based on the largest size of boundary_interaction array (60)
     obtained_boundary_interaction = np.full(
-        (no_of_packets, 64),
+        (no_of_packets, 77),
         [-1],
         dtype=rpacket_tracker[0].boundary_interaction.dtype,
     )

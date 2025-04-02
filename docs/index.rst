@@ -65,7 +65,6 @@ Mission Statement
     :hidden:
     
     io/hdf/index
-    io/configuration/index
     io/model/index
     io/optional/index
     io/output/index

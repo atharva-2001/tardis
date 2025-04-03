@@ -59,40 +59,6 @@ Mission Statement
     API <api/modules>
 
 
-.. toctree::
-    :maxdepth: 3
-    :caption: Input/Output
-    :hidden:
-    
-    io/hdf/index
-    io/configuration/index
-    io/model/index
-    io/optional/index
-    io/output/index
-    io/grid/TardisGridTutorial
-
-
-.. toctree::
-    :maxdepth: 3
-    :caption: Analysing Tardis Outputs
-    :hidden:
-
-    analysing_tardis_outputs/visualization/index
-    analysing_tardis_outputs/spectrum/index
-    analysing_tardis_outputs/liv_plot_notebook.ipynb
-
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Physics Walkthrough
-    :hidden:
-    
-    physics/intro/index
-    physics/setup/index
-    physics/montecarlo/index
-    physics/update_and_conv/update_and_conv
-    physics/spectrum/index
-    physics/tardisgamma/index
 
 
 .. toctree::

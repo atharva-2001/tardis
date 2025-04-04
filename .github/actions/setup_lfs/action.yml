@@ -42,6 +42,7 @@ runs:
         path: tardis-regression-data/.git/lfs
         key: tardis-regression-${{ inputs.atom-data-sparse == 'true' && 'atom-data-sparse' || 'full-data' }}-${{ hashFiles('tardis-regression-data/.lfs-files-list') }}-${{ inputs.regression-data-repo }}-v1
         fail-on-cache-miss: true
+        restore-keys: tardis-regression-atom-data-sparse-d21786dd79e91b374a74458080b96bec74166db404bc269ca0d83ec46c9ff062-tardis-sn/tardis-regression-data-v1
 
     - name: Git LFS Checkout (Full)
       if: inputs.atom-data-sparse != 'true' && steps.lfs-cache-regression-data.outputs.cache-hit == 'true'

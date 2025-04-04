@@ -7,7 +7,7 @@ name: docs
 on:
   push:
     branches:
-      - logger_widget_panel_recovery
+      - logger_widget_panel_recovery_update
 
   pull_request_target:
     branches:

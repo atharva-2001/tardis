@@ -7,7 +7,7 @@ name: docs
 on:
   push:
     branches:
-      - master
+      - logger_widget_panel_docs
 
   pull_request_target:
     branches:
@@ -27,9 +27,9 @@ env:
   DEPLOY_BRANCH: gh-pages # deployed docs branch
   HDF5_USE_FILE_LOCKING: "FALSE" # disable file locking
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+#   cancel-in-progress: true
 
 defaults:
   run:
@@ -41,7 +41,7 @@ jobs:
     with:
       atom-data-sparse: true
       regression-data-repo: tardis-sn/tardis-regression-data
-      allow_lfs_pull: ${{ github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'git-lfs-pull') }}
+      allow_lfs_pull: true
 
   check-for-changes:
     runs-on: ubuntu-latest
@@ -85,7 +85,7 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     needs: [test-cache, check-for-changes]
-    if: needs.check-for-changes.outputs.trigger-check-outcome == 'success' || needs.check-for-changes.outputs.docs-check-outcome == 'success'
+    # if: needs.check-for-changes.outputs.trigger-check-outcome == 'success' || needs.check-for-changes.outputs.docs-check-outcome == 'success'
     steps:
       - uses: actions/checkout@v4
         if: github.event_name != 'pull_request_target'
@@ -164,14 +164,14 @@ jobs:
       - name: Deploy ${{ env.DEST_DIR }}
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.BOT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.DEPLOY_BRANCH }}
           publish_dir: ./docs/_build/html
           destination_dir: ${{ env.DEST_DIR }}
           keep_files: true
           force_orphan: ${{ env.CLEAN_BRANCH }}
-          user_name: "TARDIS Bot"
-          user_email: "tardis.sn.bot@gmail.com"
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Find comment
         uses: peter-evans/find-comment@v1

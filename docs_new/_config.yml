@@ -1,0 +1,56 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: TARDIS Documentation
+author: TARDIS RT Collaboration
+logo: graphics/tardis_banner.svg
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+  timeout: 1000
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+
+sphinx:
+  extra_extensions:
+    - 'nbsite.pyodide'
+    # - 'nbsphinx'
+    # - 'sphinx.ext.autodoc'
+    # - 'sphinx.ext.autosummary'
+    # - 'sphinx.ext.viewcode'
+    # - 'autoapi.extension'
+  config:
+    nbsite_pyodide_conf:
+      PYODIDE_URL: 'https://cdn.jsdelivr.net/pyodide/v0.26.3/full/pyodide.js'
+
+  #   nb_ipywidgets_js:
+  #       # Load RequireJS, used by the IPywidgets for dependency management
+  #       "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js": 
+  #           "integrity": "sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA="
+  #           "crossorigin": "anonymous"
+  #       # Load IPywidgets bundle for embedding.
+  #       "https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager/dist/embed-amd.js":
+  #           "data-jupyter-widgets-cdn": "https://cdn.jsdelivr.net/npm/"
+  #           "crossorigin": "anonymous"

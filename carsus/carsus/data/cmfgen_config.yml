@@ -1,0 +1,210 @@
+#  README
+#  ======
+#
+#  Use relative paths to grab a file from a different date.
+#
+#  Although the `pho` input is a list of files, Carsus currently does not handle
+#  more than a single ionization route. Then, only the first file is used and the
+#  rest are ignored.
+#
+
+version: 2016.11.15
+
+atom:
+  H:
+    ion_charge:
+      0:
+        date: 5dec96
+        osc: hi_osc.dat      # oscillator strengths
+        hyd: hyd_l_data.dat  # hydrogen log cross-sections
+        gbf: gbf_n_data.dat  # bound-free gaunt factors
+        col: hicol.dat
+        pho:
+          - hiphot.dat       # photoionization cross-sections
+
+  He:
+    ion_charge:
+      0: 
+        date: 15jul15
+        osc: hei_osc
+        col: heicol.dat
+        pho:
+          - phot_hei
+
+      1:
+        date: 5dec96
+        osc: he2_osc.dat
+        col: he2col.dat
+        pho:
+          - he2phot.dat
+
+  C:
+    ion_charge:
+      0: 
+        date: 12dec04
+        osc: ci_split_osc
+        col: cicol.dat 
+        pho:
+          - phot_smooth_50
+
+      1: 
+        date: 30oct12
+        osc: c2osc_rev.dat
+        col: c2col.dat
+        pho:
+          - phot_sm_3000.dat
+
+      2: 
+        date: 23dec04
+        osc: ciiiosc_st_split_big.dat
+        col: ciiicol.dat
+        pho:
+          - ciiiphot_sm_a_500.dat
+          - ciiiphot_sm_b_500.dat
+
+      3: 
+        date: 30oct12
+        osc: civosc_a12_split.dat
+        col: civcol.dat
+        pho:
+          - civphot_a12.dat
+        
+  Si:
+    ion_charge:
+      0: 
+        date: 23nov11
+        osc: SiI_OSC
+        col: col_data
+        pho:
+          - SiI_PHOT_DATA
+
+      1: 
+        date: 16sep15
+        osc: si2_osc_nahar
+        col: si2_col
+        pho:
+          - phot_nahar_A
+          - phot_nahar_B
+
+  Co:
+    ion_charge:
+      1:
+        date: 15nov11
+        osc: fin_osc_bound
+        col: Co2_COL_DATA
+        pho:
+          - phot_nosm
+      2:
+        date: 30oct12
+        osc: coiii_osc.dat
+        col: col_data.dat
+        pho:
+          - phot_nosm
+
+  N:
+    ion_charge:
+      0:
+        date: 12sep12
+        osc: ni_osc
+        col: ni_col
+        pho:
+          - niphot_a.dat
+          - niphot_b.dat
+          - niphot_c.dat
+          - niphot_d.dat
+      1:
+        date: 23jan06
+        osc: fin_osc
+        col: n2col.dat
+        pho:
+          - phot_sm_3000
+
+  S:
+    ion_charge:
+      0:
+        date: 24nov11
+        osc: SI_OSC
+        col: col_data
+        pho:
+          - SI_PHOT_DATA
+
+      1:
+        date: 30oct12
+        osc: s2_osc
+        col: s2_col
+        pho:
+          - phot_sm_3000
+
+
+  Fe:
+    ion_charge:
+      1: 
+        date: 10sep16
+        osc: fe2_osc
+        col: fe2_col.dat
+        pho:
+          - phot_op.dat
+
+      2: 
+        date: 30oct12
+        osc: FeIII_OSC
+        col: col_data.dat
+        pho:
+          - phot_sm_3000.dat
+
+
+  Ca:
+    ion_charge:
+      1: 
+        date: 30oct12
+        osc: ca2_osc_split.dat
+        col: ca2col.dat
+        pho:
+          - ca2_phot_a.dat
+
+  O:
+    ion_charge:
+      0: 
+        date: 20sep11
+        osc: oi_osc_mchf
+        col: oi_col
+        pho:
+          - phot_nosm_A
+          - phot_nosm_B
+      1: 
+        date: 23mar05
+        osc: o2osc_fin.dat
+        col: o2col.dat
+        pho:
+          - phot_sm_3000.dat
+
+  Ti:
+    ion_charge:
+      1: 
+        date: 18oct00
+        osc: tkii_osc.dat
+        col: col_guess.dat
+        pho:
+          - phot_data.dat
+      2:
+        date: 18oct00
+        osc: tkiii_osc.dat
+        col: col_guess.dat
+        pho:
+          - phot_data.dat  
+
+  Ni:
+    ion_charge:
+      1: 
+        date: 30oct12
+        osc: nkii_osc.dat
+        col: col_data_bautista
+        pho:
+          - phot_data
+      2:
+        date: 27aug12
+        osc: nkiii_osc.dat
+        col: col_data.dat
+        pho:
+          - phot_data.dat
+         

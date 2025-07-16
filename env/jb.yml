@@ -1,0 +1,69 @@
+name: jb.yml
+
+channels:
+ - conda-forge
+
+dependencies:
+
+# jupyterhub_packages:
+  - python3-xvfbwrapper
+  - xvfb
+  #obsolete 24.04+ ?
+  #- libgl1-mesa-glx
+  - libgl1
+  - libglx-mesa0
+  - texlive-xetex
+  - texlive-fonts-recommended
+  - texlive-plain-generic
+  - cm-super
+  - dvipng
+  - inkscape
+
+# conda_packages_round1:
+  - python=3.11
+  - jupyterhub
+  - nb_conda_kernels
+  - ipywidgets
+  - jupyterlab
+  - jupyterlab_widgets
+  - jupytext
+  - notebook
+  - nbclassic
+  - parsedatetime
+  - pprintpp
+  - pyppeteer
+  - python-dateutil
+  - tqdm
+  - scikit-learn
+  - jupyter-resource-usage
+  - jupyter-server-proxy
+  - jupyterlab-spellchecker
+  - openpyxl
+
+# pip_torch_packages:
+  # - torch
+  # - torchvision
+  # - torchaudio
+  # - torchdata
+
+# pip_packages:
+# #  - d2l #this isn't D2L, it's Dive into Deep Learning; breaking packages as of 20240819
+#   - nbconvert['webpdf']
+#   - environment_kernels
+#   - jupyterhub-systemdspawner
+# #  - https://codeload.github.com/jupyterlab/jupyterlab-latex/zip/refs/heads/master
+#   - jupyterhub-idle-culler
+
+# conda_packages_round2:
+  - nbconvert=7.8.0
+  - transformers
+  - numpy
+  - pandas
+  - scipy
+  - seaborn
+  - statsmodels
+  - matplotlib
+  - pyvista
+  - trame
+  - trame-vtk
+  - trame-vuetify

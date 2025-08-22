@@ -32,7 +32,7 @@ concurrency:
 jobs:
   test-cache:
     uses: ./.github/workflows/lfs-cache.yml
-    if: contains(github.event.pull_request.labels.*.name, 'run-regression-comparison')
+    # if: contains(github.event.pull_request.labels.*.name, 'run-regression-comparison')
     with:
       atom-data-sparse: false
       regression-data-repo: tardis-sn/tardis-regression-data
@@ -40,8 +40,8 @@ jobs:
 
   tests:
     name: compare-regdata ${{ matrix.continuum }} continuum ${{ matrix.os }}
-    if: (github.repository_owner == 'tardis-sn') && contains(github.event.pull_request.labels.*.name, 'run-regression-comparison')
-    needs: [test-cache]
+    # if: (github.repository_owner == 'tardis-sn') && contains(github.event.pull_request.labels.*.name, 'run-regression-comparison')
+    # needs: [test-cache]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -124,8 +124,8 @@ jobs:
           repository: tardis-sn/tardisbase
           path: tardisbase
 
-      - name: Setup LFS
-        uses: ./.github/actions/setup_lfs
+      # - name: Setup LFS
+      #   uses: ./.github/actions/setup_lfs
 
       - name: Setup environment
         uses: tardis-sn/tardis-actions/setup-env@main

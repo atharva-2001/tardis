@@ -1,0 +1,62 @@
+name: Update Carsus Subtree
+
+on:
+  # Run weekly - Sunday at midnight
+  schedule:
+    - cron: '0 0 * * 0'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+  
+  # Watch for changes in the Carsus repo (optional, needs a webhook setup)
+  # repository_dispatch:
+  #   types: [carsus-updated]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-subtree:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Needed for subtree operations
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+      
+      # Check if subtree exists, if not add it
+      - name: Check and add subtree if needed
+        run: |
+          if ! git ls-tree -d --name-only HEAD | grep -q "carsus"; then
+            echo "Adding Carsus as a new subtree"
+            git subtree add --prefix=carsus https://github.com/tardis-sn/carsus.git master --squash
+          else
+            echo "Carsus subtree already exists"
+          fi
+      
+      # Update the subtree
+      - name: Update Carsus subtree
+        run: |
+          echo "Updating Carsus subtree"
+          git subtree pull --prefix=carsus https://github.com/tardis-sn/carsus.git master --squash -m "Update Carsus subtree from original repository"
+      
+      # Create Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'Update Carsus subtree'
+          body: |
+            This is an automated PR to update the Carsus subtree from its original repository.
+            
+            The update includes all recent changes from the [Carsus repository](https://github.com/tardis-sn/carsus).
+          branch: update-carsus-subtree
+          commit-message: "Update Carsus subtree from original repository"
+          draft: false
